@@ -26,10 +26,10 @@ class IncomeDetailPresenter : BasePresenter<IncomeDetailContract.IView>(), Incom
             }
 
             override fun doOnFailure(data: MerchantPayList) {
-                if (currentPage == 1 && data.mark == "1") {
+                if (currentPage == 1 && data.code == 1) {
                     getView()?.showEmpty()
                 } else {
-                    getView()?.showToast(data.tip)
+                    getView()?.showToast(data.msg)
                 }
             }
 

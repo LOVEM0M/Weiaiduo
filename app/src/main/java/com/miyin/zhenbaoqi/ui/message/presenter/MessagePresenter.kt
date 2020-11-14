@@ -24,7 +24,7 @@ class MessagePresenter : BasePresenter<MessageContract.IView>(), MessageContract
                 if (currentPage == 1) {
                     getView()?.showEmpty()
                 } else {
-                    getView()?.showToast(data.tip)
+                    getView()?.showToast(data.msg)
                 }
             }
 
@@ -44,7 +44,7 @@ class MessagePresenter : BasePresenter<MessageContract.IView>(), MessageContract
             }
 
             override fun doOnFailure(data: MessageBean) {
-                getView()?.showToast(data.tip)
+                getView()?.showToast(data.msg)
             }
         })
     }

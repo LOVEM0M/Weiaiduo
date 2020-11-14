@@ -20,14 +20,14 @@ class CollectPresenter : BasePresenter<CollectContract.IView>(), CollectContract
             }
 
             override fun doOnFailure(data: CollectBean) {
-                if (data.mark == "1") {
+                if (data.code == 1) {
                     if (currentPage == 1) {
                         getView()?.showEmpty()
                     } else {
-                        getView()?.showToast(data.tip)
+                        getView()?.showToast(data.msg)
                     }
                 } else {
-                    getView()?.showToast(data.tip)
+                    getView()?.showToast(data.msg)
                     getView()?.showError()
                 }
             }

@@ -20,10 +20,10 @@ class HelpCenterPresenter : BasePresenter<HelpCenterContract.IView>(), HelpCente
             }
 
             override fun doOnFailure(data: ArticleBean) {
-                if (currentPage == 1 && data.mark == "1") {
+                if (currentPage == 1 && data.code == 1) {
                     getView()?.showEmpty()
                 } else {
-                    getView()?.showToast(data.tip)
+                    getView()?.showToast(data.msg)
                 }
             }
 

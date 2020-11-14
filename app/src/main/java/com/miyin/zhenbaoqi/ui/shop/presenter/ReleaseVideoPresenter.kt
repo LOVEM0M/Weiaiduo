@@ -49,7 +49,7 @@ class ReleaseVideoPresenter : BasePresenter<ReleaseVideoContract.IView>(), Relea
         request(RetrofitUtils.mApiService.merchantVideoUpload(list), object : BaseSingleObserver<ResponseBean>() {
             override fun doOnSuccess(data: ResponseBean) {
                 getView()?.hideDialog()
-                getView()?.showToast(data.tip)
+                getView()?.showToast(data.msg)
                 getView()?.uploadVideoSuccess()
             }
 
@@ -93,7 +93,7 @@ class ReleaseVideoPresenter : BasePresenter<ReleaseVideoContract.IView>(), Relea
         request(RetrofitUtils.mApiService.merchantVideoEdit(list), object : BaseSingleObserver<ResponseBean>() {
             override fun doOnSuccess(data: ResponseBean) {
                 getView()?.hideDialog()
-                getView()?.showToast(data.tip)
+                getView()?.showToast(data.msg)
                 getView()?.uploadVideoSuccess()
             }
 

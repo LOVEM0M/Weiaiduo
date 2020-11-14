@@ -21,7 +21,7 @@ class OperateGoodsPresenter : BasePresenter<OperateGoodsContract.IView>(), Opera
 
             override fun doOnFailure(data: ImageBean) {
                 getView()?.hideDialog()
-                getView()?.showToast(data.tip)
+                getView()?.showToast(data.msg)
             }
         })
     }
@@ -71,13 +71,13 @@ class OperateGoodsPresenter : BasePresenter<OperateGoodsContract.IView>(), Opera
         request(RetrofitUtils.mApiService.liveGoodsSpikeInsert(requestBody), object : BaseSingleObserver<ResponseBean>() {
             override fun doOnSuccess(data: ResponseBean) {
                 getView()?.hideDialog()
-                getView()?.showToast(data.tip)
+                getView()?.showToast(data.msg)
                 getView()?.liveGoodsSpikeInsertSuccess()
             }
 
             override fun doOnFailure(data: ResponseBean) {
                 getView()?.hideDialog()
-                getView()?.showToast(data.tip)
+                getView()?.showToast(data.msg)
             }
 
             override fun onError(e: Throwable) {

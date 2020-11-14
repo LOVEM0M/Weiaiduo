@@ -17,7 +17,7 @@ class LiveCategoryPresenter : BasePresenter<LiveCategoryContract.IView>(), LiveC
             }
 
             override fun doOnFailure(data: LiveBannerBean) {
-                getView()?.showToast(data.tip)
+                getView()?.showToast(data.msg)
             }
         })
     }
@@ -34,7 +34,7 @@ class LiveCategoryPresenter : BasePresenter<LiveCategoryContract.IView>(), LiveC
                     getView()?.showNormal()
                     getView()?.showEmpty()
                 } else {
-                    getView()?.showToast(data.mark)
+                    getView()?.showToast(data.code.toString())
                 }
             }
 

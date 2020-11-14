@@ -35,7 +35,7 @@ class LiveGoodsPresenter : BasePresenter<LiveGoodsContract.IView>(), LiveGoodsCo
                     getView()?.showNormal()
                     getView()?.showEmptyView()
                 } else {
-                    getView()?.showToast(data.mark)
+                    getView()?.showToast(data.code.toString())
                 }
             }
 
@@ -88,7 +88,7 @@ class LiveGoodsPresenter : BasePresenter<LiveGoodsContract.IView>(), LiveGoodsCo
                     getView()?.showNormal()
                     getView()?.showEmptyView()
                 } else {
-                    getView()?.showToast(data.mark)
+                    getView()?.showToast(data.code.toString())
                 }
             }
 

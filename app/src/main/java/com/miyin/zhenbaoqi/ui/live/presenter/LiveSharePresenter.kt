@@ -19,7 +19,7 @@ class LiveSharePresenter : BasePresenter<LiveShareContract.IView>(), LiveShareCo
                     getView()?.showNormal()
                     getView()?.showEmptyView()
                 } else {
-                    getView()?.showToast(data.mark)
+                    getView()?.showToast(data.code.toString())
                 }
             }
 

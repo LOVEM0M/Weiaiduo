@@ -37,7 +37,7 @@ class ReportPresenter : BasePresenter<ReportContract.IView>(), ReportContract.IP
         }
         request(RetrofitUtils.mApiService.report(map), object : BaseSingleObserver<ResponseBean>() {
             override fun doOnSuccess(data: ResponseBean) {
-                getView()?.showToast(data.tip)
+                getView()?.showToast(data.msg)
                 getView()?.reportSuccess()
             }
         })

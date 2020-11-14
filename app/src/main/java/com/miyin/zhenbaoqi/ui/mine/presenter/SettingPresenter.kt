@@ -17,7 +17,7 @@ class SettingPresenter : BasePresenter<SettingContract.IView>(), SettingContract
             }
 
             override fun doOnFailure(data: PushSwitchBean) {
-                getView()?.showToast(data.tip)
+                getView()?.showToast(data.msg)
             }
         })
     }
@@ -31,7 +31,7 @@ class SettingPresenter : BasePresenter<SettingContract.IView>(), SettingContract
             }
 
             override fun doOnFailure(data: ResponseBean) {
-                getView()?.showToast(data.tip)
+                getView()?.showToast(data.msg)
             }
         })
     }

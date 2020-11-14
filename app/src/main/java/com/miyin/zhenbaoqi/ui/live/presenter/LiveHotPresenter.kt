@@ -19,7 +19,7 @@ class LiveHotPresenter : BasePresenter<LiveHotContract.IView>(), LiveHotContract
                     getView()?.showNormal()
                     getView()?.showEmptyView()
                 } else {
-                    getView()?.showToast(data.mark)
+                    getView()?.showToast(data.code.toString())
                 }
             }
 

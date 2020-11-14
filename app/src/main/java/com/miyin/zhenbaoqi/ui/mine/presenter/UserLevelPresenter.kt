@@ -22,10 +22,10 @@ class UserLevelPresenter : BasePresenter<UserLevelContract.IView>(), UserLevelCo
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
-                    when (it.mark) {
-                        "0" -> getView()?.getUserLevelSuccess(it)
-                        "500" -> App.context.clearTask<WXLoginActivity>()
-                        else -> getView()?.showToast(it.tip)
+                    when (it.code) {
+                        0 -> getView()?.getUserLevelSuccess(it)
+                        500 -> App.context.clearTask<WXLoginActivity>()
+                        else -> getView()?.showToast(it.msg)
                     }
                 }, {
                     when (it) {

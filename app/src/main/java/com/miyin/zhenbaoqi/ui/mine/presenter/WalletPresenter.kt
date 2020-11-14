@@ -20,7 +20,7 @@ class WalletPresenter : BasePresenter<WalletContract.IView>(), WalletContract.IP
             }
 
             override fun doOnFailure(data: BillBean) {
-                if (currentPage == 1 && data.mark == "1") {
+                if (currentPage == 1 && data.code == 1) {
                     getView()?.showEmpty()
                 }
             }

@@ -19,7 +19,7 @@ class FeedbackPresenter : BasePresenter<FeedbackContract.IView>(), FeedbackContr
 
             override fun doOnFailure(data: ImageBean) {
                 getView()?.hideDialog()
-                getView()?.showToast(data.tip)
+                getView()?.showToast(data.msg)
             }
         })
     }
@@ -39,7 +39,7 @@ class FeedbackPresenter : BasePresenter<FeedbackContract.IView>(), FeedbackContr
             }
 
             override fun doOnFailure(data: ResponseBean) {
-                getView()?.showToast(data.tip)
+                getView()?.showToast(data.msg)
             }
         })
     }

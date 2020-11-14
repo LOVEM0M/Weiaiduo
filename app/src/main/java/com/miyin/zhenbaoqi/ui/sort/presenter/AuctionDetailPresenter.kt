@@ -56,7 +56,7 @@ class AuctionDetailPresenter : BasePresenter<AuctionDetailContract.IView>(), Auc
         val requestBody = JSONUtils.createJSON(arrayOf("goods_id"), arrayOf(goodsId))
         request(RetrofitUtils.mApiService.auctionBindOffer(requestBody), object : BaseSingleObserver<BindOfferBean>() {
             override fun doOnSuccess(data: BindOfferBean) {
-                getView()?.showToast(data.tip)
+                getView()?.showToast(data.msg)
                 getView()?.auctionBindGoodsSuccess()
             }
         })
@@ -77,7 +77,7 @@ class AuctionDetailPresenter : BasePresenter<AuctionDetailContract.IView>(), Auc
         val requestBody = JSONUtils.createJSON(keyArray, valueArray)
         request(RetrofitUtils.mApiService.merchantAttention(requestBody), object : BaseSingleObserver<ResponseBean>() {
             override fun doOnSuccess(data: ResponseBean) {
-                getView()?.showToast(data.tip)
+                getView()?.showToast(data.msg)
                 getView()?.updateMerchantStateSuccess(state)
             }
         })
@@ -90,7 +90,7 @@ class AuctionDetailPresenter : BasePresenter<AuctionDetailContract.IView>(), Auc
         val requestBody = JSONUtils.createJSON(keyArray, valueArray)
         request(RetrofitUtils.mApiService.goodsCollect(requestBody), object : BaseSingleObserver<ResponseBean>() {
             override fun doOnSuccess(data: ResponseBean) {
-                getView()?.showToast(data.tip)
+                getView()?.showToast(data.msg)
                 getView()?.updateCollectStateSuccess(state)
             }
         })

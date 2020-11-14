@@ -11,7 +11,7 @@ class BusinessDetailPresenter : BasePresenter<BusinessDetailContract.IView>(), B
     override fun joinActivity(activityId: Int) {
         request(RetrofitUtils.mApiService.joinActivity(activityId), object : BaseSingleObserver<ResponseBean>() {
             override fun doOnSuccess(data: ResponseBean) {
-                getView()?.showToast(data.tip)
+                getView()?.showToast(data.msg)
                 getView()?.joinActivitySuccess()
             }
         })
@@ -20,7 +20,7 @@ class BusinessDetailPresenter : BasePresenter<BusinessDetailContract.IView>(), B
     override fun cancelActivity(activityId: Int) {
         request(RetrofitUtils.mApiService.cancelActivity(activityId), object : BaseSingleObserver<ResponseBean>() {
             override fun doOnSuccess(data: ResponseBean) {
-                getView()?.showToast(data.tip)
+                getView()?.showToast(data.msg)
                 getView()?.cancelActivitySuccess()
             }
         })

@@ -20,14 +20,14 @@ class ShopPresenter : BasePresenter<ShopContract.IView>(), ShopContract.IPresent
             }
 
             override fun doOnFailure(data: ShopAttentionBean) {
-                if (data.mark == "1") {
+                if (data.code == 1) {
                     if (currentPage == 1) {
                         getView()?.showEmpty()
                     } else {
-                        getView()?.showToast(data.tip)
+                        getView()?.showToast(data.msg)
                     }
                 } else {
-                    getView()?.showToast(data.tip)
+                    getView()?.showToast(data.msg)
                     getView()?.showError()
                 }
             }

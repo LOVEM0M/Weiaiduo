@@ -14,21 +14,21 @@ import javax.security.auth.login.LoginException
 abstract class BaseSingleObserver<T : ResponseBean> : DisposableSingleObserver<T>() {
 
     override fun onSuccess(t: T) {
-        when (t.mark) {
-            "0" -> doOnSuccess(t)
-            "500" -> {
-                if (t.tip != "服务器内部错误!") {
+        when (t.code) {
+            0 -> doOnSuccess(t)
+            500 -> {
+                if (t.msg != "服务器内部错误!") {
                     App.context.clearTask<WXLoginActivity>()
                 } else {
-                    if (t.tip.isNullOrEmpty()) {
-                        t.tip = "未知错误"
+                    if (t.msg.isNullOrEmpty()) {
+                        t.msg = "未知错误"
                     }
                     doOnFailure(t)
                 }
             }
             else -> {
-                if (t.tip.isNullOrEmpty()) {
-                    t.tip = "未知错误"
+                if (t.msg.isNullOrEmpty()) {
+                    t.msg = "未知错误"
                 }
                 doOnFailure(t)
             }
@@ -48,7 +48,7 @@ abstract class BaseSingleObserver<T : ResponseBean> : DisposableSingleObserver<T
     abstract fun doOnSuccess(data: T)
 
     protected open fun doOnFailure(data: T) {
-        ToastUtils.showToast(data.tip ?: "未知错误")
+        ToastUtils.showToast(data.msg ?: "未知错误")
     }
 
 }

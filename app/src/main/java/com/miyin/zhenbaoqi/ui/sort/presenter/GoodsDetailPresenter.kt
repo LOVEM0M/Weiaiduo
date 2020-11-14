@@ -39,7 +39,7 @@ class GoodsDetailPresenter : BasePresenter<GoodsDetailContract.IView>(), GoodsDe
         val requestBody = JSONUtils.createJSON(keyArray, valueArray)
         request(RetrofitUtils.mApiService.goodsCollect(requestBody), object : BaseSingleObserver<ResponseBean>() {
             override fun doOnSuccess(data: ResponseBean) {
-                getView()?.showToast(data.tip)
+                getView()?.showToast(data.msg)
                 getView()?.updateCollectStateSuccess(state)
             }
         })

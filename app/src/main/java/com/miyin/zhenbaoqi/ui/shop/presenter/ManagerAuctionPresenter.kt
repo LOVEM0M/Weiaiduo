@@ -33,7 +33,7 @@ class ManagerAuctionPresenter : BasePresenter<ManagerAuctionContract.IView>(), M
                 if (currentPage == 1) {
                     getView()?.showEmpty()
                 } else {
-                    getView()?.showToast(data.tip)
+                    getView()?.showToast(data.msg)
                 }
             }
 

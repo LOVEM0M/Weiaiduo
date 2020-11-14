@@ -53,7 +53,7 @@ class PushLivePresenter : BasePresenter<PushLiveContract.IView>(), PushLiveContr
             }
 
             override fun doOnFailure(data: ResponseBean) {
-                getView()?.showToast(data.tip)
+                getView()?.showToast(data.msg)
             }
         })
     }
@@ -68,7 +68,7 @@ class PushLivePresenter : BasePresenter<PushLiveContract.IView>(), PushLiveContr
                     }
 
                     override fun doOnFailure(data: ResponseBean) {
-                        getView()?.showToast(data.tip)
+                        getView()?.showToast(data.msg)
                     }
                 })
         getDisposable()?.add(disposable)
@@ -86,7 +86,7 @@ class PushLivePresenter : BasePresenter<PushLiveContract.IView>(), PushLiveContr
                 if (currentPage == 1 && null == data.list) {
                     getView()?.showNormal()
                 } else {
-                    getView()?.showToast(data.mark)
+                    getView()?.showToast(data.code.toString())
                 }
             }
 

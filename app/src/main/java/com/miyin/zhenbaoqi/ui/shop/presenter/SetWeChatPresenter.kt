@@ -21,7 +21,7 @@ class SetWeChatPresenter : BasePresenter<SetWeChatContract.IView>(), SetWeChatCo
     override fun inviteMerchantWeChat(weChatId: String, weChatImage: String) {
         request(RetrofitUtils.mApiService.inviteMerchantAddWeChat(weChatId, weChatImage), object : BaseSingleObserver<ResponseBean>() {
             override fun doOnSuccess(data: ResponseBean) {
-                getView()?.showToast(data.tip)
+                getView()?.showToast(data.msg)
                 getView()?.inviteMerchantWeChatSuccess()
             }
         })

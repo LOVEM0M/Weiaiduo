@@ -32,8 +32,8 @@ class MinePresenter : BasePresenter<MineContract.IView>(), MineContract.IPresent
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
-                    when (it.mark) {
-                        "0" -> {
+                    when (it.code) {
+                        0 -> {
                             when (it) {
                                 is UserTypeBean -> {
                                     getView()?.getUserTypeSuccess(it.user_type)
@@ -46,8 +46,8 @@ class MinePresenter : BasePresenter<MineContract.IView>(), MineContract.IPresent
                                 }
                             }
                         }
-                        "500" -> App.context.clearTask<WXLoginActivity>()
-                        else -> getView()?.showToast(it.tip)
+                        500 -> App.context.clearTask<WXLoginActivity>()
+                        else -> getView()?.showToast(it.msg)
                     }
                 }, {
                     when (it) {
@@ -67,8 +67,8 @@ class MinePresenter : BasePresenter<MineContract.IView>(), MineContract.IPresent
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
-                    when (it.mark) {
-                        "0" -> {
+                    when (it.code) {
+                        0 -> {
                             when (it) {
                                 is MerchantBean -> {
                                     getView()?.getMerchantInfoSuccess(it)
@@ -81,8 +81,8 @@ class MinePresenter : BasePresenter<MineContract.IView>(), MineContract.IPresent
                                 }
                             }
                         }
-                        "500" -> App.context.clearTask<WXLoginActivity>()
-                        else -> getView()?.showToast(it.tip)
+                        500 -> App.context.clearTask<WXLoginActivity>()
+                        else -> getView()?.showToast(it.msg)
                     }
                 }, {
                     when (it) {
@@ -101,13 +101,13 @@ class MinePresenter : BasePresenter<MineContract.IView>(), MineContract.IPresent
                 .observeOn(Schedulers.io())
                 .flatMap {
                     when {
-                        it.mark == "0" -> {
+                        it.code == 0 -> {
                             chatId = it.customerServiceId ?: ""
                             val requestBody = JSONUtils.createJSON(arrayOf("dialogueToken"), arrayOf(it.dialogueToken
                                     ?: ""))
                             return@flatMap RetrofitUtils.mApiService.chatCustomerServiceCheck(requestBody)
                         }
-                        it.mark == "500" -> throw LoginException("")
+                        it.code == 500 -> throw LoginException("")
                         else -> throw Exception("")
                     }
                 }

@@ -49,7 +49,7 @@ class BindPhonePresenter : BasePresenter<BindPhoneContract.IView>(), BindPhoneCo
             }
 
             override fun doOnFailure(data: ResponseBean) {
-                getView()?.showToast(data.tip)
+                getView()?.showToast(data.msg)
             }
         })
     }
@@ -73,7 +73,7 @@ class BindPhonePresenter : BasePresenter<BindPhoneContract.IView>(), BindPhoneCo
                 .subscribeOn(Schedulers.io())
                 .observeOn(Schedulers.io())
                 .flatMap {
-                    if (it.mark == "0") {
+                    if (it.code == 0) {
                         with(it) {
                             val pattern = Pattern.compile("^[-\\+]?[\\d]*$")
                             val hasMatch = pattern.matcher(nick_name ?: "").matches()
@@ -97,7 +97,7 @@ class BindPhonePresenter : BasePresenter<BindPhoneContract.IView>(), BindPhoneCo
                         return@flatMap RetrofitUtils.mApiService.chatUserSign()
                     } else {
                         getView()?.hideDialog()
-                        throw Exception(it.tip)
+                        throw Exception(it.msg)
                     }
                 }
                 .observeOn(AndroidSchedulers.mainThread())
@@ -113,7 +113,7 @@ class BindPhonePresenter : BasePresenter<BindPhoneContract.IView>(), BindPhoneCo
                     }
 
                     override fun doOnFailure(data: UserSignBean) {
-                        getView()?.showToast(data.tip)
+                        getView()?.showToast(data.msg)
                         getView()?.hideDialog()
                     }
 

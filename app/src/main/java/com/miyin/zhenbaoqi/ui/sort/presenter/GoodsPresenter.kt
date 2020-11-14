@@ -23,7 +23,7 @@ class GoodsPresenter : BasePresenter<GoodsContract.IView>(), GoodsContract.IPres
                 if (currentPage == 1) {
                     getView()?.showEmpty()
                 } else {
-                    getView()?.showToast(data.tip)
+                    getView()?.showToast(data.msg)
                 }
             }
 

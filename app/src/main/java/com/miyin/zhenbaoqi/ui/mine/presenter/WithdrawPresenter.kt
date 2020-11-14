@@ -37,7 +37,7 @@ class WithdrawPresenter : BasePresenter<WithdrawContract.IView>(), WithdrawContr
                 if (null != list) {
                     getView()?.getBankCardListSuccess(list)
                 } else {
-                    getView()?.showToast(data.tip)
+                    getView()?.showToast(data.msg)
                 }
             }
 

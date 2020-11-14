@@ -17,7 +17,7 @@ class ShopEvaluatePresenter : BasePresenter<ShopEvaluateContract.IView>(), ShopE
             }
 
             override fun doOnFailure(data: MerchantEvalBean) {
-                getView()?.showToast(data.tip)
+                getView()?.showToast(data.msg)
             }
         })
     }

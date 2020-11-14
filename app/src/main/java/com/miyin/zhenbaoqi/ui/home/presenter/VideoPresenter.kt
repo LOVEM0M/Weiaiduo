@@ -25,8 +25,8 @@ class VideoPresenter : BasePresenter<VideoContract.IView>(), VideoContract.IPres
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
-                    when (it.mark) {
-                        "0" -> {
+                    when (it.code) {
+                        0 -> {
                             when (it) {
                                 is VideoDetailBean -> {
                                     getView()?.getVideoDetailSuccess(it)
@@ -36,8 +36,8 @@ class VideoPresenter : BasePresenter<VideoContract.IView>(), VideoContract.IPres
                                 }
                             }
                         }
-                        "500" -> App.context.clearTask<WXLoginActivity>()
-                        else -> getView()?.showToast(it.tip)
+                        500 -> App.context.clearTask<WXLoginActivity>()
+                        else -> getView()?.showToast(it.msg)
                     }
                 }, {
                     when (it) {
@@ -118,7 +118,7 @@ class VideoPresenter : BasePresenter<VideoContract.IView>(), VideoContract.IPres
         val requestBody = JSONUtils.createJSON(keyArray, valueArray)
         request(RetrofitUtils.mApiService.merchantAttention(requestBody), object : BaseSingleObserver<ResponseBean>() {
             override fun doOnSuccess(data: ResponseBean) {
-                getView()?.showToast(data.tip)
+                getView()?.showToast(data.msg)
                 getView()?.updateMerchantStateSuccess(state)
             }
         })

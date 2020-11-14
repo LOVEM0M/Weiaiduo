@@ -4,7 +4,7 @@ import java.io.Serializable
 
 open class ResponseBean : Serializable {
 
-    var mark: String? = null
-    var tip: String? = null
+    var code = 0//状态
+    var msg: String? = null//消息
 
 }

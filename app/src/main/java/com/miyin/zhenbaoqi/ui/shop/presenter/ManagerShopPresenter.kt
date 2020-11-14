@@ -24,7 +24,7 @@ class ManagerShopPresenter : BasePresenter<ManagerShopContract.IView>(), Manager
                 if (currentPage == 1) {
                     getView()?.showEmpty()
                 } else {
-                    getView()?.showToast(data.tip)
+                    getView()?.showToast(data.msg)
                 }
             }
 

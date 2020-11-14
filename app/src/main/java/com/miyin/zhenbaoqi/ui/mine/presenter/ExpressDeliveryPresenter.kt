@@ -34,7 +34,7 @@ class ExpressDeliveryPresenter : BasePresenter<ExpressDeliveryContract.IView>(),
         val requestBody = JSONUtils.createJSON(keyArray, valueArray)
         request(RetrofitUtils.mApiService.afterSaleShip(requestBody), object : BaseSingleObserver<ResponseBean>() {
             override fun doOnSuccess(data: ResponseBean) {
-                getView()?.showToast(data.tip)
+                getView()?.showToast(data.msg)
                 getView()?.confirmShipSuccess()
             }
         })
@@ -55,7 +55,7 @@ class ExpressDeliveryPresenter : BasePresenter<ExpressDeliveryContract.IView>(),
         val requestBody = JSONUtils.createJSON(keyArray, valueArray)
         request(RetrofitUtils.mApiService.merchantOrderSend(requestBody), object : BaseSingleObserver<ResponseBean>() {
             override fun doOnSuccess(data: ResponseBean) {
-                getView()?.showToast(data.tip)
+                getView()?.showToast(data.msg)
                 getView()?.merchantShipSuccess()
             }
         })
@@ -76,7 +76,7 @@ class ExpressDeliveryPresenter : BasePresenter<ExpressDeliveryContract.IView>(),
         val requestBody = JSONUtils.createJSON(keyArray, valueArray)
         request(RetrofitUtils.mApiService.updateCourierNo(requestBody), object : BaseSingleObserver<ResponseBean>() {
             override fun doOnSuccess(data: ResponseBean) {
-                getView()?.showToast(data.tip)
+                getView()?.showToast(data.msg)
                 getView()?.merchantShipSuccess()
             }
         })

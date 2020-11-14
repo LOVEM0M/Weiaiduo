@@ -30,7 +30,7 @@ class GoodsEvalPresenter : BasePresenter<GoodsEvalContract.IView>(), GoodsEvalCo
         val requestBody = JSONUtils.createJSON(keyArray, valueArray)
         request(RetrofitUtils.mApiService.orderEval(requestBody), object : BaseSingleObserver<OrderEvalBean>() {
             override fun doOnSuccess(data: OrderEvalBean) {
-                getView()?.showToast(data.tip)
+                getView()?.showToast(data.msg)
                 getView()?.commitGoodsEvalSuccess(data)
             }
         })

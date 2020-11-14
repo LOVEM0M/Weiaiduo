@@ -33,7 +33,7 @@ class SubAccountLoginPresenter : BasePresenter<SubAccountLoginContract.IView>(),
                 .subscribeOn(Schedulers.io())
                 .observeOn(Schedulers.io())
                 .flatMap {
-                    if (it.mark == "0") {
+                    if (it.code == 0) {
                         mRoomBean = it.data?.room
                         var accountName: String? = null
 
@@ -60,7 +60,7 @@ class SubAccountLoginPresenter : BasePresenter<SubAccountLoginContract.IView>(),
                         return@flatMap RetrofitUtils.mApiService.chatSubUserSign(accountName ?: "")
                     } else {
                         getView()?.hideDialog()
-                        throw Exception(it.tip)
+                        throw Exception(it.msg)
                     }
                 }
                 .observeOn(AndroidSchedulers.mainThread())
@@ -78,7 +78,7 @@ class SubAccountLoginPresenter : BasePresenter<SubAccountLoginContract.IView>(),
                     }
 
                     override fun doOnFailure(data: UserSignBean) {
-                        getView()?.showToast(data.tip)
+                        getView()?.showToast(data.msg)
                         getView()?.hideDialog()
                     }
 

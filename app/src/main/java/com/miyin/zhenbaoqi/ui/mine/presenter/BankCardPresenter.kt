@@ -22,12 +22,12 @@ class BankCardPresenter : BasePresenter<BankCardContract.IView>(), BankCardContr
             }
 
             override fun doOnFailure(data: BankCardBean) {
-                if (data.mark == "1") {
-                    getView()?.onFailure(data.tip!!, 1)
-                } else if (data.mark == "502" && data.tip!!.contains("实名")) {
-                    getView()?.onFailure(data.tip!!, 5)
+                if (data.code == 1) {
+                    getView()?.onFailure(data.msg!!, 1)
+                } else if (data.code == 502 && data.msg!!.contains("实名")) {
+                    getView()?.onFailure(data.msg!!, 5)
                 } else {
-                    getView()?.onFailure(data.tip!!, 0)
+                    getView()?.onFailure(data.msg!!, 0)
                 }
             }
 
@@ -46,7 +46,7 @@ class BankCardPresenter : BasePresenter<BankCardContract.IView>(), BankCardContr
             }
 
             override fun doOnFailure(data: ResponseBean) {
-                getView()?.onFailure(data.tip!!, 0)
+                getView()?.onFailure(data.msg!!, 0)
             }
         })
     }

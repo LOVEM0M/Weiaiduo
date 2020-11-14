@@ -23,9 +23,9 @@ class ReleaseGoodsPresenter : BasePresenter<ReleaseGoodsContract.IView>(), Relea
                 .subscribeOn(Schedulers.io())
                 .observeOn(Schedulers.io())
                 .flatMap { it ->
-                    if (it.mark == "0") {
+                    if (it.code == 0) {
                         if (null == it.dicts) {
-                            throw Exception(it.tip)
+                            throw Exception(it.msg)
                         } else {
                             val bean = it.dicts!!.first { it.dict_id == cateId1 }
                             cateName1 = bean.code_name ?: ""
@@ -33,14 +33,14 @@ class ReleaseGoodsPresenter : BasePresenter<ReleaseGoodsContract.IView>(), Relea
                             return@flatMap RetrofitUtils.mApiService.sonList(secondRequestBody)
                         }
                     } else {
-                        throw Exception(it.tip)
+                        throw Exception(it.msg)
                     }
                 }
                 .observeOn(Schedulers.io())
                 .flatMap { it ->
-                    if (it.mark == "0") {
+                    if (it.code == 0) {
                         if (null == it.dicts) {
-                            throw Exception(it.tip)
+                            throw Exception(it.msg)
                         } else {
                             val bean = it.dicts!!.first { it.dict_id == cateId2 }
                             cateName2 = bean.code_name ?: ""
@@ -48,7 +48,7 @@ class ReleaseGoodsPresenter : BasePresenter<ReleaseGoodsContract.IView>(), Relea
                             return@flatMap RetrofitUtils.mApiService.sonList(thirdRequestBody)
                         }
                     } else {
-                        throw Exception(it.tip)
+                        throw Exception(it.msg)
                     }
                 }
                 .observeOn(AndroidSchedulers.mainThread())
@@ -70,8 +70,8 @@ class ReleaseGoodsPresenter : BasePresenter<ReleaseGoodsContract.IView>(), Relea
             }
 
             override fun doOnFailure(data: ResponseBean) {
-                if (data.mark == "1" && data.tip == "未填写") {
-                    getView()?.onFailure(data.tip ?: "", 1)
+                if (data.code == 1 && data.msg == "未填写") {
+                    getView()?.onFailure(data.msg ?: "", 1)
                 } else {
                     super.doOnFailure(data)
                 }
@@ -105,7 +105,7 @@ class ReleaseGoodsPresenter : BasePresenter<ReleaseGoodsContract.IView>(), Relea
             }
 
             override fun doOnFailure(data: ImageBean) {
-                getView()?.onFailure(data.tip!!, 0)
+                getView()?.onFailure(data.msg!!, 0)
             }
 
             override fun onError(e: Throwable) {

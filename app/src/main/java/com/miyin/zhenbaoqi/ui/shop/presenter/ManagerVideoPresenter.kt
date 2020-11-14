@@ -40,7 +40,7 @@ class ManagerVideoPresenter : BasePresenter<ManagerVideoContract.IView>(), Manag
     override fun deleteVideo(videoId: Int) {
         request(RetrofitUtils.mApiService.merchantVideoDelete(videoId), object : BaseSingleObserver<ResponseBean>() {
             override fun doOnSuccess(data: ResponseBean) {
-                getView()?.showToast(data.tip)
+                getView()?.showToast(data.msg)
                 getView()?.deleteVideoSuccess()
             }
         })

@@ -15,7 +15,7 @@ class SearchPresenter : BasePresenter<SearchContract.IView>(), SearchContract.IP
             }
 
             override fun doOnFailure(data: SearchBean) {
-                getView()?.showToast(data.tip)
+                getView()?.showToast(data.msg)
             }
         })
     }

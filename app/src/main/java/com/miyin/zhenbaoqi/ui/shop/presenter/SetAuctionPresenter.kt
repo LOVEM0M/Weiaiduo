@@ -39,7 +39,7 @@ class SetAuctionPresenter : BasePresenter<SetAuctionContract.IView>(), SetAuctio
 
             override fun doOnFailure(data: GoodsDetailBean) {
                 getView()?.hideDialog()
-                if (data.mark == "1") {
+                if (data.code == 1) {
                     super.doOnFailure(data)
                 } else {
                     getView()?.showToast("未知错误，已保存至草稿箱")

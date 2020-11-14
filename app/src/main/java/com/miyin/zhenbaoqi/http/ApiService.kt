@@ -503,7 +503,7 @@ interface ApiService {
     fun report(@FieldMap map: Map<String, Any>): Single<ResponseBean>
 
     /* 发送验证码 */
-    @POST("/api/v1/user/send/message")
+    @POST("/shopapi/user/sendCode")
     fun sendMessage(@Body requestBody: RequestBody): Single<ResponseBean>
 
     /**

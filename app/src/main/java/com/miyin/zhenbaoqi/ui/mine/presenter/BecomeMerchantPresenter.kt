@@ -17,7 +17,7 @@ class BecomeMerchantPresenter : BasePresenter<BecomeMerchantContract.IView>(), B
             }
 
             override fun doOnFailure(data: PayResultBean) {
-                if (data.tip == "需要实名认证" && data.mark == "502") {
+                if (data.msg == "需要实名认证" && data.code == 502) {
                     getView()?.onFailure()
                 } else {
                     super.doOnFailure(data)

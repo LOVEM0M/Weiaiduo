@@ -25,10 +25,10 @@ class MerchantMessagePresenter : BasePresenter<MerchantMessageContract.IView>(),
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
-                    when (it.mark) {
-                        "0" -> getView()?.getMerchantInfoSuccess(it)
-                        "500" -> App.context.clearTask<WXLoginActivity>()
-                        else -> getView()?.showToast(it.tip)
+                    when (it.code) {
+                        0 -> getView()?.getMerchantInfoSuccess(it)
+                        500 -> App.context.clearTask<WXLoginActivity>()
+                        else -> getView()?.showToast(it.msg)
                     }
                 }, {
                     when (it) {
@@ -47,7 +47,7 @@ class MerchantMessagePresenter : BasePresenter<MerchantMessageContract.IView>(),
         val requestBody = JSONUtils.createJSON(keyArray, valueArray)
         request(RetrofitUtils.mApiService.merchantAttention(requestBody), object : BaseSingleObserver<ResponseBean>() {
             override fun doOnSuccess(data: ResponseBean) {
-                getView()?.showToast(data.tip)
+                getView()?.showToast(data.msg)
                 getView()?.updateMerchantStateSuccess(state)
             }
         })

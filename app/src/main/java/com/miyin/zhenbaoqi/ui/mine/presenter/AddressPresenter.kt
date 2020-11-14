@@ -19,11 +19,11 @@ class AddressPresenter : BasePresenter<AddressContact.IView>(), AddressContact.I
             }
 
             override fun doOnFailure(data: AddressBean) {
-                if (data.mark == "1") {
+                if (data.code == 1) {
                     getView()?.showEmpty()
-                    getView()?.onFailure(data.tip!!, 1)
+                    getView()?.onFailure(data.msg!!, 1)
                 } else {
-                    getView()?.onFailure(data.tip!!, 0)
+                    getView()?.onFailure(data.msg!!, 0)
                 }
             }
 
@@ -44,7 +44,7 @@ class AddressPresenter : BasePresenter<AddressContact.IView>(), AddressContact.I
             }
 
             override fun doOnFailure(data: ResponseBean) {
-                getView()?.onFailure(data.tip!!, 0)
+                getView()?.onFailure(data.msg!!, 0)
             }
         })
     }
@@ -64,7 +64,7 @@ class AddressPresenter : BasePresenter<AddressContact.IView>(), AddressContact.I
             }
 
             override fun doOnFailure(data: ResponseBean) {
-                getView()?.onFailure(data.tip!!, 0)
+                getView()?.onFailure(data.msg!!, 0)
             }
         })
     }

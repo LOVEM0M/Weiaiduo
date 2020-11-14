@@ -19,15 +19,15 @@ class OnlineCustomerPresenter : BasePresenter<OnlineCustomerContract.IView>(), O
                 .subscribeOn(Schedulers.io())
                 .observeOn(Schedulers.io())
                 .flatMap {
-                    when (it.mark) {
-                        "0" -> {
+                    when (it.code) {
+                        0 -> {
                             bean = it
                             val userId1 = SPUtils.getInt("user_id")
                             return@flatMap RetrofitUtils.mApiService.merchantCheckBlackList(userId1, it.merchants_id)
                         }
                         else -> {
                             getView()?.hideDialog()
-                            throw Exception(it.tip)
+                            throw Exception(it.msg)
                         }
                     }
                 }
@@ -49,15 +49,15 @@ class OnlineCustomerPresenter : BasePresenter<OnlineCustomerContract.IView>(), O
                 .subscribeOn(Schedulers.io())
                 .observeOn(Schedulers.io())
                 .flatMap {
-                    when (it.mark) {
-                        "0" -> {
+                    when (it.code) {
+                        0 -> {
                             bean = it
                             val userId1 = SPUtils.getInt("user_id")
                             return@flatMap RetrofitUtils.mApiService.merchantCheckBlackList(userId1, it.merchants_id)
                         }
                         else -> {
                             getView()?.hideDialog()
-                            throw Exception(it.tip)
+                            throw Exception(it.msg)
                         }
                     }
                 }

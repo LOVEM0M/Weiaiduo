@@ -26,7 +26,7 @@ class AfterSaleStatePresenter : BasePresenter<AfterSaleStateContract.IView>(), A
         val requestBody = JSONUtils.createJSON(arrayOf("order_number"), arrayOf(orderNumber!!))
         request(RetrofitUtils.mApiService.afterSaleCancel(requestBody), object : BaseSingleObserver<ResponseBean>() {
             override fun doOnSuccess(data: ResponseBean) {
-                getView()?.showToast(data.tip)
+                getView()?.showToast(data.msg)
                 getView()?.orderAfterCancelSuccess()
             }
         })
@@ -47,7 +47,7 @@ class AfterSaleStatePresenter : BasePresenter<AfterSaleStateContract.IView>(), A
         val requestBody = JSONUtils.createJSON(keyArray, valueArray)
         request(RetrofitUtils.mApiService.afterSaleShip(requestBody), object : BaseSingleObserver<ResponseBean>() {
             override fun doOnSuccess(data: ResponseBean) {
-                getView()?.showToast(data.tip)
+                getView()?.showToast(data.msg)
                 getView()?.confirmShipSuccess()
             }
         })

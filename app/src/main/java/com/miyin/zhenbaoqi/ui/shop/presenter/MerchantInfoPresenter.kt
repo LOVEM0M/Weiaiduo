@@ -88,7 +88,7 @@ class MerchantInfoPresenter : BasePresenter<MerchantInfoContract.IView>(), Merch
             override fun doOnSuccess(data: CityBean) {
                 val list = data.dicts
                 if (null == list || list.isEmpty()) {
-                    getView()?.showToast(data.tip)
+                    getView()?.showToast(data.msg)
                 } else {
                     getView()?.getProvinceListSuccess(list)
                 }
@@ -102,7 +102,7 @@ class MerchantInfoPresenter : BasePresenter<MerchantInfoContract.IView>(), Merch
             override fun doOnSuccess(data: CityBean) {
                 val list = data.dicts
                 if (null == list || list.isEmpty()) {
-                    getView()?.showToast(data.tip)
+                    getView()?.showToast(data.msg)
                 } else {
                     getView()?.getAreaListSuccess(list, position, state)
                 }

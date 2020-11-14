@@ -18,7 +18,7 @@ class AfterSalePresenter : BasePresenter<AfterSaleContract.IView>(), AfterSaleCo
             }
 
             override fun doOnFailure(data: ImageBean) {
-                getView()?.onFailure(data.tip!!, 0)
+                getView()?.onFailure(data.msg!!, 0)
             }
         })
     }
@@ -38,7 +38,7 @@ class AfterSalePresenter : BasePresenter<AfterSaleContract.IView>(), AfterSaleCo
             }
 
             override fun doOnFailure(data: ResponseBean) {
-                getView()?.onFailure(data.tip!!, 1)
+                getView()?.onFailure(data.msg!!, 1)
             }
         })
     }
