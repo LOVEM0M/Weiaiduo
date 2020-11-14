@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_40"
+    android:gravity="center">
+
+    <View
+        android:layout_width="@dimen/dp_29"
+        android:layout_height="@dimen/dp_1"
+        android:background="#E1E1E1" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_12"
+        android:layout_marginStart="@dimen/dp_12"
+        android:includeFontPadding="false"
+        android:textColor="@color/text_33"
+        android:textSize="@dimen/sp_16"
+        android:textStyle="bold"
+        tools:text="玉翠珠宝" />
+
+    <View
+        android:layout_width="@dimen/dp_29"
+        android:layout_height="@dimen/dp_1"
+        android:background="#E1E1E1" />
+
+</LinearLayout>

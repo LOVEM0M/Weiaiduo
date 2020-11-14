@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_44"
+        android:background="@color/bg_f5">
+
+        <com.miyin.zhenbaoqi.widget.SlidingTabLayout
+            android:id="@+id/tab_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            app:tl_indicator_color="#DD3D46"
+            app:tl_indicator_height="@dimen/dp_2"
+            app:tl_indicator_width_equal_title="true"
+            app:tl_normal_text_color="@color/text_99"
+            app:tl_normal_text_size="@dimen/sp_14"
+            app:tl_select_text_color="#E53A42" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_close"
+            android:layout_width="@dimen/dp_44"
+            android:layout_height="@dimen/dp_44"
+            android:layout_gravity="end"
+            android:scaleType="center"
+            android:src="@drawable/ic_close_small" />
+
+    </FrameLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="439dp"
+        android:overScrollMode="never"
+        android:scrollbars="none" />
+</LinearLayout>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/dp_7"
+    tools:ignore="HardcodedText,RtlSymmetry">
+
+
+    <com.noober.background.view.BLLinearLayout
+        android:id="@+id/ll_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="@dimen/dp_10"
+        android:paddingEnd="@dimen/dp_10"
+        app:bl_corners_bottomLeftRadius="@dimen/dp_8"
+        app:bl_corners_bottomRightRadius="@dimen/dp_8"
+        app:bl_solid_color="@color/white"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_cover"
+            android:layout_width="@dimen/dp_170"
+            android:layout_height="@dimen/dp_152"
+            android:paddingHorizontal="@dimen/dp_17"
+            android:paddingVertical="@dimen/dp_12"
+            android:scaleType="fitXY"
+            tools:background="@color/picture_color_white" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_5"
+            android:ellipsize="end"
+            android:includeFontPadding="false"
+            android:singleLine="true"
+            android:text="上等好货和田玉貔貅招"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_15" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_25"
+            android:layout_marginBottom="@dimen/dp_15"
+            android:drawableEnd="@drawable/shop_card"
+            android:drawablePadding="@dimen/dp_5"
+            android:includeFontPadding="false"
+            android:text="￥"
+            android:textColor="#F92728"
+            android:textSize="@dimen/sp_20" />
+
+    </com.noober.background.view.BLLinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

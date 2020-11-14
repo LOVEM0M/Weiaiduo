@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:ignore="HardcodedText">
+
+    <include layout="@layout/title_bar" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_114"
+        android:background="@color/white">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_14"
+            android:includeFontPadding="false"
+            android:text="可用余额(元)"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_16" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_balance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/dp_16"
+            android:text="¥ 0.00"
+            android:textColor="@color/theme_dark_purple"
+            android:textSize="@dimen/sp_28"
+            android:textStyle="bold" />
+
+        <com.noober.background.view.BLTextView
+            android:id="@+id/tv_withdraw"
+            android:layout_width="@dimen/dp_88"
+            android:layout_height="@dimen/dp_34"
+            android:layout_gravity="center_vertical|end"
+            android:layout_marginEnd="@dimen/dp_16"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text="提现"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_16"
+            app:bl_corners_radius="@dimen/dp_5"
+            app:bl_solid_color="@color/theme_dark_purple" />
+
+    </FrameLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_10"
+        android:background="@color/bg_f5" />
+
+    <com.miyin.zhenbaoqi.widget.SlidingTabLayout
+        android:id="@+id/tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_44"
+        android:layout_gravity="center"
+        android:background="@color/white"
+        app:tl_indicator_color="@color/theme_dark_purple"
+        app:tl_indicator_corner_radius="@dimen/dp_2"
+        app:tl_indicator_height="@dimen/dp_2"
+        app:tl_indicator_width="@dimen/dp_32"
+        app:tl_normal_text_color="@color/text_54"
+        app:tl_normal_text_size="@dimen/sp_16"
+        app:tl_select_text_color="@color/theme_dark_purple"
+        app:tl_tab_space_equal="true" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:overScrollMode="never"
+        android:scrollbars="none" />
+
+</LinearLayout>

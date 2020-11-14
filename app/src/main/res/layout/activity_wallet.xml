@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:ignore="HardcodedText">
+
+    <include layout="@layout/title_bar" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_14"
+        android:layout_marginEnd="@dimen/dp_16"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="@dimen/dp_10">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.noober.background.view.BLFrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_104"
+                app:bl_corners_topLeftRadius="@dimen/dp_10"
+                app:bl_corners_topRightRadius="@dimen/dp_10"
+                app:bl_gradient_angle="0"
+                app:bl_gradient_endColor="#C74D58"
+                app:bl_gradient_startColor="@color/theme_dark_purple">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_16"
+                    android:layout_marginTop="@dimen/dp_16"
+                    android:includeFontPadding="false"
+                    android:text="账户余额(元）"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/sp_16" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_balance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginStart="@dimen/dp_16"
+                    android:layout_marginBottom="@dimen/dp_20"
+                    android:includeFontPadding="false"
+                    android:text="¥1000.00"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/sp_24" />
+
+                <com.noober.background.view.BLTextView
+                    android:id="@+id/tv_detail"
+                    android:layout_width="@dimen/dp_78"
+                    android:layout_height="@dimen/sp_28"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="@dimen/dp_16"
+                    android:layout_marginEnd="@dimen/dp_16"
+                    android:gravity="center"
+                    android:text="查看明细"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/sp_14"
+                    app:bl_corners_radius="@dimen/dp_6"
+                    app:bl_solid_color="#1A982530" />
+
+            </com.noober.background.view.BLFrameLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_withdraw"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp_58"
+                android:layout_gravity="center"
+                android:drawableStart="@drawable/ic_withdraw"
+                android:drawablePadding="@dimen/dp_10"
+                android:gravity="center_vertical"
+                android:text="余额提现"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_16" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

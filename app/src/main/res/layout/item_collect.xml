@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.noober.background.view.BLConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/dp_10"
+    app:bl_corners_radius="@dimen/dp_6"
+    app:bl_solid_color="@color/white">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_cover"
+        android:layout_width="@dimen/dp_175"
+        android:layout_height="@dimen/dp_175"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@color/text_99" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_5"
+        android:layout_marginTop="@dimen/dp_10"
+        android:includeFontPadding="false"
+        android:textColor="#010101"
+        android:textSize="@dimen/sp_12"
+        app:layout_constraintLeft_toLeftOf="@id/iv_cover"
+        app:layout_constraintTop_toBottomOf="@id/iv_cover"
+        tools:text="直播间副标题限九字" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_5"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginBottom="@dimen/dp_10"
+        android:includeFontPadding="false"
+        android:textColor="#EA2F30"
+        android:textSize="@dimen/sp_10"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/iv_cover"
+        app:layout_constraintTop_toBottomOf="@id/tv_title" />
+
+</com.noober.background.view.BLConstraintLayout>
+

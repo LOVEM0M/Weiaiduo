@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="HardcodedText,RtlSymmetry">
+
+    <LinearLayout
+        android:id="@+id/ll_top"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_243"
+        android:background="#2D3037"
+        android:gravity="center_horizontal"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_29"
+            android:text="会员中心"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_18" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_top_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_93"
+        android:layout_marginTop="@dimen/dp_167"
+        android:background="@drawable/shape_vip_bg2"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/dp_70"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <View
+            android:layout_width="@dimen/dp_36"
+            android:layout_height="0.5dp"
+            android:background="#A7A7A7" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:text="年卡会员尊享"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_15" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="13"
+            android:textColor="@color/text_ef0025"
+            android:textSize="@dimen/sp_15" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/dp_10"
+            android:text="大权益"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_15" />
+
+        <View
+            android:layout_width="@dimen/dp_36"
+            android:layout_height="0.5dp"
+            android:background="#A7A7A7" />
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_card"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_151"
+        android:layout_marginHorizontal="@dimen/dp_12"
+        android:layout_marginTop="@dimen/dp_66"
+        android:background="@drawable/shape_vip_bg1"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/ll_vip_head"
+            android:layout_width="@dimen/dp_67"
+            android:layout_height="@dimen/dp_67"
+            android:layout_marginLeft="@dimen/dp_21"
+            android:layout_marginTop="@dimen/dp_19"
+            android:background="#E6E6E6"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_6"
+            android:layout_marginTop="@dimen/dp_11"
+            android:text="唯爱多购物商城贵宾"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_17"
+            app:layout_constraintLeft_toRightOf="@id/ll_vip_head"
+            app:layout_constraintTop_toTopOf="@id/ll_vip_head" />
+
+        <TextView
+            android:id="@+id/tv_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_6"
+            android:background="@drawable/shape_home_bg1"
+            android:paddingHorizontal="@dimen/dp_6"
+            android:paddingVertical="@dimen/dp_2"
+            android:text="普通用户"
+            android:textColor="@color/text_66"
+            android:textSize="@dimen/sp_10"
+            app:layout_constraintLeft_toLeftOf="@id/tv_title"
+            app:layout_constraintTop_toBottomOf="@id/tv_title" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_11"
+            android:orientation="horizontal"
+            app:layout_constraintLeft_toLeftOf="@id/tv_label"
+            app:layout_constraintTop_toBottomOf="@id/tv_label">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="开通会员可节省"
+                android:textColor="#737373"
+                android:textSize="@dimen/sp_14" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="￥6684.00"
+                android:textColor="@color/text_ef0025"
+                android:textSize="@dimen/sp_15" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="/年"
+                android:textColor="#737373"
+                android:textSize="@dimen/sp_14" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_vip_privilege"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/ll_top_title">
+
+        <include layout="@layout/item_vip_privilege" />
+
+        <include layout="@layout/item_vip_privilege" />
+
+        <include layout="@layout/item_vip_privilege" />
+
+        <include layout="@layout/item_vip_privilege" />
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ll_vip_select_1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_63"
+        android:layout_marginHorizontal="@dimen/dp_12"
+        android:layout_marginTop="@dimen/dp_17"
+        android:background="@drawable/shape_vip_bg3"
+        app:layout_constraintTop_toBottomOf="@id/ll_vip_privilege">
+
+        <TextView
+            android:id="@+id/ll_vip_title1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_17"
+            android:layout_marginTop="@dimen/dp_24"
+            android:text="年卡会员"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_15"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/ll_vip_price1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_22"
+            android:layout_marginRight="@dimen/dp_31"
+            android:text="￥199"
+            android:textColor="#F31822"
+            android:textSize="@dimen/sp_24"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_select"
+            android:layout_width="@dimen/dp_26"
+            android:layout_height="@dimen/dp_21"
+            android:background="#F5AB16"
+            android:drawableStart="@drawable/ic_auction_record"
+            android:includeFontPadding="false"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:ignore="MissingConstraints" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ll_vip_select_2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_63"
+        android:layout_marginHorizontal="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_17"
+        android:background="@drawable/shape_vip_bg4"
+        app:layout_constraintTop_toBottomOf="@id/ll_vip_select_1">
+
+        <TextView
+            android:id="@+id/ll_vip_title2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_17"
+            android:layout_marginTop="@dimen/dp_24"
+            android:text="季卡会员"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_15"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/ll_vip_price2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_22"
+            android:layout_marginRight="@dimen/dp_31"
+            android:text="￥199"
+            android:textColor="#F31822"
+            android:textSize="@dimen/sp_24"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_select2"
+            android:layout_width="@dimen/dp_26"
+            android:layout_height="@dimen/dp_21"
+            android:background="#F5AB16"
+            android:drawableStart="@drawable/ic_auction_record"
+            android:includeFontPadding="false"
+            android:visibility="gone"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:ignore="MissingConstraints" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#E6E6E6"
+        app:layout_constraintTop_toBottomOf="@id/ll_vip_select_2"
+        android:layout_marginTop="@dimen/dp_40"
+        android:layout_marginHorizontal="@dimen/dp_27"
+        android:gravity="center_horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="支付即为同意 《唯爱多商城会员服务协议》"
+            android:textColor="@color/text_33"
+            android:textSize="@dimen/sp_10"
+            android:layout_marginTop="@dimen/dp_21"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="199立即支付"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_18"
+            android:gravity="center"
+            android:paddingVertical="@dimen/dp_12"
+            android:layout_marginTop="@dimen/dp_4"
+            android:layout_marginHorizontal="@dimen/dp_8"
+            android:background="@drawable/shape_home_bg7"
+            android:layout_marginBottom="@dimen/dp_14"/>
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

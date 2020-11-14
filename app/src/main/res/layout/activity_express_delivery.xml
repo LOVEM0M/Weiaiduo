@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_f5"
+    android:orientation="vertical"
+    tools:ignore="HardcodedText,RtlSymmetry">
+
+    <include layout="@layout/title_bar" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_5"
+        android:background="@color/white">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_copy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_14"
+            android:layout_marginEnd="@dimen/dp_14"
+            android:includeFontPadding="false"
+            android:text="复制"
+            android:textColor="#2B92E2"
+            android:textSize="@dimen/sp_14"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_14"
+            android:drawableEnd="@drawable/ic_location"
+            android:drawablePadding="@dimen/dp_8"
+            android:gravity="center_vertical"
+            android:includeFontPadding="false"
+            android:text="收货地址"
+            android:textColor="@color/text_99"
+            android:textSize="@dimen/sp_14"
+            app:layout_constraintBottom_toBottomOf="@id/tv_copy"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tv_copy" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_user_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_14"
+            android:layout_marginTop="@dimen/dp_14"
+            android:drawablePadding="@dimen/dp_8"
+            android:gravity="center_vertical"
+            android:includeFontPadding="false"
+            android:textColor="@color/text_33"
+            android:textSize="@dimen/sp_14"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_copy"
+            tools:text="收  货  人：XXX" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_14"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginBottom="@dimen/dp_15"
+            android:gravity="center_vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_user_info">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:includeFontPadding="false"
+                android:text="地\u3000\u3000址："
+                android:textColor="@color/text_99"
+                android:textSize="@dimen/sp_14" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dp_14"
+                android:includeFontPadding="false"
+                android:text="暂无地址信息"
+                android:textColor="@color/text_33"
+                android:textSize="@dimen/sp_14" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_6"
+        android:background="@drawable/ic_multicolor_line" />
+
+    <com.miyin.zhenbaoqi.widget.LineFrameLayout
+        android:id="@+id/fl_company"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_45"
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="@color/white">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/dp_15"
+            android:text="快递公司"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_14" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_company"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:drawableEnd="@drawable/ic_right_arrow_small"
+            android:drawablePadding="@dimen/dp_11"
+            android:gravity="center_vertical|end"
+            android:hint="请选择快递公司"
+            android:paddingEnd="@dimen/dp_12"
+            android:textColor="@color/black"
+            android:textColorHint="#7F7F7F"
+            android:textSize="@dimen/sp_14" />
+
+    </com.miyin.zhenbaoqi.widget.LineFrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_45"
+        android:background="@color/white">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/dp_15"
+            android:text="快递单号"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_14" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_scanner"
+            android:layout_width="@dimen/dp_40"
+            android:layout_height="@dimen/dp_40"
+            android:layout_gravity="end"
+            android:scaleType="center"
+            android:src="@drawable/ic_scanner" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_courier_no"
+            android:layout_width="@dimen/dp_250"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:layout_marginEnd="@dimen/dp_40"
+            android:background="@null"
+            android:digits="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+            android:gravity="center_vertical|end"
+            android:hint="请输入或识别快递单号"
+            android:inputType="textVisiblePassword"
+            android:maxLength="18"
+            android:textColor="@color/black"
+            android:textColorHint="#7F7F7F"
+            android:textSize="@dimen/sp_14" />
+
+    </FrameLayout>
+
+    <com.noober.background.view.BLButton
+        android:id="@+id/btn_commit"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_45"
+        android:layout_marginStart="@dimen/dp_18"
+        android:layout_marginTop="@dimen/dp_25"
+        android:layout_marginEnd="@dimen/dp_18"
+        android:text="确认发货"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_15"
+        app:bl_corners_radius="@dimen/dp_4"
+        app:bl_solid_color="@color/theme_dark_purple" />
+
+</LinearLayout>

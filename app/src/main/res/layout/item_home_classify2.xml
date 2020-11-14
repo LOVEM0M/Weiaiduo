@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="@dimen/dp_75"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_home_bg6"
+    android:paddingBottom="@dimen/dp_11">
+
+    <ImageView
+        android:id="@+id/iv_cover"
+        android:layout_width="@dimen/dp_75"
+        android:layout_height="@dimen/dp_75"
+        android:src="@drawable/xiangnaier"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_price1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_home_bg5"
+        android:paddingVertical="@dimen/dp_3"
+        android:text="返现￥123>"
+        android:singleLine="true"
+        android:textColor="#FFFFFF"
+        android:textSize="@dimen/sp_9"
+        android:paddingHorizontal="@dimen/dp_8"
+        android:layout_marginBottom="@dimen/dp_5"
+        app:layout_constraintBottom_toBottomOf="@id/iv_cover"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_9"
+        android:text="￥123"
+        android:textColor="#F31822"
+        android:textSize="@dimen/sp_12"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_cover" />
+
+    <TextView
+        android:id="@+id/tv_goods_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_9"
+        android:singleLine="true"
+        android:paddingHorizontal="@dimen/dp_4"
+        android:text="香奈儿小样"
+        android:textColor="#000000"
+        android:textSize="@dimen/sp_10"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_price" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

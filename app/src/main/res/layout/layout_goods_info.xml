@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.noober.background.view.BLLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/dp_175"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    app:bl_corners_radius="@dimen/dp_5"
+    app:bl_solid_color="@color/white">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_cover"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_175" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_5"
+        android:layout_marginStart="@dimen/dp_5"
+        android:layout_marginTop="@dimen/dp_10"
+        android:includeFontPadding="false"
+        android:textColor="@color/text_33"
+        android:textSize="@dimen/sp_12"
+        tools:text="直播间副标题限九字" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp_5"
+        android:layout_marginStart="@dimen/dp_5"
+        android:layout_marginTop="@dimen/dp_5"
+        android:includeFontPadding="false"
+        android:textColor="#EA2F30"
+        android:textSize="@dimen/sp_17"
+        tools:text="504" />
+
+</com.noober.background.view.BLLinearLayout>

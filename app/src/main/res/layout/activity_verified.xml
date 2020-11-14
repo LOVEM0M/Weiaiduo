@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:ignore="HardcodedText,RtlSymmetry">
+
+    <include layout="@layout/title_bar" />
+
+    <com.miyin.zhenbaoqi.widget.LineFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="@color/white"
+        app:leftPadding="@dimen/dp_15"
+        app:rightPadding="@dimen/dp_12">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/dp_16"
+            android:gravity="center_vertical"
+            android:text="真实姓名"
+            android:textColor="@color/text_33"
+            android:textSize="@dimen/sp_14" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_name"
+            android:layout_width="@dimen/dp_250"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:background="@null"
+            android:gravity="end|center_vertical"
+            android:hint="请填写真实姓名"
+            android:maxLength="10"
+            android:paddingEnd="@dimen/dp_20"
+            android:singleLine="true"
+            android:textColor="@color/text_33"
+            android:textColorHint="@color/text_99"
+            android:textSize="@dimen/sp_14" />
+
+    </com.miyin.zhenbaoqi.widget.LineFrameLayout>
+
+    <com.miyin.zhenbaoqi.widget.LineFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:background="@color/white"
+        app:leftPadding="@dimen/dp_15"
+        app:rightPadding="@dimen/dp_12">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/dp_16"
+            android:gravity="center_vertical"
+            android:text="身份证号"
+            android:textColor="@color/text_33"
+            android:textSize="@dimen/sp_14" />
+
+        <com.miyin.zhenbaoqi.widget.ContentWithSpaceEditText
+            android:id="@+id/et_id_card"
+            android:layout_width="@dimen/dp_250"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:background="@null"
+            android:gravity="end|center_vertical"
+            android:hint="请填写身份证号"
+            android:maxLength="18"
+            android:paddingEnd="@dimen/dp_20"
+            android:singleLine="true"
+            android:textColor="@color/text_33"
+            android:textColorHint="@color/text_99"
+            android:textSize="@dimen/sp_14"
+            app:input_type="identify_card_no" />
+
+    </com.miyin.zhenbaoqi.widget.LineFrameLayout>
+
+
+    <com.noober.background.view.BLButton
+        android:id="@+id/btn_commit"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_45"
+        android:layout_marginStart="@dimen/dp_18"
+        android:layout_marginTop="@dimen/dp_44"
+        android:layout_marginEnd="@dimen/dp_18"
+        android:enabled="false"
+        android:text="提交认证"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_15"
+        app:bl_corners_radius="@dimen/dp_3"
+        app:bl_enabled_solid_color="#FF3D3D"
+        app:bl_unEnabled_solid_color="#CFCFCF" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_20"
+        android:layout_marginTop="@dimen/dp_20"
+        android:lineSpacingExtra="@dimen/dp_5"
+        android:text="实名认证说明\n1、请确保输入的姓名和身份证号为真实信息；\n2、以上信息唯爱多承诺高度保密，仅限平台实名使用。"
+        android:textColor="#3C3C3C"
+        android:textSize="@dimen/sp_10" />
+
+</LinearLayout>

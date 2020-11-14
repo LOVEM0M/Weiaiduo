@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_65"
+    android:background="@color/white">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_hot_count"
+        android:layout_width="@dimen/dp_26"
+        android:layout_height="@dimen/dp_36"
+        android:layout_marginStart="@dimen/dp_14"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp_16"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="1" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/img_hot_count"
+        android:layout_width="@dimen/dp_26"
+        android:layout_height="@dimen/dp_36"
+        android:layout_marginStart="@dimen/dp_14"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.miyin.zhenbaoqi.widget.CircleImageView
+        android:id="@+id/iv_avatar"
+        android:layout_width="@dimen/dp_35"
+        android:layout_height="@dimen/dp_35"
+        android:layout_marginStart="@dimen/dp_15"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/tv_hot_count"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@color/text_99" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_hot_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_10"
+        android:includeFontPadding="false"
+        android:textColor="@color/text_black_29"
+        android:textSize="@dimen/sp_15"
+        app:layout_constraintLeft_toRightOf="@id/iv_avatar"
+        app:layout_constraintTop_toTopOf="@id/iv_avatar"
+        tools:text="军中绿花" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_hot_content"
+        android:layout_width="@dimen/dp_200"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_5"
+        android:ellipsize="end"
+        android:includeFontPadding="false"
+        android:maxLines="1"
+        android:textColor="@color/text_gray_a1"
+        android:textSize="@dimen/sp_12"
+        app:layout_constraintLeft_toLeftOf="@id/tv_hot_title"
+        app:layout_constraintTop_toBottomOf="@id/tv_hot_title"
+        tools:text="翡翠源头" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_hot_heat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_12"
+        android:layout_marginEnd="@dimen/dp_10"
+        android:includeFontPadding="false"
+        android:textSize="@dimen/sp_12"
+        app:layout_constraintBottom_toBottomOf="@id/iv_avatar"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/iv_avatar"
+        tools:text="邀请积分" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:layout_marginStart="@dimen/dp_18"
+        android:background="@color/line_eb"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

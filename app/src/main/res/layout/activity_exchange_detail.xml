@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:ignore="HardcodedText,RtlSymmetry">
+
+    <include layout="@layout/title_bar" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bg_f5"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_277"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_cover"
+                    android:layout_width="@dimen/dp_198"
+                    android:layout_height="@dimen/dp_123"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/dp_40"
+                    android:scaleType="fitXY" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_23"
+                    android:layout_marginTop="@dimen/dp_30"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_18"
+                    tools:text="店铺改名卡一张" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_23"
+                    android:layout_marginTop="@dimen/dp_20"
+                    android:drawablePadding="@dimen/dp_8"
+                    android:drawableStart="@drawable/ic_exchange_record_small"
+                    android:includeFontPadding="false"
+                    android:textColor="#626262"
+                    android:textSize="@dimen/sp_18"
+                    tools:text="5000" />
+
+            </LinearLayout>
+
+            <Space
+                android:id="@+id/space"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_8" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <FrameLayout
+                    android:id="@+id/fl_top"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_50">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_top"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="@dimen/dp_20"
+                        android:text="用户ID"
+                        android:textColor="#0C0C0C"
+                        android:textSize="@dimen/sp_14" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/et_top"
+                        android:layout_width="@dimen/dp_250"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="end"
+                        android:background="@null"
+                        android:gravity="center_vertical|end"
+                        android:hint="请输入用户ID"
+                        android:paddingEnd="@dimen/dp_13"
+                        android:textColor="#0C0C0C"
+                        android:textColorHint="@color/text_99"
+                        android:textSize="@dimen/sp_14" />
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/fl_bottom"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_50"
+                    android:layout_marginBottom="@dimen/dp_20">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_bottom"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="@dimen/dp_20"
+                        android:text="用户手机号"
+                        android:textColor="#0C0C0C"
+                        android:textSize="@dimen/sp_14" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/et_bottom"
+                        android:layout_width="@dimen/dp_250"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="end"
+                        android:background="@null"
+                        android:gravity="center_vertical|end"
+                        android:hint="请输入用户绑定的手机号"
+                        android:paddingEnd="@dimen/dp_13"
+                        android:textColor="#0C0C0C"
+                        android:textColorHint="@color/text_99"
+                        android:textSize="@dimen/sp_14" />
+
+                </FrameLayout>
+
+                <com.noober.background.view.BLButton
+                    android:id="@+id/btn_commit"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_45"
+                    android:layout_marginBottom="@dimen/dp_35"
+                    android:layout_marginEnd="@dimen/dp_18"
+                    android:layout_marginStart="@dimen/dp_18"
+                    android:text="立即兑换"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/sp_15"
+                    app:bl_corners_radius="@dimen/dp_45"
+                    app:bl_gradient_angle="0"
+                    app:bl_gradient_endColor="#F02C2C"
+                    app:bl_gradient_startColor="#FB4A4A" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp_42"
+                android:layout_marginStart="@dimen/dp_13"
+                android:gravity="center_vertical">
+
+                <com.noober.background.view.BLView
+                    android:layout_width="@dimen/dp_3"
+                    android:layout_height="@dimen/dp_10"
+                    android:layout_marginEnd="@dimen/dp_6"
+                    app:bl_corners_radius="@dimen/dp_3"
+                    app:bl_solid_color="#F23333" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:includeFontPadding="false"
+                    android:text="兑换说明"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_12" />
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_desc"
+                android:layout_width="@dimen/dp_343"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_45"
+                android:layout_marginStart="@dimen/dp_13"
+                android:includeFontPadding="false"
+                android:lineSpacingExtra="@dimen/dp_5"
+                android:textColor="@color/text_66"
+                android:textSize="@dimen/sp_12"
+                tools:text="1、改名卡仅限品质店铺兑换使用；\n2、店铺名严禁词，填写新店名注意信息确认无误，确认修改之后立即在店铺首页生效；\n3、兑换成功后，会有缓存时间，预计在1小时后可以使用新店名\n4、有疑问可添加客服微信：6468468468咨询。" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

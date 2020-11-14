@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_f5"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:ignore="HardcodedText,RtlSymmetry">
+
+    <include layout="@layout/title_bar" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_cover"
+        android:layout_width="@dimen/dp_61"
+        android:layout_height="@dimen/dp_61"
+        android:layout_marginTop="@dimen/dp_30"
+        android:src="@drawable/ic_app_logo" />
+
+    <com.noober.background.view.BLLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_43"
+        android:layout_marginStart="@dimen/dp_18"
+        android:layout_marginTop="@dimen/dp_78"
+        android:layout_marginEnd="@dimen/dp_18"
+        app:bl_corners_radius="@dimen/dp_3"
+        app:bl_solid_color="@color/white">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/dp_12"
+            android:layout_marginEnd="@dimen/dp_11"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text="+86"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_14" />
+
+        <View
+            android:layout_width="@dimen/dp_1"
+            android:layout_height="@dimen/dp_14"
+            android:layout_gravity="center_vertical"
+            android:background="#9A9A9A" />
+
+        <com.miyin.zhenbaoqi.widget.ClearEditText
+            android:id="@+id/et_phone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:hint="请输入11位手机号码"
+            android:inputType="phone"
+            android:maxLength="11"
+            android:paddingStart="@dimen/dp_12"
+            android:paddingEnd="@dimen/dp_13"
+            android:textColor="@color/black"
+            android:textColorHint="@color/text_9a"
+            android:textSize="@dimen/sp_14" />
+
+    </com.noober.background.view.BLLinearLayout>
+
+    <com.noober.background.view.BLFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_43"
+        android:layout_marginStart="@dimen/dp_18"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginEnd="@dimen/dp_18"
+        app:bl_corners_radius="@dimen/dp_3"
+        app:bl_solid_color="@color/white">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_validate_code"
+            android:layout_width="@dimen/dp_200"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/dp_11"
+            android:background="@null"
+            android:hint="请输入验证码"
+            android:inputType="number"
+            android:maxLength="6"
+            android:textColor="@color/black"
+            android:textColorHint="@color/text_9a"
+            android:textSize="@dimen/sp_14" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_validate_code"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:gravity="center_vertical"
+            android:paddingEnd="@dimen/dp_16"
+            android:text="获取验证码"
+            android:textColor="#E83A39"
+            android:textSize="@dimen/sp_14" />
+
+    </com.noober.background.view.BLFrameLayout>
+
+    <com.noober.background.view.BLEditText
+        android:id="@+id/et_invite_code"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_43"
+        android:layout_marginStart="@dimen/dp_18"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginEnd="@dimen/dp_18"
+        android:background="@null"
+        android:hint="请输入邀请码(选填)"
+        android:maxLength="6"
+        android:paddingStart="@dimen/dp_10"
+        android:textColor="@color/black"
+        android:textColorHint="@color/text_9a"
+        android:textSize="@dimen/sp_14"
+        app:bl_corners_radius="@dimen/dp_3"
+        app:bl_solid_color="@color/white" />
+
+    <com.noober.background.view.BLButton
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_43"
+        android:layout_marginStart="@dimen/dp_18"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginEnd="@dimen/dp_18"
+        android:enabled="false"
+        android:text="立即登录"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_15"
+        app:bl_corners_radius="@dimen/dp_3"
+        app:bl_enabled_solid_color="#E83A39"
+        app:bl_unEnabled_solid_color="#E1E1E1" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginStart="@dimen/dp_18"
+        android:layout_marginTop="@dimen/dp_13"
+        android:gravity="center_vertical">
+
+        <com.noober.background.view.BLImageView
+            android:id="@+id/iv_check"
+            android:layout_width="@dimen/dp_20"
+            android:layout_height="@dimen/dp_20"
+            android:scaleType="center"
+            app:bl_selected_drawable="@drawable/ic_check_select"
+            app:bl_unSelected_drawable="@drawable/ic_check_normal" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_protocol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/dp_5"
+            android:includeFontPadding="false"
+            android:text="已阅读并同意"
+            android:textColor="@color/text_99"
+            android:textSize="@dimen/sp_14" />
+
+    </LinearLayout>
+
+</LinearLayout>

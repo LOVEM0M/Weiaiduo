@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fl_container"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_176"
+    android:layout_marginTop="@dimen/dp_10"
+    android:background="@color/white"
+    tools:ignore="HardcodedText">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_cover"
+        android:layout_width="@dimen/dp_105"
+        android:layout_height="@dimen/dp_105"
+        android:layout_marginStart="@dimen/dp_15"
+        android:layout_marginTop="@dimen/dp_15"
+        android:scaleType="centerCrop" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_135"
+        android:layout_marginTop="@dimen/dp_23"
+        android:layout_marginEnd="@dimen/dp_15"
+        android:includeFontPadding="false"
+        android:textColor="@color/text_33"
+        android:textSize="@dimen/sp_14"
+        tools:text="925金镶玉专用链接" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_135"
+        android:layout_marginTop="@dimen/dp_82"
+        android:layout_marginEnd="@dimen/dp_15"
+        android:includeFontPadding="false"
+        android:textColor="@color/text_33"
+        android:textSize="@dimen/sp_17"
+        tools:text="82" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="@dimen/dp_15"
+        android:layout_marginEnd="@dimen/dp_15"
+        android:layout_marginBottom="@dimen/dp_40"
+        android:background="@color/line_eb" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_take_off"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp_40"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="@dimen/dp_16"
+        android:drawableStart="@drawable/ic_reserver_top_gray"
+        android:drawablePadding="@dimen/dp_8"
+        android:gravity="center_vertical"
+        android:text="下架"
+        android:textColor="@color/text_99"
+        android:textSize="@dimen/sp_12" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_sticky"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp_40"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="@dimen/dp_110"
+        android:drawableStart="@drawable/ic_top_gray"
+        android:drawablePadding="@dimen/dp_8"
+        android:gravity="center_vertical"
+        android:text="置顶首页"
+        android:textColor="@color/text_99"
+        android:textSize="@dimen/sp_12" />
+
+    <com.noober.background.view.BLTextView
+        android:id="@+id/tv_relaunch"
+        android:layout_width="@dimen/dp_73"
+        android:layout_height="@dimen/dp_24"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="@dimen/dp_15"
+        android:layout_marginBottom="@dimen/dp_8"
+        android:gravity="center"
+        android:text="重新上架"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_12"
+        app:bl_corners_radius="@dimen/dp_4"
+        app:bl_solid_color="#EA1A1A" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp_40"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="@dimen/dp_130"
+        android:drawableStart="@drawable/ic_address_delete"
+        android:drawablePadding="@dimen/dp_8"
+        android:gravity="center_vertical"
+        android:text="删除"
+        android:textColor="@color/text_99"
+        android:textSize="@dimen/sp_12" />
+
+</FrameLayout>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <ImageView
+        android:layout_width="@dimen/dp_113"
+        android:layout_height="@dimen/dp_82"
+        android:background="@color/text_99"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingVertical="@dimen/dp_14"
+        android:paddingHorizontal="@dimen/dp_12"
+        android:text="兰蔻水乳"
+        android:textSize="@dimen/sp_14"
+        android:textColor="@color/text_33"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingBottom="@dimen/dp_10"
+        android:paddingHorizontal="@dimen/dp_12"
+        android:text="-10000分"
+        android:textSize="@dimen/sp_12"
+        android:textColor="#F31822"/>
+
+</LinearLayout>

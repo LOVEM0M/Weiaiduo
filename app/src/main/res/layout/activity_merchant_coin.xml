@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_f5"
+    android:orientation="vertical"
+    tools:ignore="HardcodedText">
+
+    <include layout="@layout/title_bar" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.noober.background.view.BLTextView
+            android:id="@+id/tv_merchant_coin"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_175"
+            android:gravity="center_horizontal"
+            android:includeFontPadding="false"
+            android:lineSpacingExtra="@dimen/dp_10"
+            android:paddingTop="@dimen/dp_40"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_12"
+            app:bl_gradient_angle="45"
+            app:bl_gradient_endColor="#FDA237"
+            app:bl_gradient_startColor="#FF622B"
+            tools:text="当前玩家币" />
+
+        <com.noober.background.view.BLLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_90"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:layout_marginEnd="@dimen/dp_14"
+            android:layout_marginStart="@dimen/dp_14"
+            android:layout_marginTop="@dimen/dp_120"
+            app:bl_corners_radius="@dimen/dp_10"
+            app:bl_solid_color="@color/white">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_exchange_record"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawablePadding="@dimen/dp_10"
+                android:drawableTop="@drawable/ic_exchange_record"
+                android:gravity="center_horizontal"
+                android:paddingTop="@dimen/dp_20"
+                android:text="兑换记录"
+                android:textColor="#010101"
+                android:textSize="@dimen/sp_12" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_task_record"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawablePadding="@dimen/dp_10"
+                android:drawableTop="@drawable/ic_task_record"
+                android:gravity="center_horizontal"
+                android:paddingTop="@dimen/dp_20"
+                android:text="任务记录"
+                android:textColor="#010101"
+                android:textSize="@dimen/sp_12" />
+
+        </com.noober.background.view.BLLinearLayout>
+
+    </FrameLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:overScrollMode="never"
+        android:scrollbars="none" />
+
+</LinearLayout>

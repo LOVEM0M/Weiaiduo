@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.noober.background.view.BLConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/dp_10">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_cover"
+        android:layout_width="@dimen/dp_175"
+        android:layout_height="@dimen/dp_175"
+        android:scaleType="centerCrop"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:background="@color/text_99" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:includeFontPadding="false"
+        android:paddingStart="@dimen/dp_5"
+        android:paddingTop="@dimen/dp_10"
+        android:paddingEnd="@dimen/dp_5"
+        android:singleLine="true"
+        android:textColor="@color/text_33"
+        android:textSize="@dimen/sp_14"
+        app:layout_constraintLeft_toLeftOf="@id/iv_cover"
+        app:layout_constraintRight_toRightOf="@id/iv_cover"
+        app:layout_constraintTop_toBottomOf="@id/iv_cover"
+        tools:text="测试" />
+
+    <com.noober.background.view.BLTextView
+        android:id="@+id/tv_price"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:includeFontPadding="false"
+        android:paddingStart="@dimen/dp_5"
+        android:paddingTop="@dimen/dp_5"
+        android:paddingEnd="@dimen/dp_5"
+        android:paddingBottom="@dimen/dp_5"
+        android:textColor="#982530"
+        android:textSize="@dimen/sp_16"
+        app:bl_corners_bottomLeftRadius="@dimen/dp_5"
+        app:bl_corners_bottomRightRadius="@dimen/dp_5"
+        app:bl_solid_color="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/iv_cover"
+        app:layout_constraintRight_toRightOf="@id/iv_cover"
+        app:layout_constraintTop_toBottomOf="@id/tv_title"
+        tools:text="0.01" />
+
+</com.noober.background.view.BLConstraintLayout>

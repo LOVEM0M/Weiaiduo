@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_f5"
+    android:orientation="vertical"
+    tools:ignore="HardcodedText">
+
+    <include layout="@layout/title_bar" />
+
+    <com.miyin.zhenbaoqi.widget.LineFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_44"
+        android:background="@color/white"
+        app:leftPadding="@dimen/dp_14"
+        app:rightPadding="@dimen/dp_14">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_merchant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/dp_14"
+            android:textColor="@color/text_66"
+            android:textSize="@dimen/sp_14"
+            tools:text="商家id" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_private_message"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:drawableStart="@drawable/ic_referrer"
+            android:drawablePadding="@dimen/dp_8"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/dp_14"
+            android:paddingEnd="@dimen/dp_14"
+            android:text="私信"
+            android:textColor="#FE4749"
+            android:textSize="@dimen/sp_14" />
+
+    </com.miyin.zhenbaoqi.widget.LineFrameLayout>
+
+    <com.miyin.zhenbaoqi.widget.LineFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_44"
+        android:background="@color/white"
+        app:leftPadding="@dimen/dp_14"
+        app:rightPadding="@dimen/dp_14">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_merchant_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/dp_14"
+            android:textColor="@color/text_66"
+            android:textSize="@dimen/sp_14"
+            tools:text="商家id" />
+
+    </com.miyin.zhenbaoqi.widget.LineFrameLayout>
+
+    <com.miyin.zhenbaoqi.widget.LineFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_44"
+        android:background="@color/white"
+        app:leftPadding="@dimen/dp_14"
+        app:rightPadding="@dimen/dp_14">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_merchant_wx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/dp_14"
+            android:textColor="@color/text_66"
+            android:textSize="@dimen/sp_14"
+            tools:text="商家id" />
+
+    </com.miyin.zhenbaoqi.widget.LineFrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_14"
+            android:layout_marginTop="@dimen/dp_14"
+            android:text="微信二维码："
+            android:textColor="@color/text_66"
+            android:textSize="@dimen/sp_14" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_wx_qr_code"
+            android:layout_width="@dimen/dp_120"
+            android:layout_height="@dimen/dp_120"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_14"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:scaleType="centerCrop"
+            tools:background="@color/text_99" />
+
+    </LinearLayout>
+
+</LinearLayout>

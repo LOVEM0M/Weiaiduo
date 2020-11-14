@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bargain_bg3"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingHorizontal="@dimen/dp_10"
+    android:layout_marginTop="@dimen/dp_12">
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_sale"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:includeFontPadding="false"
+        android:layout_marginTop="@dimen/dp_7"
+        android:singleLine="true"
+        android:text="已送出20套"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_10" />
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_cover"
+        android:layout_width="@dimen/dp_113"
+        android:layout_height="@dimen/dp_57"
+        android:layout_marginTop="@dimen/dp_31"
+        android:scaleType="fitXY"
+        tools:background="@color/text_33" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_15"
+        android:ellipsize="end"
+        android:includeFontPadding="false"
+        android:singleLine="true"
+        android:text="紫砂壶紫砂壶紫砂壶紫砂壶紫砂壶1套"
+        android:textColor="#222222"
+        android:textSize="@dimen/sp_12" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_title2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_12"
+        android:ellipsize="end"
+        android:includeFontPadding="false"
+        android:singleLine="true"
+        android:text="需邀请8人帮助砍价 "
+        android:textColor="#F84812"
+        android:textSize="@dimen/sp_10" />
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_title3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_20"
+        android:ellipsize="end"
+        android:includeFontPadding="false"
+        android:singleLine="true"
+        android:text="立即免单"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_12"
+        android:paddingVertical="@dimen/dp_3"
+        android:paddingHorizontal="@dimen/dp_9"
+        android:background="@drawable/shape_bargin_bg1"
+        android:gravity="center"/>
+</LinearLayout>

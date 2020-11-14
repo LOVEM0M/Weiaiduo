@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:ignore="HardcodedText,RtlSymmetry">
+
+    <LinearLayout
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/dp_12"
+        android:paddingVertical="@dimen/dp_10">
+
+        <LinearLayout
+            android:id="@+id/ll_goback"
+            android:layout_width="@dimen/dp_20"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="@dimen/dp_12"
+                android:layout_height="@dimen/dp_18"
+                android:src="@drawable/left_arrow_gray" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="积分明细"
+            android:textColor="#222222"
+            android:textSize="@dimen/sp_18" />
+    </LinearLayout>
+
+    <include layout="@layout/item_integral_subsidiary_head"/>
+    <include layout="@layout/item_integral_subsidiary"/>
+    <FrameLayout
+        android:id="@+id/normal_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="UselessParent">
+
+        <include layout="@layout/layout_refresh" />
+
+    </FrameLayout>
+</LinearLayout>

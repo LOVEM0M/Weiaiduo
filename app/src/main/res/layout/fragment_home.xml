@@ -1,0 +1,79 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:ignore="HardcodedText,RtlSymmetry">
+
+    <LinearLayout
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_home_header"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/ll_search"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_44"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="@dimen/dp_25"
+            android:gravity="center_vertical">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_10"
+                android:src="@drawable/ic_zhenbaoqi" />
+
+            <com.noober.background.view.BLTextView
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dp_30"
+                android:layout_marginStart="@dimen/dp_12"
+                android:layout_weight="1"
+                android:drawablePadding="@dimen/dp_10"
+                android:drawableStart="@drawable/ic_search"
+                android:gravity="center_vertical"
+                android:paddingStart="@dimen/dp_14"
+                android:text="搜索商品类别或名称"
+                android:textColor="@color/text_99"
+                android:textSize="@dimen/sp_14"
+                app:bl_corners_radius="@dimen/dp_30"
+                app:bl_solid_color="@color/white" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_tip"
+                android:layout_width="@dimen/dp_44"
+                android:layout_height="match_parent"
+                android:layout_gravity="end"
+                android:scaleType="center"
+                android:src="@drawable/ic_tip" />
+
+        </LinearLayout>
+
+        <com.miyin.zhenbaoqi.widget.SlidingTabLayout
+            android:id="@+id/tab_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_44"
+            android:layout_gravity="center"
+            app:tl_indicator_color="@color/white"
+            app:tl_indicator_corner_radius="@dimen/dp_4"
+            app:tl_indicator_height="@dimen/dp_4"
+            app:tl_indicator_width="@dimen/dp_37"
+            app:tl_normal_text_color="@color/white"
+            app:tl_normal_text_size="@dimen/sp_16"
+            app:tl_select_text_color="@color/white"
+            app:tl_select_text_size="@dimen/sp_20"
+            app:tl_tab_padding="@dimen/dp_10" />
+
+    </LinearLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        android:scrollbars="none" />
+
+</LinearLayout>

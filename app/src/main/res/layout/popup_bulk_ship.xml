@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="@dimen/dp_10"
+    android:orientation="vertical"
+    app:bl_corners_radius="@dimen/dp_3"
+    app:bl_solid_color="@color/white"
+    tools:ignore="HardcodedText">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_date_time"
+        android:layout_width="@dimen/dp_64"
+        android:layout_height="@dimen/dp_34"
+        android:gravity="center"
+        android:text="按日期"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp_10" />
+
+    <View
+        android:layout_width="@dimen/dp_64"
+        android:layout_height="@dimen/dp_1"
+        android:background="@color/line_eb" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_user_info"
+        android:layout_width="@dimen/dp_64"
+        android:layout_height="@dimen/dp_34"
+        android:gravity="center"
+        android:text="按用户"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp_10" />
+
+</LinearLayout>

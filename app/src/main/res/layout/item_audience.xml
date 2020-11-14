@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="@dimen/dp_5">
+
+    <com.miyin.zhenbaoqi.widget.CircleImageView
+        android:id="@+id/iv_avatar"
+        android:layout_width="@dimen/dp_36"
+        android:layout_height="@dimen/dp_36"
+        app:civ_border_color="@color/white"
+        app:civ_border_width="@dimen/dp_1"
+        tools:src="@mipmap/ic_launcher" />
+
+</FrameLayout>

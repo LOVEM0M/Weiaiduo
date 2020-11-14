@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.noober.background.view.BLConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_91"
+    android:layout_marginStart="@dimen/dp_8"
+    android:layout_marginTop="@dimen/dp_10"
+    android:layout_marginEnd="@dimen/dp_8"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    app:bl_corners_radius="@dimen/dp_5"
+    app:bl_solid_color="@color/white"
+    tools:ignore="HardcodedText">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_cover"
+        android:layout_width="@dimen/dp_102"
+        android:layout_height="@dimen/dp_70"
+        android:layout_marginStart="@dimen/dp_10"
+        android:scaleType="centerCrop"
+        android:src="#C2C2C2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_10"
+        android:layout_marginEnd="@dimen/dp_10"
+        android:includeFontPadding="false"
+        android:textColor="@color/text_33"
+        android:textSize="@dimen/sp_14"
+        app:layout_constraintLeft_toRightOf="@id/iv_cover"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/iv_cover"
+        tools:text="近日，网贷之家获悉" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_date_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/text_99"
+        android:textSize="@dimen/sp_12"
+        app:layout_constraintBottom_toBottomOf="@id/iv_cover"
+        app:layout_constraintLeft_toLeftOf="@id/tv_title"
+        tools:text="买萨的健康萨迪克按时撒旦阿大使阿萨德" />
+
+</com.noober.background.view.BLConstraintLayout>

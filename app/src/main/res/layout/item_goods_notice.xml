@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/dp_30">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_cover"
+        android:layout_width="@dimen/dp_22"
+        android:layout_height="@dimen/dp_22"
+        android:layout_marginStart="@dimen/dp_16"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:background="@drawable/ic_goods_notice_first" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_10"
+        android:includeFontPadding="false"
+        android:textColor="#C8332B"
+        android:textSize="@dimen/sp_16"
+        app:layout_constraintBottom_toBottomOf="@id/iv_cover"
+        app:layout_constraintLeft_toRightOf="@id/iv_cover"
+        app:layout_constraintTop_toTopOf="@id/iv_cover"
+        tools:text="珍品保障" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_desc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginEnd="@dimen/dp_16"
+        android:lineSpacingExtra="@dimen/dp_3"
+        android:textColor="#A1A1A1"
+        android:textSize="@dimen/sp_15"
+        app:layout_constraintLeft_toLeftOf="@id/iv_cover"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_cover"
+        tools:text="唯爱多平台所售产品均要求商户如实描述。所有通过鉴宝服务的产品均可接受全国复检，并且支持7天无理由退换货，实现客户权益最大化。" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:ignore="HardcodedText">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_44"
+        android:background="@color/bg_f5">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="直播间介绍"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_15" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_close"
+            android:layout_width="@dimen/dp_44"
+            android:layout_height="@dimen/dp_44"
+            android:layout_gravity="end"
+            android:scaleType="center"
+            android:src="@drawable/ic_close_small" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_20"
+        android:layout_marginBottom="@dimen/dp_13">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_cover"
+            android:layout_width="@dimen/dp_48"
+            android:layout_height="@dimen/dp_48"
+            android:layout_marginStart="@dimen/dp_12"
+            tools:background="@color/black" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_70"
+            android:layout_marginTop="@dimen/dp_4"
+            android:includeFontPadding="false"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_15"
+            tools:text="捞面和田玉工作室" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_eval"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="@dimen/dp_70"
+            android:layout_marginBottom="@dimen/dp_5"
+            android:includeFontPadding="false"
+            android:textColor="@color/text_66"
+            android:textSize="@dimen/sp_12"
+            tools:text="评分 80分" />
+
+        <com.noober.background.view.BLTextView
+            android:id="@+id/tv_attention"
+            android:layout_width="@dimen/dp_65"
+            android:layout_height="@dimen/dp_25"
+            android:layout_gravity="end"
+            android:layout_marginEnd="@dimen/dp_20"
+            android:gravity="center"
+            android:text="+ 关注"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_11"
+            app:bl_corners_radius="@dimen/dp_25"
+            app:bl_solid_color="#E93B44" />
+
+    </FrameLayout>
+
+    <com.noober.background.view.BLScrollView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_90"
+        android:layout_marginStart="@dimen/dp_8"
+        android:layout_marginEnd="@dimen/dp_8"
+        android:layout_marginBottom="@dimen/dp_20"
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        app:bl_corners_radius="@dimen/dp_5"
+        app:bl_solid_color="@color/bg_f5">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_90"
+            android:includeFontPadding="false"
+            android:paddingTop="@dimen/dp_8"
+            android:paddingBottom="@dimen/dp_8"
+            android:textColor="@color/text_66"
+            android:textSize="@dimen/sp_12" />
+
+    </com.noober.background.view.BLScrollView>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_28"
+        android:background="@color/bg_f5">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:includeFontPadding="false"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_12"
+            tools:text="捞面和田玉工作室" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|end"
+            android:layout_marginEnd="@dimen/dp_12"
+            android:includeFontPadding="false"
+            android:textColor="@color/text_66"
+            android:textSize="@dimen/sp_10"
+            tools:text="云南" />
+
+    </FrameLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_220"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/dp_12"
+            android:paddingTop="@dimen/dp_6"
+            android:paddingEnd="@dimen/dp_10"
+            android:paddingBottom="@dimen/dp_10"
+            android:textColor="@color/text_66"
+            android:textSize="@dimen/sp_12" />
+
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:layout_marginStart="@dimen/dp_15">
+
+    <com.noober.background.view.BLFrameLayout
+        android:id="@+id/fl_container"
+        android:layout_width="@dimen/dp_78"
+        android:layout_height="@dimen/dp_42"
+        android:layout_gravity="center_vertical"
+        app:bl_corners_radius="@dimen/dp_6"
+        app:bl_selected_drawable="#F8F8F8"
+        app:bl_unSelected_drawable="#E83133">
+
+        <com.noober.background.view.BLTextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/dp_5"
+            android:includeFontPadding="false"
+            android:textSize="@dimen/sp_16"
+            app:bl_selected_textColor="#E83133"
+            app:bl_unSelected_textColor="@color/white"
+            tools:text="10:00" />
+
+        <com.noober.background.view.BLTextView
+            android:id="@+id/tv_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginBottom="@dimen/dp_3"
+            android:includeFontPadding="false"
+            android:textSize="@dimen/sp_11"
+            app:bl_selected_textColor="#E83133"
+            app:bl_unSelected_textColor="@color/white"
+            tools:text="10:00" />
+
+    </com.noober.background.view.BLFrameLayout>
+
+</FrameLayout>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/dp_7"
+    tools:ignore="HardcodedText,RtlSymmetry">
+
+
+    <com.noober.background.view.BLLinearLayout
+        android:id="@+id/ll_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/ic_add_friut_friend"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="center">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_cover"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/dp_17"
+            android:paddingVertical="@dimen/dp_12"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_add_friend"/>
+    </com.noober.background.view.BLLinearLayout>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_6"
+            android:includeFontPadding="false"
+            android:text="好友名字"
+            android:layout_gravity="center"
+            android:paddingVertical="@dimen/dp_5"
+            android:paddingHorizontal="@dimen/dp_12"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_10"
+            android:background="@drawable/shape_friut_bg4"
+            app:layout_constraintTop_toBottomOf="@id/ll_img"
+            app:layout_constraintStart_toStartOf="@id/ll_img"
+            app:layout_constraintEnd_toEndOf="@id/ll_img"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.miyin.zhenbaoqi.widget.EasySwipeMenuLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:contentView="@+id/fl_container"
+    app:rightMenuView="@+id/fl_right_menu">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/fl_container"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_110"
+        android:layout_marginBottom="@dimen/dp_5"
+        android:layout_marginEnd="@dimen/dp_20"
+        android:layout_marginStart="@dimen/dp_20"
+        android:layout_marginTop="@dimen/dp_10"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="@dimen/dp_5"
+        app:cardUseCompatPadding="false">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_cover"
+            android:layout_width="@dimen/dp_33"
+            android:layout_height="@dimen/dp_33"
+            android:layout_marginStart="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_17" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_avatar"
+            android:layout_width="@dimen/dp_131"
+            android:layout_height="match_parent"
+            android:layout_gravity="end" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_60"
+            android:layout_marginTop="@dimen/dp_17"
+            android:includeFontPadding="false"
+            android:textColor="#0D0D0D"
+            android:textSize="@dimen/sp_15"
+            tools:text="工商银行\n储蓄卡" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_card_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginBottom="@dimen/dp_20"
+            android:layout_marginEnd="@dimen/dp_11"
+            android:includeFontPadding="false"
+            android:textColor="#0D0D0D"
+            android:textSize="@dimen/sp_18"
+            tools:text="**** **** **** 0011" />
+
+    </androidx.cardview.widget.CardView>
+
+    <FrameLayout
+        android:id="@+id/fl_right_menu"
+        android:layout_width="@dimen/dp_45"
+        android:layout_height="@dimen/dp_110"
+        android:layout_marginBottom="@dimen/dp_5"
+        android:layout_marginTop="@dimen/dp_10">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/dp_22"
+            android:layout_height="@dimen/dp_22"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/ic_close_transparent_circle" />
+
+    </FrameLayout>
+
+</com.miyin.zhenbaoqi.widget.EasySwipeMenuLayout>

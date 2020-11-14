@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:ignore="HardcodedText">
+
+    <com.noober.background.view.BLEditText
+        android:id="@+id/et_content"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_100"
+        android:layout_margin="@dimen/dp_10"
+        android:background="@null"
+        android:gravity="top|start"
+        android:hint="请填写拒绝原因"
+        android:padding="@dimen/dp_10"
+        android:textColor="@color/text_33"
+        android:textColorHint="@color/text_99"
+        android:textSize="@dimen/sp_14"
+        app:bl_corners_radius="@dimen/dp_5"
+        app:bl_stroke_color="@color/line_color"
+        app:bl_stroke_width="@dimen/dp_1" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.noober.background.view.BLTextView
+            android:id="@+id/tv_cancel"
+            android:layout_width="@dimen/dp_50"
+            android:layout_height="@dimen/dp_24"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:layout_marginStart="@dimen/dp_14"
+            android:gravity="center"
+            android:text="@string/cancel"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_12"
+            app:bl_corners_radius="@dimen/dp_24"
+            app:bl_solid_color="@color/text_99" />
+
+        <com.noober.background.view.BLTextView
+            android:id="@+id/tv_confirm"
+            android:layout_width="@dimen/dp_50"
+            android:layout_height="@dimen/dp_24"
+            android:layout_gravity="end"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:layout_marginEnd="@dimen/dp_14"
+            android:layout_marginStart="@dimen/dp_14"
+            android:gravity="center"
+            android:text="@string/confirm"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_12"
+            app:bl_corners_radius="@dimen/dp_24"
+            app:bl_solid_color="@color/bg_red" />
+
+    </FrameLayout>
+
+</LinearLayout>

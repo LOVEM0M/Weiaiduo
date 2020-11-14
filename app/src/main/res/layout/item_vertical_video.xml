@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="HardcodedText">
+
+    <com.tencent.rtmp.ui.TXCloudVideoView
+        android:id="@+id/video_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_15"
+        android:layout_marginBottom="@dimen/dp_66"
+        android:drawableTop="@drawable/ic_video_share"
+        android:drawablePadding="@dimen/dp_10"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="分享"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_12"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_comment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp_18"
+        android:drawableTop="@drawable/ic_video_comment"
+        android:drawablePadding="@dimen/dp_10"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="评论"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_12"
+        app:layout_constraintBottom_toTopOf="@id/tv_share"
+        app:layout_constraintRight_toRightOf="@id/tv_share" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_desc"
+        android:layout_width="@dimen/dp_250"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_12"
+        android:layout_marginBottom="@dimen/dp_54"
+        android:includeFontPadding="false"
+        android:lineSpacingExtra="@dimen/dp_5"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_12"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_44"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_back"
+            android:layout_width="@dimen/dp_44"
+            android:layout_height="match_parent"
+            android:scaleType="center"
+            android:src="@drawable/ic_back_white"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_7"
+            android:includeFontPadding="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_12"
+            app:layout_constraintLeft_toRightOf="@id/iv_avatar"
+            app:layout_constraintTop_toTopOf="@id/iv_avatar"
+            tools:text="玉石代购" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_fans_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_10"
+            app:layout_constraintBottom_toBottomOf="@id/iv_avatar"
+            app:layout_constraintLeft_toLeftOf="@id/tv_title"
+            tools:text="1000粉丝" />
+
+        <com.miyin.zhenbaoqi.widget.CircleImageView
+            android:id="@+id/iv_avatar"
+            android:layout_width="@dimen/dp_31"
+            android:layout_height="@dimen/dp_31"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/iv_back"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.noober.background.view.BLTextView
+            android:id="@+id/tv_attention"
+            android:layout_width="@dimen/dp_58"
+            android:layout_height="@dimen/dp_22"
+            android:layout_marginStart="@dimen/dp_17"
+            android:gravity="center"
+            android:text="+ 关注"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_12"
+            app:bl_corners_radius="@dimen/dp_22"
+            app:bl_solid_color="#E93B44"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/tv_title"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.noober.background.view.BLFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_40"
+        app:bl_stroke_color="#4DFFFFFF"
+        app:bl_stroke_position="top"
+        app:bl_stroke_width="@dimen/dp_1"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_reply"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/dp_12"
+            android:paddingEnd="@dimen/dp_12"
+            android:text="有爱评论，说点好听点的~"
+            android:textColor="#50FFFEFE"
+            android:textSize="@dimen/sp_12" />
+
+        <com.noober.background.view.BLTextView
+            android:id="@+id/tv_shop"
+            android:layout_width="@dimen/dp_72"
+            android:layout_height="@dimen/dp_28"
+            android:layout_gravity="center_vertical|end"
+            android:layout_marginEnd="@dimen/dp_6"
+            android:gravity="center"
+            android:text="进店逛逛"
+            android:textColor="#FFFEFE"
+            android:textSize="@dimen/sp_12"
+            app:bl_corners_radius="@dimen/dp_28"
+            app:bl_stroke_color="#FFFEFE"
+            app:bl_stroke_width="@dimen/dp_1" />
+
+    </com.noober.background.view.BLFrameLayout>
+
+    <com.noober.background.view.BLTextView
+        android:id="@+id/tv_attention_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp_18"
+        android:drawablePadding="@dimen/dp_10"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="0"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_12"
+        app:bl_position="top"
+        app:bl_selected_drawable="@drawable/ic_video_like_select"
+        app:bl_unSelected_drawable="@drawable/ic_video_like"
+        app:layout_constraintBottom_toTopOf="@id/tv_comment"
+        app:layout_constraintRight_toRightOf="@id/tv_share" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_cover"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/ic_live_bg"
+        android:scaleType="center"
+        android:src="@drawable/ic_live_title" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

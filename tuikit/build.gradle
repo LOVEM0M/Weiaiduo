@@ -1,0 +1,52 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion compile_sdk_version
+    defaultConfig {
+        minSdkVersion min_sdk_version
+        targetSdkVersion target_sdk_version
+        versionCode version_code
+        versionName version_name
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    sourceSets {
+        main {
+            assets.srcDirs = ['assets']
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+
+        google()
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    api 'androidx.legacy:legacy-support-v4:1.0.0'
+    api 'androidx.appcompat:appcompat:1.0.0'
+    api 'androidx.recyclerview:recyclerview:1.0.0'
+    api 'it.sephiroth.android.library.imagezoom:library:1.0.4'
+    api 'com.github.bumptech.glide:glide:4.9.0'
+    api 'com.squareup.picasso:picasso:2.5.2'
+    api 'com.github.promeg:tinypinyin:1.0.0'
+    api 'com.google.code.gson:gson:2.8.5'
+    api 'tv.danmaku.ijk.media:ijkplayer-java:0.8.8'
+    api 'tv.danmaku.ijk.media:ijkplayer-armv7a:0.8.8'
+    api 'tv.danmaku.ijk.media:ijkplayer-arm64:0.8.8'
+    api 'tv.danmaku.ijk.media:ijkplayer-x86:0.8.8'
+    api 'tv.danmaku.ijk.media:ijkplayer-x86_64:0.8.8'
+    api 'com.tencent.imsdk:imsdk:4.6.1'
+}

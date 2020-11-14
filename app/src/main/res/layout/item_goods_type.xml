@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_50"
+    tools:ignore="HardcodedText">
+
+    <com.noober.background.view.BLTextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:textSize="@dimen/sp_16"
+        app:bl_selected_drawable="@color/white"
+        app:bl_selected_textColor="@color/black"
+        app:bl_unSelected_drawable="@color/bg_f5"
+        app:bl_unSelected_textColor="@color/text_54"
+        tools:text="测试" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_cover"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|center_vertical"
+        android:layout_marginEnd="@dimen/dp_16"
+        android:background="@drawable/ic_release_select"
+        android:visibility="invisible" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:layout_gravity="bottom"
+        android:background="#EFEFEF" />
+
+    <com.noober.background.view.BLView
+        android:id="@+id/view_line"
+        android:layout_width="@dimen/dp_2"
+        android:layout_height="match_parent"
+        app:bl_selected_drawable="@color/theme_dark_purple"
+        app:bl_unSelected_drawable="@color/bg_f5" />
+
+</FrameLayout>

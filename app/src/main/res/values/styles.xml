@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowAnimationStyle">@style/ActivityAnimation</item>
+        <item name="android:windowContentTransitions">true</item>
+    </style>
+
+    <style name="ActivityAnimation" parent="@android:style/Animation">
+        <item name="android:activityOpenEnterAnimation">@anim/slide_right_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/slide_left_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/slide_left_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/slide_right_out</item>
+    </style>
+
+    <style name="DialogAnimation" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/dialog_push_in</item>
+        <item name="android:windowExitAnimation">@anim/dialog_push_out</item>
+    </style>
+
+    <style name="CenterDialogAnimation" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/dialog_enter</item>
+        <item name="android:windowExitAnimation">@anim/dialog_exit</item>
+    </style>
+
+    <style name="FilterDialogAnimation" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/dialog_right_in</item>
+        <item name="android:windowExitAnimation">@anim/dialog_right_out</item>
+    </style>
+
+    <style name="SplashTheme" parent="AppTheme">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowBackground">@drawable/splash_bg</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowDisablePreview">false</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">false</item>
+    </style>
+
+    <style name="ExitTheme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:background">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:title">@null</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:dialogTitle">@null</item>
+        <item name="android:windowCloseOnTouchOutside">false</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0</item>
+    </style>
+
+    <style name="SelectPhotoDialogStyle" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+    <style name="HomeTextStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:drawablePadding">@dimen/dp_6</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:paddingTop">@dimen/dp_8</item>
+        <item name="android:textSize">@dimen/sp_11</item>
+        <item name="bl_position">top</item>
+        <item name="bl_selected_textColor">@color/text_red</item>
+        <item name="bl_unSelected_textColor">@color/text_33</item>
+    </style>
+
+    <style name="MineTextStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:drawablePadding">@dimen/dp_10</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:paddingTop">@dimen/dp_15</item>
+        <item name="android:textColor">@color/text_33</item>
+        <item name="android:textSize">@dimen/sp_11</item>
+        <item name="bl_solid_color">@color/white</item>
+        <item name="bl_ripple_color">@color/ripple</item>
+        <item name="bl_ripple_enable">true</item>
+    </style>
+
+    <style name="LevelTextStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:drawablePadding">@dimen/dp_10</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:paddingTop">@dimen/dp_15</item>
+        <item name="android:textColor">@color/text_33</item>
+        <item name="android:textSize">@dimen/sp_10</item>
+    </style>
+
+    <style name="RippleStyle">
+        <item name="bl_solid_color">@color/white</item>
+        <item name="bl_ripple_color">@color/ripple</item>
+        <item name="bl_ripple_enable">true</item>
+    </style>
+
+    <style name="RtmpRoomDialogTheme"
+        parent="Theme.AppCompat.DayNight.Dialog.Alert" />
+
+
+    <!--    <style name="PictureWhiteStyle" parent="Theme.AppCompat.Light.DarkActionBar">-->
+    <!--        &lt;!&ndash;标题栏背景色&ndash;&gt;-->
+    <!--        <item name="colorPrimary">@color/white</item>-->
+    <!--        &lt;!&ndash;状态栏背景色&ndash;&gt;-->
+    <!--        <item name="colorPrimaryDark">@color/white</item>-->
+    <!--        &lt;!&ndash;是否改变图片列表界面状态栏字体颜色为黑色&ndash;&gt;-->
+    <!--        <item name="picture.statusFontColor">true</item>-->
+    <!--        &lt;!&ndash;返回键图标&ndash;&gt;-->
+    <!--        <item name="picture.leftBack.icon">@drawable/ic_back_gray</item>-->
+    <!--        &lt;!&ndash;标题下拉箭头&ndash;&gt;-->
+    <!--        <item name="picture.arrow_down.icon">@mipmap/ic_arrow_down</item>-->
+    <!--        &lt;!&ndash;标题上拉箭头&ndash;&gt;-->
+    <!--        <item name="picture.arrow_up.icon">@mipmap/ic_arrow_up</item>-->
+    <!--        &lt;!&ndash;标题文字颜色&ndash;&gt;-->
+    <!--        <item name="picture.title.textColor">@color/text_33</item>-->
+    <!--        &lt;!&ndash;标题栏右边文字&ndash;&gt;-->
+    <!--        <item name="picture.right.textColor">@color/text_33</item>-->
+    <!--        &lt;!&ndash;图片列表勾选样式&ndash;&gt;-->
+    <!--        <item name="picture.checked.style">@drawable/picture_checkbox_selector</item>-->
+    <!--        &lt;!&ndash;开启图片列表勾选数字模式,开启的话勾选样式要换&ndash;&gt;-->
+    <!--        <item name="picture.style.checkNumMode">false</item>-->
+    <!--        &lt;!&ndash;选择图片样式0/9&ndash;&gt;-->
+    <!--        <item name="picture.style.numComplete">true</item>-->
+    <!--        &lt;!&ndash;图片列表底部背景色&ndash;&gt;-->
+    <!--        <item name="picture.bottom.bg">@color/color_fa</item>-->
+    <!--        &lt;!&ndash;图片列表预览文字颜色&ndash;&gt;-->
+    <!--        <item name="picture.preview.textColor">@color/tab_color_false</item>-->
+    <!--        &lt;!&ndash;图片列表已完成文字颜色&ndash;&gt;-->
+    <!--        <item name="picture.complete.textColor">@color/tab_color_false</item>-->
+    <!--        &lt;!&ndash;图片已选数量圆点背景色&ndash;&gt;-->
+    <!--        <item name="picture.num.style">@drawable/num_oval</item>-->
+    <!--        &lt;!&ndash;预览界面标题栏背景色&ndash;&gt;-->
+    <!--        <item name="picture.ac_preview.title.bg">@color/white</item>-->
+    <!--        &lt;!&ndash;预览界面标题文字颜色&ndash;&gt;-->
+    <!--        <item name="picture.ac_preview.title.textColor">@color/black</item>-->
+    <!--        &lt;!&ndash;预览界面已完成文字颜色&ndash;&gt;-->
+    <!--        <item name="picture.ac_preview.complete.textColor">@color/tab_color_false</item>-->
+    <!--        &lt;!&ndash;预览界面底部背景色&ndash;&gt;-->
+    <!--        <item name="picture.ac_preview.bottom.bg">@color/color_fa</item>-->
+    <!--        &lt;!&ndash;预览界面返回箭头&ndash;&gt;-->
+    <!--        <item name="picture.preview.leftBack.icon">@drawable/ic_back_gray</item>-->
+    <!--        &lt;!&ndash;裁剪页面标题背景色&ndash;&gt;-->
+    <!--        <item name="picture.crop.toolbar.bg">@color/bar_grey</item>-->
+    <!--        &lt;!&ndash;裁剪页面状态栏颜色&ndash;&gt;-->
+    <!--        <item name="picture.crop.status.color">@color/bar_grey</item>-->
+    <!--        &lt;!&ndash;裁剪页面标题文字颜色&ndash;&gt;-->
+    <!--        <item name="picture.crop.title.color">@color/white</item>-->
+    <!--        &lt;!&ndash;相册文件夹列表选中图标&ndash;&gt;-->
+    <!--        <item name="picture.folder_checked_dot">@drawable/orange_oval</item>-->
+    <!--    </style>-->
+
+    <style name="BottomSheetDialogTheme" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@android:color/transparent</item><!--边框-->
+        <item name="android:windowFrame">@null</item><!--边框-->
+        <item name="android:windowIsFloating">true</item><!--是否浮现在activity之上-->
+        <item name="android:windowIsTranslucent">false</item><!--半透明-->
+        <item name="android:windowNoTitle">true</item><!--无标题-->
+        <item name="android:windowBackground">@android:color/transparent</item><!--背景透明-->
+        <item name="android:backgroundDimEnabled">false</item><!--模糊-->
+        <item name="android:windowSoftInputMode">adjustPan|stateHidden</item>
+    </style>
+
+    <style name="ProgressHorizontal">
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:progressDrawable">@drawable/progressbar_horizontal</item>
+        <item name="android:indeterminateDrawable">
+            @android:drawable/progress_indeterminate_horizontal
+        </item>
+        <item name="android:minHeight">@dimen/dp_10</item>
+        <item name="android:maxHeight">@dimen/dp_10</item>
+    </style>
+
+</resources>

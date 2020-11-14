@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_f5"
+    android:orientation="vertical"
+    tools:ignore="HardcodedText,RtlSymmetry">
+
+    <include layout="@layout/title_bar" />
+
+    <com.miyin.zhenbaoqi.widget.LineFrameLayout
+        android:id="@+id/fl_container"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_65"
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="@color/white"
+        android:visibility="gone"
+        app:leftPadding="@dimen/dp_15"
+        app:lineColor="@color/line_color"
+        app:rightPadding="@dimen/dp_15">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/dp_15"
+            android:text="头像"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_14" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/dp_30"
+            android:layout_height="@dimen/dp_30"
+            android:layout_gravity="end|center_vertical"
+            android:scaleType="center"
+            android:src="@drawable/ic_right_arrow_small" />
+
+        <com.miyin.zhenbaoqi.widget.CircleImageView
+            android:id="@+id/iv_avatar"
+            android:layout_width="@dimen/dp_45"
+            android:layout_height="@dimen/dp_45"
+            android:layout_gravity="end|center_vertical"
+            android:layout_marginEnd="@dimen/dp_30"
+            android:src="#EBEBEB" />
+
+    </com.miyin.zhenbaoqi.widget.LineFrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:background="@color/white"
+        android:visibility="gone">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="@dimen/dp_80"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/dp_15"
+            android:text="昵称"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_14" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:hint="请输入昵称"
+            android:paddingStart="@dimen/dp_8"
+            android:textColor="@color/text_33"
+            android:textColorHint="@color/text_99"
+            android:textSize="@dimen/sp_14" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="@color/white">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="@dimen/dp_80"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/dp_15"
+            android:text="身份"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_14" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_identity"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/dp_8"
+            android:textColor="@color/text_99"
+            android:textSize="@dimen/sp_14"
+            tools:text="聊天" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="@color/white">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="@dimen/dp_80"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/dp_15"
+            android:text="账号"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_14" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_account"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:hint="请输入账号"
+            android:inputType="phone"
+            android:maxLength="11"
+            android:paddingStart="@dimen/dp_8"
+            android:singleLine="true"
+            android:textColor="@color/text_33"
+            android:textColorHint="@color/text_99"
+            android:textSize="@dimen/sp_14" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:background="@color/white">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="@dimen/dp_80"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/dp_15"
+            android:text="密码"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_14" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_password"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:hint="请输入密码"
+            android:maxLength="20"
+            android:paddingStart="@dimen/dp_8"
+            android:singleLine="true"
+            android:textColor="@color/text_33"
+            android:textColorHint="@color/text_99"
+            android:textSize="@dimen/sp_14" />
+
+    </LinearLayout>
+
+    <com.noober.background.view.BLButton
+        android:id="@+id/btn_commit"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_44"
+        android:layout_marginStart="@dimen/dp_18"
+        android:layout_marginTop="@dimen/dp_50"
+        android:layout_marginEnd="@dimen/dp_18"
+        android:enabled="false"
+        android:text="确认修改"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_15"
+        app:bl_corners_radius="@dimen/dp_3"
+        app:bl_enabled_solid_color="#E83A39"
+        app:bl_unEnabled_solid_color="#E1E1E1" />
+
+</LinearLayout>

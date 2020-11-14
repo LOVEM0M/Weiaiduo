@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@android:id/background">
+        <shape>
+            <corners android:radius="@dimen/dp_5" />
+            <solid android:color="#FFED9E" />
+        </shape>
+    </item>
+    <!-- progress -->
+    <item android:id="@android:id/progress">
+        <clip>
+            <shape>
+                <corners android:radius="@dimen/dp_5" />
+                <solid android:color="#FE7A04" />
+            </shape>
+            <!--<nine-patch android:src="@drawable/progress_patch_galy" />-->
+        </clip>
+    </item>
+
+</layer-list>

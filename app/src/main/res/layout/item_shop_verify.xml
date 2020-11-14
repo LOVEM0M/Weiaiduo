@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/dp_10"
+    android:orientation="vertical"
+    tools:ignore="HardcodedText,RtlSymmetry">
+
+    <com.miyin.zhenbaoqi.widget.LineFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_70"
+        android:background="@color/white"
+        app:leftPadding="@dimen/dp_12"
+        app:rightPadding="@dimen/dp_12">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_cover"
+            android:layout_width="@dimen/dp_45"
+            android:layout_height="@dimen/dp_45"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/dp_12" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_66"
+            android:layout_marginTop="@dimen/dp_19"
+            android:includeFontPadding="false"
+            android:textColor="@color/text_33"
+            android:textSize="@dimen/sp_13"
+            android:textStyle="bold"
+            tools:text="捞面和田玉工作室" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_66"
+            android:layout_marginTop="@dimen/dp_41"
+            android:includeFontPadding="false"
+            android:textColor="@color/text_99"
+            android:textSize="@dimen/sp_11"
+            tools:text="副标题信息啊" />
+
+    </com.miyin.zhenbaoqi.widget.LineFrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:background="@color/white">
+
+        <com.miyin.zhenbaoqi.widget.CircleImageView
+            android:id="@+id/iv_avatar"
+            android:layout_width="@dimen/dp_25"
+            android:layout_height="@dimen/dp_25"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/dp_14" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/dp_44"
+            android:includeFontPadding="false"
+            android:textColor="@color/text_33"
+            android:textSize="@dimen/sp_12"
+            tools:text="张三（邀请码245464）" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_message"
+            android:layout_width="@dimen/dp_50"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:scaleType="center"
+            android:src="@drawable/ic_message_gray" />
+
+    </FrameLayout>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_date_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingBottom="@dimen/dp_15"
+        android:paddingStart="@dimen/dp_14"
+        android:textColor="@color/text_66"
+        android:textSize="@dimen/sp_12"
+        tools:text="核实时间：2019-12-10 15:20:10" />
+
+    <FrameLayout
+        android:id="@+id/fl_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingBottom="@dimen/dp_15">
+
+        <com.noober.background.view.BLTextView
+            android:id="@+id/tv_confirm"
+            android:layout_width="@dimen/dp_128"
+            android:layout_height="@dimen/dp_35"
+            android:layout_marginStart="@dimen/dp_30"
+            android:gravity="center"
+            android:text="确认核实"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_12"
+            app:bl_corners_radius="@dimen/dp_35"
+            app:bl_solid_color="#FF4444" />
+
+        <com.noober.background.view.BLTextView
+            android:id="@+id/tv_refuse"
+            android:layout_width="@dimen/dp_128"
+            android:layout_height="@dimen/dp_35"
+            android:layout_gravity="end"
+            android:layout_marginEnd="@dimen/dp_30"
+            android:gravity="center"
+            android:text="拒绝"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_12"
+            app:bl_corners_radius="@dimen/dp_35"
+            app:bl_solid_color="#BFBFBF" />
+
+    </FrameLayout>
+
+</LinearLayout>

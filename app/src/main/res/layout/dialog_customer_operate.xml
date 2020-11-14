@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.noober.background.view.BLLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:bl_corners_topLeftRadius="@dimen/dp_10"
+    app:bl_corners_topRightRadius="@dimen/dp_10"
+    app:bl_solid_color="@color/white"
+    tools:ignore="HardcodedText">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_report"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:drawableTop="@drawable/ic_report"
+        android:drawablePadding="@dimen/dp_8"
+        android:gravity="center_horizontal"
+        android:paddingTop="@dimen/dp_10"
+        android:paddingBottom="@dimen/dp_10"
+        android:text="举报"
+        android:textColor="@color/text_66"
+        android:textSize="@dimen/sp_14" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_add_black_list"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:drawableTop="@drawable/ic_add_black_list"
+        android:drawablePadding="@dimen/dp_8"
+        android:gravity="center_horizontal"
+        android:paddingTop="@dimen/dp_10"
+        android:paddingBottom="@dimen/dp_10"
+        android:text="拉黑"
+        android:textColor="@color/text_66"
+        android:textSize="@dimen/sp_14" />
+
+    <View
+        android:id="@+id/view_empty"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="2" />
+
+</com.noober.background.view.BLLinearLayout>

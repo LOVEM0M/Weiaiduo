@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.noober.background.view.BLLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    app:bl_corners_radius="@dimen/dp_7"
+    app:bl_solid_color="@color/white"
+    tools:ignore="HardcodedText">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_close"
+        android:layout_width="@dimen/dp_32"
+        android:layout_height="@dimen/dp_32"
+        android:layout_gravity="end"
+        android:scaleType="center"
+        android:src="@drawable/ic_close_small" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp_15"
+        android:includeFontPadding="false"
+        android:text="设置微信号"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp_14" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginBottom="@dimen/dp_24">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/dp_20"
+            android:includeFontPadding="false"
+            android:text="微信号："
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_14" />
+
+        <com.noober.background.view.BLEditText
+            android:id="@+id/et_content"
+            android:layout_width="@dimen/dp_174"
+            android:layout_height="@dimen/dp_31"
+            android:background="@null"
+            android:hint="请输入"
+            android:paddingStart="@dimen/dp_10"
+            android:paddingEnd="@dimen/dp_10"
+            android:textColor="@color/text_33"
+            android:textColorHint="@color/text_99"
+            android:textSize="@dimen/sp_14"
+            app:bl_corners_radius="@dimen/dp_2"
+            app:bl_stroke_color="#DFDFDF"
+            app:bl_stroke_width="@dimen/dp_1" />
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginStart="@dimen/dp_20"
+        android:layout_marginBottom="@dimen/dp_15"
+        android:includeFontPadding="false"
+        android:text="微信二维码名片："
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp_14" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_wx_qr_code"
+        android:layout_width="@dimen/dp_75"
+        android:layout_height="@dimen/dp_75"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_add_photo" />
+
+    <com.noober.background.view.BLButton
+        android:id="@+id/tv_commit"
+        android:layout_width="@dimen/dp_185"
+        android:layout_height="@dimen/dp_40"
+        android:layout_marginStart="@dimen/dp_45"
+        android:layout_marginTop="@dimen/dp_24"
+        android:layout_marginEnd="@dimen/dp_45"
+        android:layout_marginBottom="@dimen/dp_35"
+        android:text="保存"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_14"
+        app:bl_corners_radius="@dimen/dp_40"
+        app:bl_solid_color="#EA3337" />
+
+</com.noober.background.view.BLLinearLayout>

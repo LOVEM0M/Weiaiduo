@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_f5"
+    android:orientation="vertical"
+    tools:ignore="HardcodedText,RtlSymmetry">
+
+    <include layout="@layout/title_bar" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:background="@color/line_eb" />
+
+    <com.miyin.zhenbaoqi.widget.LineFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_75"
+        android:background="@color/white"
+        app:leftPadding="@dimen/dp_27">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/dp_27"
+            android:text="点击更换头像"
+            android:textColor="@color/text_33"
+            android:textSize="@dimen/sp_14" />
+
+        <com.miyin.zhenbaoqi.widget.CircleImageView
+            android:id="@+id/iv_avatar"
+            android:layout_width="@dimen/dp_45"
+            android:layout_height="@dimen/dp_45"
+            android:layout_gravity="end|center_vertical"
+            android:layout_marginEnd="@dimen/dp_24"
+            android:src="@color/text_99" />
+
+    </com.miyin.zhenbaoqi.widget.LineFrameLayout>
+
+    <com.miyin.zhenbaoqi.widget.LineFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:background="@color/white"
+        app:leftPadding="@dimen/dp_27">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/dp_27"
+            android:text="昵称"
+            android:textColor="@color/text_33"
+            android:textSize="@dimen/sp_14" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_name"
+            android:layout_width="@dimen/dp_200"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:background="@null"
+            android:gravity="end|center_vertical"
+            android:hint="请填写"
+            android:paddingEnd="@dimen/dp_24"
+            android:textColor="@color/text_33"
+            android:textColorHint="@color/text_99"
+            android:textSize="@dimen/sp_14" />
+
+    </com.miyin.zhenbaoqi.widget.LineFrameLayout>
+
+    <com.miyin.zhenbaoqi.widget.LineFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:background="@color/white"
+        app:leftPadding="@dimen/dp_27">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/dp_27"
+            android:text="电话"
+            android:textColor="@color/text_33"
+            android:textSize="@dimen/sp_14" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_phone"
+            android:layout_width="@dimen/dp_200"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:background="@null"
+            android:gravity="end|center_vertical"
+            android:hint="请填写"
+            android:inputType="phone"
+            android:maxLength="11"
+            android:paddingEnd="@dimen/dp_24"
+            android:textColor="@color/text_33"
+            android:textColorHint="@color/text_99"
+            android:textSize="@dimen/sp_14" />
+
+    </com.miyin.zhenbaoqi.widget.LineFrameLayout>
+
+    <com.miyin.zhenbaoqi.widget.LineFrameLayout
+        android:id="@+id/fl_gender"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:background="@color/white"
+        app:leftPadding="@dimen/dp_27">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/dp_27"
+            android:text="性别"
+            android:textColor="@color/text_33"
+            android:textSize="@dimen/sp_14" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_gender"
+            android:layout_width="@dimen/dp_200"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:background="@null"
+            android:gravity="end|center_vertical"
+            android:hint="请选择"
+            android:paddingEnd="@dimen/dp_24"
+            android:textColor="@color/text_33"
+            android:textColorHint="@color/text_99"
+            android:textSize="@dimen/sp_14" />
+
+    </com.miyin.zhenbaoqi.widget.LineFrameLayout>
+
+    <com.miyin.zhenbaoqi.widget.LineFrameLayout
+        android:id="@+id/fl_birthday"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:background="@color/white"
+        app:leftPadding="@dimen/dp_27">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/dp_27"
+            android:text="生日"
+            android:textColor="@color/text_33"
+            android:textSize="@dimen/sp_14" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_birthday"
+            android:layout_width="@dimen/dp_200"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:background="@null"
+            android:gravity="end|center_vertical"
+            android:hint="请选择"
+            android:paddingEnd="@dimen/dp_24"
+            android:textColor="@color/text_33"
+            android:textColorHint="@color/text_99"
+            android:textSize="@dimen/sp_14" />
+
+    </com.miyin.zhenbaoqi.widget.LineFrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:background="@color/white">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/dp_27"
+            android:text="我的推荐人"
+            android:textColor="@color/text_33"
+            android:textSize="@dimen/sp_14" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_referrer"
+            android:layout_width="@dimen/dp_250"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:background="@null"
+            android:drawablePadding="@dimen/dp_8"
+            android:gravity="end|center_vertical"
+            android:paddingEnd="@dimen/dp_24"
+            android:textColor="@color/text_33"
+            android:textSize="@dimen/sp_14"
+            tools:text="请设置地址" />
+
+    </FrameLayout>
+
+    <com.noober.background.view.BLButton
+        android:id="@+id/btn_commit"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_45"
+        android:layout_marginStart="@dimen/dp_18"
+        android:layout_marginTop="@dimen/dp_20"
+        android:layout_marginEnd="@dimen/dp_18"
+        android:text="确定"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_15"
+        app:bl_corners_radius="@dimen/dp_4"
+        app:bl_solid_color="#FF3D3D" />
+
+</LinearLayout>

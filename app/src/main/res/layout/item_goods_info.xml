@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fl_container"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_40"
+    android:layout_marginStart="@dimen/dp_16"
+    android:layout_marginEnd="@dimen/dp_16">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/dp_14"
+        android:gravity="center"
+        android:textColor="#7A7A7A"
+        android:textSize="@dimen/sp_14"
+        tools:text="名称:" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_desc"
+        android:layout_width="@dimen/dp_250"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:layout_marginEnd="@dimen/dp_14"
+        android:gravity="center|end"
+        android:textColor="#7A7A7A"
+        android:textSize="@dimen/sp_14"
+        tools:text="名称:" />
+
+</FrameLayout>

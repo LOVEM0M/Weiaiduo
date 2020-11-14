@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_f5"
+    android:orientation="vertical"
+    tools:ignore="HardcodedText,RtlSymmetry">
+
+    <include layout="@layout/title_bar" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_30"
+        android:gravity="center_vertical"
+        android:paddingStart="@dimen/dp_24"
+        android:text="请绑定持卡人本人的银行卡"
+        android:textColor="#B6B6B6"
+        android:textSize="@dimen/sp_13" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:background="@color/white">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="@dimen/dp_110"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/dp_27"
+            android:text="持卡人"
+            android:textColor="@color/text_33"
+            android:textSize="@dimen/sp_15" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:hint="请输入"
+            android:textColor="@color/text_33"
+            android:textColorHint="#B6B6B6"
+            android:textSize="@dimen/sp_15" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:background="@color/white">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="@dimen/dp_110"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/dp_27"
+            android:text="卡号"
+            android:textColor="@color/text_33"
+            android:textSize="@dimen/sp_15" />
+
+        <com.miyin.zhenbaoqi.widget.ContentWithSpaceEditText
+            android:id="@+id/et_bank_card_no"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:hint="请输入"
+            android:inputType="number"
+            android:textColor="@color/text_33"
+            android:textColorHint="#B6B6B6"
+            android:textSize="@dimen/sp_15"
+            app:input_type="bank_card_no" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:background="@color/white">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="@dimen/dp_110"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/dp_27"
+            android:text="银行类型"
+            android:textColor="@color/text_33"
+            android:textSize="@dimen/sp_15" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_bank"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:drawableEnd="@mipmap/ic_arrow_down"
+            android:gravity="center_vertical"
+            android:hint="请选择"
+            android:textColor="@color/text_33"
+            android:textColorHint="#B6B6B6"
+            android:textSize="@dimen/sp_15" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:background="@color/white">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="@dimen/dp_110"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/dp_27"
+            android:text="银行支行"
+            android:textColor="@color/text_33"
+            android:textSize="@dimen/sp_15" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_bank_branch"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:hint="请输入"
+            android:maxLength="15"
+            android:singleLine="true"
+            android:textColor="@color/text_33"
+            android:textColorHint="#B6B6B6"
+            android:textSize="@dimen/sp_15" />
+
+    </LinearLayout>
+
+    <com.noober.background.view.BLButton
+        android:id="@+id/btn_commit"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_45"
+        android:layout_marginStart="@dimen/dp_18"
+        android:layout_marginTop="@dimen/dp_35"
+        android:layout_marginEnd="@dimen/dp_18"
+        android:text="确定"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_15"
+        app:bl_corners_radius="@dimen/dp_3"
+        app:bl_solid_color="#E83A39" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_31"
+        android:layout_marginTop="@dimen/dp_20"
+        android:lineSpacingExtra="@dimen/dp_5"
+        android:text="温馨提示：\n为了您的资金安全，请绑定与您身份的银行卡"
+        android:textColor="#B6B6B6"
+        android:textSize="@dimen/sp_11" />
+
+</LinearLayout>

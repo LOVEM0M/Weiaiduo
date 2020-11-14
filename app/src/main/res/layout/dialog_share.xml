@@ -1,0 +1,112 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:ignore="HardcodedText,NestedWeights">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_container"
+        android:layout_width="@dimen/dp_285"
+        android:layout_height="@dimen/dp_487"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/dp_20"
+        android:background="@drawable/ic_invite_share">
+
+        <com.miyin.zhenbaoqi.widget.CircleImageView
+            android:id="@+id/iv_avatar"
+            android:layout_width="@dimen/dp_44"
+            android:layout_height="@dimen/dp_44"
+            android:layout_marginStart="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_25"
+            android:src="@color/white"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_5"
+            android:includeFontPadding="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_14"
+            app:layout_constraintLeft_toRightOf="@id/iv_avatar"
+            app:layout_constraintTop_toTopOf="@id/iv_avatar"
+            tools:text="测试" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_qr_code"
+            android:layout_width="@dimen/dp_90"
+            android:layout_height="@dimen/dp_90"
+            android:layout_marginStart="@dimen/dp_30"
+            android:layout_marginBottom="@dimen/dp_40"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            tools:background="@color/text_99" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_120"
+        android:background="@color/white">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_share_friend"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_weixin_allshare"
+            android:drawablePadding="@dimen/dp_7"
+            android:gravity="center_horizontal"
+            android:paddingTop="@dimen/dp_23"
+            android:text="分享好友"
+            android:textColor="@color/text_66"
+            android:textSize="@dimen/sp_13" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_share_friend_circle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_pyq_allshare"
+            android:drawablePadding="@dimen/dp_7"
+            android:gravity="center_horizontal"
+            android:paddingTop="@dimen/dp_23"
+            android:text="一键发圈"
+            android:textColor="@color/text_66"
+            android:textSize="@dimen/sp_13" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_save_photo"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_download"
+            android:drawablePadding="@dimen/dp_7"
+            android:gravity="center_horizontal"
+            android:paddingTop="@dimen/dp_23"
+            android:text="保存图片"
+            android:textColor="@color/text_66"
+            android:textSize="@dimen/sp_13" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_copy"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_link_allshare"
+            android:drawablePadding="@dimen/dp_7"
+            android:gravity="center_horizontal"
+            android:paddingTop="@dimen/dp_23"
+            android:text="复制链接"
+            android:textColor="@color/text_66"
+            android:textSize="@dimen/sp_13" />
+
+    </LinearLayout>
+
+</LinearLayout>

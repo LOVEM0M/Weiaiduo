@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_f5"
+    android:orientation="vertical"
+    tools:ignore="HardcodedText">
+
+    <include layout="@layout/title_bar" />
+
+    <include
+        layout="@layout/layout_order_goods_info"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_106"
+        android:layout_marginTop="@dimen/dp_6"
+        android:layout_marginBottom="@dimen/dp_15" />
+
+    <com.miyin.zhenbaoqi.widget.LineFrameLayout
+        android:id="@+id/fl_refund"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_74"
+        android:background="@color/white"
+        app:leftPadding="@dimen/dp_16"
+        app:lineColor="@color/line_ee"
+        app:rightPadding="@dimen/dp_16">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/dp_24"
+            android:layout_height="@dimen/dp_22"
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_14"
+            android:background="@drawable/ic_refund" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_56"
+            android:layout_marginTop="@dimen/dp_18"
+            android:text="我要退款（无需退货）"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_14" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_56"
+            android:layout_marginTop="@dimen/dp_44"
+            android:text="没收到货，或与卖家协商同意不用退货只退款"
+            android:textColor="@color/text_gray_a1"
+            android:textSize="@dimen/sp_12" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|end"
+            android:layout_marginEnd="@dimen/dp_16"
+            android:background="@drawable/ic_right_arrow_small" />
+
+    </com.miyin.zhenbaoqi.widget.LineFrameLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_return_goods"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_74"
+        android:background="@color/white">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/dp_24"
+            android:layout_height="@dimen/dp_22"
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_14"
+            android:background="@drawable/ic_return_goods" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_56"
+            android:layout_marginTop="@dimen/dp_18"
+            android:text="我要退货退款"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_14" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_56"
+            android:layout_marginTop="@dimen/dp_44"
+            android:text="已收到货，需要退还收到的货物"
+            android:textColor="@color/text_gray_a1"
+            android:textSize="@dimen/sp_12" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|end"
+            android:layout_marginEnd="@dimen/dp_16"
+            android:background="@drawable/ic_right_arrow_small" />
+
+    </FrameLayout>
+
+</LinearLayout>

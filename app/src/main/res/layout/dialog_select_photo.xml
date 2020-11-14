@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:ignore="HardcodedText">
+
+    <com.noober.background.view.BLLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp_15"
+        android:layout_marginEnd="@dimen/dp_15"
+        android:layout_marginStart="@dimen/dp_15"
+        android:orientation="vertical"
+        app:bl_corners_radius="@dimen/dp_10"
+        app:bl_solid_color="@color/white">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_take_photo"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_50"
+            android:layout_marginEnd="@dimen/dp_15"
+            android:layout_marginStart="@dimen/dp_15"
+            android:gravity="center"
+            android:text="相机"
+            android:textColor="@color/text_33"
+            android:textSize="@dimen/sp_15" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_1"
+            android:background="@color/line_eb" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_open_album"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_50"
+            android:layout_marginEnd="@dimen/dp_15"
+            android:layout_marginStart="@dimen/dp_15"
+            android:gravity="center"
+            android:text="从相册选择"
+            android:textColor="@color/text_33"
+            android:textSize="@dimen/sp_15" />
+
+    </com.noober.background.view.BLLinearLayout>
+
+    <com.noober.background.view.BLTextView
+        android:id="@+id/tv_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:layout_marginBottom="@dimen/dp_15"
+        android:layout_marginEnd="@dimen/dp_15"
+        android:layout_marginStart="@dimen/dp_15"
+        android:gravity="center"
+        android:text="取消"
+        android:textColor="@color/text_33"
+        android:textSize="@dimen/sp_15"
+        app:bl_corners_radius="@dimen/dp_10"
+        app:bl_solid_color="@color/white" />
+
+</LinearLayout>

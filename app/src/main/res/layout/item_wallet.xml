@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_70">
+
+    <com.miyin.zhenbaoqi.widget.CircleImageView
+        android:id="@+id/iv_cover"
+        android:layout_width="@dimen/dp_29"
+        android:layout_height="@dimen/dp_29"
+        android:layout_marginStart="@dimen/dp_12"
+        android:layout_marginTop="@dimen/dp_15"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_10"
+        android:includeFontPadding="false"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp_12"
+        app:layout_constraintLeft_toRightOf="@id/iv_cover"
+        app:layout_constraintTop_toTopOf="@id/iv_cover"
+        tools:text="张胜阿萨德撒旦" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_5"
+        android:includeFontPadding="false"
+        android:textColor="@color/text_66"
+        android:textSize="@dimen/sp_8"
+        android:visibility="gone"
+        app:layout_constraintLeft_toRightOf="@id/iv_cover"
+        app:layout_constraintTop_toBottomOf="@id/tv_name"
+        tools:text="购物消费 1000" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_5"
+        android:includeFontPadding="false"
+        android:textColor="@color/text_66"
+        android:textSize="@dimen/sp_10"
+        app:layout_constraintLeft_toRightOf="@id/iv_cover"
+        app:layout_constraintTop_toBottomOf="@id/tv_desc"
+        tools:text="12-05 20:10" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_title"
+        android:layout_width="@dimen/dp_100"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_80"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:textColor="@color/text_33"
+        android:textSize="@dimen/sp_10"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/tv_time"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="奖励提成" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_15"
+        android:textSize="@dimen/sp_12"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="+100.00" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:layout_marginStart="@dimen/dp_12"
+        android:layout_marginEnd="@dimen/dp_11"
+        android:background="@color/line_eb"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

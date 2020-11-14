@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/dp_10"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:ignore="RtlSymmetry">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_cover"
+        android:layout_width="@dimen/dp_108"
+        android:layout_height="@dimen/dp_112"
+        android:scaleType="center"
+        tools:src="@color/text_99" />
+
+    <com.noober.background.view.BLTextView
+        android:id="@+id/tv_title"
+        android:layout_width="@dimen/dp_108"
+        android:layout_height="@dimen/dp_35"
+        android:drawablePadding="@dimen/dp_3"
+        android:gravity="center_vertical"
+        android:includeFontPadding="false"
+        android:paddingStart="@dimen/dp_10"
+        android:textColor="#EA313E"
+        android:textSize="@dimen/sp_12"
+        app:bl_corners_radius="@dimen/dp_3"
+        app:bl_solid_color="@color/white"
+        tools:text="#EA313E" />
+
+</LinearLayout>

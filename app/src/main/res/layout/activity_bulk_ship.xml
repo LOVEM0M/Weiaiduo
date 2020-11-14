@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_f5"
+    android:orientation="vertical">
+
+    <include layout="@layout/title_bar" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_name"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_76"
+        android:background="@color/white"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:lineSpacingExtra="@dimen/dp_10"
+        android:textColor="@color/text_99"
+        android:textSize="@dimen/sp_10"
+        tools:text="共有13个用户，合计30笔订单\n同一个用户可使用批量发货功能" />
+
+    <FrameLayout
+        android:id="@+id/normal_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include layout="@layout/layout_refresh" />
+
+    </FrameLayout>
+
+</LinearLayout>

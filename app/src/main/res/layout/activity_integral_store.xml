@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_f5"
+    android:orientation="vertical"
+    tools:ignore="HardcodedText,RtlSymmetry">
+
+    <LinearLayout
+        android:id="@+id/top_bg"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_200"
+        android:background="@drawable/shape_sign_in_bg1"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/dp_12"
+        android:paddingTop="@dimen/dp_13"
+        app:layout_constraintTop_toTopOf="@id/top_bg">
+
+        <LinearLayout
+            android:id="@+id/ll_goback"
+            android:layout_width="@dimen/dp_20"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="@dimen/dp_12"
+                android:layout_height="@dimen/dp_18"
+                android:src="@drawable/left_arrow_white" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="每日签到"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_18" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_my_integral"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_29"
+        android:gravity="bottom|center_horizontal"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/title_bar">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/dp_4"
+            android:gravity="center"
+            android:text="我的积分："
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_12" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp_2"
+            android:background="@drawable/shape_home_bg6"
+            android:gravity="center"
+            android:paddingHorizontal="@dimen/dp_9"
+            android:paddingVertical="9.5dp"
+            android:text="1"
+            android:textColor="#F31822"
+            android:textSize="@dimen/sp_18" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp_2"
+            android:background="@drawable/shape_home_bg6"
+            android:gravity="center"
+            android:paddingHorizontal="@dimen/dp_9"
+            android:paddingVertical="9.5dp"
+            android:text="1"
+            android:textColor="#F31822"
+            android:textSize="@dimen/sp_18" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp_2"
+            android:background="@drawable/shape_home_bg6"
+            android:gravity="center"
+            android:paddingHorizontal="@dimen/dp_9"
+            android:paddingVertical="9.5dp"
+            android:text="6"
+            android:textColor="#F31822"
+            android:textSize="@dimen/sp_18" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp_2"
+            android:background="@drawable/shape_home_bg6"
+            android:gravity="center"
+            android:paddingHorizontal="@dimen/dp_9"
+            android:paddingVertical="9.5dp"
+            android:text="0"
+            android:textColor="#F31822"
+            android:textSize="@dimen/sp_18" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_4"
+            android:gravity="center"
+            android:text="分"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_12" />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/tv_change_rules"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="@dimen/dp_10"
+        android:background="@drawable/shape_integral_bg2"
+        android:gravity="center"
+        android:paddingVertical="@dimen/dp_8"
+        android:text="兑换规则"
+        android:textColor="#F31822"
+        android:textSize="@dimen/sp_12"
+        app:layout_constraintTop_toBottomOf="@id/title_bar"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="@dimen/dp_19"/>
+    <LinearLayout
+        android:id="@+id/ll_tab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_20"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/ll_my_integral">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/dp_12"
+                android:background="@drawable/shape_integral_bg1"
+                android:paddingVertical="@dimen/dp_6"
+                android:text="积分明细"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_12" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/dp_12"
+                android:background="@drawable/shape_integral_bg1"
+                android:paddingVertical="@dimen/dp_6"
+                android:text="去赚积分"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_12" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/dp_12"
+                android:background="@drawable/shape_integral_bg1"
+                android:gravity="center"
+                android:paddingVertical="@dimen/dp_6"
+                android:text="兑换记录"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_12" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/shape_sign_in_bg2"
+        android:layout_marginTop="@dimen/dp_14"
+        android:layout_marginHorizontal="@dimen/dp_12"
+        app:layout_constraintTop_toBottomOf="@id/ll_tab">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_integral_bg1"
+            android:gravity="center"
+            android:paddingVertical="@dimen/dp_6"
+            android:text="精品推荐"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_12" />
+        <FrameLayout
+            android:id="@+id/normal_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:ignore="UselessParent">
+
+            <include layout="@layout/layout_refresh" />
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

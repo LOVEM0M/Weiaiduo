@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.noober.background.view.BLLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    app:bl_corners_radius="@dimen/dp_10"
+    app:bl_solid_color="@color/white"
+    tools:ignore="HardcodedText">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="@dimen/dp_250"
+        android:layout_height="@dimen/dp_50"
+        android:gravity="center"
+        android:text="欢迎使用唯爱多"
+        android:textColor="@color/text_33"
+        android:textSize="@dimen/sp_18"
+        android:textStyle="bold" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_95"
+        android:paddingStart="@dimen/dp_20"
+        android:paddingEnd="@dimen/dp_20"
+        android:textColor="@color/text_33"
+        android:textSize="@dimen/sp_14" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:background="@color/line_eb" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_45">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_refuse"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_45"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="不同意"
+            android:textColor="@color/text_33"
+            android:textSize="@dimen/sp_16" />
+
+        <View
+            android:layout_width="@dimen/dp_1"
+            android:layout_height="match_parent"
+            android:background="@color/line_eb" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_agree"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_45"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="同意"
+            android:textColor="@color/text_red"
+            android:textSize="@dimen/sp_16" />
+
+    </LinearLayout>
+
+</com.noober.background.view.BLLinearLayout>

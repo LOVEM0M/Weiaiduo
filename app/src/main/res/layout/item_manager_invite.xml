@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.miyin.zhenbaoqi.widget.LineFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/RippleStyle"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_77">
+
+    <com.miyin.zhenbaoqi.widget.CircleImageView
+        android:id="@+id/iv_avatar"
+        android:layout_width="@dimen/dp_50"
+        android:layout_height="@dimen/dp_50"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="@dimen/dp_21" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_89"
+        android:layout_marginTop="@dimen/dp_20"
+        android:includeFontPadding="false"
+        android:textColor="#141414"
+        android:textSize="@dimen/sp_15"
+        tools:text="平常心" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_date_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_89"
+        android:layout_marginTop="@dimen/dp_44"
+        android:includeFontPadding="false"
+        android:textColor="#B7B7B7"
+        android:textSize="@dimen/sp_12"
+        tools:text="2019-12-12 12:06" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|end"
+        android:layout_marginEnd="@dimen/dp_14"
+        android:gravity="end"
+        android:includeFontPadding="false"
+        android:lineSpacingExtra="@dimen/dp_9"
+        android:textSize="@dimen/sp_12"
+        tools:text="¥180.00" />
+
+</com.miyin.zhenbaoqi.widget.LineFrameLayout>

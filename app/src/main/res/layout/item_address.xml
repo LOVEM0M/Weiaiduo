@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cl_container"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_156"
+    android:layout_marginTop="@dimen/dp_10"
+    android:background="@color/white"
+    tools:ignore="HardcodedText">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_17"
+        android:includeFontPadding="false"
+        android:textColor="@color/text_33"
+        android:textSize="@dimen/sp_14"
+        app:layout_constraintBottom_toTopOf="@id/tv_address"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="收货人:李先生" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_address"
+        android:layout_width="@dimen/dp_320"
+        android:layout_height="@dimen/dp_39"
+        android:includeFontPadding="false"
+        android:textColor="@color/text_33"
+        android:textSize="@dimen/sp_14"
+        app:layout_constraintBottom_toTopOf="@id/line"
+        app:layout_constraintLeft_toLeftOf="@id/tv_name"
+        app:layout_constraintTop_toBottomOf="@id/tv_name"
+        tools:text="收货地址：浙江省杭州市余杭区 宇航街道 3幢1单元407室" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_17"
+        android:includeFontPadding="false"
+        android:textColor="@color/text_33"
+        android:textSize="@dimen/sp_14"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_name"
+        tools:text="13888888888" />
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:layout_marginTop="@dimen/dp_112"
+        android:background="@color/line_eb"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.noober.background.view.BLTextView
+        android:id="@+id/tv_is_default"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp_44"
+        android:layout_marginStart="@dimen/dp_16"
+        android:drawablePadding="@dimen/dp_6"
+        android:gravity="center_vertical"
+        android:text="默认地址"
+        android:textSize="@dimen/sp_14"
+        app:bl_position="left"
+        app:bl_selected_drawable="@drawable/ic_address_select"
+        app:bl_selected_textColor="#FF4343"
+        app:bl_unSelected_drawable="@drawable/ic_address_normal"
+        app:bl_unSelected_textColor="@color/text_99"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp_44"
+        android:layout_marginEnd="@dimen/dp_17"
+        android:drawablePadding="@dimen/dp_6"
+        android:drawableStart="@drawable/ic_address_delete"
+        android:gravity="center_vertical"
+        android:text="删除"
+        android:textColor="@color/text_99"
+        android:textSize="@dimen/sp_14"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp_44"
+        android:layout_marginEnd="@dimen/dp_20"
+        android:drawablePadding="@dimen/dp_6"
+        android:drawableStart="@drawable/ic_address_edit"
+        android:gravity="center_vertical"
+        android:text="编辑"
+        android:textColor="@color/text_99"
+        android:textSize="@dimen/sp_14"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/tv_delete" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

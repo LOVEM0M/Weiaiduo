@@ -1,0 +1,53 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#F2FFFFFF"
+    android:orientation="vertical"
+    tools:ignore="HardcodedText,RtlSymmetry">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_36">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="#101010"
+            android:textSize="@dimen/sp_12"
+            tools:text="10条评论" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_close"
+            android:layout_width="@dimen/dp_36"
+            android:layout_height="@dimen/dp_36"
+            android:layout_gravity="end"
+            android:scaleType="center"
+            android:src="@drawable/ic_close_small" />
+
+    </FrameLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:minHeight="@dimen/dp_328"
+        android:overScrollMode="never"
+        android:scrollbars="none" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_comment"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_42"
+        android:background="#DCDCDC"
+        android:gravity="center_vertical"
+        android:hint="有爱评论，说点好听点的~"
+        android:paddingStart="@dimen/dp_12"
+        android:textColor="@color/text_33"
+        android:textColorHint="#804B4B4B"
+        android:textSize="@dimen/sp_14" />
+
+</LinearLayout>

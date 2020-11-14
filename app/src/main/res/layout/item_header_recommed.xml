@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.noober.background.view.BLLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/dp_98"
+    android:layout_height="@dimen/dp_125"
+    android:layout_marginStart="@dimen/dp_8"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    app:bl_corners_radius="@dimen/dp_5"
+    app:bl_solid_color="@color/white">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_cover"
+        android:layout_width="@dimen/dp_86"
+        android:layout_height="@dimen/dp_86"
+        android:layout_marginTop="@dimen/dp_6"
+        android:scaleType="fitXY" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_6"
+        android:includeFontPadding="false"
+        android:textColor="@color/text_ef0025"
+        android:textSize="@dimen/sp_15"
+        tools:text="128" />
+
+</com.noober.background.view.BLLinearLayout>

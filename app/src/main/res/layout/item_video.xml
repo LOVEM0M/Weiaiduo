@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/dp_10"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_cover"
+        android:layout_width="@dimen/dp_175"
+        android:layout_height="@dimen/dp_175"
+        android:layout_gravity="center_horizontal" />
+
+    <com.noober.background.view.BLTextView
+        android:id="@+id/tv_title"
+        android:layout_width="@dimen/dp_175"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:includeFontPadding="false"
+        android:paddingBottom="@dimen/dp_10"
+        android:paddingEnd="@dimen/dp_8"
+        android:paddingStart="@dimen/dp_6"
+        android:paddingTop="@dimen/dp_10"
+        android:textColor="@color/text_33"
+        android:textSize="@dimen/sp_12"
+        app:bl_corners_bottomLeftRadius="@dimen/dp_5"
+        app:bl_corners_bottomRightRadius="@dimen/dp_5"
+        app:bl_solid_color="@color/white"
+        tools:text="翡翠石头记阿萨德爱上疯" />
+
+</LinearLayout>

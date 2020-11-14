@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_138"
+    android:layout_marginTop="@dimen/dp_10"
+    android:background="@color/white"
+    tools:ignore="HardcodedText">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_cover"
+        android:layout_width="@dimen/dp_83"
+        android:layout_height="@dimen/dp_83"
+        android:layout_marginStart="@dimen/dp_9"
+        android:layout_marginTop="@dimen/dp_9"
+        android:scaleType="fitXY"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/ll_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_5"
+        android:gravity="center_vertical"
+        app:layout_constraintLeft_toRightOf="@id/iv_cover"
+        app:layout_constraintTop_toTopOf="@id/iv_cover">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_12"
+            tools:text="商品信息昵称" />
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_14"
+        android:includeFontPadding="false"
+        android:textColor="@color/text_66"
+        android:textSize="@dimen/sp_10"
+        app:layout_constraintLeft_toLeftOf="@id/ll_container"
+        app:layout_constraintTop_toBottomOf="@id/ll_container"
+        tools:text="已售：3件    库存：200件" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_14"
+        android:includeFontPadding="false"
+        android:textColor="#C82F41"
+        android:textSize="@dimen/sp_12"
+        app:layout_constraintLeft_toLeftOf="@id/ll_container"
+        app:layout_constraintTop_toBottomOf="@id/tv_desc"
+        tools:text="¥ 5000" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp_12"
+        android:layout_marginEnd="@dimen/dp_26"
+        android:drawablePadding="@dimen/dp_4"
+        android:drawableStart="@drawable/ic_top_red"
+        android:gravity="center_vertical"
+        android:includeFontPadding="false"
+        android:text="置顶"
+        android:textColor="#EA2D2D"
+        android:textSize="@dimen/sp_12"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_take_off"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_23"
+        android:drawablePadding="@dimen/dp_4"
+        android:drawableStart="@drawable/ic_take_off_goods"
+        android:gravity="center_vertical"
+        android:includeFontPadding="false"
+        android:text="下架"
+        android:textColor="#737373"
+        android:textSize="@dimen/sp_12"
+        app:layout_constraintBottom_toBottomOf="@id/tv_top"
+        app:layout_constraintRight_toLeftOf="@id/tv_top"
+        app:layout_constraintTop_toTopOf="@id/tv_top" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_23"
+        android:drawablePadding="@dimen/dp_4"
+        android:drawableStart="@drawable/ic_edit_goods"
+        android:gravity="center_vertical"
+        android:includeFontPadding="false"
+        android:text="编辑"
+        android:textColor="#737373"
+        android:textSize="@dimen/sp_12"
+        app:layout_constraintBottom_toBottomOf="@id/tv_top"
+        app:layout_constraintRight_toLeftOf="@id/tv_take_off"
+        app:layout_constraintTop_toTopOf="@id/tv_top" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

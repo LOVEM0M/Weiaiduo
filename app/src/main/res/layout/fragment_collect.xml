@@ -1,0 +1,31 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_f5"
+    tools:ignore="UselessParent"
+    android:orientation="vertical">
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_title_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/left_arrow_gray"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textSize="@dimen/sp_18"
+            tools:text="我的搜藏"
+            tools:textColor="@color/text_33"
+            android:paddingHorizontal="@dimen/dp_12"
+            android:background="@color/white"
+            android:paddingVertical="@dimen/dp_5"/>
+    <FrameLayout
+        android:id="@+id/normal_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/dp_12">
+
+        <include layout="@layout/layout_refresh" />
+
+    </FrameLayout>
+
+</LinearLayout>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:ignore="HardcodedText">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_231">
+
+        <include layout="@layout/title_bar" />
+
+        <com.noober.background.view.BLTextView
+            android:layout_width="@dimen/dp_77"
+            android:layout_height="@dimen/dp_32"
+            android:layout_gravity="end"
+            android:layout_marginTop="@dimen/dp_66"
+            android:gravity="center"
+            android:text="查看订单"
+            android:textColor="#FF3A3C"
+            android:textSize="@dimen/sp_13"
+            app:bl_corners_bottomLeftRadius="@dimen/dp_32"
+            app:bl_corners_topLeftRadius="@dimen/dp_32"
+            app:bl_solid_color="@color/white" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/dp_90"
+            android:includeFontPadding="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_30"
+            tools:text="支付成功" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/dp_135"
+            android:includeFontPadding="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_14"
+            tools:text="正在飞速发货中，请耐心等待~" />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_pay_success"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_f5"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_57"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:text="推荐好物"
+            android:textColor="@color/text_33"
+            android:textSize="@dimen/sp_14" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:overScrollMode="never"
+            android:scrollbars="none" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_pay_failure"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.noober.background.view.BLTextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_45"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="@dimen/dp_26"
+            android:layout_marginEnd="@dimen/dp_15"
+            android:layout_marginStart="@dimen/dp_13"
+            android:gravity="center"
+            android:text="重新支付"
+            android:textColor="#F2251C"
+            android:textSize="@dimen/sp_15"
+            app:bl_corners_radius="@dimen/dp_45"
+            app:bl_stroke_color="#FE3C3B"
+            app:bl_stroke_width="@dimen/dp_1" />
+
+    </FrameLayout>
+
+</LinearLayout>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_84"
+    android:layout_marginTop="@dimen/dp_10"
+    android:background="@color/white">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_13"
+        android:layout_marginTop="@dimen/dp_19"
+        android:includeFontPadding="false"
+        android:textColor="@color/text_33"
+        android:textSize="@dimen/sp_14"
+        tools:text="优惠券到账提醒" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginEnd="@dimen/dp_12"
+        android:layout_marginTop="@dimen/dp_23"
+        android:includeFontPadding="false"
+        android:textColor="@color/text_c7"
+        android:textSize="@dimen/sp_12"
+        tools:text="2019.12.04 18:00" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_13"
+        android:layout_marginTop="@dimen/dp_47"
+        android:includeFontPadding="false"
+        android:textColor="@color/text_99"
+        android:textSize="@dimen/sp_12"
+        tools:text="您账户有150.00元红包已到账，请及时使用！" />
+
+</FrameLayout>

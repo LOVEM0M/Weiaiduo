@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_f5"
+    android:overScrollMode="never"
+    android:scrollbars="none"
+    tools:ignore="HardcodedText,RtlSymmetry">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.youth.banner.Banner
+            android:id="@+id/banner"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_342"
+            android:transitionName="goods_image"
+            app:is_auto_play="false" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:paddingBottom="@dimen/dp_10">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_goods_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_14"
+                android:layout_marginTop="@dimen/dp_14"
+                android:layout_marginEnd="@dimen/dp_60"
+                android:includeFontPadding="false"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_20"
+                android:textStyle="bold"
+                android:transitionName="goods_title"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="测试数据" />
+
+            <com.noober.background.view.BLTextView
+                android:id="@+id/tv_collect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_14"
+                android:layout_marginEnd="@dimen/dp_14"
+                android:drawablePadding="@dimen/dp_5"
+                android:includeFontPadding="false"
+                android:text="收藏"
+                android:textSize="@dimen/sp_9"
+                app:bl_position="top"
+                app:bl_selected_drawable="@drawable/ic_collect_auction_select"
+                app:bl_selected_textColor="#DF4F65"
+                app:bl_unSelected_drawable="@drawable/ic_collect_auction_normal"
+                app:bl_unSelected_textColor="@color/text_66"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_goods_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_10"
+                android:includeFontPadding="false"
+                android:textColor="#E73843"
+                android:textSize="@dimen/sp_20"
+                app:layout_constraintLeft_toLeftOf="@id/tv_goods_name"
+                app:layout_constraintTop_toBottomOf="@id/tv_goods_name"
+                tools:text="88" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_origin_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_5"
+                android:includeFontPadding="false"
+                android:textColor="@color/text_99"
+                android:textSize="@dimen/sp_14"
+                app:layout_constraintLeft_toLeftOf="@id/tv_goods_price"
+                app:layout_constraintTop_toBottomOf="@id/tv_goods_price"
+                tools:text="10800" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_stock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dp_14"
+                android:includeFontPadding="false"
+                android:textColor="@color/text_66"
+                android:textSize="@dimen/sp_14"
+                app:layout_constraintBottom_toBottomOf="@id/tv_goods_price"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tv_goods_price"
+                tools:text="库存剩余：1件" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_10"
+                app:layout_constraintLeft_toLeftOf="@id/tv_goods_price"
+                app:layout_constraintTop_toBottomOf="@id/tv_origin_price">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:includeFontPadding="false"
+                    android:text="服\u3000务"
+                    android:textColor="@color/text_66"
+                    android:textSize="@dimen/sp_14" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_free_shipping"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_20"
+                    android:drawableStart="@drawable/ic_check_gold"
+                    android:drawablePadding="@dimen/dp_10"
+                    android:text="全国包邮"
+                    android:textColor="#C2A796"
+                    android:textSize="@dimen/sp_14" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_seven"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_20"
+                    android:drawableStart="@drawable/ic_check_gold"
+                    android:drawablePadding="@dimen/dp_10"
+                    android:text="七天退换"
+                    android:textColor="#C2A796"
+                    android:textSize="@dimen/sp_14" />
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_count_down"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#E85768"
+                android:textSize="@dimen/sp_16"
+                app:layout_constraintBottom_toBottomOf="@id/tv_origin_price"
+                app:layout_constraintRight_toRightOf="@id/tv_stock"
+                app:layout_constraintTop_toTopOf="@id/tv_origin_price"
+                tools:text="2020-01-01" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/view_jianzhenbao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:background="@color/white"
+            android:src="@drawable/ic_jianzhenbao" />
+
+        <include layout="@layout/layout_shop_info" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_10"
+            android:background="@color/white"
+            android:paddingStart="@dimen/dp_15"
+            android:paddingTop="@dimen/dp_10"
+            android:text="商品描述" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_goods_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:paddingStart="@dimen/dp_15"
+            android:paddingTop="@dimen/dp_10"
+            android:paddingEnd="@dimen/dp_15"
+            android:paddingBottom="@dimen/dp_10"
+            android:text="商品描述" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

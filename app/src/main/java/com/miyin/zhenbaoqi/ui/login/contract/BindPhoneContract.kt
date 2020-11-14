@@ -1,0 +1,22 @@
+package com.miyin.zhenbaoqi.ui.login.contract
+
+import com.miyin.zhenbaoqi.base.mvp.IBasePresenter
+import com.miyin.zhenbaoqi.base.mvp.IBaseView
+
+class BindPhoneContract {
+
+    interface IView : IBaseView {
+        fun setCodeBtnEnabled(enabled: Boolean)
+
+        fun setCodeBtnText(title: String)
+
+        fun onLogin()
+    }
+
+    interface IPresenter : IBasePresenter<IView> {
+        fun sendVerificationCode(phone: String?)
+
+        fun login(code: String?, phone: String?)
+    }
+
+}

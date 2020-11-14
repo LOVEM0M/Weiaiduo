@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="LineFrameLayout">
+        <attr name="leftPadding" format="dimension" />
+        <attr name="rightPadding" format="dimension" />
+        <attr name="lineColor" format="color" />
+        <attr name="lineHeight" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="EasySwipeMenuLayout">
+        <attr name="leftMenuView" format="reference" />
+        <attr name="rightMenuView" format="reference" />
+        <attr name="contentView" format="reference" />
+        <attr name="canRightSwipe" format="boolean" />
+        <attr name="canLeftSwipe" format="boolean" />
+        <attr name="fraction" format="float" />
+    </declare-styleable>
+
+    <declare-styleable name="CircleImageView">
+        <attr name="civ_border_width" format="dimension" />
+        <attr name="civ_border_color" format="color" />
+        <attr name="civ_border_overlay" format="boolean" />
+        <attr name="civ_circle_background_color" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="ContentWithSpaceEditText">
+        <attr name="input_type" format="enum">
+            <enum name="phone" value="0" />
+            <enum name="bank_card_no" value="1" />
+            <enum name="identify_card_no" value="2" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="LineTitle">
+        <attr name="line_title" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="SlidingTabLayout">
+        <attr name="tl_indicator_color" format="color" />
+        <attr name="tl_indicator_height" format="dimension" />
+        <attr name="tl_indicator_width" format="dimension" />
+        <attr name="tl_indicator_margin_left" format="dimension" />
+        <attr name="tl_indicator_margin_top" format="dimension" />
+        <attr name="tl_indicator_margin_right" format="dimension" />
+        <attr name="tl_indicator_margin_bottom" format="dimension" />
+        <attr name="tl_indicator_corner_radius" format="dimension" />
+        <attr name="tl_indicator_gravity" format="enum">
+            <enum name="TOP" value="48" />
+            <enum name="BOTTOM" value="80" />
+        </attr>
+        <attr name="tl_indicator_style" format="enum">
+            <enum name="NORMAL" value="0" />
+            <enum name="TRIANGLE" value="1" />
+            <enum name="BLOCK" value="2" />
+        </attr>
+        <attr name="tl_indicator_width_equal_title" format="boolean" />
+        <attr name="tl_underline_color" format="color" />
+        <attr name="tl_underline_height" format="dimension" />
+        <attr name="tl_underline_gravity" format="enum">
+            <enum name="TOP" value="48" />
+            <enum name="BOTTOM" value="80" />
+        </attr>
+
+        <attr name="tl_divider_color" format="color" />
+        <attr name="tl_divider_width" format="dimension" />
+        <attr name="tl_divider_padding" format="dimension" />
+
+        <attr name="tl_tab_padding" format="dimension" />
+        <attr name="tl_tab_space_equal" format="boolean" />
+        <attr name="tl_tab_width" format="dimension" />
+
+        <attr name="tl_normal_text_size" format="dimension" />
+        <attr name="tl_select_text_size" format="dimension" />
+        <attr name="tl_select_text_color" format="color" />
+        <attr name="tl_normal_text_color" format="color" />
+        <attr name="tl_textBold" format="enum">
+            <enum name="NONE" value="0" />
+            <enum name="SELECT" value="1" />
+            <enum name="BOTH" value="2" />
+        </attr>
+        <attr name="tl_textAllCaps" format="boolean" />
+        <attr name="tl_text_gravity" format="enum">
+            <enum name="TOP" value="0" />
+            <enum name="CENTER" value="1" />
+            <enum name="BOTTOM" value="2" />
+        </attr>
+        <attr name="tl_text_margin" format="dimension" />
+
+    </declare-styleable>
+
+    <declare-styleable name="NoPaddingTextView">
+        <attr name="removeDefaultPadding" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="SwitchButton">
+        <attr name="sb_shadow_radius" format="dimension" />
+        <attr name="sb_shadow_offset" format="dimension" />
+        <attr name="sb_shadow_color" format="color" />
+        <attr name="sb_uncheck_color" format="color" />
+        <attr name="sb_checked_color" format="color" />
+
+        <attr name="sb_border_width" format="dimension" />
+        <attr name="sb_check_line_color" format="color" />
+        <attr name="sb_check_line_width" format="dimension" />
+        <attr name="sb_uncheck_circle_color" format="color" />
+        <attr name="sb_uncheck_circle_width" format="dimension" />
+        <attr name="sb_uncheck_circle_radius" format="dimension" />
+
+        <attr name="sb_checked" format="boolean" />
+        <attr name="sb_shadow_effect" format="boolean" />
+        <attr name="sb_effect_duration" format="integer" />
+        <attr name="sb_button_color" format="color" />
+        <attr name="sb_show_indicator" format="boolean" />
+        <attr name="sb_background" format="color" />
+        <attr name="sb_enable_effect" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="TagFlowLayout">
+        <attr name="max_select" format="integer" />
+        <attr name="horizontal_space" format="dimension" />
+        <attr name="vertical_space" format="dimension" />
+        <attr name="tag_gravity">
+            <enum name="left" value="-1" />
+            <enum name="center" value="0" />
+            <enum name="right" value="1" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="StarBar">
+        <!--星星间距-->
+        <attr name="starDistance" format="dimension" />
+        <!--星星大小-->
+        <attr name="starSize" format="dimension" />
+        <!--星星个数-->
+        <attr name="starCount" format="integer" />
+        <!--星星空图-->
+        <attr name="starEmpty" format="reference" />
+        <!--星星满图-->
+        <attr name="starFill" format="reference" />
+    </declare-styleable>
+
+</resources>

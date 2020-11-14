@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.miyin.zhenbaoqi.widget.LineFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/RippleStyle"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_55">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_18"
+        android:layout_marginTop="@dimen/dp_10"
+        android:includeFontPadding="false"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp_12"
+        tools:text="免费的卖家名额" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_date_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="@dimen/dp_18"
+        android:layout_marginBottom="@dimen/dp_10"
+        android:includeFontPadding="false"
+        android:textColor="@color/text_99"
+        android:textSize="@dimen/sp_9"
+        tools:text="2019-12-01 06:20" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|end"
+        android:layout_marginEnd="@dimen/dp_12"
+        android:includeFontPadding="false"
+        android:textColor="#FE7A2F"
+        android:textSize="@dimen/sp_12"
+        tools:text="-5000 玩家币" />
+
+</com.miyin.zhenbaoqi.widget.LineFrameLayout>

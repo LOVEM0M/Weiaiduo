@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/dp_13"
+    tools:ignore="HardcodedText,RtlSymmetry">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_cover"
+        android:layout_width="@dimen/dp_174"
+        android:layout_height="@dimen/dp_169"
+        android:scaleType="fitXY"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:background="@color/text_33" />
+
+
+    <com.noober.background.view.BLLinearLayout
+        android:id="@+id/ll_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="@dimen/dp_14"
+        android:paddingTop="@dimen/dp_12"
+        android:paddingEnd="@dimen/dp_9"
+        android:paddingBottom="@dimen/dp_18"
+        app:bl_corners_bottomLeftRadius="@dimen/dp_5"
+        app:bl_corners_bottomRightRadius="@dimen/dp_5"
+        app:bl_solid_color="@color/white"
+        app:layout_constraintLeft_toLeftOf="@id/iv_cover"
+        app:layout_constraintRight_toRightOf="@id/iv_cover"
+        app:layout_constraintTop_toBottomOf="@id/iv_cover">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:includeFontPadding="false"
+            android:text="9012年秋冬穿什么色？主打贴近自然地绿色......"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/sp_14" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_buy_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="@dimen/dp_9"
+            android:text="购买1231"
+            android:textColor="@color/text_99"
+            android:textSize="@dimen/sp_10" />
+
+    </com.noober.background.view.BLLinearLayout>
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_label_new_up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_9"
+        android:layout_marginTop="@dimen/dp_160"
+        android:background="@color/price_stroke"
+        android:paddingHorizontal="@dimen/dp_3"
+        android:paddingVertical="@dimen/dp_2"
+        android:text="上新"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_10"
+        app:layout_constraintLeft_toLeftOf="@id/iv_cover"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_f5"
+    android:orientation="vertical"
+    tools:ignore="HardcodedText">
+
+    <include layout="@layout/title_bar" />
+
+    <com.noober.background.view.BLFrameLayout
+        android:id="@+id/fl_container"
+        style="@style/RippleStyle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_55"
+        android:layout_marginTop="@dimen/dp_10">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_cover"
+            android:layout_width="@dimen/dp_35"
+            android:layout_height="@dimen/dp_35"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/dp_15"
+            android:src="@drawable/ic_bank_default" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_64"
+            android:layout_marginTop="@dimen/dp_10"
+            android:hint="请选择"
+            android:includeFontPadding="false"
+            android:textColor="@color/black"
+            android:textColorHint="@color/text_99"
+            android:textSize="@dimen/sp_15" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_card_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="@dimen/dp_64"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:includeFontPadding="false"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_12"
+            tools:text="4654684684684684684" />
+
+    </com.noober.background.view.BLFrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_165"
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="@color/white">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_15"
+            android:layout_marginTop="@dimen/dp_17"
+            android:includeFontPadding="false"
+            android:text="提现金额(元)"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_14" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_15"
+            android:layout_marginTop="@dimen/dp_50"
+            android:includeFontPadding="false"
+            android:text="¥"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_40"
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_money"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_50"
+            android:layout_marginTop="@dimen/dp_50"
+            android:background="@null"
+            android:hint="0.00"
+            android:includeFontPadding="false"
+            android:inputType="number"
+            android:maxLength="8"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_40" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_balance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="@dimen/dp_11"
+            android:layout_marginBottom="@dimen/dp_17"
+            android:includeFontPadding="false"
+            android:textColor="@color/text_99"
+            android:textSize="@dimen/sp_12"
+            tools:text="可用余额 500.00元" />
+
+    </FrameLayout>
+
+    <com.noober.background.view.BLButton
+        android:id="@+id/btn_commit"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_43"
+        android:layout_marginStart="@dimen/dp_18"
+        android:layout_marginTop="@dimen/dp_36"
+        android:layout_marginEnd="@dimen/dp_18"
+        android:enabled="false"
+        android:text="申请提现"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_15"
+        app:bl_corners_radius="@dimen/dp_3"
+        app:bl_enabled_solid_color="@color/theme_dark_purple"
+        app:bl_unEnabled_solid_color="#C1C1C1" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_20"
+        android:layout_marginTop="@dimen/dp_28"
+        android:layout_marginEnd="@dimen/dp_17"
+        android:lineSpacingExtra="@dimen/dp_5"
+        android:text="收益提现说明:\n1.每月1-10日、16-25日支持提现，分别于当月15日发放及每月月末发放，如遇周末及法定节假日顺延至下个工作日;\n2.单人每月累计总金额，按照相关法规，扣除税费比例6%;\n3.收益提现每次不得低于10元，不足10元暂不支持提现((最小单位为元))，单月多笔提现，打款时会合并成一笔打款至提现账户;\n4.因收益打款为人工第三方处理，实际到账周期会因银行及地域原因有所延迟，若有疑问请于每月1日及15日提供身份证号向客服索取打款回执单;\n5.若因银行卡号、身份证及预留手机号错误造成打款失败，提现申请自动拒绝，需顺延至下个提现周期重新申请;"
+        android:textColor="@color/text_99"
+        android:textSize="@dimen/sp_10" />
+
+</LinearLayout>

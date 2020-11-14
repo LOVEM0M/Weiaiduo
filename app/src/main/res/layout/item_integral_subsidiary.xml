@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingTop="@dimen/dp_12"
+    android:paddingBottom="@dimen/dp_38"
+    android:paddingHorizontal="@dimen/dp_14"
+    android:background="@color/white">
+    <ImageView
+        android:layout_width="@dimen/dp_34"
+        android:layout_height="@dimen/dp_34"
+        android:background="@color/text_99"
+        android:layout_marginTop="5.5dp"/>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginLeft="@dimen/dp_10">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="签到"
+            android:textSize="@dimen/sp_12"
+            android:textColor="@color/text_66"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="09-21 08:28"
+            android:textSize="@dimen/sp_10"
+            android:textColor="@color/text_99"
+            android:layout_marginTop="@dimen/dp_8"/>
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+5"
+        android:textSize="@dimen/sp_15"
+        android:textColor="#222222"
+        android:layout_marginTop="@dimen/dp_4"/>
+</LinearLayout>

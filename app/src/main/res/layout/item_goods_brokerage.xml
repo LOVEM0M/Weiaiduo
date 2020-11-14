@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/dp_10"
+    android:orientation="vertical">
+
+    <com.miyin.zhenbaoqi.widget.LineFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_40"
+        android:background="@color/white"
+        app:leftPadding="@dimen/dp_14"
+        app:rightPadding="@dimen/dp_14">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_date_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/dp_14"
+            android:textColor="@color/text_33"
+            android:textSize="@dimen/sp_12"
+            tools:text="2019-12-12 16:13:36" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|end"
+            android:layout_marginEnd="@dimen/dp_16"
+            android:textColor="@color/text_99"
+            android:textSize="@dimen/sp_12"
+            tools:text="待入账" />
+
+    </com.miyin.zhenbaoqi.widget.LineFrameLayout>
+
+    <com.noober.background.view.BLConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_130"
+        android:background="@color/white">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_cover"
+            android:layout_width="@dimen/dp_105"
+            android:layout_height="@dimen/dp_105"
+            android:layout_marginStart="@dimen/dp_14"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_18"
+            android:layout_marginTop="@dimen/dp_12"
+            android:layout_marginEnd="@dimen/dp_18"
+            android:lineSpacingExtra="@dimen/dp_5"
+            android:textColor="@color/text_33"
+            android:textSize="@dimen/sp_12"
+            app:layout_constraintLeft_toRightOf="@id/iv_cover"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/iv_cover"
+            tools:text="【翡翠成品一条龙服务】2019-12-11分享榜第一名礼品" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_25"
+            android:includeFontPadding="false"
+            android:textColor="@color/text_33"
+            android:textSize="@dimen/sp_17"
+            app:layout_constraintBottom_toBottomOf="@id/iv_cover"
+            app:layout_constraintLeft_toLeftOf="@id/tv_title"
+            tools:text="2.00" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_25"
+            android:includeFontPadding="false"
+            android:textColor="@color/text_99"
+            android:textSize="@dimen/sp_12"
+            app:layout_constraintBottom_toBottomOf="@id/iv_cover"
+            app:layout_constraintRight_toRightOf="@id/tv_title"
+            tools:text="数量" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_1"
+            android:layout_marginStart="@dimen/dp_14"
+            android:layout_marginEnd="@dimen/dp_14"
+            android:background="@color/line_eb"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </com.noober.background.view.BLConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_42"
+        android:background="@color/white"
+        android:gravity="center_vertical">
+
+        <com.miyin.zhenbaoqi.widget.CircleImageView
+            android:id="@+id/iv_avatar"
+            android:layout_width="@dimen/dp_23"
+            android:layout_height="@dimen/dp_23"
+            android:layout_marginStart="@dimen/dp_14" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_7"
+            android:textColor="@color/text_33"
+            android:textSize="@dimen/sp_11"
+            tools:text="玉茗堂客服" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_profit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_7"
+            android:layout_marginEnd="@dimen/dp_14"
+            android:textColor="#E02A2A"
+            android:textSize="@dimen/sp_12"
+            tools:text="赚 ￥2.00" />
+
+    </LinearLayout>
+
+</LinearLayout>

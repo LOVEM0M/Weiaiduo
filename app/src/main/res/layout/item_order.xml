@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/RippleStyle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/dp_5"
+    android:orientation="vertical"
+    tools:ignore="HardcodedText">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_45">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/dp_16"
+            android:gravity="center_vertical"
+            android:textColor="@color/text_99"
+            android:textSize="@dimen/sp_12"
+            tools:text="2017-06-24 10:10" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_status"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:layout_marginEnd="@dimen/dp_16"
+            android:gravity="center_vertical"
+            android:textColor="@color/theme_dark_purple"
+            android:textSize="@dimen/sp_14"
+            tools:text="交易成功" />
+
+    </FrameLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:background="@color/line_eb" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_110">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_cover"
+            android:layout_width="@dimen/dp_76"
+            android:layout_height="@dimen/dp_76"
+            android:layout_marginStart="@dimen/dp_16"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@color/text_99" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_12"
+            android:layout_marginEnd="@dimen/dp_14"
+            android:ellipsize="end"
+            android:includeFontPadding="false"
+            android:maxLines="2"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_12"
+            app:layout_constraintLeft_toRightOf="@id/iv_cover"
+            app:layout_constraintRight_toLeftOf="@id/tv_price"
+            app:layout_constraintTop_toTopOf="@id/iv_cover"
+            tools:text="SK-II 护肤精华露（神仙水®）" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp_16"
+            android:includeFontPadding="false"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_15"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/iv_cover"
+            tools:text="1450" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_10"
+            android:includeFontPadding="false"
+            android:textColor="@color/text_99"
+            android:textSize="@dimen/sp_12"
+            app:layout_constraintRight_toRightOf="@id/tv_price"
+            app:layout_constraintTop_toBottomOf="@id/tv_price"
+            tools:text="x1" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_20"
+            android:includeFontPadding="false"
+            android:textColor="@color/text_99"
+            android:textSize="@dimen/sp_12"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/iv_cover"
+            app:layout_constraintLeft_toLeftOf="@id/tv_title"
+            tools:text="容量:230ml" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:background="@color/line_eb" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_total_price"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_40"
+        android:gravity="center_vertical|end"
+        android:paddingEnd="@dimen/dp_18"
+        android:textColor="@color/text_33"
+        android:textSize="@dimen/sp_14"
+        tools:ignore="RtlSymmetry"
+        tools:text="共1件商品 合计: ¥" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:background="@color/line_eb" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_45"
+        android:gravity="end|center_vertical"
+        tools:ignore="RtlSymmetry">
+
+        <com.noober.background.view.BLTextView
+            android:id="@+id/tv_left_title"
+            android:layout_width="@dimen/dp_80"
+            android:layout_height="@dimen/dp_30"
+            android:layout_marginEnd="@dimen/dp_10"
+            android:gravity="center"
+            android:text="提醒发货"
+            android:textColor="@color/text_33"
+            android:textSize="@dimen/sp_12"
+            app:bl_corners_radius="@dimen/dp_30"
+            app:bl_stroke_color="@color/text_33"
+            app:bl_stroke_width="@dimen/dp_1" />
+
+        <com.noober.background.view.BLTextView
+            android:id="@+id/tv_middle_title"
+            android:layout_width="@dimen/dp_80"
+            android:layout_height="@dimen/dp_30"
+            android:layout_marginEnd="@dimen/dp_10"
+            android:gravity="center"
+            android:text="取消订单"
+            android:textColor="@color/text_33"
+            android:textSize="@dimen/sp_12"
+            app:bl_corners_radius="@dimen/dp_30"
+            app:bl_stroke_color="@color/text_33"
+            app:bl_stroke_width="@dimen/dp_1" />
+
+        <com.noober.background.view.BLTextView
+            android:id="@+id/tv_right_title"
+            android:layout_width="@dimen/dp_80"
+            android:layout_height="@dimen/dp_30"
+            android:layout_marginEnd="@dimen/dp_16"
+            android:gravity="center"
+            android:text="查看物流"
+            android:textColor="@color/text_33"
+            android:textSize="@dimen/sp_12"
+            app:bl_corners_radius="@dimen/dp_30"
+            app:bl_stroke_color="@color/text_33"
+            app:bl_stroke_width="@dimen/dp_1" />
+
+    </LinearLayout>
+
+</LinearLayout>

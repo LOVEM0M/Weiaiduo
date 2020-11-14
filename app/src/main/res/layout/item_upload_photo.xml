@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_104"
+    android:layout_marginTop="@dimen/dp_10"
+    android:background="@color/white"
+    tools:ignore="HardcodedText">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_cover"
+        android:layout_width="@dimen/dp_104"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@color/text_99"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_cover"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_20"
+        android:background="#1A000000"
+        android:gravity="center"
+        android:text="默认封面图"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_10"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@id/iv_cover"
+        app:layout_constraintLeft_toLeftOf="@id/iv_cover"
+        app:layout_constraintRight_toRightOf="@id/iv_cover" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_delete"
+        android:layout_width="@dimen/dp_20"
+        android:layout_height="@dimen/dp_20"
+        android:background="@drawable/ic_picture_delete"
+        app:layout_constraintRight_toRightOf="@id/iv_cover"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/ll_huodong"
+    android:background="@color/white"
+    android:paddingTop="13dp"
+    android:paddingHorizontal="14dp"
+    android:paddingBottom="15dp"
+    android:orientation="horizontal">
+    <LinearLayout
+        android:id="@+id/ll_left"
+        android:layout_width="41dp"
+        android:layout_height="41dp"
+       >
+        <ImageView
+            android:id="@+id/iv_left"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/news_gift"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginLeft="13dp"
+    android:layout_marginTop="5dp"
+    android:gravity="center_vertical"
+    >
+    <TextView
+        android:id="@+id/tv_notice_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="活动早知道"
+        android:textColor="#1A1A1A"
+        android:textSize="@dimen/dp_16"
+        />
+
+    <TextView
+        android:id="@+id/tv_notice_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2020-09-11"
+        android:textColor="@color/text_99"
+        android:textSize="@dimen/sp_14"
+        />
+
+</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="13dp"
+        android:layout_marginTop="6.5dp">
+        <TextView
+            android:id="@+id/tv_notice_message"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:singleLine="true"
+            android:layout_height="wrap_content"
+            android:text="915金秋盛惠，爆品首单5折，大牌狂..."
+            android:textColor="@color/text_99"
+            android:textSize="@dimen/sp_14"
+            />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="56dp"
+            android:background="@drawable/shape_home_bg7">
+        <TextView
+            android:id="@+id/tv_notice_unread"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="3.5dp"
+            android:text="12"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_14"
+            />
+        </LinearLayout>
+    </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

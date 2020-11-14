@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_110"
+    android:layout_marginEnd="@dimen/dp_12"
+    android:layout_marginStart="@dimen/dp_12"
+    android:layout_marginTop="@dimen/dp_10"
+    android:background="@drawable/ic_coupon_bg"
+    tools:ignore="HardcodedText,RtlHardcoded">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_19"
+        android:layout_marginTop="@dimen/dp_15"
+        android:includeFontPadding="false"
+        android:lineSpacingExtra="@dimen/dp_3"
+        tools:text="150" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="@dimen/dp_14"
+        android:layout_marginStart="@dimen/dp_19"
+        android:includeFontPadding="false"
+        android:textSize="@dimen/sp_11"
+        tools:text="过期时间：2019.11.05" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_114"
+        android:layout_marginTop="@dimen/dp_25"
+        android:includeFontPadding="false"
+        android:lineSpacingExtra="@dimen/dp_8"
+        android:textSize="@dimen/sp_14"
+        tools:text="新人专享优惠券" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_cover"
+        android:layout_width="@dimen/dp_40"
+        android:layout_height="@dimen/dp_40"
+        android:layout_gravity="right|bottom"
+        android:layout_marginBottom="@dimen/dp_15"
+        android:layout_marginEnd="@dimen/dp_15" />
+
+    <com.noober.background.view.BLTextView
+        android:id="@+id/tv_use"
+        android:layout_width="@dimen/dp_56"
+        android:layout_height="@dimen/dp_22"
+        android:layout_gravity="right|bottom"
+        android:layout_marginBottom="@dimen/dp_8"
+        android:layout_marginEnd="@dimen/dp_15"
+        android:gravity="center"
+        android:text="去使用"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_12"
+        app:bl_corners_radius="@dimen/dp_22"
+        app:bl_solid_color="#FF3131" />
+
+</FrameLayout>

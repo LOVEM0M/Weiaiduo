@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/white</color>
+    <color name="colorPrimaryDark">@color/white</color>
+    <color name="colorAccent">@color/text_red</color>
+
+    <color name="theme_dark_purple">#982530</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="text_33">#333333</color>
+    <color name="text_54">#545454</color>
+    <color name="text_66">#666666</color>
+    <color name="text_88">#888888</color>
+    <color name="text_99">#999999</color>
+    <color name="text_9a">#9A9A9A</color>
+    <color name="text_c7">#C7C7C7</color>
+    <color name="text_red">#E13A37</color>
+    <color name="text_black_29">#292929</color>
+    <color name="text_black_34">#343434</color>
+    <color name="text_gray_9e">#9E9E9E</color>
+    <color name="text_gray_a1">#A1A1A1</color>
+    <color name="text_gray_f2">#f2f2f2</color>
+    <color name="text_ef0025">#EF0025</color>
+    <color name="price_red">#CB343B</color>
+    <color name="price_stroke">#FFC300</color>
+
+    <color name="bg_f5">#F5F5F5</color>
+    <color name="bg_red">#FE3C3C</color>
+
+    <color name="line_eb">#EBEBEB</color>
+    <color name="line_ee">#EEEEEE</color>
+    <color name="line_color">#E5E5E5</color>
+
+    <color name="ripple">#DDDDDD</color>
+
+</resources>

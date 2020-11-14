@@ -1,0 +1,51 @@
+<com.noober.background.view.BLLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    app:bl_corners_radius="@dimen/dp_7"
+    app:bl_solid_color="@color/white"
+    tools:ignore="HardcodedText">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="@dimen/dp_254"
+        android:layout_height="@dimen/dp_124"
+        android:background="@drawable/ic_type_tip" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_20"
+        android:includeFontPadding="false"
+        android:text="选择主营类目"
+        android:textColor="#E85F4F"
+        android:textSize="@dimen/sp_23" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="@dimen/dp_200"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_10"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="请选择您的店铺主营类目，几种获得更多流量曝光"
+        android:textColor="@color/text_66"
+        android:textSize="@dimen/sp_12" />
+
+    <com.noober.background.view.BLTextView
+        android:id="@+id/btn_commit"
+        android:layout_width="@dimen/dp_193"
+        android:layout_height="@dimen/dp_38"
+        android:layout_marginBottom="@dimen/dp_15"
+        android:layout_marginTop="@dimen/dp_15"
+        android:gravity="center"
+        android:text="立即填写"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_14"
+        app:bl_corners_radius="@dimen/dp_38"
+        app:bl_gradient_angle="0"
+        app:bl_gradient_endColor="#F02C2C"
+        app:bl_gradient_startColor="#FB4A4A" />
+
+</com.noober.background.view.BLLinearLayout>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/view_empty"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:background="@color/white">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_content"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_50"
+            android:layout_weight="1"
+            android:background="@null"
+            android:hint="有爱评论，说点好听点的~"
+            android:paddingStart="@dimen/dp_14"
+            android:paddingEnd="@dimen/dp_5"
+            android:textColor="@color/text_33"
+            android:textSize="@dimen/sp_16"
+            tools:ignore="HardcodedText" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_emoji"
+            android:layout_width="@dimen/dp_50"
+            android:layout_height="match_parent"
+            android:scaleType="center"
+            android:src="@drawable/ic_video_emjio"
+            android:visibility="gone" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_send"
+            android:layout_width="@dimen/dp_50"
+            android:layout_height="match_parent"
+            android:scaleType="center"
+            android:src="@drawable/ic_video_send" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_container"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_200"
+        android:background="@color/white"
+        android:visibility="gone">
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <LinearLayout
+            android:id="@+id/ll_container"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_50"
+            android:layout_gravity="bottom|center_horizontal"
+            android:gravity="center"
+            android:orientation="horizontal" />
+
+    </FrameLayout>
+
+</LinearLayout>

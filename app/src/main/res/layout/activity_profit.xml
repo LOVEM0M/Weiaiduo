@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_f5"
+    android:orientation="vertical"
+    tools:ignore="HardcodedText">
+
+    <include layout="@layout/title_bar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_110"
+        android:background="@color/white">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_grand_total_income"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:lineSpacingExtra="@dimen/dp_10"
+            android:text="累计收益（元）"
+            android:textColor="@color/text_33"
+            android:textSize="@dimen/sp_12" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_wait_credit_income"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:lineSpacingExtra="@dimen/dp_10"
+            android:text="待入账收益（元）"
+            android:textColor="@color/text_33"
+            android:textSize="@dimen/sp_12" />
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp_15"
+        android:layout_marginStart="@dimen/dp_15"
+        android:layout_marginTop="@dimen/dp_25"
+        android:text="收益构成"
+        android:textColor="@color/text_33"
+        android:textSize="@dimen/sp_14" />
+
+    <com.miyin.zhenbaoqi.widget.LineFrameLayout
+        android:id="@+id/fl_goods_brokerage"
+        style="@style/RippleStyle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_66"
+        app:leftPadding="@dimen/dp_13">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/dp_20"
+            android:layout_height="@dimen/dp_20"
+            android:layout_marginStart="@dimen/dp_24"
+            android:layout_marginTop="@dimen/dp_20"
+            android:background="@drawable/ic_goods_brokerage" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_65"
+            android:layout_marginTop="@dimen/dp_13"
+            android:includeFontPadding="false"
+            android:text="商品佣金"
+            android:textColor="@color/text_33"
+            android:textSize="@dimen/sp_15"
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="@dimen/dp_14"
+            android:layout_marginStart="@dimen/dp_65"
+            android:layout_marginTop="@dimen/dp_15"
+            android:includeFontPadding="false"
+            android:text="包括自购/销售商品获得的商品佣金"
+            android:textColor="#B7B7B7"
+            android:textSize="@dimen/sp_12" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/dp_10"
+            android:layout_height="@dimen/dp_10"
+            android:layout_gravity="center_vertical|end"
+            android:layout_marginEnd="@dimen/dp_15"
+            android:scaleType="center"
+            android:src="@drawable/ic_right_arrow_small" />
+
+    </com.miyin.zhenbaoqi.widget.LineFrameLayout>
+
+    <com.miyin.zhenbaoqi.widget.LineFrameLayout
+        android:id="@+id/fl_invite_reward"
+        style="@style/RippleStyle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_66"
+        app:leftPadding="@dimen/dp_13">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/dp_20"
+            android:layout_height="@dimen/dp_20"
+            android:layout_marginStart="@dimen/dp_24"
+            android:layout_marginTop="@dimen/dp_20"
+            android:background="@drawable/ic_invite_reward" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_65"
+            android:layout_marginTop="@dimen/dp_13"
+            android:includeFontPadding="false"
+            android:text="邀请奖励"
+            android:textColor="@color/text_33"
+            android:textSize="@dimen/sp_15"
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="@dimen/dp_14"
+            android:layout_marginStart="@dimen/dp_65"
+            android:layout_marginTop="@dimen/dp_15"
+            android:includeFontPadding="false"
+            android:text="邀请用户开通卖家获得的奖励"
+            android:textColor="#B7B7B7"
+            android:textSize="@dimen/sp_12" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/dp_10"
+            android:layout_height="@dimen/dp_10"
+            android:layout_gravity="center_vertical|end"
+            android:layout_marginEnd="@dimen/dp_15"
+            android:scaleType="center"
+            android:src="@drawable/ic_right_arrow_small" />
+
+    </com.miyin.zhenbaoqi.widget.LineFrameLayout>
+
+    <com.noober.background.view.BLFrameLayout
+        android:id="@+id/fl_service_reward"
+        style="@style/RippleStyle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_66">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/dp_20"
+            android:layout_height="@dimen/dp_20"
+            android:layout_marginStart="@dimen/dp_24"
+            android:layout_marginTop="@dimen/dp_20"
+            android:background="@drawable/ic_service_reward" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_65"
+            android:layout_marginTop="@dimen/dp_13"
+            android:includeFontPadding="false"
+            android:text="服务奖励"
+            android:textColor="@color/text_33"
+            android:textSize="@dimen/sp_15"
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="@dimen/dp_14"
+            android:layout_marginStart="@dimen/dp_65"
+            android:layout_marginTop="@dimen/dp_15"
+            android:includeFontPadding="false"
+            android:text="服务商通过服务等类型获得的奖励"
+            android:textColor="#B7B7B7"
+            android:textSize="@dimen/sp_12" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/dp_10"
+            android:layout_height="@dimen/dp_10"
+            android:layout_gravity="center_vertical|end"
+            android:layout_marginEnd="@dimen/dp_15"
+            android:scaleType="center"
+            android:src="@drawable/ic_right_arrow_small" />
+
+    </com.noober.background.view.BLFrameLayout>
+
+</LinearLayout>

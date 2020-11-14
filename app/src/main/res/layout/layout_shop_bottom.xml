@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_60"
+    android:background="@color/white"
+    android:elevation="@dimen/dp_10"
+    tools:ignore="HardcodedText">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_entry_shop"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:drawableTop="@drawable/ic_shop_gray"
+        android:drawablePadding="@dimen/dp_5"
+        android:gravity="center_horizontal"
+        android:paddingTop="@dimen/dp_12"
+        android:text="店铺"
+        android:textColor="@color/text_66"
+        android:textSize="@dimen/sp_10" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_private_message"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:drawableTop="@drawable/ic_message_gray"
+        android:drawablePadding="@dimen/dp_5"
+        android:gravity="center_horizontal"
+        android:paddingTop="@dimen/dp_12"
+        android:text="私信"
+        android:textColor="@color/text_66"
+        android:textSize="@dimen/sp_10" />
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="5">
+
+        <com.noober.background.view.BLLinearLayout
+            android:id="@+id/ll_add_price"
+            android:layout_width="@dimen/dp_262"
+            android:layout_height="@dimen/dp_40"
+            android:layout_gravity="center"
+            android:gravity="center"
+            app:bl_corners_radius="@dimen/dp_3"
+            app:bl_enabled_solid_color="#E93B44"
+            app:bl_unEnabled_solid_color="#AAA8A9">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_change_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:includeFontPadding="false"
+                android:text="出价"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_13" />
+
+            <com.noober.background.view.BLTextView
+                android:id="@+id/tv_red_package"
+                android:layout_width="@dimen/dp_36"
+                android:layout_height="@dimen/sp_13"
+                android:layout_gravity="top"
+                android:layout_marginStart="@dimen/dp_6"
+                android:layout_marginTop="@dimen/dp_7"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="888元"
+                android:textColor="#F3631D"
+                android:visibility="gone"
+                android:textSize="@dimen/sp_8"
+                app:bl_corners_bottomRightRadius="@dimen/dp_13"
+                app:bl_corners_topLeftRadius="@dimen/dp_13"
+                app:bl_corners_topRightRadius="@dimen/dp_13"
+                app:bl_gradient_angle="0"
+                app:bl_gradient_endColor="#F4D357"
+                app:bl_gradient_startColor="#EBDA4F" />
+
+        </com.noober.background.view.BLLinearLayout>
+
+    </FrameLayout>
+
+</LinearLayout>

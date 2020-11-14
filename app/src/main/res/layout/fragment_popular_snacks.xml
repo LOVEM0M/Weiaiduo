@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="HardcodedText,RtlSymmetry">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/title_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:paddingHorizontal="@dimen/dp_15"
+            android:paddingVertical="@dimen/dp_12">
+            <LinearLayout
+                android:id="@+id/ll_goback"
+                android:layout_width="@dimen/dp_20"
+                android:layout_height="match_parent"
+                android:gravity="center">
+            <ImageView
+                android:id="@+id/iv_goback"
+                android:layout_width="@dimen/dp_15"
+                android:layout_height="@dimen/dp_24"
+                android:src="@drawable/left_arrow_gray" />
+            </LinearLayout>
+            <TextView
+                android:id="@+id/tv_top_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="网红零食"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+        </RelativeLayout>
+        <LinearLayout
+            android:id="@+id/ll_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_title"
+            android:paddingTop="@dimen/dp_14"
+            android:orientation="horizontal"
+            android:background="@color/white">
+
+            <LinearLayout
+                android:id="@+id/ll_search_home"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dp_23"
+                android:layout_weight="1"
+                android:background="@drawable/shape_sanck_bg1"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingVertical="8dp">
+
+                <ImageView
+                    android:layout_width="@dimen/dp_18"
+                    android:layout_height="@dimen/dp_18"
+                    android:src="@drawable/ic_search" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_5"
+                    android:text="搜索你想要的零食"
+                    android:textColor="#999999"
+                    android:textSize="@dimen/sp_16" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/ll_classify_one"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_12"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/dp_12">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/dp_41"
+                    android:layout_height="@dimen/dp_41"
+                    android:src="@drawable/lingshi" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_13"
+                    android:text="坚果炒货"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/sp_11" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/dp_41"
+                    android:layout_height="@dimen/dp_41"
+                    android:src="@drawable/lingshi" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_13"
+                    android:text="膨化食品"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/sp_11" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/dp_41"
+                    android:layout_height="@dimen/dp_41"
+                    android:src="@drawable/lingshi" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_13"
+                    android:text="方便食品"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/sp_11" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/dp_41"
+                    android:layout_height="@dimen/dp_41"
+                    android:src="@drawable/lingshi" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_13"
+                    android:text="乳制品"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/sp_11" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/dp_41"
+                    android:layout_height="@dimen/dp_41"
+                    android:src="@drawable/lingshi" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_13"
+                    android:text="糖果巧克力"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/sp_11" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_classify_two"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_12"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/dp_12">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/dp_41"
+                    android:layout_height="@dimen/dp_41"
+                    android:src="@drawable/lingshi" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_13"
+                    android:text="面包饼干"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/sp_11" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/dp_41"
+                    android:layout_height="@dimen/dp_41"
+                    android:src="@drawable/lingshi" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_13"
+                    android:text="饮料"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/sp_11" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/dp_41"
+                    android:layout_height="@dimen/dp_41"
+                    android:src="@drawable/lingshi" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_13"
+                    android:text="肉制品"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/sp_11" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/dp_41"
+                    android:layout_height="@dimen/dp_41"
+                    android:src="@drawable/lingshi" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_13"
+                    android:text="休闲食品"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/sp_11" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/dp_41"
+                    android:layout_height="@dimen/dp_41"
+                    android:src="@drawable/lingshi" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_13"
+                    android:text="冲调茶饮"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/sp_11" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp_12"
+            android:layout_marginTop="@dimen/dp_13"
+            android:background="@drawable/shape_home_bg6"
+            android:orientation="vertical">
+
+            <include layout="@layout/item_home_classify4" />
+
+            <include layout="@layout/item_home_classify4" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

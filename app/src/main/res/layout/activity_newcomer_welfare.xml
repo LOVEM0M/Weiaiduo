@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:ignore="HardcodedText">
+
+    <include layout="@layout/title_bar" />
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_212"
+                        android:background="@drawable/ic_welfare_header" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recycler_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp_10"
+                        android:layout_marginTop="@dimen/dp_212"
+                        android:layout_marginEnd="@dimen/dp_10"
+                        android:layout_marginBottom="@dimen/dp_20"
+                        android:background="@drawable/ic_test"
+                        android:overScrollMode="never"
+                        android:paddingTop="@dimen/dp_40"
+                        android:scrollbars="none" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/dp_239"
+                        android:layout_height="@dimen/dp_54"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/dp_195"
+                        android:background="@drawable/ic_welfare_new" />
+
+                </FrameLayout>
+
+                <com.noober.background.view.BLButton
+                    android:id="@+id/btn_receive"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_37"
+                    android:layout_marginStart="@dimen/dp_14"
+                    android:layout_marginEnd="@dimen/dp_14"
+                    android:layout_marginBottom="@dimen/dp_25"
+                    android:background="@null"
+                    android:text="一键领取"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/sp_14"
+                    app:bl_corners_radius="@dimen/dp_37"
+                    app:bl_enabled_solid_color="#F02C2C"
+                    app:bl_unEnabled_solid_color="#E1E1E1" />
+
+            </LinearLayout>
+
+            <com.miyin.zhenbaoqi.widget.SlidingTabLayout
+                android:id="@+id/tab_layout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_40"
+                android:background="@color/white"
+                app:layout_collapseMode="pin"
+                app:tl_indicator_color="#EA2D2D"
+                app:tl_indicator_corner_radius="@dimen/dp_3"
+                app:tl_indicator_height="@dimen/dp_3"
+                app:tl_indicator_width_equal_title="true"
+                app:tl_normal_text_color="@color/text_66"
+                app:tl_normal_text_size="@dimen/sp_15"
+                app:tl_select_text_color="#EA2D2D"
+                app:tl_tab_space_equal="true" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <com.miyin.zhenbaoqi.widget.NoScrollViewPager
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:overScrollMode="never"
+            android:scrollbars="none"
+            app:behavior_overlapTop="@dimen/dp_44"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</LinearLayout>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.noober.background.view.BLFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/dp_10"
+    android:layout_marginTop="@dimen/dp_10"
+    android:layout_marginEnd="@dimen/dp_10"
+    android:orientation="vertical"
+    app:bl_corners_radius="@dimen/dp_10"
+    app:bl_solid_color="@color/white">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_14"
+        android:layout_marginTop="@dimen/dp_14"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp_14"
+        android:textStyle="bold"
+        tools:text="待付款提醒" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_date_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginTop="@dimen/dp_14"
+        android:layout_marginEnd="@dimen/dp_14"
+        android:textColor="@color/text_99"
+        android:textSize="@dimen/sp_14"
+        tools:text="2020-12-12" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_14"
+        android:layout_marginTop="@dimen/dp_45"
+        android:layout_marginEnd="@dimen/dp_14"
+        android:layout_marginBottom="@dimen/dp_14"
+        android:textColor="@color/text_99"
+        android:textSize="@dimen/sp_13"
+        tools:text="测试一下" />
+
+</com.noober.background.view.BLFrameLayout>

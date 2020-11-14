@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.noober.background.view.BLLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/dp_3"
+    android:layout_marginTop="@dimen/dp_6"
+    android:layout_marginEnd="@dimen/dp_3"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    app:bl_corners_radius="@dimen/dp_6"
+    app:bl_solid_color="@color/white"
+    tools:ignore="HardcodedText">
+
+    <com.miyin.zhenbaoqi.widget.CircleImageView
+        android:id="@+id/iv_cover"
+        android:layout_width="@dimen/dp_46"
+        android:layout_height="@dimen/dp_46"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginBottom="@dimen/dp_10"
+        android:gravity="center"
+        app:civ_border_color="#B2B2B2"
+        app:civ_border_width="@dimen/dp_1"
+        tools:src="@color/text_33" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_title"
+        android:layout_width="@dimen/dp_87"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:maxLines="1"
+        android:textColor="@color/text_33"
+        android:textSize="@dimen/sp_13"
+        tools:text="琥珀蜡一啊线..." />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_attention_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginBottom="@dimen/dp_10"
+        android:includeFontPadding="false"
+        android:textColor="#AAAAAA"
+        android:textSize="@dimen/sp_12"
+        tools:text="5.0万人关注" />
+
+    <com.noober.background.view.BLTextView
+        android:id="@+id/tv_attention"
+        android:layout_width="@dimen/dp_55"
+        android:layout_height="@dimen/dp_19"
+        android:layout_marginBottom="@dimen/dp_10"
+        android:gravity="center"
+        android:text="关注"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_11"
+        app:bl_corners_radius="@dimen/dp_19"
+        app:bl_solid_color="#E93B44" />
+
+    <com.noober.background.view.BLTextView
+        android:id="@+id/tv_see"
+        android:layout_width="@dimen/dp_55"
+        android:layout_height="@dimen/dp_19"
+        android:layout_marginBottom="@dimen/dp_10"
+        android:gravity="center"
+        android:text="去逛逛"
+        android:textColor="#E93B44"
+        android:textSize="@dimen/sp_11"
+        app:bl_corners_radius="@dimen/dp_19"
+        app:bl_stroke_color="#E93B44"
+        app:bl_stroke_dashGap="@dimen/dp_1"
+        app:bl_stroke_dashWidth="@dimen/dp_1"
+        app:bl_stroke_width="@dimen/dp_1" />
+
+</com.noober.background.view.BLLinearLayout>

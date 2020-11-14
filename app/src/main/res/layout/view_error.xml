@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/error_group"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <FrameLayout
+        android:id="@+id/fl_error_group"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawableTop="@drawable/ic_network_error"
+            android:drawablePadding="@dimen/dp_15"
+            android:gravity="center_horizontal"
+            android:includeFontPadding="false"
+            android:text="网络不太给力，点击重新加载"
+            android:textColor="@color/text_66"
+            android:textSize="@dimen/sp_14"
+            tools:ignore="HardcodedText" />
+
+    </FrameLayout>
+
+</androidx.core.widget.NestedScrollView>

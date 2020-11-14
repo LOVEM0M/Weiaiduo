@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.miyin.zhenbaoqi.widget.LineFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/RippleStyle"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_40"
+    app:leftPadding="@dimen/dp_15"
+    app:rightPadding="@dimen/dp_17">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="@dimen/dp_17"
+        android:textColor="#6F6F6F"
+        android:textSize="@dimen/sp_14"
+        tools:text="测试标题" />
+
+</com.miyin.zhenbaoqi.widget.LineFrameLayout>

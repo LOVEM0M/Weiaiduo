@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:ignore="HardcodedText">
+
+    <include layout="@layout/title_bar" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_178"
+                    android:background="@drawable/ic_user_level_header">
+
+                    <com.miyin.zhenbaoqi.widget.CircleImageView
+                        android:id="@+id/iv_avatar"
+                        android:layout_width="@dimen/dp_42"
+                        android:layout_height="@dimen/dp_42"
+                        android:layout_marginStart="@dimen/dp_40"
+                        android:layout_marginTop="@dimen/dp_43"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:background="@color/white" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp_10"
+                        android:layout_marginTop="@dimen/dp_5"
+                        android:includeFontPadding="false"
+                        android:textColor="#FEDDA7"
+                        android:textSize="@dimen/sp_17"
+                        app:layout_constraintLeft_toRightOf="@id/iv_avatar"
+                        app:layout_constraintTop_toTopOf="@id/iv_avatar"
+                        tools:text="昵称名字" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/iv_level"
+                        android:layout_width="@dimen/dp_37"
+                        android:layout_height="@dimen/dp_16"
+                        android:layout_marginStart="@dimen/dp_10"
+                        android:gravity="center_vertical"
+                        app:layout_constraintBottom_toBottomOf="@id/tv_name"
+                        app:layout_constraintLeft_toRightOf="@id/tv_name"
+                        app:layout_constraintTop_toTopOf="@id/tv_name" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_user_integral"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp_10"
+                        android:layout_marginTop="@dimen/dp_74"
+                        android:includeFontPadding="false"
+                        android:textColor="#FFDEA8"
+                        android:textSize="@dimen/sp_10"
+                        app:layout_constraintBottom_toBottomOf="@id/iv_avatar"
+                        app:layout_constraintLeft_toRightOf="@id/iv_avatar"
+                        tools:text="珍宝分：0" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_230"
+                    android:layout_marginStart="@dimen/dp_20"
+                    android:layout_marginTop="@dimen/dp_125"
+                    android:layout_marginEnd="@dimen/dp_18"
+                    android:layout_marginBottom="@dimen/dp_10"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="@dimen/dp_7"
+                    app:cardElevation="@dimen/dp_5"
+                    app:cardPreventCornerOverlap="false">
+
+                    <com.miyin.zhenbaoqi.widget.LineTitle
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_52"
+                        android:gravity="center"
+                        app:line_title="尊享以下特权" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/dp_52">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_customer"
+                            style="@style/LevelTextStyle"
+                            android:drawableTop="@drawable/ic_level_customer"
+                            android:text="专属客服"
+                            app:layout_constraintBottom_toTopOf="@id/tv_identity"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toLeftOf="@id/tv_member"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_member"
+                            style="@style/LevelTextStyle"
+                            android:drawableTop="@drawable/ic_level_member"
+                            android:text="会员低价"
+                            app:layout_constraintBottom_toTopOf="@id/tv_identity"
+                            app:layout_constraintLeft_toRightOf="@id/tv_customer"
+                            app:layout_constraintRight_toLeftOf="@id/tv_activist"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_activist"
+                            style="@style/LevelTextStyle"
+                            android:drawableTop="@drawable/ic_level_activist"
+                            android:text="专业维权"
+                            app:layout_constraintBottom_toTopOf="@id/tv_identity"
+                            app:layout_constraintLeft_toRightOf="@id/tv_member"
+                            app:layout_constraintRight_toLeftOf="@id/tv_active"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_active"
+                            style="@style/LevelTextStyle"
+                            android:drawableTop="@drawable/ic_level_customer"
+                            android:text="特别活动"
+                            app:layout_constraintBottom_toTopOf="@id/tv_identity"
+                            app:layout_constraintLeft_toRightOf="@id/tv_activist"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_identity"
+                            style="@style/LevelTextStyle"
+                            android:drawableTop="@drawable/ic_level_identity"
+                            android:text="身份特权"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toLeftOf="@id/tv_integral"
+                            app:layout_constraintTop_toBottomOf="@id/tv_customer" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_integral"
+                            style="@style/LevelTextStyle"
+                            android:drawableTop="@drawable/ic_level_integral"
+                            android:text="积分特权"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toRightOf="@id/tv_identity"
+                            app:layout_constraintRight_toLeftOf="@id/tv_withdraw"
+                            app:layout_constraintTop_toBottomOf="@id/tv_customer" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_withdraw"
+                            style="@style/LevelTextStyle"
+                            android:drawableTop="@drawable/ic_level_gift"
+                            android:text="提现免手续费"
+                            android:textColor="#D2D2D2"
+                            android:textSize="@dimen/sp_10"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toRightOf="@id/tv_integral"
+                            app:layout_constraintRight_toLeftOf="@id/tv_birthday"
+                            app:layout_constraintTop_toBottomOf="@id/tv_customer" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_birthday"
+                            style="@style/LevelTextStyle"
+                            android:drawableTop="@drawable/ic_level_gift"
+                            android:text="生日礼券"
+                            android:textColor="#D2D2D2"
+                            android:textSize="@dimen/sp_10"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toRightOf="@id/tv_withdraw"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tv_customer" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </FrameLayout>
+
+            <com.miyin.zhenbaoqi.widget.LineTitle
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_60"
+                android:gravity="center"
+                app:line_title="等级对照表" />
+
+            <com.noober.background.view.BLLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_22"
+                android:layout_marginEnd="@dimen/dp_20"
+                android:orientation="vertical"
+                app:bl_stroke_color="#C2C2C2"
+                app:bl_stroke_width="@dimen/dp_1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_35"
+                    android:layout_marginStart="@dimen/dp_1"
+                    android:layout_marginTop="@dimen/dp_1"
+                    android:layout_marginEnd="@dimen/dp_1"
+                    android:background="@color/bg_f5">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="会员等级"
+                        android:textColor="@color/text_33"
+                        android:textSize="@dimen/sp_14" />
+
+                    <View
+                        android:layout_width="@dimen/dp_1"
+                        android:layout_height="match_parent"
+                        android:background="@color/line_eb" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="会员名称"
+                        android:textColor="@color/text_33"
+                        android:textSize="@dimen/sp_14" />
+
+                    <View
+                        android:layout_width="@dimen/dp_1"
+                        android:layout_height="match_parent"
+                        android:background="@color/line_eb" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.6"
+                        android:gravity="center"
+                        android:text="所需积分"
+                        android:textColor="@color/text_33"
+                        android:textSize="@dimen/sp_14" />
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_1"
+                    android:layout_marginEnd="@dimen/dp_1"
+                    android:layout_marginBottom="@dimen/dp_1"
+                    android:overScrollMode="never"
+                    android:scrollbars="none" />
+
+            </com.noober.background.view.BLLinearLayout>
+
+            <com.miyin.zhenbaoqi.widget.LineTitle
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_80"
+                android:gravity="center"
+                app:line_title="积分计算方式" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_24"
+                android:layout_marginEnd="@dimen/dp_29"
+                android:layout_marginBottom="@dimen/dp_96"
+                android:lineSpacingExtra="@dimen/dp_3"
+                android:text="用户订单付款完成，即可获得对应的积分，单笔订单金额≥10元，订单所获得积分=订单实际支付金额/10，取整。订单确认收货后自动计算，如发生退货退款，则扣对应的积分。"
+                android:textColor="@color/text_88"
+                android:textSize="@dimen/sp_14" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

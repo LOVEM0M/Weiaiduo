@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <include layout="@layout/title_bar" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_170">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/dp_40">
+
+            <com.miyin.zhenbaoqi.widget.CircleImageView
+                android:id="@+id/iv_avatar"
+                android:layout_width="@dimen/dp_27"
+                android:layout_height="@dimen/dp_27" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_shop_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/dp_6"
+                android:includeFontPadding="false"
+                android:textColor="#FFE86B"
+                android:textSize="@dimen/sp_12"
+                tools:text="张珊烤肉店的福袋" />
+
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_total_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginBottom="@dimen/dp_45"
+            android:includeFontPadding="false"
+            android:textColor="#FFE86B"
+            android:textSize="@dimen/sp_25"
+            tools:text="50元" />
+
+    </FrameLayout>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:lineSpacingExtra="@dimen/dp_10"
+        android:paddingTop="@dimen/dp_25"
+        android:paddingBottom="@dimen/dp_30"
+        android:textColor="@color/text_66"
+        android:textSize="@dimen/sp_12"
+        tools:text="福袋已领完/已过去\n获得专属粉丝3个，店铺关注4个\n注：未领取金额将于24小时过期后原路退还" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_10"
+        android:background="@color/bg_f5" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_price"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp_30"
+        android:layout_marginStart="@dimen/dp_16"
+        android:gravity="center_vertical"
+        android:textColor="@color/text_66"
+        android:textSize="@dimen/sp_12"
+        tools:text="已领取2.6元/100元" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        android:scrollbars="none" />
+
+</LinearLayout>

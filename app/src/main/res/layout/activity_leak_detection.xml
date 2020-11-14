@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_f5"
+    android:orientation="vertical"
+    tools:ignore="HardcodedText">
+
+    <include layout="@layout/title_bar" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_time"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_57"
+        android:background="#E83133"
+        android:overScrollMode="never"
+        android:scrollbars="none" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_37"
+        android:background="#F2F0F1">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/dp_14"
+            android:gravity="center_vertical"
+            android:text="每天8场，抢到就是赚到"
+            android:textColor="#1F1F1F"
+            android:textSize="@dimen/sp_12" />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_80"
+        android:gravity="center_vertical">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_type"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:overScrollMode="never"
+            android:scrollbars="none" />
+
+        <com.noober.background.view.BLTextView
+            android:layout_width="@dimen/dp_27"
+            android:layout_height="@dimen/dp_54"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text="全\n部"
+            android:textColor="#A23241"
+            android:textSize="@dimen/sp_12"
+            app:bl_corners_radius="@dimen/dp_2"
+            app:bl_solid_color="#F6F8F7" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/normal_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include layout="@layout/layout_refresh" />
+
+    </FrameLayout>
+
+</LinearLayout>

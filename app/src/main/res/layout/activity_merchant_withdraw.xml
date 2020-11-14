@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_f5"
+    android:orientation="vertical"
+    tools:ignore="HardcodedText,RtlSymmetry">
+
+    <include layout="@layout/title_bar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_110"
+        android:background="@color/white"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_30"
+            android:includeFontPadding="false"
+            android:textColor="@color/text_33"
+            android:textSize="@dimen/sp_25"
+            android:textStyle="bold"
+            tools:text="5000.00" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_10"
+            android:includeFontPadding="false"
+            android:text="可提现金额（元）"
+            android:textColor="@color/text_33"
+            android:textSize="@dimen/sp_12" />
+
+    </LinearLayout>
+
+    <com.miyin.zhenbaoqi.widget.LineFrameLayout
+        android:id="@+id/fl_bank_card"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_44"
+        android:layout_marginTop="@dimen/dp_12"
+        android:background="@color/white"
+        app:lineColor="@color/line_color">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/dp_15"
+            android:text="提现卡号"
+            android:textColor="#141414"
+            android:textSize="@dimen/sp_14" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_card_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|end"
+            android:layout_marginEnd="@dimen/dp_15"
+            android:hint="请选择"
+            android:textColor="#141414"
+            android:textColorHint="@color/text_99"
+            android:textSize="@dimen/sp_14" />
+
+    </com.miyin.zhenbaoqi.widget.LineFrameLayout>
+
+    <com.miyin.zhenbaoqi.widget.LineFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_44"
+        android:background="@color/white"
+        app:lineColor="@color/line_color">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/dp_15"
+            android:text="提现金额"
+            android:textColor="#141414"
+            android:textSize="@dimen/sp_14" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_price"
+            android:layout_width="@dimen/dp_200"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:background="@null"
+            android:gravity="center_vertical|end"
+            android:hint="请输入提现金额"
+            android:inputType="number"
+            android:paddingEnd="@dimen/dp_15"
+            android:textColor="#141414"
+            android:textColorHint="@color/text_99"
+            android:textSize="@dimen/sp_14" />
+
+    </com.miyin.zhenbaoqi.widget.LineFrameLayout>
+
+    <com.noober.background.view.BLButton
+        android:id="@+id/btn_commit"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_44"
+        android:layout_marginStart="@dimen/dp_18"
+        android:layout_marginTop="@dimen/dp_28"
+        android:layout_marginEnd="@dimen/dp_18"
+        android:text="申请提现"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_14"
+        app:bl_corners_radius="@dimen/dp_3"
+        app:bl_enabled_solid_color="@color/theme_dark_purple"
+        app:bl_unEnabled_solid_color="#B6B6B6" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_remark"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_20"
+        android:layout_marginTop="@dimen/dp_28"
+        android:layout_marginEnd="@dimen/dp_17"
+        android:lineSpacingExtra="@dimen/dp_5"
+        android:text="货款提现规则\n1. 单笔不得低于10元，最高不超过20万元；\n2. 提现到账时间为次日，如遇节假日则顺延"
+        android:textColor="@color/text_99"
+        android:textSize="@dimen/sp_12" />
+
+</LinearLayout>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.noober.background.view.BLLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    app:bl_corners_radius="@dimen/dp_5"
+    app:bl_solid_color="@color/white"
+    tools:ignore="HardcodedText">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_refresh"
+        android:layout_width="@dimen/dp_75"
+        android:layout_height="@dimen/dp_40"
+        android:gravity="center"
+        android:text="刷新"
+        android:textColor="@color/text_33"
+        android:textSize="@dimen/sp_13" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:background="@color/line_color" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_customer"
+        android:layout_width="@dimen/dp_75"
+        android:layout_height="@dimen/dp_40"
+        android:gravity="center"
+        android:text="客服"
+        android:textColor="@color/text_33"
+        android:textSize="@dimen/sp_13" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:background="@color/line_color" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_complaint"
+        android:layout_width="@dimen/dp_75"
+        android:layout_height="@dimen/dp_40"
+        android:gravity="center"
+        android:text="投诉"
+        android:textColor="@color/text_33"
+        android:textSize="@dimen/sp_13" />
+
+</com.noober.background.view.BLLinearLayout>

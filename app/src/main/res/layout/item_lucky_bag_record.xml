@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.miyin.zhenbaoqi.widget.LineFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/RippleStyle"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_65"
+    app:leftPadding="@dimen/dp_12"
+    app:rightPadding="@dimen/dp_12">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="@dimen/dp_37"
+        android:layout_height="@dimen/dp_37"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="@dimen/dp_14"
+        android:background="@drawable/ic_lucky_bag" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_65"
+        android:layout_marginTop="@dimen/dp_18"
+        android:includeFontPadding="false"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp_14"
+        tools:text="分享福袋 " />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_65"
+        android:layout_marginTop="@dimen/dp_42"
+        android:includeFontPadding="false"
+        android:textColor="@color/text_99"
+        android:textSize="@dimen/sp_10"
+        tools:text="已过期4/100，已绑定专粉2位 " />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_date_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginEnd="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_18"
+        android:includeFontPadding="false"
+        android:textColor="@color/text_99"
+        android:textSize="@dimen/sp_10"
+        tools:text="12.11 15:20" />
+
+</com.miyin.zhenbaoqi.widget.LineFrameLayout>

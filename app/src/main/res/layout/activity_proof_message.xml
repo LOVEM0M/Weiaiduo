@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:ignore="HardcodedText,RtlSymmetry">
+
+    <LinearLayout
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/dp_12"
+        android:paddingVertical="@dimen/dp_10">
+
+        <!-- <LinearLayout
+             android:id="@+id/ll_goback"
+             android:layout_width="@dimen/dp_20"
+             android:layout_height="match_parent"
+             android:gravity="center">
+
+             <ImageView
+                 android:layout_width="@dimen/dp_12"
+                 android:layout_height="@dimen/dp_18"
+                 android:src="@drawable/left_arrow_gray" />
+         </LinearLayout>
+ -->
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="补充留言/凭证"
+            android:textColor="#222222"
+            android:textSize="@dimen/sp_18" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_240"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/dp_29"
+        android:paddingTop="@dimen/dp_51">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:hint="请输入留言"
+            android:paddingVertical="0dp"
+            android:textColor="@color/text_33"
+            android:textColorHint="@color/text_99"
+            android:textSize="@dimen/dp_30" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:background="@color/white"
+        android:gravity="right"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="0"
+            android:textColor="#F92728"
+            android:textSize="@dimen/sp_30" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="/100"
+            android:textColor="@color/text_99"
+            android:textSize="@dimen/sp_30" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_24"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/dp_27"
+        android:paddingTop="@dimen/dp_23">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="上传凭证"
+            android:textColor="#222222"
+            android:textSize="@dimen/sp_26" />
+
+        <ImageView
+            android:layout_width="@dimen/dp_133"
+            android:layout_height="@dimen/dp_133"
+            android:src="@drawable/ic_more_camera"
+            android:layout_marginVertical="@dimen/dp_28"/>
+
+    </LinearLayout>
+
+</LinearLayout>

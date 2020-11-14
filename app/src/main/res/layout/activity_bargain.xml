@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout   xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FD8D65"
+    tools:ignore="HardcodedText,RtlSymmetry">
+
+    <ImageView
+        android:id="@+id/iv_bargain_bg"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_196"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bargain_bg"
+        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dp_12"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="@id/iv_bargain_bg"
+        android:layout_marginTop="@dimen/dp_13">
+
+        <LinearLayout
+            android:id="@+id/ll_goback"
+            android:layout_width="@dimen/dp_20"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="@dimen/dp_12"
+                android:layout_height="@dimen/dp_18"
+                android:src="@drawable/left_arrow_white" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:text="规则"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_12" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_tab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/iv_bargain_bg">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="0.5dp"
+            android:layout_weight="1"
+            android:background="#FA5212"
+            android:gravity="center"
+            android:paddingVertical="@dimen/dp_9"
+            android:text="普通用户砍价区"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_14" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0.5dp"
+            android:layout_weight="1"
+            android:background="#FA5212"
+            android:gravity="center"
+            android:paddingVertical="@dimen/dp_9"
+            android:text="会员用户砍价区"
+            android:textColor="#BDBDBD"
+            android:textSize="@dimen/sp_14" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/ll_tab"
+        android:background="@drawable/bargain_bg2"
+        android:layout_marginHorizontal="@dimen/dp_15"
+        android:layout_marginTop="@dimen/dp_10"
+        android:paddingHorizontal="@dimen/dp_13">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="幸运享免单"
+            android:textColor="@color/white"
+            android:textSize="29sp" />
+        <include layout="@layout/item_bargain"/>
+        <FrameLayout
+            android:id="@+id/normal_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:ignore="UselessParent">
+
+            <include layout="@layout/layout_refresh" />
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

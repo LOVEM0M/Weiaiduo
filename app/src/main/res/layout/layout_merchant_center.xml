@@ -1,0 +1,517 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_merchant_center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_f5"
+    android:orientation="vertical"
+    tools:ignore="HardcodedText,RtlSymmetry">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_286">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_280"
+            android:background="@drawable/ic_mine_merchant_bg"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <FrameLayout
+                android:id="@+id/fl_merchant_title_bar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_44"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="卖家新秀-达人"
+                    android:textColor="#F4CE9C"
+                    android:textSize="@dimen/sp_17" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_merchant_switch"
+                    android:layout_width="@dimen/dp_66"
+                    android:layout_height="@dimen/dp_22"
+                    android:layout_gravity="center_vertical|end"
+                    android:layout_marginEnd="@dimen/dp_15"
+                    android:background="@drawable/ic_switch_identity" />
+
+            </FrameLayout>
+
+            <com.miyin.zhenbaoqi.widget.CircleImageView
+                android:id="@+id/iv_merchant_avatar"
+                android:layout_width="@dimen/dp_65"
+                android:layout_height="@dimen/dp_65"
+                android:layout_marginTop="@dimen/dp_24"
+                android:layout_marginEnd="@dimen/dp_15"
+                app:civ_border_color="@color/white"
+                app:civ_border_width="@dimen/dp_1"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fl_merchant_title_bar"
+                app:layout_goneMarginEnd="@dimen/dp_15"
+                app:layout_goneMarginTop="@dimen/dp_6"
+                tools:src="@color/white" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_shop_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_15"
+                android:includeFontPadding="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_21"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="@id/iv_merchant_avatar"
+                tools:text="玉茗堂客服" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_10"
+                app:layout_constraintLeft_toLeftOf="@id/tv_shop_name"
+                app:layout_constraintTop_toBottomOf="@id/tv_shop_name">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_merchant_level" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_3"
+                    android:layout_marginEnd="@dimen/dp_3"
+                    android:background="@drawable/ic_merchant_level" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_merchant_level" />
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_invite_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_55"
+                android:includeFontPadding="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_14"
+                app:layout_constraintLeft_toLeftOf="@id/tv_shop_name"
+                app:layout_constraintTop_toBottomOf="@id/tv_shop_name"
+                tools:text="我的邀请码：397806" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.noober.background.view.BLConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_70"
+            android:layout_marginStart="@dimen/dp_15"
+            android:layout_marginEnd="@dimen/dp_15"
+            app:bl_corners_radius="@dimen/dp_8"
+            app:bl_gradient_angle="0"
+            app:bl_gradient_endColor="#171717"
+            app:bl_gradient_startColor="#6B6B6B"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_cumulative_benefit"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:lineSpacingExtra="@dimen/dp_5"
+                android:text="累计收益"
+                android:textColor="#4DFFFFFF"
+                android:textSize="@dimen/sp_11"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/tv_shop_player_count" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_shop_player_count"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:lineSpacingExtra="@dimen/dp_5"
+                android:text="玩家数"
+                android:textColor="#4DFFFFFF"
+                android:textSize="@dimen/sp_11"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/tv_cumulative_benefit"
+                app:layout_constraintRight_toLeftOf="@id/tv_shop_fan" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_shop_fan"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:lineSpacingExtra="@dimen/dp_5"
+                android:text="专属粉丝"
+                android:textColor="#4DFFFFFF"
+                android:textSize="@dimen/sp_11"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/tv_shop_player_count"
+                app:layout_constraintRight_toRightOf="parent" />
+
+        </com.noober.background.view.BLConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.noober.background.view.BLConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_114"
+        android:layout_marginStart="@dimen/dp_15"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginEnd="@dimen/dp_15"
+        android:layout_marginBottom="@dimen/dp_10"
+        app:bl_corners_radius="@dimen/dp_8"
+        app:bl_solid_color="@color/white">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_38"
+            android:layout_marginStart="@dimen/dp_14"
+            android:gravity="center_vertical"
+            android:includeFontPadding="false"
+            android:text="店铺订单"
+            android:textColor="@color/text_33"
+            android:textSize="@dimen/sp_14"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_see"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_38"
+            android:gravity="center_vertical"
+            android:includeFontPadding="false"
+            android:paddingStart="@dimen/dp_10"
+            android:paddingEnd="@dimen/dp_15"
+            android:text="查看全部全部》"
+            android:textColor="@color/text_66"
+            android:textSize="@dimen/sp_12"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.noober.background.view.BLTextView
+            android:id="@+id/tv_merchant_wait_ship"
+            style="@style/RippleStyle"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_75"
+            android:drawableTop="@drawable/ic_wait_ship"
+            android:drawablePadding="@dimen/dp_6"
+            android:gravity="center_horizontal"
+            android:paddingTop="@dimen/dp_15"
+            android:text="待发货"
+            android:textColor="@color/text_33"
+            android:textSize="@dimen/sp_12"
+            app:bl_corners_bottomLeftRadius="@dimen/dp_8"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/tv_merchant_wait_receipt" />
+
+        <com.noober.background.view.BLTextView
+            android:id="@+id/tv_merchant_wait_ship_count"
+            android:layout_width="@dimen/dp_15"
+            android:layout_height="@dimen/dp_15"
+            android:layout_marginStart="@dimen/dp_25"
+            android:layout_marginTop="@dimen/dp_15"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_8"
+            android:visibility="invisible"
+            app:bl_corners_radius="@dimen/dp_15"
+            app:bl_solid_color="#EA5F45"
+            app:layout_constraintLeft_toLeftOf="@id/tv_merchant_wait_ship"
+            app:layout_constraintRight_toRightOf="@id/tv_merchant_wait_ship"
+            app:layout_constraintTop_toTopOf="@id/tv_merchant_wait_ship"
+            tools:text="99+" />
+
+        <com.noober.background.view.BLTextView
+            android:id="@+id/tv_merchant_wait_receipt"
+            style="@style/RippleStyle"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_75"
+            android:drawableTop="@drawable/ic_wait_receipt"
+            android:drawablePadding="@dimen/dp_6"
+            android:gravity="center_horizontal"
+            android:paddingTop="@dimen/dp_15"
+            android:text="待收货"
+            android:textColor="@color/text_33"
+            android:textSize="@dimen/sp_12"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/tv_merchant_wait_ship"
+            app:layout_constraintRight_toLeftOf="@id/tv_complete" />
+
+        <com.noober.background.view.BLTextView
+            android:id="@+id/tv_merchant_wait_receipt_count"
+            android:layout_width="@dimen/dp_15"
+            android:layout_height="@dimen/dp_15"
+            android:layout_marginStart="@dimen/dp_25"
+            android:layout_marginTop="@dimen/dp_15"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_8"
+            android:visibility="invisible"
+            app:bl_corners_radius="@dimen/dp_15"
+            app:bl_solid_color="#EA5F45"
+            app:layout_constraintLeft_toLeftOf="@id/tv_merchant_wait_receipt"
+            app:layout_constraintRight_toRightOf="@id/tv_merchant_wait_receipt"
+            app:layout_constraintTop_toTopOf="@id/tv_merchant_wait_receipt"
+            tools:text="99+" />
+
+        <com.noober.background.view.BLTextView
+            android:id="@+id/tv_complete"
+            style="@style/RippleStyle"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_75"
+            android:drawableTop="@drawable/ic_complete"
+            android:drawablePadding="@dimen/dp_6"
+            android:gravity="center_horizontal"
+            android:paddingTop="@dimen/dp_15"
+            android:text="交易完成"
+            android:textColor="@color/text_33"
+            android:textSize="@dimen/sp_12"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/tv_merchant_wait_receipt"
+            app:layout_constraintRight_toLeftOf="@id/tv_merchant_after_sale" />
+
+        <com.noober.background.view.BLTextView
+            android:id="@+id/tv_complete_count"
+            android:layout_width="@dimen/dp_15"
+            android:layout_height="@dimen/dp_15"
+            android:layout_marginStart="@dimen/dp_25"
+            android:layout_marginTop="@dimen/dp_15"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_8"
+            android:visibility="invisible"
+            app:bl_corners_radius="@dimen/dp_15"
+            app:bl_solid_color="#EA5F45"
+            app:layout_constraintLeft_toLeftOf="@id/tv_complete"
+            app:layout_constraintRight_toRightOf="@id/tv_complete"
+            app:layout_constraintTop_toTopOf="@id/tv_complete"
+            tools:text="99+" />
+
+        <com.noober.background.view.BLTextView
+            android:id="@+id/tv_merchant_after_sale"
+            style="@style/RippleStyle"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_75"
+            android:drawableTop="@drawable/ic_after_sale"
+            android:drawablePadding="@dimen/dp_6"
+            android:gravity="center_horizontal"
+            android:paddingTop="@dimen/dp_15"
+            android:text="退款/售后"
+            android:textColor="@color/text_33"
+            android:textSize="@dimen/sp_12"
+            app:bl_corners_bottomRightRadius="@dimen/dp_8"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/tv_complete"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <com.noober.background.view.BLTextView
+            android:id="@+id/tv_merchant_after_sale_count"
+            android:layout_width="@dimen/dp_15"
+            android:layout_height="@dimen/dp_15"
+            android:layout_marginStart="@dimen/dp_25"
+            android:layout_marginTop="@dimen/dp_15"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_8"
+            android:visibility="invisible"
+            app:bl_corners_radius="@dimen/dp_15"
+            app:bl_solid_color="#EA5F45"
+            app:layout_constraintLeft_toLeftOf="@id/tv_merchant_after_sale"
+            app:layout_constraintRight_toRightOf="@id/tv_merchant_after_sale"
+            app:layout_constraintTop_toTopOf="@id/tv_merchant_after_sale"
+            tools:text="99+" />
+
+    </com.noober.background.view.BLConstraintLayout>
+
+    <com.noober.background.view.BLLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_96"
+        android:layout_marginStart="@dimen/dp_15"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginEnd="@dimen/dp_15"
+        app:bl_corners_radius="@dimen/dp_8"
+        app:bl_solid_color="@color/white">
+
+        <com.noober.background.view.BLTextView
+            android:id="@+id/tv_manager_shop"
+            style="@style/RippleStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_manager_shop"
+            android:drawablePadding="@dimen/dp_5"
+            android:gravity="center_horizontal"
+            android:paddingTop="@dimen/dp_10"
+            android:text="店铺管理"
+            android:textColor="@color/text_33"
+            android:textSize="@dimen/sp_12"
+            app:bl_corners_bottomLeftRadius="@dimen/dp_8"
+            app:bl_corners_topLeftRadius="@dimen/dp_8" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_shop_home"
+            style="@style/RippleStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_shop_home"
+            android:drawablePadding="@dimen/dp_5"
+            android:gravity="center_horizontal"
+            android:paddingTop="@dimen/dp_10"
+            android:text="店铺首页"
+            android:textColor="@color/text_33"
+            android:textSize="@dimen/sp_12" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_manager_auction"
+            style="@style/RippleStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_manager_auction"
+            android:drawablePadding="@dimen/dp_5"
+            android:gravity="center_horizontal"
+            android:paddingTop="@dimen/dp_10"
+            android:text="拍卖管理"
+            android:textColor="@color/text_33"
+            android:textSize="@dimen/sp_12" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_more_features"
+            style="@style/RippleStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_more_features"
+            android:drawablePadding="@dimen/dp_5"
+            android:gravity="center_horizontal"
+            android:paddingTop="@dimen/dp_10"
+            android:text="更多功能"
+            android:textColor="@color/text_33"
+            android:textSize="@dimen/sp_12"
+            app:bl_corners_bottomLeftRadius="@dimen/dp_8"
+            app:bl_corners_bottomRightRadius="@dimen/dp_8" />
+
+    </com.noober.background.view.BLLinearLayout>
+
+    <com.noober.background.view.BLConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_154"
+        android:layout_margin="@dimen/dp_15"
+        app:bl_corners_radius="@dimen/dp_8"
+        app:bl_solid_color="@color/white">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_38"
+            android:layout_marginStart="@dimen/dp_14"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text="店铺数据"
+            android:textColor="@color/text_33"
+            android:textSize="@dimen/sp_14"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_order_count"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/dp_38"
+            android:gravity="center"
+            android:lineSpacingExtra="@dimen/dp_5"
+            android:text="今日订单数"
+            android:textColor="#A1A1A1"
+            android:textSize="@dimen/sp_10"
+            app:layout_constraintBottom_toTopOf="@id/tv_order_wait_ship"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/tv_order_refund"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_order_refund"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:lineSpacingExtra="@dimen/dp_5"
+            android:text="退款中"
+            android:textColor="#A1A1A1"
+            android:textSize="@dimen/sp_10"
+            app:layout_constraintBottom_toBottomOf="@id/tv_order_count"
+            app:layout_constraintLeft_toRightOf="@id/tv_order_count"
+            app:layout_constraintRight_toLeftOf="@id/tv_order_wait_pay"
+            app:layout_constraintTop_toTopOf="@id/tv_order_count" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_order_wait_pay"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:lineSpacingExtra="@dimen/dp_5"
+            android:text="待付款"
+            android:textColor="#A1A1A1"
+            android:textSize="@dimen/sp_10"
+            app:layout_constraintBottom_toBottomOf="@id/tv_order_count"
+            app:layout_constraintLeft_toRightOf="@id/tv_order_refund"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tv_order_count" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_order_wait_ship"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:lineSpacingExtra="@dimen/dp_5"
+            android:text="待发货"
+            android:textColor="#A1A1A1"
+            android:textSize="@dimen/sp_10"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/tv_yesterday_visitors"
+            app:layout_constraintTop_toBottomOf="@id/tv_order_count" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_yesterday_visitors"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:lineSpacingExtra="@dimen/dp_5"
+            android:text="昨日总访客"
+            android:textColor="#A1A1A1"
+            android:textSize="@dimen/sp_10"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/tv_order_wait_ship"
+            app:layout_constraintRight_toLeftOf="@id/tv_yesterday_amount"
+            app:layout_constraintTop_toBottomOf="@id/tv_order_count" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_yesterday_amount"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:lineSpacingExtra="@dimen/dp_5"
+            android:text="昨天成交金额"
+            android:textColor="#A1A1A1"
+            android:textSize="@dimen/sp_10"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/tv_yesterday_visitors"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_order_count" />
+
+    </com.noober.background.view.BLConstraintLayout>
+
+</LinearLayout>

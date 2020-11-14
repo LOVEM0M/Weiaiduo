@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:ignore="HardcodedText,RtlSymmetry"
+    android:layout_marginTop="@dimen/dp_9">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_cover"
+        android:layout_width="@dimen/dp_170"
+        android:layout_height="@dimen/dp_170"
+        android:scaleType="fitXY"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:background="@color/text_33" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_5"
+        android:layout_marginBottom="@dimen/dp_8"
+        android:background="@drawable/shape_new_pro_week_b1"
+        android:ellipsize="end"
+        android:includeFontPadding="false"
+        android:paddingVertical="@dimen/dp_6"
+        android:paddingLeft="@dimen/dp_6"
+        android:paddingRight="@dimen/dp_14"
+        android:singleLine="true"
+        android:text="新品上新"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_16"
+        app:layout_constraintBottom_toBottomOf="@id/iv_cover"
+        app:layout_constraintLeft_toLeftOf="@id/iv_cover" />
+
+    <com.noober.background.view.BLLinearLayout
+        android:id="@+id/ll_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="@dimen/dp_10"
+        android:paddingEnd="@dimen/dp_10"
+        app:bl_corners_bottomLeftRadius="@dimen/dp_8"
+        app:bl_corners_bottomRightRadius="@dimen/dp_8"
+        app:bl_solid_color="@color/white"
+        app:layout_constraintLeft_toLeftOf="@id/iv_cover"
+        app:layout_constraintRight_toRightOf="@id/iv_cover"
+        app:layout_constraintTop_toBottomOf="@id/iv_cover">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_9"
+            android:layout_marginRight="@dimen/dp_29"
+            android:ellipsize="end"
+            android:includeFontPadding="false"
+            android:text="CHANEL男士香水..."
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_15" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/dp_5"
+            android:layout_marginHorizontal="9dp">
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_home_bg8"
+                android:paddingVertical="@dimen/dp_3"
+                android:paddingHorizontal="@dimen/dp_4"
+                android:text="热销"
+                android:textColor="#F31822"
+                android:textSize="@dimen/sp_10" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_home_bg8"
+                android:paddingVertical="@dimen/dp_3"
+                android:paddingHorizontal="@dimen/dp_4"
+                android:text="热销"
+                android:textColor="#F31822"
+                android:textSize="@dimen/sp_10"
+                android:layout_marginLeft="@dimen/dp_6"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="限购1件"
+                android:textColor="@color/text_66"
+                android:textSize="@dimen/sp_10"
+                android:layout_marginLeft="@dimen/dp_8"/>
+        </LinearLayout>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_10"
+            android:drawableEnd="@drawable/shop_card"
+            android:includeFontPadding="false"
+            android:text="￥123"
+            android:textColor="#E7000B"
+            android:textSize="@dimen/sp_24" />
+
+    </com.noober.background.view.BLLinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+
+

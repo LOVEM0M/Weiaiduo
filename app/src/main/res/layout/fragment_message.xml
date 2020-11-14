@@ -1,0 +1,230 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:ignore="HardcodedText,RtlSymmetry">
+
+    <LinearLayout
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_44"
+        android:background="@color/theme_dark_purple">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:paddingStart="@dimen/dp_15"
+            android:paddingEnd="@dimen/dp_10"
+            android:text="消息"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_16" />
+
+        <com.noober.background.view.BLEditText
+            android:id="@+id/et_content"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_30"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:background="@null"
+            android:drawableStart="@drawable/ic_search"
+            android:drawablePadding="@dimen/dp_6"
+            android:hint="搜索"
+            android:imeOptions="actionSearch"
+            android:maxLength="20"
+            android:maxLines="1"
+            android:paddingStart="@dimen/dp_10"
+            android:singleLine="true"
+            android:textColor="@color/text_33"
+            android:textColorHint="@color/text_99"
+            android:textSize="@dimen/sp_12"
+            app:bl_corners_radius="@dimen/dp_30"
+            app:bl_solid_color="@color/white" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_fans"
+            android:layout_width="@dimen/dp_44"
+            android:layout_height="match_parent"
+            android:scaleType="center"
+            android:src="@drawable/ic_contact_white" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_customer"
+            android:layout_width="@dimen/dp_44"
+            android:layout_height="match_parent"
+            android:scaleType="center"
+            android:src="@drawable/ic_custom_white" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_50"
+            android:background="@color/theme_dark_purple" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_98"
+            android:layout_margin="@dimen/dp_16"
+            app:cardCornerRadius="@dimen/dp_10"
+            app:cardPreventCornerOverlap="false">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white">
+
+                <com.noober.background.view.BLFrameLayout
+                    android:id="@+id/fl_official_notification"
+                    style="@style/RippleStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    app:bl_corners_bottomLeftRadius="@dimen/dp_10"
+                    app:bl_corners_topLeftRadius="@dimen/dp_10">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:drawableTop="@drawable/ic_official_notification"
+                        android:drawablePadding="@dimen/dp_15"
+                        android:gravity="center_horizontal"
+                        android:includeFontPadding="false"
+                        android:paddingTop="@dimen/dp_15"
+                        android:text="官方公告"
+                        android:textColor="@color/text_33"
+                        android:textSize="@dimen/sp_12" />
+
+                    <com.noober.background.view.BLTextView
+                        android:id="@+id/tv_notification_tip"
+                        android:layout_width="@dimen/dp_20"
+                        android:layout_height="@dimen/dp_13"
+                        android:layout_marginStart="@dimen/dp_60"
+                        android:layout_marginTop="@dimen/dp_14"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/sp_8"
+                        android:visibility="invisible"
+                        app:bl_corners_bottomRightRadius="@dimen/dp_13"
+                        app:bl_corners_topLeftRadius="@dimen/dp_13"
+                        app:bl_corners_topRightRadius="@dimen/dp_13"
+                        app:bl_solid_color="#F74C32"
+                        app:bl_stroke_color="@color/white"
+                        app:bl_stroke_width="@dimen/dp_1"
+                        tools:text="1" />
+
+                </com.noober.background.view.BLFrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/fl_system_message"
+                    style="@style/RippleStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/white">
+
+                    <com.noober.background.view.BLTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:drawableTop="@drawable/ic_system_message"
+                        android:drawablePadding="@dimen/dp_15"
+                        android:gravity="center_horizontal"
+                        android:paddingTop="@dimen/dp_15"
+                        android:text="系统消息"
+                        android:textColor="@color/text_33"
+                        android:textSize="@dimen/sp_12" />
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/fl_logistics"
+                    style="@style/RippleStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:drawableTop="@drawable/ic_logistics"
+                        android:drawablePadding="@dimen/dp_15"
+                        android:gravity="center_horizontal"
+                        android:includeFontPadding="false"
+                        android:paddingTop="@dimen/dp_15"
+                        android:text="交易物流"
+                        android:textColor="@color/text_33"
+                        android:textSize="@dimen/sp_12" />
+
+                    <com.noober.background.view.BLTextView
+                        android:id="@+id/tv_logistics_tip"
+                        android:layout_width="@dimen/dp_20"
+                        android:layout_height="@dimen/dp_13"
+                        android:layout_marginStart="@dimen/dp_60"
+                        android:layout_marginTop="@dimen/dp_14"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/sp_8"
+                        android:visibility="invisible"
+                        app:bl_corners_bottomRightRadius="@dimen/dp_13"
+                        app:bl_corners_topLeftRadius="@dimen/dp_13"
+                        app:bl_corners_topRightRadius="@dimen/dp_13"
+                        app:bl_solid_color="#F74C32"
+                        app:bl_stroke_color="@color/white"
+                        app:bl_stroke_width="@dimen/dp_1"
+                        tools:text="1" />
+
+                </FrameLayout>
+
+                <com.noober.background.view.BLFrameLayout
+                    android:id="@+id/fl_income"
+                    style="@style/RippleStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    app:bl_corners_bottomLeftRadius="@dimen/dp_10"
+                    app:bl_corners_bottomRightRadius="@dimen/dp_10">
+
+                    <com.noober.background.view.BLTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:drawableTop="@drawable/ic_income_notification"
+                        android:drawablePadding="@dimen/dp_15"
+                        android:gravity="center_horizontal"
+                        android:paddingTop="@dimen/dp_15"
+                        android:text="收益通知"
+                        android:textColor="@color/text_33"
+                        android:textSize="@dimen/sp_12" />
+
+                </com.noober.background.view.BLFrameLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/normal_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.tencent.qcloud.tim.uikit.modules.conversation.ConversationLayout
+            android:id="@+id/conversation_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </FrameLayout>
+
+</LinearLayout>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.miyin.zhenbaoqi.widget.LineFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_70"
+    android:background="@color/white"
+    app:leftPadding="@dimen/dp_14"
+    app:lineColor="@color/line_color"
+    app:rightPadding="@dimen/dp_14"
+    tools:ignore="HardcodedText">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_14"
+        android:layout_marginTop="@dimen/dp_14"
+        android:includeFontPadding="false"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp_14"
+        android:textStyle="bold"
+        tools:text="订单货数" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginEnd="@dimen/dp_14"
+        android:layout_marginTop="@dimen/dp_14"
+        android:includeFontPadding="false"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp_14"
+        tools:text="订单货数" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_date_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="@dimen/dp_14"
+        android:layout_marginStart="@dimen/dp_14"
+        android:includeFontPadding="false"
+        android:textColor="@color/text_66"
+        android:textSize="@dimen/sp_12"
+        tools:text="订单货数" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="@dimen/dp_14"
+        android:layout_marginEnd="@dimen/dp_14"
+        android:includeFontPadding="false"
+        android:text="已完成"
+        android:textColor="@color/text_66"
+        android:textSize="@dimen/sp_12"
+        android:visibility="gone" />
+
+</com.miyin.zhenbaoqi.widget.LineFrameLayout>
