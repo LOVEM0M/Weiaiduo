@@ -11,6 +11,7 @@ import cn.jpush.android.api.JPushInterface
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.miyin.zhenbaoqi.R
 import com.miyin.zhenbaoqi.base.activity.BaseMvpActivity
+import com.miyin.zhenbaoqi.bean.LoginBean
 import com.miyin.zhenbaoqi.constant.Constant
 import com.miyin.zhenbaoqi.ext.startActivity
 import com.miyin.zhenbaoqi.ext.transform
@@ -31,7 +32,6 @@ class PhoneLoginActivity : BaseMvpActivity<PhoneLoginContract.IView, PhoneLoginC
     private var mInviteCode: String? = null
     private var mIsSelect = true
     private var mPushCode: String? = null
-
     override fun getContentView() = R.layout.activity_phone_login
 
     override fun initView(savedInstanceState: Bundle?) {
@@ -86,11 +86,6 @@ class PhoneLoginActivity : BaseMvpActivity<PhoneLoginContract.IView, PhoneLoginC
                 setLoginBtnEnabled()
             }
         })
-        et_invite_code.addTextChangedListener(object : EditWatcher() {
-            override fun afterTextChanged(editable: Editable?) {
-                mInviteCode = editable.toString().trim { it <= ' ' }
-            }
-        })
         setOnClickListener(tv_validate_code, btn_login, iv_check)
     }
 
@@ -131,10 +126,9 @@ class PhoneLoginActivity : BaseMvpActivity<PhoneLoginContract.IView, PhoneLoginC
 
     override fun onLogin() {
         ActivityManager.finishActivity(WXLoginActivity::class.java)
-        val userId = SPUtils.getInt("user_id")
-        JPushInterface.setAlias(this, userId, "zbq_$userId")
-
-        SPUtils.putString("phone", mPhone!!)
+//        val userId = SPUtils.getInt("userId")
+//        JPushInterface.setAlias(this, userId, "zbq_$userId")
+//        SPUtils.putString("phone", mPhone!!)
         startActivity<MainActivity>()
         finish()
     }

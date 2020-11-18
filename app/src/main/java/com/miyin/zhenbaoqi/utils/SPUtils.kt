@@ -5,11 +5,10 @@ import com.miyin.zhenbaoqi.App
 
 object SPUtils {
 
-    private val mSharedPref = App.context.getSharedPreferences("zhenbaoqi", Context.MODE_PRIVATE)
+    private val mSharedPref = App.context.getSharedPreferences("weiaiduo", Context.MODE_PRIVATE)
 
     fun putString(key: String, value: String) {
-        mSharedPref.edit().putString(key, value).apply()
-    }
+        mSharedPref.edit().putString(key, value).apply()    }
 
     fun putBoolean(key: String, value: Boolean) {
         mSharedPref.edit().putBoolean(key, value).apply()
@@ -17,6 +16,9 @@ object SPUtils {
 
     fun putInt(key: String, value: Int) {
         mSharedPref.edit().putInt(key, value).apply()
+    }
+    fun putFloat(key: String, value: Float) {
+        mSharedPref.edit().putFloat(key, value).apply()
     }
 
     fun getString(key: String, defaultValue: String = "") = mSharedPref.getString(key, defaultValue)

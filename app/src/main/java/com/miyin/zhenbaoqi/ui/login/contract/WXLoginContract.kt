@@ -8,20 +8,20 @@ import com.miyin.zhenbaoqi.bean.UserSignBean
 class WXLoginContract {
 
     interface IView : IBaseView {
-        fun onWXLoginSuccess(json: String)
+//        fun onWXLoginSuccess(json: String)
 
-        fun appLoginSuccess(bean: LoginBean)
+//        fun appLoginSuccess(bean: LoginBean)
 
-        fun getUserSignSuccess()
+//        fun getUserSignSuccess()
     }
 
     interface IPresenter : IBasePresenter<IView> {
-        fun wxLogin(code: String?)
+//        fun wxLogin(code: String?)
 
-        fun appLogin(city: String, country: String, gender: String, headImg: String, nickName: String,
-                     openId: String, province: String, unionId: String)
+//        fun appLogin(city: String, country: String, gender: String, headImg: String, nickName: String,
+//                     openId: String, province: String, unionId: String)
 
-        fun getUserSign()
+//        fun getUserSign()
     }
 
 }

@@ -12,7 +12,7 @@ class SeedingContract {
     }
 
     interface IPresenter : IBasePresenter<IView> {
-        fun getSeedingGoodsList(currentPage: Int, goodsName:String,pageSize: Int)
+        fun getSeedingGoodsList( goodsName:String,currentPage: Int,pageSize: Int)
     }
 
 }

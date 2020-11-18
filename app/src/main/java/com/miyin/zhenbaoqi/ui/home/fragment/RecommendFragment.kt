@@ -51,7 +51,7 @@ class RecommendFragment : BaseListFragment<RecommendContract.IView, RecommendCon
 //    private lateinit var mHeaderShopAdapter: HeaderShopAdapter
 
     private lateinit var mHeaderView: View
-    private val mBannerList = mutableListOf<HomeBannerBean.ListBean>()
+    private val mBannerList = mutableListOf<HomeBannerBean.DataBean>()
     private var mIsClickBanner = false
 
     companion object {
@@ -224,21 +224,21 @@ class RecommendFragment : BaseListFragment<RecommendContract.IView, RecommendCon
     }
 
     override fun getHomeBannerSuccess(bean: HomeBannerBean) {
-        bean.list?.let { it ->
+        bean.data?.let { it ->
             mBannerList.clear()
             mBannerList.addAll(it)
 
             mHeaderView.banner.setImages(it)
                     .setImageLoader(object : ImageLoader() {
                         override fun displayImage(context: Context, path: Any?, imageView: View) {
-                            (imageView as ImageView).loadImg((path as HomeBannerBean.ListBean).photo)
+                            (imageView as ImageView).loadImg((path as HomeBannerBean.DataBean).photo)
                         }
                     })
                     .setOnBannerListener { position ->
                         if (!mIsClickBanner) {
                             mIsClickBanner = true
                             val bannerBean = it[position]
-                            mPresenter?.bannerClick(bannerBean.banner_Id, position)
+                            mPresenter?.bannerClick(bannerBean.bannerId, position)
                         }
                     }
                     .start()

@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:ignore="HardcodedText,RtlSymmetry"
-    android:scrollbars="none"
-    android:background="#F5F5F5">
+    android:scrollbars="none">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -110,11 +109,13 @@
                 android:orientation="vertical">
 
                 <ImageView
+                    android:id="@+id/iv_home_tab_1"
                     android:layout_width="@dimen/dp_41"
                     android:layout_height="@dimen/dp_41"
                     android:src="@drawable/snacks" />
 
                 <TextView
+                    android:id="@+id/tv_home_tab_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp_13"
@@ -133,11 +134,13 @@
                 android:orientation="vertical">
 
                 <ImageView
+                    android:id="@+id/iv_home_tab_2"
                     android:layout_width="@dimen/dp_41"
                     android:layout_height="@dimen/dp_41"
                     android:src="@drawable/snacks" />
 
                 <TextView
+                    android:id="@+id/tv_home_tab_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp_13"
@@ -156,11 +159,13 @@
                 android:orientation="vertical">
 
                 <ImageView
+                    android:id="@+id/iv_home_tab_3"
                     android:layout_width="@dimen/dp_41"
                     android:layout_height="@dimen/dp_41"
                     android:src="@drawable/clothes" />
 
                 <TextView
+                    android:id="@+id/tv_home_tab_3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp_13"
@@ -179,11 +184,13 @@
                 android:orientation="vertical">
 
                 <ImageView
+                    android:id="@+id/iv_home_tab_4"
                     android:layout_width="@dimen/dp_41"
                     android:layout_height="@dimen/dp_41"
                     android:src="@drawable/lipstick" />
 
                 <TextView
+                    android:id="@+id/tv_home_tab_4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp_13"
@@ -201,11 +208,13 @@
                 android:orientation="vertical">
 
                 <ImageView
+                    android:id="@+id/iv_home_tab_5"
                     android:layout_width="@dimen/dp_41"
                     android:layout_height="@dimen/dp_41"
                     android:src="@drawable/red_wine" />
 
                 <TextView
+                    android:id="@+id/tv_home_tab_5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp_13"

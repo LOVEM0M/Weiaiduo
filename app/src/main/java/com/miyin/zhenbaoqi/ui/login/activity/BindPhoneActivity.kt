@@ -73,7 +73,6 @@ class BindPhoneActivity : BaseMvpActivity<BindPhoneContract.IView, BindPhoneCont
         ActivityManager.finishActivity(WXLoginActivity::class.java)
         val userId = SPUtils.getInt("userId")
         JPushInterface.setAlias(this, userId, "zbq_$userId")
-
         SPUtils.putString("phone", mPhone!!)
         startActivity<MainActivity>()
         finish()

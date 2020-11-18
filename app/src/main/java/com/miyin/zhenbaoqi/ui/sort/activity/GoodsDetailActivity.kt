@@ -83,7 +83,7 @@ class GoodsDetailActivity : BaseMvpActivity<GoodsDetailContract.IView, GoodsDeta
 
     override fun getContentView(): Int {
         with(intent) {
-            mGoodsId = getIntExtra("goods_id", 0)
+            mGoodsId = getIntExtra("goodsId", 0)
             mSource = getIntExtra("source", 0)
             mState = getIntExtra("state", 0)
         }

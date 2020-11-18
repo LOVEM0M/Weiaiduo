@@ -13,11 +13,11 @@ import com.miyin.zhenbaoqi.utils.RoundCornersTransform
 import com.miyin.zhenbaoqi.utils.SpanUtils
 
 
-class SeedingAdapter(list: List<SeedingBean.ListBean>) : BaseAdapter<SeedingBean.ListBean>(list) {
+class SeedingAdapter(list: List<SeedingBean.DataBeanX.DataBean>) : BaseAdapter<SeedingBean.DataBeanX.DataBean>(list) {
 
     override fun getContentView() = R.layout.item_recommend_1
 
-    override fun convert(holder: BaseViewHolder, data: SeedingBean.ListBean) {
+    override fun convert(holder: BaseViewHolder, data: SeedingBean.DataBeanX.DataBean) {
         with(data) {
             val position = holder.adapterPosition
 
@@ -31,13 +31,13 @@ class SeedingAdapter(list: List<SeedingBean.ListBean>) : BaseAdapter<SeedingBean
 
             val transform = RoundCornersTransform(DensityUtils.dp2px(8f).toFloat(), RoundCornersTransform.CornerType.TOP)
             val url = when {
-               goods?.goods_img.isNullOrEmpty() -> ""
-                goods?.goods_img!!.contains(",") -> goods!!.goods_img!!.split(",")[0]
-                else -> goods!!.goods_img
+                images.isNullOrEmpty() -> ""
+                images!!.contains(",") -> images!!.split(",")[0]
+                else -> images
             }
             holder.transform(R.id.iv_cover, url, transform)
-                    .setText(R.id.tv_title, goods?.goods_describe)
-                    .setText(R.id.tv_buy_amount, "购买"+goods?.goods_sales)
+                    .setText(R.id.tv_title,title)
+                    .setText(R.id.tv_buy_amount, "购买")
 
         }
     }

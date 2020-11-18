@@ -9,7 +9,8 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.gyf.immersionbar.ImmersionBar
 import com.miyin.zhenbaoqi.R
 import com.miyin.zhenbaoqi.base.activity.BaseListActivity
-import com.miyin.zhenbaoqi.bean.RestoreBean
+import com.miyin.zhenbaoqi.bean.VipFirstFreegoodsBean
+import com.miyin.zhenbaoqi.bean.takeThreeVipBean
 import com.miyin.zhenbaoqi.constant.Constant
 import com.miyin.zhenbaoqi.ext.startActivityForResult
 import com.miyin.zhenbaoqi.ui.home.adapter.NewVipAdapter
@@ -23,7 +24,7 @@ import kotlinx.android.synthetic.main.layout_refresh.*
 @Suppress("UNCHECKED_CAST")
 @SuppressLint("SetTextI18n")
 class NewVipActivity : BaseListActivity<NewVipContract.IView, NewVipContract.IPresenter>(), NewVipContract.IView {
-    private var mList = mutableListOf<RestoreBean.ListBean>()
+    private var mList = mutableListOf<VipFirstFreegoodsBean.DataBeanX.DataBean>()
     private lateinit var mAdapter: NewVipAdapter
 
     companion object {
@@ -40,7 +41,7 @@ class NewVipActivity : BaseListActivity<NewVipContract.IView, NewVipContract.IPr
             adapter = mAdapter
             layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
             mAdapter.setOnItemClickListener { _, _, position ->
-                startActivityForResult<GoodsDetailActivity>(Constant.INTENT_REQUEST_CODE, "goods_id" to mList[position].goods_id)
+                startActivityForResult<GoodsDetailActivity>(Constant.INTENT_REQUEST_CODE, "goodsId" to mList[position].goodsId)
             }
         }
         setOnClickListener(ll_goback)
@@ -66,31 +67,29 @@ class NewVipActivity : BaseListActivity<NewVipContract.IView, NewVipContract.IPr
     }
 
     override fun initData() {
-        mPresenter?.getRestoreList(mPage, mCount)
+        mPresenter?.getVipFirstFreegoodsList(mPage,mCount)
     }
 
     override fun createPresenter() = NewVipPresenter()
 
-    override fun getRestoreListSuccess(bean: RestoreBean) {
-        with(bean) {
-            if (current_page == 1) {//这个page
-                mList = list!!.toMutableList()
-                mAdapter?.setNewData(mList)
-
-            } else {
-                mAdapter?.addData(list!!)
-            }
-
-
-            val hasMore = current_page != pages
-            smart_refresh_layout.setEnableLoadMore(hasMore)
-            if (hasMore) {
-                mAdapter.removeAllFooterView()
-            } else {
-                mAdapter.addNoMoreDataFooter()
-            }
+    override fun getVipFirstFreegoodsListSuccess(bean: VipFirstFreegoodsBean) {
+        with(bean.data) {
+//            if (this!!.total == 1) {//这个page
+//                mList = data!!.toMutableList()
+//                mAdapter?.setNewData(mList)
+//            } else {
+                mAdapter?.addData(this?.data!!)
+//            }
         }
-    }
+
+//            val hasMore = current_page != pages
+//            smart_refresh_layout.setEnableLoadMore(hasMore)
+//            if (hasMore) {
+//                mAdapter.removeAllFooterView()
+//            } else {
+//                mAdapter.addNoMoreDataFooter()
+//            }
+        }
 
     override fun onFailure(msg: String, type: Int) {
         when (type) {
@@ -99,5 +98,7 @@ class NewVipActivity : BaseListActivity<NewVipContract.IView, NewVipContract.IPr
             }
         }
     }
-
 }
+
+
+

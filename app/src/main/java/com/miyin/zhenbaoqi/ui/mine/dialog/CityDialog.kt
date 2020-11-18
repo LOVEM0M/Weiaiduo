@@ -3,7 +3,6 @@ package com.miyin.zhenbaoqi.ui.mine.dialog
 import android.content.Context
 import android.os.Bundle
 import androidx.viewpager.widget.PagerAdapter
-import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup

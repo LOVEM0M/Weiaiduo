@@ -71,78 +71,78 @@ class MainActivity : BaseActivity(), OnTabSelectCallback {
 
         registerScreenStatusReceiver()
 
-        val loginUser = TIMManager.getInstance().loginUser
-        Logger.d("TIM 登陆 Login User == $loginUser")
-        if (loginUser.isNullOrEmpty()) {
-            val intent = Intent(this, ConversationService::class.java)
-            startService(intent)
-        } else {
-            val userId = SPUtils.getInt("user_id").toString()
-            TIMManager.getInstance().autoLogin(userId, object : TIMCallBack {
-                override fun onSuccess() {
-                    Logger.d("自动登录成功 ===============")
-                }
+//        val loginUser = TIMManager.getInstance().loginUser
+//        Logger.d("TIM 登陆 Login User == $loginUser")
+//        if (loginUser.isNullOrEmpty()) {
+//            val intent = Intent(this, ConversationService::class.java)
+//            startService(intent)
+//        } else {
+//            val userId = SPUtils.getInt("userId").toString()
+//            TIMManager.getInstance().autoLogin(userId, object : TIMCallBack {
+//                override fun onSuccess() {
+//                    Logger.d("自动登录成功 ===============")
+//                }
+//
+//                override fun onError(p0: Int, p1: String?) {
+//                    TIMManager.getInstance().initStorage(userId, object : TIMCallBack {
+//                        override fun onSuccess() {
+//                            Logger.d("自动初始化成功 ===============")
+//                        }
+//
+//                        override fun onError(p0: Int, p1: String?) {
+//
+//                        }
+//                    })
+//                }
+//            })
+//        }
 
-                override fun onError(p0: Int, p1: String?) {
-                    TIMManager.getInstance().initStorage(userId, object : TIMCallBack {
-                        override fun onSuccess() {
-                            Logger.d("自动初始化成功 ===============")
-                        }
-
-                        override fun onError(p0: Int, p1: String?) {
-
-                        }
-                    })
-                }
-            })
-        }
-
-        ConversationManagerKit.getInstance().addUnreadWatcher { count ->
-            if (count > 0) {
-                visible(tv_not_read_message)
-            } else {
-                gone(tv_not_read_message)
-            }
-            var unreadStr = "$count"
-            if (count > 100) {
-                unreadStr = "99+"
-            }
-            tv_not_read_message.text = unreadStr
-        }
+//        ConversationManagerKit.getInstance().addUnreadWatcher { count ->
+//            if (count > 0) {
+//                visible(tv_not_read_message)
+//            } else {
+//                gone(tv_not_read_message)
+//            }
+//            var unreadStr = "$count"
+//            if (count > 100) {
+//                unreadStr = "99+"
+//            }
+//            tv_not_read_message.text = unreadStr
+//        }
 
 
         setOnClickListener(tv_home, tv_sort, tv_live, tv_message, tv_mine)
     }
 
     override fun initData() {
-        requestPermission(getString(R.string.permission_camera_storage), object : OnPermissionCallback {
-            override fun onGranted() {
-                val disposable = RetrofitUtils.mApiService.updateApk()
-                        .subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribeWith(object : BaseSingleObserver<UpdateAppBean>() {
-                            override fun doOnSuccess(data: UpdateAppBean) {
-                                data.data?.run {
-                                    val versionCode = getVersionCode("com.miyin.zhenbaoqi")
-                                    if (versionCode != code) {
-                                        updateApp(url!!, remark!!)
-                                    } else {
-                                        checkNotifySetting()
-                                    }
-                                }
-                            }
-                        })
-            }
-
-            override fun onDenied() {
-                checkNotifySetting()
-            }
-        }, Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+//        requestPermission(getString(R.string.permission_camera_storage), object : OnPermissionCallback {
+//            override fun onGranted() {
+//                val disposable = RetrofitUtils.mApiService.updateApk()
+//                        .subscribeOn(Schedulers.io())
+//                        .observeOn(AndroidSchedulers.mainThread())
+//                        .subscribeWith(object : BaseSingleObserver<UpdateAppBean>() {
+//                            override fun doOnSuccess(data: UpdateAppBean) {
+//                                data.data?.run {
+//                                    val versionCode = getVersionCode("com.miyin.zhenbaoqi")
+//                                    if (versionCode != code) {
+//                                        updateApp(url!!, remark!!)
+//                                    } else {
+//                                        checkNotifySetting()
+//                                    }
+//                                }
+//                            }
+//                        })
+//            }
+//
+//            override fun onDenied() {
+//                checkNotifySetting()
+//            }
+//        }, Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE)
     }
 
     override fun onDestroy() {
         unRegisterScreenStatusReceiver()
-        ConversationManagerKit.getInstance().destroyConversation()
+//        ConversationManagerKit.getInstance().destroyConversation()
         super.onDestroy()
     }
 

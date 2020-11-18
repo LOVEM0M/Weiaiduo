@@ -25,6 +25,9 @@ class GoodsDetailPresenter : BasePresenter<GoodsDetailContract.IView>(), GoodsDe
 
     override fun getGoodsDetail(goodsId: Int) {
         val requestBody = JSONUtils.createJSON(arrayOf("goods_id"), arrayOf(goodsId))
+//        val map = androidx.collection.ArrayMap<String, Any>().apply {
+//            put("goodsId", goodsId)
+//        }
         request(RetrofitUtils.mApiService.goodsDetail(requestBody), object : BaseSingleObserver<GoodsDetailBean>() {
             override fun doOnSuccess(data: GoodsDetailBean) {
                 getView()?.getGoodsDetailSuccess(data)

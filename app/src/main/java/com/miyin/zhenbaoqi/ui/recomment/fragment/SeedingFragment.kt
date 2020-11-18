@@ -21,7 +21,7 @@ import kotlinx.android.synthetic.main.layout_refresh.*
 
 class SeedingFragment : BaseListFragment<SeedingContract.IView, SeedingContract.IPresenter>(), SeedingContract.IView {
     private var mOnTabSelectCallback: OnTabSelectCallback? = null
-    private var mList = mutableListOf<SeedingBean.ListBean>()
+    private var mList = mutableListOf<SeedingBean.DataBeanX.DataBean>()
     private  lateinit var mAdapter: SeedingAdapter
 
     companion object {
@@ -46,13 +46,13 @@ class SeedingFragment : BaseListFragment<SeedingContract.IView, SeedingContract.
             adapter = mAdapter
             layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
             mAdapter?.setOnItemClickListener { _, _, position ->
-                startActivityForResult<GoodsDetailActivity>(Constant.INTENT_REQUEST_CODE, "goods_id" to mList[position].goods?.goods_id)
+                startActivityForResult<GoodsDetailActivity>(Constant.INTENT_REQUEST_CODE, "goodsId" to mList[position].goodsId)
             }
         }
     }
 
     override fun initData() {
-        mPresenter?.getSeedingGoodsList(mPage, "",mCount)
+        mPresenter?.getSeedingGoodsList( "",mPage,mCount)
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -70,11 +70,11 @@ class SeedingFragment : BaseListFragment<SeedingContract.IView, SeedingContract.
     override fun getSeedingGoodsListSuccess(bean: SeedingBean) {//调用种草页面接口
         with(bean) {
             if (current_page == 1) {//这个page
-                mList = list!!.toMutableList()
+                mList = data?.data!!.toMutableList()
                 mAdapter?.setNewData(mList)
                 smart_refresh_layout.finishRefresh()
             } else {
-                mAdapter?.addData(list!!)
+                mAdapter?.addData(data?.data!!)
                 smart_refresh_layout.finishLoadMore()
 
             }

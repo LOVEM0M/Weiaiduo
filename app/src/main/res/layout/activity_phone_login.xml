@@ -95,7 +95,7 @@
 
     </com.noober.background.view.BLFrameLayout>
 
-    <com.noober.background.view.BLEditText
+   <!-- <com.noober.background.view.BLEditText
         android:id="@+id/et_invite_code"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_43"
@@ -111,7 +111,7 @@
         android:textSize="@dimen/sp_14"
         app:bl_corners_radius="@dimen/dp_3"
         app:bl_solid_color="@color/white" />
-
+-->
     <com.noober.background.view.BLButton
         android:id="@+id/btn_login"
         android:layout_width="match_parent"

@@ -13,21 +13,60 @@ interface ApiService {
     /**
      * 种草页面商品接口 ***********************************************************************************
      */
-    @POST("/api/v1/articlelist")
-    fun seedingGoodsList(@Body requestBody: RequestBody): Single<SeedingBean>
-
+    @FormUrlEncoded
+    @POST("/shopapi/goods/articlelist")
+    fun seedingGoodsList(@FieldMap  map: Map<String, Any>): Single<SeedingBean>
     /*
     * 新VIP用户的优惠
     * */
-    @POST("/api/v1/goods/restore")
-    fun restoreList(@Body requestBody: RequestBody): Single<RestoreBean>
+    @FormUrlEncoded
+    @POST("/shopapi/goods/vipFirstFreegoods")
+    fun vipFirstFreegoodsList(@FieldMap  map: Map<String, Any>): Single<VipFirstFreegoodsBean>
+
+ /*
+    * banner下面的五个按钮
+    * */
+    @POST("/shopapi/goods/bannercategory")
+    fun bannerCategory(): Single<BannerCategoryBean>
+
+
+    /* 首页所有的一级类目和分类页面所有的一级目录 */
+    @POST("/shopapi/goods/firstcategory")
+    fun firstCategoryList(): Single<FirstCategoryBean>
+
 
     /*
-    * 首页一级目录
+    * 首页一级目录下的查询的商品
     *
     * */
-    @POST("/api/v1/goods/selectFirstGoods")
-    fun selectFirstGoodsList(@Body requestBody: RequestBody): Single<SelectFirstGoodsBean>
+    @FormUrlEncoded
+    @POST("/shopapi/goods/firstcategorygoods")
+    fun firstcategorygoods(@FieldMap  map: Map<String, Any>): Single<FirstCategoryGoodsBean>
+
+
+    /*
+    * 首页banner下五个bt进入页面后的二级目录
+    *
+    * */
+    @FormUrlEncoded
+    @POST("/shopapi/goods/firstcategorySecond")
+    fun firstCategorySecond(@FieldMap  map: Map<String, Any>): Single<FirstCategorySecondBean>
+
+
+    /*
+    * 首页banner下五个bt进入页面后的二级目录的商品
+    *
+    * */
+    @FormUrlEncoded
+    @POST("/shopapi/goods/secondcategorygoods")
+    fun secondCategoryGoods(@FieldMap  map: Map<String, Any>): Single<SecondCategoryGoodsBean>
+
+
+    /* 一口价|竞拍商品详情 */
+//    @FormUrlEncoded
+    @POST("/shopapi/goods/detailGoods")
+    fun goodsDetail(@Body requestBody: RequestBody): Single<GoodsDetailBean>
+
 
     /*
     * 一周新品
@@ -48,8 +87,11 @@ interface ApiService {
     fun couponList(@Body requestBody: RequestBody): Single<CouponBean>
 
     /* 领取新人优惠券 */
-    @POST("/api/v1/coupons/receive") // TODO 用不到了
-    fun receiveCoupon(): Single<ResponseBean>
+    @POST("/shopapi/user/takeThreeVip")
+    fun takeThreeVipList(): Single<takeThreeVipBean>
+
+
+
 
     /**
      * 关注商铺接口 *********************************************************************************
@@ -97,9 +139,7 @@ interface ApiService {
     @POST("/api/v1/goods/auction/list")
     fun auctionGoodsList(@Body requestBody: RequestBody): Single<AuctionGoodsRecordBean>
 
-    /* 一口价|竞拍商品详情 */
-    @POST("/api/v1/goods/detail")
-    fun goodsDetail(@Body requestBody: RequestBody): Single<GoodsDetailBean>
+
 
     /* 首页上搜索商品列表 */
     @POST("/api/v1/goods/homesearch")
@@ -178,7 +218,7 @@ interface ApiService {
      * 商品首页接口 **********************************************************************************
      */
     /* 商品首页列表 */
-    @POST("/api/v1/banner/bannerList")
+    @POST("/shopapi/user/bannerList")
     fun homeBanner(): Single<HomeBannerBean>
 
     /* 点击 Banner 接口 */
@@ -460,8 +500,9 @@ interface ApiService {
     fun updateUserInfo(@Body requestBody: RequestBody): Single<ResponseBean>
 
     /* 手机登录 */
-    @POST("/api/v1/user/login")
-    fun login(@Body requestBody: RequestBody): Single<LoginBean>
+    @FormUrlEncoded
+    @POST("/shopapi/user/login")
+    fun login(@FieldMap  map: Map<String, Any>): Single<LoginBean>
 
     /* 用户推送开关 */
     @POST("/api/v1/user/push/switch")
@@ -503,8 +544,9 @@ interface ApiService {
     fun report(@FieldMap map: Map<String, Any>): Single<ResponseBean>
 
     /* 发送验证码 */
+    @FormUrlEncoded
     @POST("/shopapi/user/sendCode")
-    fun sendMessage(@Body requestBody: RequestBody): Single<ResponseBean>
+    fun sendMessage(@FieldMap  map: Map<String, Any>): Single<ResponseBean>
 
     /**
      * 用户消息接口 *********************************************************************************
@@ -601,9 +643,9 @@ interface ApiService {
     /**
      * 省市区，快递公司，商品类别等数据接口 **********************************************************
      */
-    /* 根据类别查找数据列表 */
     @POST("/api/v1/dict/list")
     fun parentList(@Body requestBody: RequestBody): Single<CityBean>
+
 
     /* 推荐分类列表 */
     @POST("/api/v1/dict/recommend/list")
@@ -710,9 +752,10 @@ interface ApiService {
     @POST("/api/v1/chat/subUserSig")
     fun chatSubUserSign(@Field("account_name") accountName: String): Single<UserSignBean>
 
-    /* 获取用户sig */
+    //TODO
+/*    *//* 获取用户sig *//*
     @POST("/api/v1/chat/userSig")
-    fun chatUserSign(): Single<UserSignBean>
+    fun chatUserSign(): Single<UserSignBean>*/
 
     /**
      * 视频接口 *************************************************************************************

@@ -1,17 +1,21 @@
 package com.miyin.zhenbaoqi.bean
 
+import java.io.Serializable
+
 class HomeBannerBean : ResponseBean() {
 
-    var list: List<ListBean>? = null
+    var data: List<DataBean>? = null
 
-    class ListBean {
-        var banner_Id = 0
-        var create_Date: String? = null
-        var goods_Id: String? = null
-        var photo: String? = null
-        var title: String? = null
-        var update_Date: String? = null
+    class DataBean : Serializable {
+        var bannerId = 0
         var url: String? = null
+        var title: String? = null
+        var photo: String? = null
+        var createDate: String? = null
+        var updateDate: String? = null
+        var status = 0
+        var type = 0
+        var jumpId = 0
     }
 
 }

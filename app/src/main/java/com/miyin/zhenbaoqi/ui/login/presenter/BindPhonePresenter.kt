@@ -1,7 +1,9 @@
 package com.miyin.zhenbaoqi.ui.login.presenter
 
 import android.text.TextUtils
+import androidx.collection.ArrayMap
 import com.miyin.zhenbaoqi.base.mvp.BasePresenter
+import com.miyin.zhenbaoqi.bean.LoginBean
 import com.miyin.zhenbaoqi.bean.ResponseBean
 import com.miyin.zhenbaoqi.bean.UserSignBean
 import com.miyin.zhenbaoqi.http.BaseSingleObserver
@@ -27,8 +29,10 @@ class BindPhonePresenter : BasePresenter<BindPhoneContract.IView>(), BindPhoneCo
             return
         }
 
-        val requestBody = JSONUtils.createJSON(arrayOf("phone_no"), arrayOf(phone!!))
-        request(RetrofitUtils.mApiService.sendMessage(requestBody), object : BaseSingleObserver<ResponseBean>() {
+        val map = ArrayMap<String, Any>().apply {
+            put("phoneNo", phone)
+        }
+        request(RetrofitUtils.mApiService.sendMessage(map), object : BaseSingleObserver<ResponseBean>() {
             override fun doOnSuccess(data: ResponseBean) {
                 val disposable = Flowable.interval(0, 1, TimeUnit.SECONDS)
                         .take(mCount + 1)
@@ -66,63 +70,44 @@ class BindPhonePresenter : BasePresenter<BindPhoneContract.IView>(), BindPhoneCo
 
         getView()?.showDialog("正在登录...", false)
 
-        val keyArray = arrayOf("code", "phone_no")
-        val valueArray = arrayOf<Any>(code, phone)
-        val requestBody = JSONUtils.createJSON(keyArray, valueArray)
-        val disposable = RetrofitUtils.mApiService.bindPhone(requestBody)
-                .subscribeOn(Schedulers.io())
-                .observeOn(Schedulers.io())
-                .flatMap {
-                    if (it.code == 0) {
-                        with(it) {
-                            val pattern = Pattern.compile("^[-\\+]?[\\d]*$")
-                            val hasMatch = pattern.matcher(nick_name ?: "").matches()
-                            val nickName = if (hasMatch) {
-                                nick_name!!.substring(0, 3) + "*" + nick_name!!.substring(7, nick_name!!.length)
-                            } else {
-                                nick_name ?: ""
-                            }
-
-                            SPUtils.putString("token", token ?: "")
-                            SPUtils.putString("head_img", head_img ?: "")
-                            SPUtils.putString("nick_name", nickName)
-                            SPUtils.putString("birthday", birthday ?: "")
-                            SPUtils.putInt("gender", gender)
-                            SPUtils.putInt("state", state)
-                            SPUtils.putString("phone", phone_no ?: "")
-                            SPUtils.putInt("user_id", user_id)
-                            SPUtils.putInt("merchant_id", merchants_id)
-                            SPUtils.putInt("quality_shop", quality_balance)
+        val map = ArrayMap<String, Any>().apply {
+            put("code", code)
+            put("phoneNo", phone)
+        }
+        request(RetrofitUtils.mApiService.login(map), object : BaseSingleObserver<LoginBean>() {
+            override fun doOnSuccess(list : LoginBean) {
+                if (list.code == 200) {
+                    with(list.data) {
+                        val pattern = Pattern.compile("^[-\\+]?[\\d]*$")
+                        val hasMatch = pattern.matcher(this?.nickName ?: "").matches()
+                        val nickName = if (hasMatch) {
+                            this?.nickName!!.substring(0, 3) + "*" + this?.nickName!!.substring(7, nickName!!.length)
+                        } else {
+                            this?.nickName ?: ""
                         }
-                        return@flatMap RetrofitUtils.mApiService.chatUserSign()
-                    } else {
-                        getView()?.hideDialog()
-                        throw Exception(it.msg)
+                        SPUtils.putInt("userId", this?.userId!!)
+                        SPUtils.putString("phoneNo", phoneNo ?: "")
+                        SPUtils.putString("nickName", nickName)
+                        SPUtils.putString("headImg", headImg ?: "")
+                        SPUtils.putString("registerDate", registerDate ?: "")
+                        SPUtils.putFloat("balance", this?.balance.toFloat())
+                        SPUtils.putString("token", token ?: "")
+                        SPUtils.putInt("vipType", vipType)
+                        SPUtils.putString("vipTime", vipTime ?: "")
                     }
                 }
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(object : BaseSingleObserver<UserSignBean>() {
-                    override fun doOnSuccess(data: UserSignBean) {
-                        val sign = data.usersig
-                        if (sign.isNullOrEmpty()) {
-                            getView()?.hideDialog()
-                            return
-                        }
-                        SPUtils.putString("user_sig", sign)
-                        timLogin(SPUtils.getInt("user_id").toString(), sign)
-                    }
+            }
 
-                    override fun doOnFailure(data: UserSignBean) {
-                        getView()?.showToast(data.msg)
-                        getView()?.hideDialog()
-                    }
+            override fun doOnFailure(data: LoginBean) {
+                getView()?.hideDialog()
+                getView()?.showToast(data.msg)
+            }
 
-                    override fun onError(e: Throwable) {
-                        super.onError(e)
-                        getView()?.hideDialog()
-                    }
-                })
-        getDisposable()?.add(disposable)
+            override fun onError(e: Throwable) {
+                getView()?.hideDialog()
+                super.onError(e)
+            }
+        })
     }
 
     private fun timLogin(userId: String, userSign: String) {

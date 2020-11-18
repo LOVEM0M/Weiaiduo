@@ -4,7 +4,6 @@ import android.view.ViewGroup
 import com.chad.library.adapter.base.BaseViewHolder
 import com.miyin.zhenbaoqi.R
 import com.miyin.zhenbaoqi.base.BaseAdapter
-import com.miyin.zhenbaoqi.bean.RestoreBean
 import com.miyin.zhenbaoqi.bean.WeekNewGoodsBean
 import com.miyin.zhenbaoqi.ext.transform
 import com.miyin.zhenbaoqi.utils.DensityUtils

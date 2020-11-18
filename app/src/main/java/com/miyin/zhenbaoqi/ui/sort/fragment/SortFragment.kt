@@ -26,7 +26,6 @@ import com.miyin.zhenbaoqi.ext.startActivity
 import com.miyin.zhenbaoqi.ui.home.activity.SearchActivity
 import com.miyin.zhenbaoqi.ui.sort.activity.CategoryActivity
 import com.miyin.zhenbaoqi.ui.sort.dialog.CateListShareDialog
-import com.miyin.zhenbaoqi.ui.sort.fragment.ChildSortFragment
 import com.miyin.zhenbaoqi.utils.SPUtils
 import com.miyin.zhenbaoqi.utils.WXOptionUtils
 import com.tencent.mm.opensdk.openapi.IWXAPI

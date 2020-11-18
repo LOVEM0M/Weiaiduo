@@ -32,31 +32,31 @@ class ConversationService : Service() {
 
     override fun onCreate() {
         super.onCreate()
-        getSign()
+//        getSign()
     }
 
     private fun getSign() {
         Logger.d("TIM 登陆 GET USER_SIGN")
-        val disposable = RetrofitUtils.mApiService.chatUserSign()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(object : BaseSingleObserver<UserSignBean>() {
-                    override fun doOnSuccess(data: UserSignBean) {
-                        val sign = data.usersig
-                        if (sign.isNullOrEmpty()) {
-                            mHandler.sendEmptyMessageDelayed(0, 5 * 1000)
-                        } else {
-                            SPUtils.putString("user_sig", sign)
-                            timLogin(sign)
-                        }
-                    }
-
-                    override fun onError(e: Throwable) {
-                        super.onError(e)
-                        mHandler.sendEmptyMessageDelayed(0, 5 * 1000)
-                    }
-                })
-        mDisposable.add(disposable)
+//        val disposable = RetrofitUtils.mApiService.chatUserSign()
+//                .subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribeWith(object : BaseSingleObserver<UserSignBean>() {
+//                    override fun doOnSuccess(data: UserSignBean) {
+//                        val sign = data.usersig
+//                        if (sign.isNullOrEmpty()) {
+//                            mHandler.sendEmptyMessageDelayed(0, 5 * 1000)
+//                        } else {
+//                            SPUtils.putString("user_sig", sign)
+//                            timLogin(sign)
+//                        }
+//                    }
+//
+//                    override fun onError(e: Throwable) {
+//                        super.onError(e)
+//                        mHandler.sendEmptyMessageDelayed(0, 5 * 1000)
+//                    }
+//                })
+//        mDisposable.add(disposable)
     }
 
     private fun timLogin(sign: String) {

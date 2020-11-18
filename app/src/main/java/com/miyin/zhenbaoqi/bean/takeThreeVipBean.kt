@@ -2,7 +2,7 @@ package com.miyin.zhenbaoqi.bean
 
 import java.io.Serializable
 
-class RestoreBean :  PagerBean() {
+class takeThreeVipBean :  PagerBean() {
     var list: List<ListBean>? = null
 
     class ListBean : Serializable {

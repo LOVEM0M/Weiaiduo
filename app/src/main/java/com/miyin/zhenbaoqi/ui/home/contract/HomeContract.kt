@@ -2,28 +2,29 @@ package com.miyin.zhenbaoqi.ui.home.contract
 
 import com.miyin.zhenbaoqi.base.mvp.IBasePresenter
 import com.miyin.zhenbaoqi.base.mvp.IBaseView
-import com.miyin.zhenbaoqi.bean.CityBean
-import com.miyin.zhenbaoqi.bean.HomeBannerBean
-import com.miyin.zhenbaoqi.bean.RestoreBean
-import com.miyin.zhenbaoqi.bean.SelectFirstGoodsBean
+import com.miyin.zhenbaoqi.bean.*
 
 class HomeContract {
 
     interface IView : IBaseView {
-        fun getSelectFirstGoodsListSuccess(bean: SelectFirstGoodsBean)
-        fun getRestoreListSuccess(bean: RestoreBean)
-        fun getCategoryListSuccess(bean: CityBean)
         fun getHomeBannerSuccess(bean: HomeBannerBean)
-        fun bannerClickSuccess(position: Int)
+        fun getBannerCategorySuccess(bean: BannerCategoryBean)
+
+        fun getVipFirstFreegoodsListSuccess(bean: VipFirstFreegoodsBean)
+        fun getFirstCategoryListSuccess(bean: FirstCategoryBean)
+//        fun bannerClickSuccess(position: Int)
+
+        fun getFirstCategoryGoodsListSuccess(bean: FirstCategoryGoodsBean)
         fun onFailure(msg: String, type: Int)
     }
 
     interface IPresenter : IBasePresenter<IView> {
         fun homeBanner()
-        fun bannerClick(bannerId: Int, position: Int)
-        fun getCategoryList(codeType: String)
-        fun getRestoreList(currentPage: Int, pageSize: Int)
-        fun getSelectFirstGoodsList(cateId1: Int, currentPage: Int, pageSize: Int)
+        fun getBannerCategory()
+//        fun bannerClick(bannerId: Int, position: Int)
+        fun getFirstCategoryList()
+        fun getVipFirstFreegoodsList(page: Int, rows: Int)
+        fun getFirstCategoryGoodsList(cateId1: Int, page :Int , rows :Int )
     }
 
 }

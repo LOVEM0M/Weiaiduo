@@ -15,7 +15,7 @@ abstract class BaseSingleObserver<T : ResponseBean> : DisposableSingleObserver<T
 
     override fun onSuccess(t: T) {
         when (t.code) {
-            0 -> doOnSuccess(t)
+            200 -> doOnSuccess(t)
             500 -> {
                 if (t.msg != "服务器内部错误!") {
                     App.context.clearTask<WXLoginActivity>()

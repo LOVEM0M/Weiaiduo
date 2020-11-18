@@ -12,11 +12,10 @@ import com.gyf.immersionbar.ImmersionBar
 import com.miyin.zhenbaoqi.R
 import com.miyin.zhenbaoqi.base.activity.BaseListActivity
 import com.miyin.zhenbaoqi.bean.CityBean
-import com.miyin.zhenbaoqi.bean.RestoreBean
+import com.miyin.zhenbaoqi.bean.FirstCategoryBean
 import com.miyin.zhenbaoqi.bean.WeekNewGoodsBean
 import com.miyin.zhenbaoqi.constant.Constant
 import com.miyin.zhenbaoqi.ext.startActivityForResult
-import com.miyin.zhenbaoqi.ui.home.adapter.NewVipAdapter
 import com.miyin.zhenbaoqi.ui.home.adapter.TopAdapter
 import com.miyin.zhenbaoqi.ui.home.adapter.WeekNewGoodsAdapter
 import com.miyin.zhenbaoqi.ui.home.contract.NewProWeekContract
@@ -24,7 +23,6 @@ import com.miyin.zhenbaoqi.ui.home.presenter.NewProWeekPresenter
 import com.miyin.zhenbaoqi.ui.sort.activity.GoodsDetailActivity
 import kotlinx.android.synthetic.main.activity_new_products_week.*
 import kotlinx.android.synthetic.main.activity_new_products_week.recycler_view_top
-import kotlinx.android.synthetic.main.fragment_home1.*
 import kotlinx.android.synthetic.main.layout_refresh.*
 
 
@@ -35,7 +33,7 @@ class NewProWeekActivity : BaseListActivity<NewProWeekContract.IView, NewProWeek
     private var mList = mutableListOf<WeekNewGoodsBean.ListBean>()
     private lateinit var mAdapter: WeekNewGoodsAdapter
     private lateinit var mTopAdapter: TopAdapter
-    private var mTitleList = mutableListOf<CityBean.CityListBean>()
+    private var mTitleList = mutableListOf<FirstCategoryBean.DataBean>()
     private var mSelectIndex = 0
     private var mIsClick = false
     private var cateId1 = 0
@@ -53,7 +51,7 @@ class NewProWeekActivity : BaseListActivity<NewProWeekContract.IView, NewProWeek
             val centerLayoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
             layoutManager = centerLayoutManager
             mTopAdapter.setOnItemChildClickListener { _, view, position ->
-                cateId1 = mTitleList[position].dict_id
+                cateId1 = mTitleList[position].dictId
                 if (view.id == R.id.tv_title) {
                     if (mSelectIndex != position) {
                         mIsClick = true
@@ -95,20 +93,20 @@ class NewProWeekActivity : BaseListActivity<NewProWeekContract.IView, NewProWeek
     }
 
     override fun initData() {
-        mPresenter?.getCategoryList("goods_category")
+        mPresenter?.getCategoryList()
         mPresenter?.getWeekNewGoodsList(mPage, mCount)
     }
 
     override fun createPresenter() = NewProWeekPresenter()
 
-    override fun getCategoryListSuccess(bean: CityBean) {
+    override fun getCategoryListSuccess(bean: FirstCategoryBean) {
         mTitleList.clear()
 
-        mTitleList = bean.dicts!!.toMutableList()
+        mTitleList = bean.data!!.toMutableList()
 
-        val recommendBean = CityBean.CityListBean().apply {
-            dict_id = 0
-            code_name = "全部"
+        val recommendBean = FirstCategoryBean.DataBean().apply {
+            dictId = 0
+            codeName = "全部"
         }
         mTitleList.add(0, recommendBean)
 
