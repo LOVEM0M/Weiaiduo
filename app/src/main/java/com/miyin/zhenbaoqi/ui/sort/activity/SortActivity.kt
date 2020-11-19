@@ -40,7 +40,7 @@ import java.net.URLEncoder
 class SortActivity : BaseMvpActivity<SortContract.IView, SortContract.IPresenter>(), SortContract.IView, OnDialogCallback {
 
     private val mFragmentList = mutableListOf<Fragment>()
-    private var mTitleList = mutableListOf<CityBean.CityListBean>()
+    private var mTitleList = mutableListOf<CityBean.DataBean>()
     private lateinit var mLeftAdapter: LeftAdapter
     private val mCommodityList = mutableListOf<CommodityBean>()
     private lateinit var mRightAdapter: RightAdapter
@@ -86,7 +86,7 @@ class SortActivity : BaseMvpActivity<SortContract.IView, SortContract.IPresenter
             val gridLayoutManager = SmoothLayoutManager(context, 3)
             layoutManager = gridLayoutManager
             mRightAdapter.setOnItemClickListener { _, _, position ->
-                var cateId1 = mTitleList[mCommodityList[position].index].dict_id
+                var cateId1 = mTitleList[mCommodityList[position].index].dictId
                 if (cateId1 == 0) {
                     cateId1 = mCommodityList[position].parentId
                 }
@@ -167,11 +167,11 @@ class SortActivity : BaseMvpActivity<SortContract.IView, SortContract.IPresenter
         mCommodityList.clear()
         mFragmentList.clear()
 
-        mTitleList = bean.dicts!!.toMutableList()
+        mTitleList = bean.data!!.toMutableList()
 
-        val recommendBean = CityBean.CityListBean().apply {
-            dict_id = 0
-            code_name = "推荐类目"
+        val recommendBean = CityBean.DataBean().apply {
+            dictId = 0
+            codeName = "推荐类目"
         }
         mTitleList.add(0, recommendBean)
 
@@ -195,19 +195,19 @@ class SortActivity : BaseMvpActivity<SortContract.IView, SortContract.IPresenter
     }
 
     override fun getRecommendSuccess(bean: CityBean) {
-        mCommodityList.add(CommodityBean(0, mTitleList[mRecursiveIndex].code_name!!, index = mRecursiveIndex, dictId = mTitleList[mRecursiveIndex].dict_id))
-        bean.dicts?.forEach {
-            mCommodityList.add(CommodityBean(1, it.code_name!!, it.code_value, it.dict_id, mRecursiveIndex, it.parent_id))
+        mCommodityList.add(CommodityBean(0, mTitleList[mRecursiveIndex].codeName!!, index = mRecursiveIndex, dictId = mTitleList[mRecursiveIndex].dictId))
+        bean.data?.forEach {
+            mCommodityList.add(CommodityBean(1, it.codeName!!, it.codeValue, it.dictId, mRecursiveIndex, it.parentId as Int))
         }
 
         mRecursiveIndex++
-        mPresenter?.getSecondLevel(mTitleList[mRecursiveIndex].dict_id)
+        mPresenter?.getSecondLevel(mTitleList[mRecursiveIndex].dictId)
     }
 
     override fun getSecondLevelSuccess(bean: CityBean) {
-        mCommodityList.add(CommodityBean(0, mTitleList[mRecursiveIndex].code_name!!, index = mRecursiveIndex, dictId = mTitleList[mRecursiveIndex].dict_id))
-        bean.dicts?.forEach {
-            mCommodityList.add(CommodityBean(1, it.code_name!!, it.code_value, it.dict_id, mRecursiveIndex))
+        mCommodityList.add(CommodityBean(0, mTitleList[mRecursiveIndex].codeName!!, index = mRecursiveIndex, dictId = mTitleList[mRecursiveIndex].dictId))
+        bean.data?.forEach {
+            mCommodityList.add(CommodityBean(1, it.codeName!!, it.codeValue, it.dictId, mRecursiveIndex))
         }
 
         if (mRecursiveIndex == mTitleList.size - 1) {
@@ -215,15 +215,15 @@ class SortActivity : BaseMvpActivity<SortContract.IView, SortContract.IPresenter
             showNormal()
         } else {
             mRecursiveIndex++
-            mPresenter?.getSecondLevel(mTitleList[mRecursiveIndex].dict_id)
+            mPresenter?.getSecondLevel(mTitleList[mRecursiveIndex].dictId)
         }
     }
 
     override fun onFailure() {
-        mCommodityList.add(CommodityBean(0, mTitleList[mRecursiveIndex].code_name!!, index = mRecursiveIndex, dictId = mTitleList[mRecursiveIndex].dict_id))
+        mCommodityList.add(CommodityBean(0, mTitleList[mRecursiveIndex].codeName!!, index = mRecursiveIndex, dictId = mTitleList[mRecursiveIndex].dictId))
 
         mRecursiveIndex++
-        mPresenter?.getSecondLevel(mTitleList[mRecursiveIndex].dict_id)
+        mPresenter?.getSecondLevel(mTitleList[mRecursiveIndex].dictId)
     }
 
     override fun onDialog(obj: Any, flag: Int) {

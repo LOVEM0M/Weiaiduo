@@ -20,9 +20,9 @@ class CityDialog : BaseDialogFragment() {
     private val mTitleList = mutableListOf<String>()
     private val mViewList = mutableListOf<View>()
     private lateinit var mAdapter: MyAdapter
-    private var mProvinceList = mutableListOf<CityBean.CityListBean>()
-    private var mCityList = mutableListOf<CityBean.CityListBean>()
-    private var mCountyList = mutableListOf<CityBean.CityListBean>()
+    private var mProvinceList = mutableListOf<CityBean.DataBean>()
+    private var mCityList = mutableListOf<CityBean.DataBean>()
+    private var mCountyList = mutableListOf<CityBean.DataBean>()
     private lateinit var mProvinceAdapter: CityAdapter
     private lateinit var mCityAdapter: CityAdapter
     private lateinit var mCountyAdapter: CityAdapter
@@ -35,7 +35,7 @@ class CityDialog : BaseDialogFragment() {
     private var mOnCitySelectCallback: OnCitySelectCallback? = null
 
     companion object {
-        fun newInstance(list: List<CityBean.CityListBean>) = CityDialog().apply {
+        fun newInstance(list: List<CityBean.DataBean>) = CityDialog().apply {
             arguments = Bundle().apply {
                 putSerializable("list", list as Serializable)
             }
@@ -49,7 +49,7 @@ class CityDialog : BaseDialogFragment() {
 
     override fun getContentView(): Int {
         arguments?.run {
-            mProvinceList = (getSerializable("list") as List<CityBean.CityListBean>).toMutableList()
+            mProvinceList = (getSerializable("list") as List<CityBean.DataBean>).toMutableList()
         }
         return R.layout.dialog_city
     }
@@ -72,7 +72,7 @@ class CityDialog : BaseDialogFragment() {
                             return@setOnItemClickListener
                         }
 
-                        mOnCitySelectCallback?.onCitySelect(position, 0, mProvinceList[position].dict_id)
+                        mOnCitySelectCallback?.onCitySelect(position, 0, mProvinceList[position].dictId)
                     }
                 }
                 mViewList.add(this)
@@ -89,7 +89,7 @@ class CityDialog : BaseDialogFragment() {
                             return@setOnItemClickListener
                         }
 
-                        mOnCitySelectCallback?.onCitySelect(position, 1, mCityList[position].dict_id)
+                        mOnCitySelectCallback?.onCitySelect(position, 1, mCityList[position].dictId)
                     }
                 }
                 mViewList.add(this)
@@ -106,7 +106,7 @@ class CityDialog : BaseDialogFragment() {
                         }
 
                         mCountyPosition = position
-                        val name = mCountyList[position].code_name ?: ""
+                        val name = mCountyList[position].codeName ?: ""
                         mTitleList[2] = name
 
                         tab_layout.setupWithViewPager(view_pager)
@@ -132,7 +132,7 @@ class CityDialog : BaseDialogFragment() {
 
     override fun setGravity() = Gravity.BOTTOM
 
-    fun setAreaList(list: List<CityBean.CityListBean>, state: Int, position: Int) {
+    fun setAreaList(list: List<CityBean.DataBean>, state: Int, position: Int) {
         when (state) {
             0 -> {
                 mCityList = list.toMutableList()
@@ -140,7 +140,7 @@ class CityDialog : BaseDialogFragment() {
                 mCityView?.recycler_view?.scrollToPosition(0)
 
                 mProvincePosition = position
-                val name = mProvinceList[position].code_name ?: ""
+                val name = mProvinceList[position].codeName ?: ""
                 if (mTitleList.size == 1) {
                     mTitleList.add(0, name)
                 } else {
@@ -161,7 +161,7 @@ class CityDialog : BaseDialogFragment() {
                 mCountyView?.recycler_view?.scrollToPosition(0)
 
                 mCityPosition = position
-                val name = mCityList[position].code_name ?: ""
+                val name = mCityList[position].codeName ?: ""
                 if (mTitleList.size == 2) {
                     mTitleList.add(1, name)
                 } else {
@@ -197,7 +197,7 @@ class CityDialog : BaseDialogFragment() {
     interface OnCitySelectCallback {
         fun onCitySelect(position: Int, state: Int, parentId: Int)
 
-        fun onSelectCity(province: CityBean.CityListBean, city: CityBean.CityListBean, county: CityBean.CityListBean)
+        fun onSelectCity(province: CityBean.DataBean, city: CityBean.DataBean, county: CityBean.DataBean)
     }
 
 }

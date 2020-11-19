@@ -550,7 +550,11 @@
                             android:drawableTop="@drawable/ic_service_center"
                             android:text="客服中心" />
 
-
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_receipt_address"
+                            style="@style/MineTextStyle"
+                            android:drawableTop="@drawable/ic_receipt_address"
+                            android:text="收货地址" />
                     </LinearLayout>
 
                     <!--  <LinearLayout

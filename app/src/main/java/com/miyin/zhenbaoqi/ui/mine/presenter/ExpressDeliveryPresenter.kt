@@ -1,5 +1,6 @@
 package com.miyin.zhenbaoqi.ui.mine.presenter
 
+import androidx.collection.ArrayMap
 import com.miyin.zhenbaoqi.base.mvp.BasePresenter
 import com.miyin.zhenbaoqi.bean.CityBean
 import com.miyin.zhenbaoqi.bean.ResponseBean
@@ -10,11 +11,13 @@ import com.miyin.zhenbaoqi.utils.JSONUtils
 
 class ExpressDeliveryPresenter : BasePresenter<ExpressDeliveryContract.IView>(), ExpressDeliveryContract.IPresenter {
 
-    override fun getCourierCompanyList(codeType: String) {
-        val requestBody = JSONUtils.createJSON(arrayOf("code_type"), arrayOf(codeType))
-        request(RetrofitUtils.mApiService.parentList(requestBody), object : BaseSingleObserver<CityBean>() {
+    override fun getCourierCompanyList(type: Int) {
+        val map = ArrayMap<String, Any>().apply {
+            put("type", type)
+        }
+        request(RetrofitUtils.mApiService.parentList(map), object : BaseSingleObserver<CityBean>() {
             override fun doOnSuccess(data: CityBean) {
-                getView()?.getCourierCompanyListSuccess(data.dicts!!)
+                getView()?.getCourierCompanyListSuccess(data.data!!)
             }
         })
     }

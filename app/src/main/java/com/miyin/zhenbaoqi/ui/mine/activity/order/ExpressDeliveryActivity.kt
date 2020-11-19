@@ -79,7 +79,7 @@ class ExpressDeliveryActivity : BaseMvpActivity<ExpressDeliveryContract.IView, E
                 copyMsg(mUserInfo + mAddress)
                 showToast("复制成功")
             }
-            R.id.fl_company -> mPresenter?.getCourierCompanyList("courier")
+            R.id.fl_company -> mPresenter?.getCourierCompanyList(1)
             R.id.iv_scanner -> {
             }
             R.id.btn_commit -> {
@@ -100,7 +100,7 @@ class ExpressDeliveryActivity : BaseMvpActivity<ExpressDeliveryContract.IView, E
         }
     }
 
-    override fun getCourierCompanyListSuccess(list: List<CityBean.CityListBean>) {
+    override fun getCourierCompanyListSuccess(list: List<CityBean.DataBean>) {
         val dialog = SingleDataDialog.newInstance(list)
         dialog.show(supportFragmentManager, "courierCompany")
     }
@@ -115,11 +115,11 @@ class ExpressDeliveryActivity : BaseMvpActivity<ExpressDeliveryContract.IView, E
     }
 
     override fun onDialog(obj: Any, flag: Int) {
-        if (obj is CityBean.CityListBean) {
-            mDictId = obj.dict_id
-            mCodeValue = obj.code_value
-            mCourierName = obj.code_name
-            tv_company.text = obj.code_name
+        if (obj is CityBean.DataBean) {
+            mDictId = obj.dictId
+            mCodeValue = obj.codeValue
+            mCourierName = obj.codeName
+            tv_company.text = obj.codeName
         }
     }
 

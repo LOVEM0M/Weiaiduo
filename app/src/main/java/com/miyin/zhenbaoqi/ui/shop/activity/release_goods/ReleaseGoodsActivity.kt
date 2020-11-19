@@ -340,7 +340,7 @@ class ReleaseGoodsActivity : BaseMvpActivity<ReleaseGoodsContract.IView, Release
                 if (null != mGoodsTypeDialog) {
                     mGoodsTypeDialog?.show(supportFragmentManager, "goodsType")
                 } else {
-                    mPresenter?.getParentList("goods_category")
+                    mPresenter?.getParentList(1)//TODO 暂不确定传值
                 }
             }
             R.id.iv_add_photo -> {
@@ -430,13 +430,13 @@ class ReleaseGoodsActivity : BaseMvpActivity<ReleaseGoodsContract.IView, Release
         tv_goods_type.text = "$cateName1-$cateName2-$cateName3"
     }
 
-    override fun getParentListSuccess(list: List<CityBean.CityListBean>) {
+    override fun getParentListSuccess(list: List<CityBean.DataBean>) {
         mGoodsTypeDialog = GoodsTypeDialog.newInstance(list)
         mGoodsTypeDialog!!.show(supportFragmentManager, "goodsType")
         mGoodsTypeDialog!!.setOnDialogCallback(this)
     }
 
-    override fun getSonListSuccess(list: List<CityBean.CityListBean>, type: Int) {
+    override fun getSonListSuccess(list: List<CityBean.DataBean>, type: Int) {
         if (type == 2) {
             mGoodsTypeDialog?.setRightList(list)
         } else if (type == 3) {
@@ -455,7 +455,7 @@ class ReleaseGoodsActivity : BaseMvpActivity<ReleaseGoodsContract.IView, Release
                                 .setCheckedTextColor(Color.WHITE)
                                 .setUnCheckedTextColor(Color.parseColor("#A1A1A1"))
                                 .buildTextColor())
-                        text = (data as CityBean.CityListBean).code_name
+                        text = (data as CityBean.DataBean).codeName
                         background = DrawableCreator.Builder()
                                 .setStrokeWidth(getDimension(R.dimen.dp_1))
                                 .setCheckedStrokeColor(ContextCompat.getColor(context, R.color.theme_dark_purple), Color.parseColor("#A1A1A1"))
@@ -466,8 +466,8 @@ class ReleaseGoodsActivity : BaseMvpActivity<ReleaseGoodsContract.IView, Release
 
                     override fun onSelected(position: Int, view: View?) {
                         val data = list[position]
-                        mCateId3 = data.dict_id
-                        mCate3Name = data.code_name
+                        mCateId3 = data.dictId
+                        mCate3Name = data.codeName
                     }
                 })
             } else {
@@ -529,17 +529,17 @@ class ReleaseGoodsActivity : BaseMvpActivity<ReleaseGoodsContract.IView, Release
     }
 
     override fun onDialog(obj: Any, flag: Int) {
-        if (obj is CityBean.CityListBean) {
+        if (obj is CityBean.DataBean) {
             if (flag == 0) {
-                mCateId1 = obj.dict_id
-                mCate1Name = obj.code_name
+                mCateId1 = obj.dictId
+                mCate1Name = obj.codeName
 
                 mPresenter?.getSonList(mCateId1, 2)
 
                 tv_goods_type.text = ""
             } else if (flag == 1) {
-                mCateId2 = obj.dict_id
-                mCate2Name = obj.code_name
+                mCateId2 = obj.dictId
+                mCate2Name = obj.codeName
 
                 mPresenter?.getSonList(mCateId2, 3)
 

@@ -189,11 +189,11 @@ class UploadPhotoActivity : BaseMvpActivity<ReleaseGoodsContract.IView, ReleaseG
 
     }
 
-    override fun getParentListSuccess(list: List<CityBean.CityListBean>) {
+    override fun getParentListSuccess(list: List<CityBean.DataBean>) {
 
     }
 
-    override fun getSonListSuccess(list: List<CityBean.CityListBean>, type: Int) {
+    override fun getSonListSuccess(list: List<CityBean.DataBean>, type: Int) {
 
     }
 

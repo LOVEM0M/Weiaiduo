@@ -17,9 +17,9 @@ class AddressContact {
     }
 
     interface IPresenter : IBasePresenter<IView> {
-        fun getAddressList(currentPage: Int, pageSize: Int)
+        fun getAddressList(page: Int, rows: Int)
 
-        fun deleteAddress(addressId: Int)
+        fun deleteAddress(adsId: Int)
 
         fun setDefaultAddress(address: String, addressId: Int, cityId: Int, consignee: String,
                               countyId: Int, isDefault: Int, phoneNo: String, provinceId: Int)

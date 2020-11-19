@@ -19,10 +19,10 @@ class ChildSortFragment : BaseMvpFragment<ChildSortContract.IView, ChildSortCont
 
     private var mList = mutableListOf<CommodityBean>()
     private lateinit var mAdapter: RightAdapter
-    private var mBean: CityBean.CityListBean? = null
+    private var mBean: CityBean.DataBean? = null
 
     companion object {
-        fun newInstance(bean: CityBean.CityListBean) = ChildSortFragment().apply {
+        fun newInstance(bean: CityBean.DataBean) = ChildSortFragment().apply {
             arguments = Bundle().apply {
                 putSerializable("bean", bean)
             }
@@ -31,7 +31,7 @@ class ChildSortFragment : BaseMvpFragment<ChildSortContract.IView, ChildSortCont
 
     override fun getContentView(): Int {
         arguments?.run {
-            mBean = getSerializable("bean") as CityBean.CityListBean
+            mBean = getSerializable("bean") as CityBean.DataBean
         }
         return R.layout.fragment_child_sort
     }
@@ -49,7 +49,7 @@ class ChildSortFragment : BaseMvpFragment<ChildSortContract.IView, ChildSortCont
                 mBean?.run {
                     val bean = mList[position]
                     if (bean.itemType == 1) {
-                        val cate1Id = if (dict_id == 0) bean.parentId else dict_id
+                        val cate1Id = if (dictId == 0) bean.parentId else dictId
                         startActivity<CategoryActivity>("cate_id1" to cate1Id, "cate_id2" to bean.dictId,
                                 "cate2_name" to bean.title, "cate_cover" to bean.cover)
                     }
@@ -63,10 +63,10 @@ class ChildSortFragment : BaseMvpFragment<ChildSortContract.IView, ChildSortCont
 
     override fun initData() {
         mBean?.run {
-            if (dict_id == 0) {
+            if (dictId == 0) {
                 mPresenter?.getRecommend()
             } else {
-                mPresenter?.getSecondLevel(dict_id)
+                mPresenter?.getSecondLevel(dictId)
             }
         }
     }
@@ -75,9 +75,9 @@ class ChildSortFragment : BaseMvpFragment<ChildSortContract.IView, ChildSortCont
 
     override fun getRecommendSuccess(bean: CityBean) {
         mBean?.run {
-            mList.add(CommodityBean(0, code_name ?: "", dictId = dict_id))
-            bean.dicts?.forEach {
-                mList.add(CommodityBean(1, it.code_name!!, it.code_value, it.dict_id, parentId = it.parent_id))
+            mList.add(CommodityBean(0, codeName ?: "", dictId = dictId))
+            bean.data?.forEach {
+                mList.add(CommodityBean(1, it.codeName!!, it.codeValue, it.dictId, parentId = it.parentId as Int))
             }
 
             mAdapter.setNewData(mList)
@@ -86,9 +86,9 @@ class ChildSortFragment : BaseMvpFragment<ChildSortContract.IView, ChildSortCont
 
     override fun getSecondLevelSuccess(bean: CityBean) {
         mBean?.run {
-            mList.add(CommodityBean(0, code_name ?: "", dictId = dict_id))
-            bean.dicts?.forEach {
-                mList.add(CommodityBean(1, it.code_name!!, it.code_value, it.dict_id))
+            mList.add(CommodityBean(0, codeName ?: "", dictId = dictId))
+            bean.data?.forEach {
+                mList.add(CommodityBean(1, it.codeName!!, it.codeValue, it.dictId))
             }
             mAdapter.setNewData(mList)
         }

@@ -17,6 +17,7 @@ import com.miyin.zhenbaoqi.ui.home.adapter.NewVipAdapter
 import com.miyin.zhenbaoqi.ui.home.contract.NewVipContract
 import com.miyin.zhenbaoqi.ui.home.presenter.NewVipPresenter
 import com.miyin.zhenbaoqi.ui.sort.activity.GoodsDetailActivity
+import com.miyin.zhenbaoqi.ui.sort.activity.GoodsPayActivity
 import kotlinx.android.synthetic.main.activity_new_vip.*
 import kotlinx.android.synthetic.main.layout_refresh.*
 
@@ -41,7 +42,7 @@ class NewVipActivity : BaseListActivity<NewVipContract.IView, NewVipContract.IPr
             adapter = mAdapter
             layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
             mAdapter.setOnItemClickListener { _, _, position ->
-                startActivityForResult<GoodsDetailActivity>(Constant.INTENT_REQUEST_CODE, "goodsId" to mList[position].goodsId)
+                startActivityForResult<GoodsPayActivity>(Constant.INTENT_REQUEST_CODE)//去到立即抢购页面
             }
         }
         setOnClickListener(ll_goback)

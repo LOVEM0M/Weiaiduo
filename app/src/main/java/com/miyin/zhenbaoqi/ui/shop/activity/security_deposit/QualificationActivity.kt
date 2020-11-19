@@ -185,7 +185,7 @@ class QualificationActivity : BaseMvpActivity<QualificationContract.IView, Quali
                     }
                 }, Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE)
             }
-            R.id.fl_select_product -> mPresenter?.getCategoryList("goods_category")
+            R.id.fl_select_product -> mPresenter?.getCategoryList(1)//TODO 暂不确定传值
             R.id.iv_goods_license -> {
                 requestPermission(getString(R.string.permission_camera_storage), object : OnPermissionCallback {
                     override fun onGranted() {
@@ -289,12 +289,12 @@ class QualificationActivity : BaseMvpActivity<QualificationContract.IView, Quali
         finish()
     }
 
-    override fun getProvinceListSuccess(list: List<CityBean.CityListBean>) {
+    override fun getProvinceListSuccess(list: List<CityBean.DataBean>) {
         mCityDialog = CityDialog.newInstance(list)
         mCityDialog?.show(supportFragmentManager, "city")
     }
 
-    override fun getAreaListSuccess(list: List<CityBean.CityListBean>, position: Int, state: Int) {
+    override fun getAreaListSuccess(list: List<CityBean.DataBean>, position: Int, state: Int) {
         mCityDialog?.setAreaList(list, state, position)
     }
 
@@ -302,19 +302,19 @@ class QualificationActivity : BaseMvpActivity<QualificationContract.IView, Quali
         mPresenter?.getAreaList(position, state, parentId)
     }
 
-    override fun onSelectCity(province: CityBean.CityListBean, city: CityBean.CityListBean, county: CityBean.CityListBean) {
-        mProvinceId = province.dict_id
-        mCityId = city.dict_id
-        mCountyId = county.dict_id
+    override fun onSelectCity(province: CityBean.DataBean, city: CityBean.DataBean, county: CityBean.DataBean) {
+        mProvinceId = province.dictId
+        mCityId = city.dictId
+        mCountyId = county.dictId
 
         mAddress = ""
         et_address.setText("")
 
-        tv_ship_address.text = "${province.code_name}${city.code_name}${county.code_name}"
+        tv_ship_address.text = "${province.codeName}${city.codeName}${county.codeName}"
     }
 
     override fun getCategoryListSuccess(bean: CityBean) {
-        val list = bean.dicts!!.toMutableList()
+        val list = bean.data!!.toMutableList()
 
         val dialog = SingleDataDialog.newInstance(list)
         dialog.show(supportFragmentManager, "cate")
@@ -364,20 +364,20 @@ class QualificationActivity : BaseMvpActivity<QualificationContract.IView, Quali
                     mIdentityType = 2
                 }
             }
-        } else if (obj is CityBean.CityListBean) {
-            if (mMainCate == obj.dict_id) {
+        } else if (obj is CityBean.DataBean) {
+            if (mMainCate == obj.dictId) {
                 return
             }
 
-            mMainCate = obj.dict_id
-            tv_select_product.text = obj.code_name
+            mMainCate = obj.dictId
+            tv_select_product.text = obj.codeName
 
             if (!mGoodsLicense.isNullOrEmpty()) {
                 mGoodsLicense = ""
                 Glide.with(this).clear(iv_goods_license)
             }
 
-            if (obj.code_name == "滋补养生") {
+            if (obj.codeName == "滋补养生") {
                 visible(fl_goods_license)
             } else {
                 gone(fl_goods_license)

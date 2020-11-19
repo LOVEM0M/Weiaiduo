@@ -11,11 +11,11 @@ class ExpressDeliveryContract {
 
         fun merchantShipSuccess()
 
-        fun getCourierCompanyListSuccess(list: List<CityBean.CityListBean>)
+        fun getCourierCompanyListSuccess(list: List<CityBean.DataBean>)
     }
 
     interface IPresenter : IBasePresenter<IView> {
-        fun getCourierCompanyList(codeType: String)
+        fun getCourierCompanyList(type: Int)
 
         fun confirmShip(courierNo: String?, dictId: Int, orderNumber: String)
 

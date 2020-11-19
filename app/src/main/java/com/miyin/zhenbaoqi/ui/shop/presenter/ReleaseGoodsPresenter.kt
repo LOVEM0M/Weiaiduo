@@ -1,5 +1,6 @@
 package com.miyin.zhenbaoqi.ui.shop.presenter
 
+import androidx.collection.ArrayMap
 import com.miyin.zhenbaoqi.base.mvp.BasePresenter
 import com.miyin.zhenbaoqi.bean.CityBean
 import com.miyin.zhenbaoqi.bean.ImageBean
@@ -18,19 +19,23 @@ class ReleaseGoodsPresenter : BasePresenter<ReleaseGoodsContract.IView>(), Relea
     override fun getCategoryName(cateId1: Int, cateId2: Int, cateId3: Int) {
         var cateName1 = ""
         var cateName2 = ""
-        val requestBody = JSONUtils.createJSON(arrayOf("code_type"), arrayOf("goods_category"))
-        val disposable = RetrofitUtils.mApiService.parentList(requestBody)
+        val map = ArrayMap<String, Any>().apply {
+            put("type", 0)
+        }
+        val disposable = RetrofitUtils.mApiService.parentList(map)
                 .subscribeOn(Schedulers.io())
                 .observeOn(Schedulers.io())
                 .flatMap { it ->
                     if (it.code == 0) {
-                        if (null == it.dicts) {
+                        if (null == it.data) {
                             throw Exception(it.msg)
                         } else {
-                            val bean = it.dicts!!.first { it.dict_id == cateId1 }
-                            cateName1 = bean.code_name ?: ""
-                            val secondRequestBody = JSONUtils.createJSON(arrayOf("parent_id"), arrayOf(cateId1))
-                            return@flatMap RetrofitUtils.mApiService.sonList(secondRequestBody)
+                            val bean = it.data!!.first { it.dictId == cateId1 }
+                            cateName1 = bean.codeName ?: ""
+                            val map = ArrayMap<String, Any>().apply {
+                                put("parentId", cateId1)
+                            }
+                            return@flatMap RetrofitUtils.mApiService.sonList(map)
                         }
                     } else {
                         throw Exception(it.msg)
@@ -39,13 +44,15 @@ class ReleaseGoodsPresenter : BasePresenter<ReleaseGoodsContract.IView>(), Relea
                 .observeOn(Schedulers.io())
                 .flatMap { it ->
                     if (it.code == 0) {
-                        if (null == it.dicts) {
+                        if (null == it.data) {
                             throw Exception(it.msg)
                         } else {
-                            val bean = it.dicts!!.first { it.dict_id == cateId2 }
-                            cateName2 = bean.code_name ?: ""
-                            val thirdRequestBody = JSONUtils.createJSON(arrayOf("parent_id"), arrayOf(cateId2))
-                            return@flatMap RetrofitUtils.mApiService.sonList(thirdRequestBody)
+                            val bean = it.data!!.first { it.dictId == cateId2 }
+                            cateName2 = bean.codeName ?: ""
+                            val map = ArrayMap<String, Any>().apply {
+                                put("parentId", cateId2)
+                            }
+                            return@flatMap RetrofitUtils.mApiService.sonList(map)
                         }
                     } else {
                         throw Exception(it.msg)
@@ -54,8 +61,8 @@ class ReleaseGoodsPresenter : BasePresenter<ReleaseGoodsContract.IView>(), Relea
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(object : BaseSingleObserver<CityBean>() {
                     override fun doOnSuccess(data: CityBean) {
-                        val bean = data.dicts?.first { it.dict_id == cateId3 }
-                        val cateName3 = bean?.code_name ?: ""
+                        val bean = data.data?.first { it.dictId == cateId3 }
+                        val cateName3 = bean?.codeName ?: ""
                         Logger.d("name1 == $cateName1, name2 == $cateName2, name3 == $cateName3")
                         getView()?.getCategoryNameSuccess(cateName1, cateName2, cateName3)
                     }
@@ -79,20 +86,24 @@ class ReleaseGoodsPresenter : BasePresenter<ReleaseGoodsContract.IView>(), Relea
         })
     }
 
-    override fun getParentList(codeType: String) {
-        val requestBody = JSONUtils.createJSON(arrayOf("code_type"), arrayOf(codeType))
-        request(RetrofitUtils.mApiService.parentList(requestBody), object : BaseSingleObserver<CityBean>() {
+    override fun getParentList(type: Int) {
+        val map = ArrayMap<String, Any>().apply {
+            put("type", type)
+        }
+        request(RetrofitUtils.mApiService.parentList(map), object : BaseSingleObserver<CityBean>() {
             override fun doOnSuccess(data: CityBean) {
-                getView()?.getParentListSuccess(data.dicts!!)
+                getView()?.getParentListSuccess(data.data!!)
             }
         })
     }
 
     override fun getSonList(parentId: Int, type: Int) {
-        val requestBody = JSONUtils.createJSON(arrayOf("parent_id"), arrayOf(parentId))
-        request(RetrofitUtils.mApiService.sonList(requestBody), object : BaseSingleObserver<CityBean>() {
+        val map = ArrayMap<String, Any>().apply {
+            put("parentId", parentId)
+        }
+        request(RetrofitUtils.mApiService.sonList(map), object : BaseSingleObserver<CityBean>() {
             override fun doOnSuccess(data: CityBean) {
-                getView()?.getSonListSuccess(data.dicts!!, type)
+                getView()?.getSonListSuccess(data.data!!, type)
             }
         })
     }

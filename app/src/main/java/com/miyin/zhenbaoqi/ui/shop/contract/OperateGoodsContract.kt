@@ -14,9 +14,9 @@ class OperateGoodsContract {
 
         fun liveGoodsSpikeInsertSuccess()
 
-        fun getParentListSuccess(list: List<CityBean.CityListBean>)
+        fun getParentListSuccess(list: List<CityBean.DataBean>)
 
-        fun getSonListSuccess(list: List<CityBean.CityListBean>, type: Int)
+        fun getSonListSuccess(list: List<CityBean.DataBean>, type: Int)
     }
 
     interface IPresenter : IBasePresenter<IView> {
@@ -30,7 +30,7 @@ class OperateGoodsContract {
         fun liveGoodsSpikeInsert(goodsAmount: Long, goodsDescribe: String, goodsFreight: Int, goodsImg: String?, goodsName: String?,
                                  inventory: Int, isSeven: Int, roomId: Int, isRestriction: Int, goodsId: Int)
 
-        fun getParentList(codeType: String)
+        fun getParentList(type : Int)
 
         fun getSonList(parentId: Int, type: Int)
     }

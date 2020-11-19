@@ -30,7 +30,7 @@ import kotlinx.android.synthetic.main.layout_refresh.*
 @SuppressLint("SetTextI18n")
 class NewProWeekActivity : BaseListActivity<NewProWeekContract.IView, NewProWeekContract.IPresenter>(), NewProWeekContract.IView {
     private var mName: String? = null
-    private var mList = mutableListOf<WeekNewGoodsBean.ListBean>()
+    private var mList = mutableListOf<WeekNewGoodsBean.DataBeanX.DataBean>()
     private lateinit var mAdapter: WeekNewGoodsAdapter
     private lateinit var mTopAdapter: TopAdapter
     private var mTitleList = mutableListOf<FirstCategoryBean.DataBean>()
@@ -67,7 +67,7 @@ class NewProWeekActivity : BaseListActivity<NewProWeekContract.IView, NewProWeek
             adapter = mAdapter
             layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
             mAdapter.setOnItemClickListener { _, _, position ->
-                startActivityForResult<GoodsDetailActivity>(Constant.INTENT_REQUEST_CODE, "goods_id" to mList[position].goods_id)
+                startActivityForResult<GoodsDetailActivity>(Constant.INTENT_REQUEST_CODE, "goodsId" to mList[position].goodsId)
             }
         }
         setOnClickListener(ll_goback)
@@ -94,7 +94,7 @@ class NewProWeekActivity : BaseListActivity<NewProWeekContract.IView, NewProWeek
 
     override fun initData() {
         mPresenter?.getCategoryList()
-        mPresenter?.getWeekNewGoodsList(mPage, mCount)
+        mPresenter?.getWeekNewGoodsList(cateId1,mPage, mCount)
     }
 
     override fun createPresenter() = NewProWeekPresenter()
@@ -117,11 +117,11 @@ class NewProWeekActivity : BaseListActivity<NewProWeekContract.IView, NewProWeek
     override fun getWeekNewGoodsListSuccess(bean: WeekNewGoodsBean) {
         with(bean) {
             if (current_page == 1) {//这个page
-                mList = list!!.toMutableList()
+                mList = data!!.data!!.toMutableList()
                 mAdapter?.setNewData(mList)
 
             } else {
-                mAdapter?.addData(list!!)
+                mAdapter?.addData(data!!.data!!)
             }
 
 

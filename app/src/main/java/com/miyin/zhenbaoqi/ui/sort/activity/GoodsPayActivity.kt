@@ -207,14 +207,14 @@ class GoodsPayActivity : BasePayActivity<GoodsPayContract.IView, GoodsPayContrac
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == Constant.INTENT_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
             data?.run {
-                val bean = getSerializableExtra("bean") as AddressBean.UserAddressBean
+                val bean = getSerializableExtra("bean") as AddressBean.DataBeanX.UserAddressBean
                 with(bean) {
                     gone(tv_add_address)
 
-                    mAddressId = ads_id
+                    mAddressId = adsId
                     tv_user_info.text = consignee
-                    tv_user_phone.text = phone_no
-                    tv_address.text = "$pcc_name$address"
+                    tv_user_phone.text = phoneNo
+                    tv_address.text = "$pccName$address"
                 }
             }
         }
@@ -265,22 +265,22 @@ class GoodsPayActivity : BasePayActivity<GoodsPayContract.IView, GoodsPayContrac
     override fun getAddressListSuccess(bean: AddressBean) {
         gone(tv_add_address)
 
-        bean.userAddress?.forEach {
-            if (it.is_default == 0) {
-                mAddressId = it.ads_id
+        bean.data!!.userAddress?.forEach {
+            if (it.isDefault == 0) {
+                mAddressId = it.adsId
 
                 tv_user_info.text = it.consignee
-                tv_user_phone.text = it.phone_no
-                tv_address.text = "${it.pcc_name}${it.address}"
+                tv_user_phone.text = it.phoneNo
+                tv_address.text = "${it.pccName}${it.address}"
             }
         }
         if (mAddressId == 0) {
-            val addressBean = bean.userAddress?.get(0)!!
-            mAddressId = addressBean.ads_id
+            val addressBean = bean.data!!.userAddress?.get(0)!!
+            mAddressId = addressBean.adsId
 
             tv_user_info.text = addressBean.consignee
-            tv_user_phone.text = addressBean.phone_no
-            tv_address.text = "${addressBean.pcc_name}${addressBean.address}"
+            tv_user_phone.text = addressBean.phoneNo
+            tv_address.text = "${addressBean.pccName}${addressBean.address}"
         }
     }
 

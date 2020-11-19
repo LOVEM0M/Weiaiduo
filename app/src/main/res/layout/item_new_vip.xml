@@ -4,18 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:ignore="HardcodedText,RtlSymmetry"
-    android:layout_marginTop="@dimen/dp_9">
+    android:layout_marginTop="@dimen/dp_9"
+    tools:ignore="HardcodedText,RtlSymmetry">
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/iv_cover"
-        android:layout_width="@dimen/dp_170"
-        android:layout_height="@dimen/dp_170"
-        android:scaleType="fitXY"
+
+    <com.noober.background.view.BLLinearLayout
+        android:id="@+id/ll_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingVertical="@dimen/dp_10"
+        android:paddingHorizontal="@dimen/dp_4"
+        app:bl_corners_topLeftRadius="@dimen/dp_8"
+        app:bl_corners_topRightRadius="@dimen/dp_8"
+        app:bl_solid_color="@color/white"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:background="@color/text_33" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_cover"
+            android:layout_width="@dimen/dp_170"
+            android:layout_height="@dimen/dp_170"
+            android:scaleType="fitXY"
+            tools:background="@color/text_33" />
+    </com.noober.background.view.BLLinearLayout>
+
 
     <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="wrap_content"
@@ -32,8 +45,8 @@
         android:text="首单全额返"
         android:textColor="@color/white"
         android:textSize="@dimen/sp_16"
-        app:layout_constraintBottom_toBottomOf="@id/iv_cover"
-        app:layout_constraintLeft_toLeftOf="@id/iv_cover" />
+        app:layout_constraintBottom_toBottomOf="@id/ll_top"
+        app:layout_constraintLeft_toLeftOf="@id/ll_top" />
 
     <com.noober.background.view.BLLinearLayout
         android:id="@+id/ll_container"
@@ -45,9 +58,9 @@
         app:bl_corners_bottomLeftRadius="@dimen/dp_8"
         app:bl_corners_bottomRightRadius="@dimen/dp_8"
         app:bl_solid_color="@color/white"
-        app:layout_constraintLeft_toLeftOf="@id/iv_cover"
-        app:layout_constraintRight_toRightOf="@id/iv_cover"
-        app:layout_constraintTop_toBottomOf="@id/iv_cover">
+        app:layout_constraintLeft_toLeftOf="@id/ll_top"
+        app:layout_constraintRight_toRightOf="@id/ll_top"
+        app:layout_constraintTop_toBottomOf="@id/ll_top">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_title"
@@ -60,39 +73,44 @@
             android:text="CHANEL男士香水..."
             android:textColor="@color/black"
             android:textSize="@dimen/sp_15" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:layout_marginHorizontal="9dp"
             android:layout_marginTop="@dimen/dp_5"
-            android:layout_marginHorizontal="9dp">
+            android:orientation="horizontal">
+
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/shape_home_bg8"
-                android:paddingVertical="@dimen/dp_3"
                 android:paddingHorizontal="@dimen/dp_4"
+                android:paddingVertical="@dimen/dp_3"
                 android:text="热销"
                 android:textColor="#F31822"
                 android:textSize="@dimen/sp_10" />
+
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_6"
                 android:background="@drawable/shape_home_bg8"
-                android:paddingVertical="@dimen/dp_3"
                 android:paddingHorizontal="@dimen/dp_4"
+                android:paddingVertical="@dimen/dp_3"
                 android:text="热销"
                 android:textColor="#F31822"
-                android:textSize="@dimen/sp_10"
-                android:layout_marginLeft="@dimen/dp_6"/>
+                android:textSize="@dimen/sp_10" />
+
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_8"
                 android:text="限购1件"
                 android:textColor="@color/text_66"
-                android:textSize="@dimen/sp_10"
-                android:layout_marginLeft="@dimen/dp_8"/>
+                android:textSize="@dimen/sp_10" />
         </LinearLayout>
+
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_price"
             android:layout_width="match_parent"
@@ -102,19 +120,20 @@
             android:text="￥123"
             android:textColor="#E7000B"
             android:textSize="@dimen/sp_24" />
+
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_go_buy"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/dp_20"
             android:layout_marginBottom="@dimen/dp_10"
-            android:paddingVertical="@dimen/dp_9"
-            android:includeFontPadding="false"
+            android:background="@drawable/shape_new_vip_bg3"
             android:gravity="center"
+            android:includeFontPadding="false"
+            android:paddingVertical="@dimen/dp_9"
             android:text="立即抢购"
             android:textColor="@color/white"
-            android:textSize="@dimen/sp_18"
-            android:background="@drawable/shape_new_vip_bg3"/>
+            android:textSize="@dimen/sp_18" />
 
     </com.noober.background.view.BLLinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

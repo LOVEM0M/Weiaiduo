@@ -230,12 +230,12 @@ class MerchantInfoActivity : BaseMvpActivity<MerchantInfoContract.IView, Merchan
     }
 
 
-    override fun getProvinceListSuccess(list: List<CityBean.CityListBean>) {
+    override fun getProvinceListSuccess(list: List<CityBean.DataBean>) {
         mCityDialog = CityDialog.newInstance(list)
         mCityDialog?.show(supportFragmentManager, "city")
     }
 
-    override fun getAreaListSuccess(list: List<CityBean.CityListBean>, position: Int, state: Int) {
+    override fun getAreaListSuccess(list: List<CityBean.DataBean>, position: Int, state: Int) {
         mCityDialog?.setAreaList(list, state, position)
     }
 
@@ -243,12 +243,12 @@ class MerchantInfoActivity : BaseMvpActivity<MerchantInfoContract.IView, Merchan
         mPresenter?.getAreaList(position, state, parentId)
     }
 
-    override fun onSelectCity(province: CityBean.CityListBean, city: CityBean.CityListBean, county: CityBean.CityListBean) {
-        mProvinceId = province.dict_id
-        mCityId = city.dict_id
-        mCountyId = county.dict_id
+    override fun onSelectCity(province: CityBean.DataBean, city: CityBean.DataBean, county: CityBean.DataBean) {
+        mProvinceId = province.dictId
+        mCityId = city.dictId
+        mCountyId = county.dictId
 
-        tv_address.text = "${province.code_name}${city.code_name}${county.code_name}"
+        tv_address.text = "${province.codeName}${city.codeName}${county.codeName}"
     }
 
 }

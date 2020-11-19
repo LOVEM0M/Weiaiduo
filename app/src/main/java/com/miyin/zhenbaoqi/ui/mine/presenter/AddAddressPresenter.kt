@@ -1,5 +1,6 @@
 package com.miyin.zhenbaoqi.ui.mine.presenter
 
+import androidx.collection.ArrayMap
 import com.miyin.zhenbaoqi.base.mvp.BasePresenter
 import com.miyin.zhenbaoqi.bean.CityBean
 import com.miyin.zhenbaoqi.bean.ResponseBean
@@ -28,7 +29,7 @@ class AddAddressPresenter : BasePresenter<AddAddressContract.IView>(), AddAddres
             return
         }
 
-        val keyArray = arrayOf("address", "city_id", "consignee", "county_id", "is_default", "phone_no", "province_id")
+        val keyArray = arrayOf("address", "cityId", "consignee", "countyId", "isDefault", "phoneNo", "provinceId")
         val valueArray = arrayOf<Any>(address!!, cityId, consignee!!, countyId, isDefault, phoneNo!!, provinceId)
         val requestBody = JSONUtils.createJSON(keyArray, valueArray)
         request(RetrofitUtils.mApiService.addAddress(requestBody), object : BaseSingleObserver<ResponseBean>() {
@@ -38,7 +39,7 @@ class AddAddressPresenter : BasePresenter<AddAddressContract.IView>(), AddAddres
         })
     }
 
-    override fun updateAddress(address: String?, addressId: Int, cityId: Int, consignee: String?, countyId: Int, isDefault: Int, phoneNo: String?, provinceId: Int) {
+    override fun updateAddress(address: String?, adsId: Int, cityId: Int, consignee: String?, countyId: Int, isDefault: Int, phoneNo: String?, provinceId: Int) {
         if (phoneNo.isNullOrEmpty()) {
             getView()?.showToast("请填写手机号")
             return
@@ -56,8 +57,8 @@ class AddAddressPresenter : BasePresenter<AddAddressContract.IView>(), AddAddres
             return
         }
 
-        val keyArray = arrayOf("address", "ads_id", "city_id", "consignee", "county_id", "is_default", "phone_no", "province_id")
-        val valueArray = arrayOf<Any>(address!!, addressId, cityId, consignee!!, countyId, isDefault, phoneNo!!, provinceId)
+        val keyArray = arrayOf("address", "adsId", "cityId", "consignee", "countyId", "isDefault", "phoneNo", "provinceId")
+        val valueArray = arrayOf<Any>(address!!, adsId, cityId, consignee!!, countyId, isDefault, phoneNo!!, provinceId)
         val requestBody = JSONUtils.createJSON(keyArray, valueArray)
         request(RetrofitUtils.mApiService.updateAddress(requestBody), object : BaseSingleObserver<ResponseBean>() {
             override fun doOnSuccess(data: ResponseBean) {
@@ -66,11 +67,13 @@ class AddAddressPresenter : BasePresenter<AddAddressContract.IView>(), AddAddres
         })
     }
 
-    override fun getProvinceList() {
-        val requestBody = JSONUtils.createJSON(arrayOf("code_type"), arrayOf("province"))
-        request(RetrofitUtils.mApiService.parentList(requestBody), object : BaseSingleObserver<CityBean>() {
+    override fun getProvinceList(type : Int) {
+        val map = ArrayMap<String, Any>().apply {
+            put("type", type)
+        }
+        request(RetrofitUtils.mApiService.parentList(map), object : BaseSingleObserver<CityBean>() {
             override fun doOnSuccess(data: CityBean) {
-                val list = data.dicts
+                val list = data.data
                 if (null == list || list.isEmpty()) {
                     getView()?.showToast(data.msg)
                 } else {
@@ -81,10 +84,12 @@ class AddAddressPresenter : BasePresenter<AddAddressContract.IView>(), AddAddres
     }
 
     override fun getAreaList(position: Int, state: Int, parentId: Int) {
-        val requestBody = JSONUtils.createJSON(arrayOf("parent_id"), arrayOf(parentId))
-        request(RetrofitUtils.mApiService.sonList(requestBody), object : BaseSingleObserver<CityBean>() {
+        val map = ArrayMap<String, Any>().apply {
+            put("parentId", parentId)
+        }
+        request(RetrofitUtils.mApiService.sonList(map), object : BaseSingleObserver<CityBean>() {
             override fun doOnSuccess(data: CityBean) {
-                val list = data.dicts
+                val list = data.data
                 if (null == list || list.isEmpty()) {
                     getView()?.showToast(data.msg)
                 } else {

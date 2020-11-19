@@ -1,5 +1,6 @@
 package com.miyin.zhenbaoqi.ui.sort.presenter
 
+import androidx.collection.ArrayMap
 import com.miyin.zhenbaoqi.base.mvp.BasePresenter
 import com.miyin.zhenbaoqi.bean.CityBean
 import com.miyin.zhenbaoqi.bean.SearchGoodsBean
@@ -11,8 +12,10 @@ import com.miyin.zhenbaoqi.utils.JSONUtils
 class CategoryPresenter : BasePresenter<CategoryContract.IView>(), CategoryContract.IPresenter {
 
     override fun getThirdLevel(parentId: Int) {
-        val requestBody = JSONUtils.createJSON(arrayOf("parent_id"), arrayOf(parentId))
-        request(RetrofitUtils.mApiService.sonList(requestBody), object : BaseSingleObserver<CityBean>() {
+        val map = ArrayMap<String, Any>().apply {
+            put("parentId", parentId)
+        }
+        request(RetrofitUtils.mApiService.sonList(map), object : BaseSingleObserver<CityBean>() {
             override fun doOnSuccess(data: CityBean) {
                 getView()?.getThirdLevelSuccess(data)
             }

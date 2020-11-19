@@ -139,30 +139,22 @@ class MinePresenter : BasePresenter<MineContract.IView>(), MineContract.IPresent
         getDisposable()?.add(disposable)
     }
 
-    override fun getHomeGoodsHotList(currentPage: Int, pageSize: Int) {
-        val keyArray = arrayOf("current_page", "page_size")
-        val valueArray = arrayOf<Any>(currentPage, pageSize)
-        val requestBody = JSONUtils.createJSON(keyArray, valueArray)
-        request(RetrofitUtils.mApiService.homeGoodsHotList(requestBody), object : BaseSingleObserver<HomeGoodsHotBean>() {
+    override fun getHomeGoodsHotList() {
+        request(RetrofitUtils.mApiService.homeGoodsHotList(), object : BaseSingleObserver<HomeGoodsHotBean>() {
             override fun doOnSuccess(data: HomeGoodsHotBean) {
                 getView()?.showNormal()
                 getView()?.getHomeGoodsHotListSuccess(data)
             }
 
             override fun doOnFailure(data: HomeGoodsHotBean) {
-                if (currentPage == 1) {
                     getView()?.showNormal()
                     getView()?.onFailure("", 0)
-                } else {
                     super.doOnFailure(data)
-                }
             }
 
             override fun onError(e: Throwable) {
                 super.onError(e)
-                if (currentPage == 1) {
                     getView()?.showError()
-                }
             }
         })
     }

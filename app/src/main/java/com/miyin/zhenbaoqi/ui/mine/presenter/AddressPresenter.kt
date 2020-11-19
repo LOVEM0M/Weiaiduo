@@ -1,5 +1,6 @@
 package com.miyin.zhenbaoqi.ui.mine.presenter
 
+import androidx.collection.ArrayMap
 import com.miyin.zhenbaoqi.base.mvp.BasePresenter
 import com.miyin.zhenbaoqi.bean.AddressBean
 import com.miyin.zhenbaoqi.bean.ResponseBean
@@ -10,35 +11,34 @@ import com.miyin.zhenbaoqi.utils.JSONUtils
 
 class AddressPresenter : BasePresenter<AddressContact.IView>(), AddressContact.IPresenter {
 
-    override fun getAddressList(currentPage: Int, pageSize: Int) {
-        val requestBody = JSONUtils.createJSON(arrayOf("current_page", "page_size"), arrayOf(currentPage, pageSize))
-        request(RetrofitUtils.mApiService.addressList(requestBody), object : BaseSingleObserver<AddressBean>() {
+    override fun getAddressList(page: Int, rows: Int) {
+        val map = ArrayMap<String, Any>().apply {
+            put("page", page)
+            put("rows", rows)
+        }
+        request(RetrofitUtils.mApiService.addressList(map), object : BaseSingleObserver<AddressBean>() {
             override fun doOnSuccess(data: AddressBean) {
                 getView()?.showNormal()
                 getView()?.getAddressListSuccess(data)
             }
 
             override fun doOnFailure(data: AddressBean) {
-                if (data.code == 1) {
                     getView()?.showEmpty()
                     getView()?.onFailure(data.msg!!, 1)
-                } else {
-                    getView()?.onFailure(data.msg!!, 0)
-                }
             }
 
             override fun onError(e: Throwable) {
                 super.onError(e)
-                if (currentPage == 1) {
                     getView()?.showError()
-                }
             }
         })
     }
 
-    override fun deleteAddress(addressId: Int) {
-        val requestBody = JSONUtils.createJSON(arrayOf("ads_id"), arrayOf(addressId))
-        request(RetrofitUtils.mApiService.deleteAddress(requestBody), object : BaseSingleObserver<ResponseBean>() {
+    override fun deleteAddress(adsId: Int) {
+        val map = ArrayMap<String, Any>().apply {
+            put("adsId", adsId)
+        }
+        request(RetrofitUtils.mApiService.deleteAddress(map), object : BaseSingleObserver<ResponseBean>() {
             override fun doOnSuccess(data: ResponseBean) {
                 getView()?.deleteAddressSuccess()
             }

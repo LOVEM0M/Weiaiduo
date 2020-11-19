@@ -30,15 +30,15 @@ class RecommendAdapter(list: List<HomeGoodsHotBean.DataBean>) : BaseAdapter<Home
 
             val transform = RoundCornersTransform(DensityUtils.dp2px(8f).toFloat(), RoundCornersTransform.CornerType.TOP)
             val url = when {
-                goods_img.isNullOrEmpty() -> ""
-                goods_img!!.contains(",") -> goods_img!!.split(",")[0]
-                else -> goods_img
+                goodsImg.isNullOrEmpty() -> ""
+                goodsImg!!.contains(",") -> goodsImg!!.split(",")[0]
+                else -> goodsImg
             }
             holder.transform(R.id.iv_cover, url, transform)
-                    .setText(R.id.tv_title, goods_name)
+                    .setText(R.id.tv_title, goodsName)
                     .setText(R.id.tv_price, SpanUtils()
                             .append("¥ ")
-                            .append(FormatUtils.formatNumber(goods_amount / 100f)).setFontSize(15, true)
+                            .append(FormatUtils.formatNumber(goodsAmount / 100f)).setFontSize(15, true)
                             .create())
         }
     }

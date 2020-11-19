@@ -27,12 +27,12 @@ class AddAddressActivity : BaseMvpActivity<AddAddressContract.IView, AddAddressC
     private var mCityId = 0
     private var mCountyId = 0
     private var mAddressId = 0
-    private var mUserAddressBean: AddressBean.UserAddressBean? = null
+    private var mUserAddressBean: AddressBean.DataBeanX.UserAddressBean? = null
 
     private var mCityDialog: CityDialog? = null
 
     override fun getContentView(): Int {
-        mUserAddressBean = intent.getSerializableExtra("bean") as AddressBean.UserAddressBean?
+        mUserAddressBean = intent.getSerializableExtra("bean") as AddressBean.DataBeanX.UserAddressBean?
         return R.layout.activity_add_address
     }
 
@@ -43,17 +43,17 @@ class AddAddressActivity : BaseMvpActivity<AddAddressContract.IView, AddAddressC
 
         mUserAddressBean?.run {
             mName = consignee
-            mPhone = phone_no
-            mProvinceId = province_id
-            mCityId = city_id
-            mCountyId = county_id
+            mPhone = phoneNo
+            mProvinceId = provinceId
+            mCityId = cityId
+            mCountyId = countyId
             mAddress = address
-            mIsDefault = is_default
-            mAddressId = ads_id
+            mIsDefault = isDefault
+            mAddressId = adsId
 
             et_name.setText(mName)
             et_phone.setText(mPhone)
-            tv_area.text = pcc_name
+            tv_area.text = pccName
             et_address.setText(address)
             switch_button.isChecked = mIsDefault == 0
             btn_commit.isEnabled = true
@@ -108,7 +108,7 @@ class AddAddressActivity : BaseMvpActivity<AddAddressContract.IView, AddAddressC
         when (v?.id) {
             R.id.fl_area -> {
                 if (null == mCityDialog) {
-                    mPresenter?.getProvinceList()
+                    mPresenter?.getProvinceList(0)
                 } else {
                     mCityDialog?.show(supportFragmentManager, "city")
                 }
@@ -133,12 +133,12 @@ class AddAddressActivity : BaseMvpActivity<AddAddressContract.IView, AddAddressC
         finish()
     }
 
-    override fun getProvinceListSuccess(list: List<CityBean.CityListBean>) {
+    override fun getProvinceListSuccess(list: List<CityBean.DataBean>) {
         mCityDialog = CityDialog.newInstance(list)
         mCityDialog?.show(supportFragmentManager, "city")
     }
 
-    override fun getAreaListSuccess(list: List<CityBean.CityListBean>, position: Int, state: Int) {
+    override fun getAreaListSuccess(list: List<CityBean.DataBean>, position: Int, state: Int) {
         mCityDialog?.setAreaList(list, state, position)
     }
 
@@ -146,12 +146,12 @@ class AddAddressActivity : BaseMvpActivity<AddAddressContract.IView, AddAddressC
         mPresenter?.getAreaList(position, state, parentId)
     }
 
-    override fun onSelectCity(province: CityBean.CityListBean, city: CityBean.CityListBean, county: CityBean.CityListBean) {
-        mProvinceId = province.dict_id
-        mCityId = city.dict_id
-        mCountyId = county.dict_id
+    override fun onSelectCity(province: CityBean.DataBean, city: CityBean.DataBean, county: CityBean.DataBean) {
+        mProvinceId = province.dictId
+        mCityId = city.dictId
+        mCountyId = county.dictId
 
-        tv_area.text = "${province.code_name}-${city.code_name}-${county.code_name}"
+        tv_area.text = "${province.codeName}-${city.codeName}-${county.codeName}"
         setBtnEnabled()
     }
 

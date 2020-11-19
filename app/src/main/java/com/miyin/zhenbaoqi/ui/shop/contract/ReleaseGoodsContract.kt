@@ -9,9 +9,9 @@ class ReleaseGoodsContract {
     interface IView : IBaseView {
         fun getCategoryNameSuccess(cateName1: String, cateName2: String, cateName3: String)
 
-        fun getParentListSuccess(list: List<CityBean.CityListBean>)
+        fun getParentListSuccess(list: List<CityBean.DataBean>)
 
-        fun getSonListSuccess(list: List<CityBean.CityListBean>, type: Int)
+        fun getSonListSuccess(list: List<CityBean.DataBean>, type: Int)
 
         fun uploadGoodsImgSuccess(url: String)
 
@@ -27,7 +27,7 @@ class ReleaseGoodsContract {
 
         fun getMerchantMainCateState()
 
-        fun getParentList(codeType: String)
+        fun getParentList(type: Int)
 
         fun getSonList(parentId: Int, type: Int)
 

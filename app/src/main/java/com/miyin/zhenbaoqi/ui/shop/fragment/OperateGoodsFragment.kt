@@ -323,7 +323,7 @@ class OperateGoodsFragment : BaseMvpFragment<OperateGoodsContract.IView, Operate
                 if (null != mGoodsTypeDialog) {
                     mGoodsTypeDialog?.show(fragmentManager!!, "goodsType")
                 } else {
-                    mPresenter?.getParentList("goods_category")
+                    mPresenter?.getParentList(1)//TODO 暂不确定传值
                 }
             }
         }
@@ -408,13 +408,13 @@ class OperateGoodsFragment : BaseMvpFragment<OperateGoodsContract.IView, Operate
         activity?.finish()
     }
 
-    override fun getParentListSuccess(list: List<CityBean.CityListBean>) {
+    override fun getParentListSuccess(list: List<CityBean.DataBean>) {
         mGoodsTypeDialog = GoodsTypeDialog.newInstance(list)
         mGoodsTypeDialog!!.show(fragmentManager!!, "goodsType")
         mGoodsTypeDialog!!.setOnDialogCallback(this)
     }
 
-    override fun getSonListSuccess(list: List<CityBean.CityListBean>, type: Int) {
+    override fun getSonListSuccess(list: List<CityBean.DataBean>, type: Int) {
         if (type == 2) {
             mGoodsTypeDialog?.setRightList(list)
         } else if (type == 3) {
@@ -433,7 +433,7 @@ class OperateGoodsFragment : BaseMvpFragment<OperateGoodsContract.IView, Operate
                                 .setCheckedTextColor(Color.WHITE)
                                 .setUnCheckedTextColor(Color.BLACK)
                                 .buildTextColor())
-                        text = (data as CityBean.CityListBean).code_name
+                        text = (data as CityBean.DataBean).codeName
                         background = DrawableCreator.Builder()
                                 .setStrokeWidth(context?.getDimension(R.dimen.dp_1)!!)
                                 .setCheckedStrokeColor(0xFFF1352F.toInt(), 0xFF5F5F5F.toInt())
@@ -444,8 +444,8 @@ class OperateGoodsFragment : BaseMvpFragment<OperateGoodsContract.IView, Operate
 
                     override fun onSelected(position: Int, view: View?) {
                         val data = list[position]
-                        mCateId3 = data.dict_id
-                        mCate3Name = data.code_name
+                        mCateId3 = data.dictId
+                        mCate3Name = data.codeName
                     }
                 })
             } else {
@@ -455,17 +455,17 @@ class OperateGoodsFragment : BaseMvpFragment<OperateGoodsContract.IView, Operate
     }
 
     override fun onDialog(obj: Any, flag: Int) {
-        if (obj is CityBean.CityListBean) {
+        if (obj is CityBean.DataBean) {
             if (flag == 0) {
-                mCateId1 = obj.dict_id
-                mCate1Name = obj.code_name
+                mCateId1 = obj.dictId
+                mCate1Name = obj.codeName
 
                 mPresenter?.getSonList(mCateId1, 2)
 
                 tv_goods_type.text = ""
             } else if (flag == 1) {
-                mCateId2 = obj.dict_id
-                mCate2Name = obj.code_name
+                mCateId2 = obj.dictId
+                mCate2Name = obj.codeName
 
                 mPresenter?.getSonList(mCateId2, 3)
 

@@ -63,17 +63,21 @@ interface ApiService {
 
 
     /* 一口价|竞拍商品详情 */
-//    @FormUrlEncoded
+    //    @FormUrlEncoded
     @POST("/shopapi/goods/detailGoods")
     fun goodsDetail(@Body requestBody: RequestBody): Single<GoodsDetailBean>
 
+    /* 热门推荐商品列表 */
+    @POST("/shopapi/goods/hotGoods")
+    fun homeGoodsHotList(): Single<HomeGoodsHotBean>
 
     /*
     * 一周新品
     *
     * */
-    @POST("/api/v1/newgoods")
-    fun weekNewGoodsList(@Body requestBody: RequestBody): Single<WeekNewGoodsBean>
+    @FormUrlEncoded
+    @POST("/shopapi/goods/newsgoods")
+    fun weekNewGoodsList(@FieldMap  map: Map<String, Any>): Single<WeekNewGoodsBean>
 
     /**
      * 优惠券接口 ***********************************************************************************
@@ -145,9 +149,6 @@ interface ApiService {
     @POST("/api/v1/goods/homesearch")
     fun goodsSearch(@Body requestBody: RequestBody): Single<GoodsSearchBean>
 
-    /* 热门推荐商品列表 */
-    @POST("/api/v1/goods/hot/list")
-    fun homeGoodsHotList(@Body requestBody: RequestBody): Single<HomeGoodsHotBean>
 
     /* 新人特惠商品列表 */
     @POST("/api/v1/goods/new/list")
@@ -404,19 +405,21 @@ interface ApiService {
      * 地址接口 *************************************************************************************
      */
     /* 添加地址 */
-    @POST("/api/v1/user/address/add")
+    @POST("/shopapi/address/addressadd")
     fun addAddress(@Body requestBody: RequestBody): Single<ResponseBean>
 
     /* 删除地址 */
-    @POST("/api/v1/user/address/delete")
-    fun deleteAddress(@Body requestBody: RequestBody): Single<ResponseBean>
+    @FormUrlEncoded
+    @POST("/shopapi/address/addressdelete")
+    fun deleteAddress(@FieldMap  map: Map<String, Any>): Single<ResponseBean>
 
     /* 地址列表 */
-    @POST("/api/v1/user/address/list")
-    fun addressList(@Body requestBody: RequestBody): Single<AddressBean>
+    @FormUrlEncoded
+    @POST("/shopapi/address/addresslist")
+    fun addressList(@FieldMap  map: Map<String, Any>): Single<AddressBean>
 
     /* 编辑地址 */
-    @POST("/api/v1/user/address/update")
+    @POST("/shopapi/address/addressupdate")
     fun updateAddress(@Body requestBody: RequestBody): Single<ResponseBean>
 
     /**
@@ -642,18 +645,22 @@ interface ApiService {
 
     /**
      * 省市区，快递公司，商品类别等数据接口 **********************************************************
+     *0省列表，1快递列表
+     * 没有商品类别了
      */
-    @POST("/api/v1/dict/list")
-    fun parentList(@Body requestBody: RequestBody): Single<CityBean>
+    @FormUrlEncoded
+    @POST("/shopapi/address/dictlist")
+    fun parentList(@FieldMap  map: Map<String, Any>): Single<CityBean>
 
+    /* 根据父id查找数据列表 */
+    @FormUrlEncoded
+    @POST("/shopapi/address/sondictlist")
+    fun sonList(@FieldMap  map: Map<String, Any>): Single<CityBean>
 
     /* 推荐分类列表 */
     @POST("/api/v1/dict/recommend/list")
     fun recommendList(): Single<CityBean>
 
-    /* 根据父id查找数据列表 */
-    @POST("/api/v1/dict/son/list")
-    fun sonList(@Body requestBody: RequestBody): Single<CityBean>
 
     /**
      * 福利等级接口 **********************************************************************************

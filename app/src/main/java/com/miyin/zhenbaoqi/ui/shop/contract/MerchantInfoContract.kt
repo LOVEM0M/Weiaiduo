@@ -16,9 +16,9 @@ class MerchantInfoContract {
 
         fun updateMerchantInfoSuccess()
 
-        fun getProvinceListSuccess(list: List<CityBean.CityListBean>)
+        fun getProvinceListSuccess(list: List<CityBean.DataBean>)
 
-        fun getAreaListSuccess(list: List<CityBean.CityListBean>, position: Int, state: Int)
+        fun getAreaListSuccess(list: List<CityBean.DataBean>, position: Int, state: Int)
     }
 
     interface IPresenter : IBasePresenter<IView> {

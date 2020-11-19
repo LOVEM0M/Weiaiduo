@@ -1,5 +1,6 @@
 package com.miyin.zhenbaoqi.ui.sort.presenter
 
+import androidx.collection.ArrayMap
 import com.miyin.zhenbaoqi.base.mvp.BasePresenter
 import com.miyin.zhenbaoqi.bean.CityBean
 import com.miyin.zhenbaoqi.http.BaseSingleObserver
@@ -10,8 +11,10 @@ import com.miyin.zhenbaoqi.utils.JSONUtils
 class SortPresenter : BasePresenter<SortContract.IView>(), SortContract.IPresenter {
 
     override fun getCategoryList(codeType: String) {
-        val requestBody = JSONUtils.createJSON(arrayOf("code_type"), arrayOf(codeType))
-        request(RetrofitUtils.mApiService.parentList(requestBody), object : BaseSingleObserver<CityBean>() {
+        val map = ArrayMap<String, Any>().apply {
+            put("type", 0)
+        }
+        request(RetrofitUtils.mApiService.parentList(map), object : BaseSingleObserver<CityBean>() {
             override fun doOnSuccess(data: CityBean) {
                 getView()?.showNormal()
                 getView()?.getCategoryListSuccess(data)
@@ -48,8 +51,10 @@ class SortPresenter : BasePresenter<SortContract.IView>(), SortContract.IPresent
     }
 
     override fun getSecondLevel(parentId: Int) {
-        val requestBody = JSONUtils.createJSON(arrayOf("parent_id"), arrayOf(parentId))
-        request(RetrofitUtils.mApiService.sonList(requestBody), object : BaseSingleObserver<CityBean>() {
+        val map = ArrayMap<String, Any>().apply {
+            put("parentId", parentId)
+        }
+        request(RetrofitUtils.mApiService.sonList(map), object : BaseSingleObserver<CityBean>() {
             override fun doOnSuccess(data: CityBean) {
                 getView()?.getSecondLevelSuccess(data)
             }

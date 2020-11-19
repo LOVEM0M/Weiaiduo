@@ -16,15 +16,15 @@ import java.io.Serializable
 @Suppress("UNCHECKED_CAST")
 class GoodsTypeDialog : BaseDialogFragment() {
 
-    private var mLeftList = mutableListOf<CityBean.CityListBean>()
+    private var mLeftList = mutableListOf<CityBean.DataBean>()
     private lateinit var mLeftAdapter: GoodsTypeAdapter
-    private var mRightList = mutableListOf<CityBean.CityListBean>()
+    private var mRightList = mutableListOf<CityBean.DataBean>()
     private lateinit var mRightAdapter: GoodsTypeAdapter
     private var mRightPosition = 0
     private var mOnDialogCallback: OnDialogCallback? = null
 
     companion object {
-        fun newInstance(list: List<CityBean.CityListBean>) = GoodsTypeDialog().apply {
+        fun newInstance(list: List<CityBean.DataBean>) = GoodsTypeDialog().apply {
             arguments = Bundle().apply {
                 putSerializable("list", list as Serializable)
             }
@@ -33,7 +33,7 @@ class GoodsTypeDialog : BaseDialogFragment() {
 
     override fun getContentView(): Int {
         arguments?.run {
-            mLeftList = (getSerializable("list") as List<CityBean.CityListBean>).toMutableList()
+            mLeftList = (getSerializable("list") as List<CityBean.DataBean>).toMutableList()
         }
         return R.layout.dialog_goods_type
     }
@@ -86,7 +86,7 @@ class GoodsTypeDialog : BaseDialogFragment() {
 
     override fun setGravity() = Gravity.BOTTOM
 
-    fun setRightList(list: List<CityBean.CityListBean>) {
+    fun setRightList(list: List<CityBean.DataBean>) {
         mRightList.clear()
         mRightList.addAll(list)
         mRightAdapter.setNewData(mRightList)

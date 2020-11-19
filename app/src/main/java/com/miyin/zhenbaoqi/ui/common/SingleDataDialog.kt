@@ -58,7 +58,7 @@ class SingleDataDialog : BaseDialogFragment() {
                 override fun getItem(index: Int): Any {
                     val obj = mList[index]
                     return when (obj) {
-                        is CityBean.CityListBean -> obj.code_name ?: ""
+                        is CityBean.DataBean -> obj.codeName ?: ""
                         is BankBean.BankListBean -> obj.bank_name ?: ""
                         is String -> obj.toString()
                         else -> ""

@@ -3,6 +3,7 @@ package com.miyin.zhenbaoqi.ui.mine.activity.address
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.SimpleItemAnimator
 import android.widget.TextView
@@ -22,7 +23,7 @@ import kotlinx.android.synthetic.main.layout_refresh.*
 class AddressActivity : BaseListActivity<AddressContact.IView, AddressContact.IPresenter>(), AddressContact.IView, OnDialogCallback {
 
     private var mIsClick = true
-    private var mList = mutableListOf<AddressBean.UserAddressBean>()
+    private var mList = mutableListOf<AddressBean.DataBeanX.UserAddressBean>()
     private lateinit var mAdapter: AddressAdapter
     private var mPosition = 0
 
@@ -36,7 +37,7 @@ class AddressActivity : BaseListActivity<AddressContact.IView, AddressContact.IP
         initTitleBar("管理收货地址")
         immersionBar { statusBarDarkFont(true) }
 
-        showLoading()
+//        showLoading()
         recycler_view.run {
             mAdapter = AddressAdapter(mList)
             adapter = mAdapter
@@ -46,7 +47,7 @@ class AddressActivity : BaseListActivity<AddressContact.IView, AddressContact.IP
             mAdapter.setOnItemChildClickListener { _, view, position ->
                 mPosition = position
                 val bean = mList[position]
-                when (view.id) {
+                when (view.id) {//TODO 不调到这里？？
                     R.id.cl_container -> {
                         if (!mIsClick) {
                             return@setOnItemChildClickListener
@@ -62,8 +63,8 @@ class AddressActivity : BaseListActivity<AddressContact.IView, AddressContact.IP
                         val dialog = DeleteTipDialog.newInstance()
                         dialog.show(supportFragmentManager, "deleteAddress")
                     }
-                    R.id.tv_is_default -> mPresenter?.setDefaultAddress(bean.address!!, bean.ads_id, bean.city_id,
-                            bean.consignee!!, bean.county_id, bean.is_default, bean.phone_no!!, bean.province_id)
+                    R.id.tv_is_default -> mPresenter?.setDefaultAddress(bean.address!!, bean.adsId, bean.cityId,
+                            bean.consignee!!, bean.countyId, bean.isDefault, bean.phoneNo!!, bean.provinceId)
                 }
             }
         }
@@ -95,12 +96,8 @@ class AddressActivity : BaseListActivity<AddressContact.IView, AddressContact.IP
     override fun getAddressListSuccess(bean: AddressBean) {
         visible(btn_commit)
         with(bean) {
-            if (current_page == 1) {
-                mList = userAddress!!.toMutableList()
+                mList = data!!.userAddress!!.toMutableList()
                 mAdapter.setNewData(mList)
-            } else {
-                mAdapter.setNewData(userAddress!!.toMutableList())
-            }
             smart_refresh_layout.setEnableLoadMore(current_page != pages)
         }
     }
@@ -109,7 +106,6 @@ class AddressActivity : BaseListActivity<AddressContact.IView, AddressContact.IP
         mList.removeAt(mPosition)
         mAdapter.notifyItemRemoved(mPosition)
         mAdapter.notifyItemRangeChanged(mPosition, mList.size - mPosition)
-
         if (mList.isEmpty()) {
             showEmpty()
             visible(btn_commit)
@@ -117,12 +113,12 @@ class AddressActivity : BaseListActivity<AddressContact.IView, AddressContact.IP
     }
 
     override fun setDefaultAddressSuccess() {
-        mList.filter { bean -> bean.is_default == 0 }.forEach {
-            it.is_default = 1
+        mList.filter { bean -> bean.isDefault == 0 }.forEach {
+            it.isDefault = 1
             val index = mList.indexOf(it)
             mAdapter.notifyItemChanged(index)
         }
-        mList[mPosition].is_default = 0
+        mList[mPosition].isDefault = 0
         mAdapter.notifyItemChanged(mPosition)
     }
 
@@ -139,7 +135,7 @@ class AddressActivity : BaseListActivity<AddressContact.IView, AddressContact.IP
             is String -> {
                 if (obj == "delete") {
                     val bean = mList[mPosition]
-                    mPresenter?.deleteAddress(bean.ads_id)
+                    mPresenter?.deleteAddress(bean.adsId)
                 }
             }
         }

@@ -70,7 +70,7 @@ class RecommendFragment : BaseListFragment<RecommendContract.IView, RecommendCon
             adapter = mAdapter
             layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
             mAdapter.setOnItemClickListener { _, _, position ->
-                startActivityForResult<GoodsDetailActivity>(Constant.INTENT_REQUEST_CODE, "goods_id" to mList[position].goods_id)
+                startActivityForResult<GoodsDetailActivity>(Constant.INTENT_REQUEST_CODE, "goodsId" to mList[position].goodsId)
             }
 
             mHeaderView = LayoutInflater.from(context).inflate(R.layout.header_recommend, this, false).apply {

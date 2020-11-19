@@ -1,5 +1,6 @@
 package com.miyin.zhenbaoqi.ui.home.presenter
 
+import androidx.collection.ArrayMap
 import com.miyin.zhenbaoqi.base.mvp.BasePresenter
 import com.miyin.zhenbaoqi.bean.CityBean
 import com.miyin.zhenbaoqi.bean.FirstCategoryBean
@@ -30,30 +31,27 @@ class NewProWeekPresenter : BasePresenter<NewProWeekContract.IView>(), NewProWee
         })
     }
 
-    override fun getWeekNewGoodsList(currentPage: Int, pageSize: Int) {
-        val keyArray = arrayOf("current_page", "page_size")
-        val valueArray = arrayOf<Any>(currentPage, pageSize)
-        val requestBody = JSONUtils.createJSON(keyArray, valueArray)
-        request(RetrofitUtils.mApiService.weekNewGoodsList(requestBody), object : BaseSingleObserver<WeekNewGoodsBean>() {
+    override fun getWeekNewGoodsList(cateId1: Int,page: Int, rows: Int) {
+        val map = ArrayMap<String, Any>().apply {
+            put("cateId1", cateId1)
+            put("page", page)
+            put("rows", rows)
+        }
+        request(RetrofitUtils.mApiService.weekNewGoodsList(map), object : BaseSingleObserver<WeekNewGoodsBean>() {
             override fun doOnSuccess(list: WeekNewGoodsBean) {
                 getView()?.showNormal()
                 getView()?.getWeekNewGoodsListSuccess(list)
             }
 
             override fun doOnFailure(list: WeekNewGoodsBean) {
-                if (currentPage == 1) {
                     getView()?.showNormal()
                     getView()?.onFailure("", 0)
-                } else {
                     super.doOnFailure(list)
-                }
             }
 
             override fun onError(e: Throwable) {
                 super.onError(e)
-                if (currentPage == 1) {
                     getView()?.showError()
-                }
             }
         })
     }

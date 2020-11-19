@@ -1,5 +1,6 @@
 package com.miyin.zhenbaoqi.ui.sort.presenter
 
+import androidx.collection.ArrayMap
 import com.miyin.zhenbaoqi.base.mvp.BasePresenter
 import com.miyin.zhenbaoqi.bean.CityBean
 import com.miyin.zhenbaoqi.http.BaseSingleObserver
@@ -22,8 +23,10 @@ class ChildSortPresenter : BasePresenter<ChildSortContract.IView>(), ChildSortCo
     }
 
     override fun getSecondLevel(parentId: Int) {
-        val requestBody = JSONUtils.createJSON(arrayOf("parent_id"), arrayOf(parentId))
-        request(RetrofitUtils.mApiService.sonList(requestBody), object : BaseSingleObserver<CityBean>() {
+        val map = ArrayMap<String, Any>().apply {
+            put("parentId", parentId)
+        }
+        request(RetrofitUtils.mApiService.sonList(map), object : BaseSingleObserver<CityBean>() {
             override fun doOnSuccess(data: CityBean) {
                 getView()?.getSecondLevelSuccess(data)
             }

@@ -1,5 +1,6 @@
 package com.miyin.zhenbaoqi.ui.shop.presenter
 
+import androidx.collection.ArrayMap
 import com.miyin.zhenbaoqi.base.mvp.BasePresenter
 import com.miyin.zhenbaoqi.bean.CityBean
 import com.miyin.zhenbaoqi.bean.ImageBean
@@ -83,10 +84,12 @@ class MerchantInfoPresenter : BasePresenter<MerchantInfoContract.IView>(), Merch
     }
 
     override fun getProvinceList() {
-        val requestBody = JSONUtils.createJSON(arrayOf("code_type"), arrayOf("province"))
-        request(RetrofitUtils.mApiService.parentList(requestBody), object : BaseSingleObserver<CityBean>() {
+        val map = ArrayMap<String, Any>().apply {
+            put("type", 0)
+        }
+        request(RetrofitUtils.mApiService.parentList(map), object : BaseSingleObserver<CityBean>() {
             override fun doOnSuccess(data: CityBean) {
-                val list = data.dicts
+                val list = data.data
                 if (null == list || list.isEmpty()) {
                     getView()?.showToast(data.msg)
                 } else {
@@ -97,10 +100,12 @@ class MerchantInfoPresenter : BasePresenter<MerchantInfoContract.IView>(), Merch
     }
 
     override fun getAreaList(position: Int, state: Int, parentId: Int) {
-        val requestBody = JSONUtils.createJSON(arrayOf("parent_id"), arrayOf(parentId))
-        request(RetrofitUtils.mApiService.sonList(requestBody), object : BaseSingleObserver<CityBean>() {
+        val map = ArrayMap<String, Any>().apply {
+            put("parentId", parentId)
+        }
+        request(RetrofitUtils.mApiService.sonList(map), object : BaseSingleObserver<CityBean>() {
             override fun doOnSuccess(data: CityBean) {
-                val list = data.dicts
+                val list = data.data
                 if (null == list || list.isEmpty()) {
                     getView()?.showToast(data.msg)
                 } else {

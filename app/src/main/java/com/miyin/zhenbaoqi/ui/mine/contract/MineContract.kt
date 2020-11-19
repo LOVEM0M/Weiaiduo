@@ -37,7 +37,7 @@ class MineContract {
 
         fun getFootprintSize()
 
-        fun getHomeGoodsHotList(currentPage: Int, pageSize: Int)
+        fun getHomeGoodsHotList()
     }
 
 }

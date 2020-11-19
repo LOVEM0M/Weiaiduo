@@ -209,12 +209,12 @@ class CategoryActivity : BaseListActivity<CategoryContract.IView, CategoryContra
     }
 
     override fun getThirdLevelSuccess(bean: CityBean) {
-        bean.dicts?.run {
+        bean.data?.run {
             ll_container.removeAllViews()
 
-            val data = CityBean.CityListBean().apply {
-                dict_id = 0
-                code_name = "全部"
+            val data = CityBean.DataBean().apply {
+                dictId = 0
+                codeName = "全部"
             }
             val list = this.toMutableList()
             list.add(0, data)
@@ -234,7 +234,7 @@ class CategoryActivity : BaseListActivity<CategoryContract.IView, CategoryContra
                             .setUnSelectedTextColor(0xFF6A6A6A.toInt())
                             .buildTextColor())
                     setTextSize(TypedValue.COMPLEX_UNIT_PX, context.getDimension(R.dimen.sp_10))
-                    text = cityListBean.code_name
+                    text = cityListBean.codeName
                     background = DrawableCreator.Builder()
                             .setSelectedSolidColor(0xFFE36C6C.toInt(), 0xFFF4F5F7.toInt())
                             .setCornersRadius(context.getDimension(R.dimen.dp_22))
@@ -259,7 +259,7 @@ class CategoryActivity : BaseListActivity<CategoryContract.IView, CategoryContra
                         // 让水平的滚动视图按照执行的x的偏移量进行移动
                         horizontal_scroll_view.smoothScrollTo(offset, 0)
 
-                        mCateId3 = cityListBean.dict_id
+                        mCateId3 = cityListBean.dictId
                         reload()
                     }
                 }

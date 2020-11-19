@@ -12,9 +12,9 @@ class QualificationContract {
 
         fun uploadImageSuccess(path: String)
 
-        fun getProvinceListSuccess(list: List<CityBean.CityListBean>)
+        fun getProvinceListSuccess(list: List<CityBean.DataBean>)
 
-        fun getAreaListSuccess(list: List<CityBean.CityListBean>, position: Int, state: Int)
+        fun getAreaListSuccess(list: List<CityBean.DataBean>, position: Int, state: Int)
 
         fun getCategoryListSuccess(bean: CityBean)
 
@@ -30,7 +30,7 @@ class QualificationContract {
 
         fun getAreaList(position: Int, state: Int, parentId: Int)
 
-        fun getCategoryList(codeType: String)
+        fun getCategoryList(type: Int)
 
         fun merchantAuth(address: String?, cityId: Int, consignee: String?, countyId: Int, headImg: String?,
                          identityImages: String, identityType: Int, licenceImage: String, mainCate: Int,

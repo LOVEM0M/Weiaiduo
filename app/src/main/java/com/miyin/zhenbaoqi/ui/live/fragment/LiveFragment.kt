@@ -94,9 +94,9 @@ class LiveFragment : BaseStateFragment<LiveContract.IView, LiveContract.IPresent
     }
 
     override fun getCategoryListSuccess(bean: CityBean) {
-        bean.dicts?.forEach {
-            mTitleList.add(it.code_name ?: "")
-            mIndexList.add(it.dict_id)
+        bean.data?.forEach {
+            mTitleList.add(it.codeName ?: "")
+            mIndexList.add(it.dictId)
         }
 
         mTitleList.forEachIndexed { index, it ->

@@ -1,5 +1,6 @@
 package com.miyin.zhenbaoqi.ui.shop.presenter
 
+import androidx.collection.ArrayMap
 import com.miyin.zhenbaoqi.base.mvp.BasePresenter
 import com.miyin.zhenbaoqi.bean.CityBean
 import com.miyin.zhenbaoqi.bean.GoodsDetailBean
@@ -87,20 +88,24 @@ class OperateGoodsPresenter : BasePresenter<OperateGoodsContract.IView>(), Opera
         })
     }
 
-    override fun getParentList(codeType: String) {
-        val requestBody = JSONUtils.createJSON(arrayOf("code_type"), arrayOf(codeType))
-        request(RetrofitUtils.mApiService.parentList(requestBody), object : BaseSingleObserver<CityBean>() {
+    override fun getParentList(type: Int) {
+        val map = ArrayMap<String, Any>().apply {
+            put("type", type)
+        }
+        request(RetrofitUtils.mApiService.parentList(map), object : BaseSingleObserver<CityBean>() {
             override fun doOnSuccess(data: CityBean) {
-                getView()?.getParentListSuccess(data.dicts!!)
+                getView()?.getParentListSuccess(data.data!!)
             }
         })
     }
 
     override fun getSonList(parentId: Int, type: Int) {
-        val requestBody = JSONUtils.createJSON(arrayOf("parent_id"), arrayOf(parentId))
-        request(RetrofitUtils.mApiService.sonList(requestBody), object : BaseSingleObserver<CityBean>() {
+        val map = ArrayMap<String, Any>().apply {
+            put("parentId", parentId)
+        }
+        request(RetrofitUtils.mApiService.sonList(map), object : BaseSingleObserver<CityBean>() {
             override fun doOnSuccess(data: CityBean) {
-                getView()?.getSonListSuccess(data.dicts!!, type)
+                getView()?.getSonListSuccess(data.data!!, type)
             }
         })
     }

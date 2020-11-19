@@ -200,7 +200,7 @@ class ReleaseVideoActivity : BaseMvpActivity<ReleaseVideoContract.IView, Release
     }
 
     override fun getMainCategorySuccess(bean: CityBean) {
-        bean.dicts?.let {
+        bean.data?.let {
             flow_layout.run {
                 setAdapter(object : TagAdapter(it) {
                     override fun getView(parent: FlowLayout, position: Int, data: Any) = TextView(applicationContext).apply {
@@ -210,7 +210,7 @@ class ReleaseVideoActivity : BaseMvpActivity<ReleaseVideoContract.IView, Release
                         }
                         gravity = Gravity.CENTER
                         setTextSize(TypedValue.COMPLEX_UNIT_PX, getDimension(R.dimen.sp_12))
-                        text = (data as CityBean.CityListBean).code_name
+                        text = (data as CityBean.DataBean).codeName
                         setTextColor(DrawableCreator.Builder()
                                 .setCheckedTextColor(0xFFEA2D2D.toInt())
                                 .setUnCheckedTextColor(0xFF666666.toInt())
@@ -220,14 +220,14 @@ class ReleaseVideoActivity : BaseMvpActivity<ReleaseVideoContract.IView, Release
                                 .setCheckedStrokeColor(0xFFEA2D2D.toInt(), ContextCompat.getColor(context, R.color.line_eb))
                                 .setCornersRadius(getDimension(R.dimen.dp_3))
                                 .build()
-                        if (mType == data.dict_id) {
+                        if (mType == data.dictId) {
                             isSelected = true
                         }
                     }
                 })
                 setOnTagClickListener(object : TagFlowLayout.OnTagClickListener {
                     override fun onTagClick(view: View, position: Int, parent: FlowLayout) {
-                        mType = it[position].dict_id
+                        mType = it[position].dictId
                     }
                 })
 

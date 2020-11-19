@@ -78,7 +78,7 @@ class MineFragment : BaseMvpFragment<MineContract.IView, MineContract.IPresenter
             adapter = mAdapter
             layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
             mAdapter.setOnItemClickListener { _, _, position ->
-                startActivityForResult<GoodsDetailActivity>(Constant.INTENT_REQUEST_CODE, "goods_id" to mList[position].goods_id)
+                startActivityForResult<GoodsDetailActivity>(Constant.INTENT_REQUEST_CODE, "goodsId" to mList[position].goodsId)
             }
         }
         smart_refresh_layout.setOnRefreshListener {
@@ -94,7 +94,8 @@ class MineFragment : BaseMvpFragment<MineContract.IView, MineContract.IPresenter
         mPresenter?.getFootprintSize()
 
         setOnClickListener(mUserListener, tv_tip, iv_avatar, tv_sign_in,fl_apply_merchant, tv_all_order,ll_footprint,ll_collect,
-                tv_wait_pay, tv_wait_ship, tv_wait_receipt, tv_after_sale, tv_customer, tv_help, tv_feedback, tv_setting)
+                tv_wait_pay, tv_wait_ship, tv_wait_receipt, tv_after_sale, tv_customer, tv_help, tv_feedback, tv_setting,
+                tv_receipt_address)
 
 
 //        setOnClickListener(mMerchantListener, iv_merchant_switch, iv_merchant_avatar, tv_cumulative_benefit,
@@ -104,7 +105,7 @@ class MineFragment : BaseMvpFragment<MineContract.IView, MineContract.IPresenter
 
     override fun initData() {
         mPresenter?.getUserType()
-        mPresenter?.getHomeGoodsHotList(1, 10)
+        mPresenter?.getHomeGoodsHotList()
     }
 
     override fun createPresenter() = MinePresenter()
@@ -170,7 +171,7 @@ class MineFragment : BaseMvpFragment<MineContract.IView, MineContract.IPresenter
             R.id.tv_wait_ship -> startActivity<OrderActivity>("tag" to 2)
             R.id.tv_wait_receipt -> startActivity<OrderActivity>("tag" to 3)
             R.id.tv_after_sale -> startActivity<OrderActivity>("tag" to 4)
-            R.id.tv_receipt_address -> startActivity<AddressActivity>("click_enable" to false)
+            R.id.tv_receipt_address -> startActivity<AddressActivity>()//TODO 收货地址
             R.id.tv_customer -> {
                 WebActivity.openActivity(context!!, "官方客服", Constant.SYSTEM_CUSTOMER)
                 //mPresenter?.getSystemCustomer()

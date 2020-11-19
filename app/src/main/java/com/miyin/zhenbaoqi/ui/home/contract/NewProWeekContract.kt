@@ -16,7 +16,7 @@ class NewProWeekContract {
 
     interface IPresenter :IBasePresenter<IView> {
         fun getCategoryList()
-        fun getWeekNewGoodsList(currentPage: Int, pageSize: Int)
+        fun getWeekNewGoodsList(cateId1: Int,page: Int, rows: Int)
     }
 
 }

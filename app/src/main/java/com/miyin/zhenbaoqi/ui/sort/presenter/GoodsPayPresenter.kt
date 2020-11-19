@@ -1,5 +1,6 @@
 package com.miyin.zhenbaoqi.ui.sort.presenter
 
+import androidx.collection.ArrayMap
 import com.miyin.zhenbaoqi.base.mvp.BasePresenter
 import com.miyin.zhenbaoqi.bean.*
 import com.miyin.zhenbaoqi.http.BaseSingleObserver
@@ -23,8 +24,11 @@ class GoodsPayPresenter : BasePresenter<GoodsPayContract.IView>(), GoodsPayContr
     }
 
     override fun getAddressList() {
-        val requestBody = JSONUtils.createJSON(arrayOf("current_page", "page_size"), arrayOf(1, 100))
-        request(RetrofitUtils.mApiService.addressList(requestBody), object : BaseSingleObserver<AddressBean>() {
+        val map = ArrayMap<String, Any>().apply {
+            put("page", 1)
+            put("rows", 100)
+        }
+        request(RetrofitUtils.mApiService.addressList(map), object : BaseSingleObserver<AddressBean>() {
             override fun doOnSuccess(data: AddressBean) {
                 getView()?.getAddressListSuccess(data)
             }
