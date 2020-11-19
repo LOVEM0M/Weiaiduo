@@ -24,11 +24,11 @@ class AddGoodsCountDialog : BaseDialogFragment() {
     private var mOnDialogCallback: OnDialogCallback? = null
 
     companion object {
-        fun newInstance(goodsCover: String?, goodsName: String, goodsPrice: Long, inventory: Int) = AddGoodsCountDialog().apply {
+        fun newInstance(goodsCover: String?, goodsName: String, goodsPrice: Int, inventory: Int) = AddGoodsCountDialog().apply {
             arguments = Bundle().apply {
                 putString("goods_cover", goodsCover)
                 putString("goods_name", goodsName)
-                putLong("goods_price", goodsPrice)
+                putInt("goods_price", goodsPrice)
                 putInt("inventory", inventory)
             }
         }

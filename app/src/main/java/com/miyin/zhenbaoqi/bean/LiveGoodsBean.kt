@@ -20,7 +20,7 @@ class LiveGoodsBean : PagerBean() {
             val end_time: String,
             val end_time_timestamp: Long,
             val ensure_amount: Int,
-            val goods_amount: Long,
+            val goods_amount: Int,
             val goods_describe: String,
             val goods_freight: Int,
             val goods_id: Int,

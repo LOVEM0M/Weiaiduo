@@ -160,18 +160,18 @@ class GoodsDetailActivity : BaseMvpActivity<GoodsDetailContract.IView, GoodsDeta
                         }
                     }
                 })
-                .setOnBannerListener {
-                    val goodsVideo = mBean?.data?.goods?.goods_video
-                    val position: Int
-                    val bannerList = if (goodsVideo.isNullOrEmpty()) {
-                        position = it
-                        mBannerList
-                    } else {
-                        position = it - 1
-                        mBannerList.subList(1, mBannerList.size)
-                    }
-                    MaxImageView.maxImageView(this@GoodsDetailActivity, bannerList, position)
-                }
+//                .setOnBannerListener {
+//                    val goodsVideo = mBean?.data?.goods_video
+//                    val position: Int
+//                    val bannerList = if (goodsVideo.isNullOrEmpty()) {
+//                        position = it
+//                        mBannerList
+//                    } else {
+//                        position = it - 1
+//                        mBannerList.subList(1, mBannerList.size)
+//                    }
+//                    MaxImageView.maxImageView(this@GoodsDetailActivity, bannerList, position)
+//                }
                 .start()
         banner.setOnPageChangeListener(object : androidx.viewpager.widget.ViewPager.OnPageChangeListener {
             override fun onPageScrollStateChanged(p0: Int) {
@@ -196,23 +196,6 @@ class GoodsDetailActivity : BaseMvpActivity<GoodsDetailContract.IView, GoodsDeta
             consecutive_scroller_layout.stickyOffset = mTitleBarHeight
         }
 
-//        if (mSource == 0) {
-//            tv_entry_shop.text = "购物车"
-//            tv_entry_shop.isSelected = false
-//
-//            tv_private_message.text = "客服"
-//            tv_private_message.isSelected = false
-//
-//            tv_pay.text = "立即购买"
-//        } else {
-//            tv_entry_shop.text = "编辑"
-//            tv_entry_shop.isSelected = true
-//
-//            tv_private_message.text = "继续发布"
-//            tv_private_message.isSelected = true
-//
-//            tv_pay.text = "分享给买家"
-//        }
 
 
         tv_goods_detail.isSelected = true
@@ -324,7 +307,7 @@ class GoodsDetailActivity : BaseMvpActivity<GoodsDetailContract.IView, GoodsDeta
 
                 consecutive_scroller_layout.scrollTo(0, ll_goods_notice_header.top + mHideHeight)
             }
-            R.id.tv_shop_attention -> startActivity<MerchantMessageActivity>("merchant_id" to mBean?.data?.goods?.merchants_id)
+//            R.id.tv_shop_attention -> startActivity<MerchantMessageActivity>("merchant_id" to mBean?.data?.merchants_id)
 //            R.id.tv_entry_shop -> {
 //                if (mSource == 0) {
 //                    startActivity<MerchantMessageActivity>("merchant_id" to mBean?.data?.goods?.merchants_id)
@@ -336,35 +319,35 @@ class GoodsDetailActivity : BaseMvpActivity<GoodsDetailContract.IView, GoodsDeta
 //                    }
 //                }
 //            }
-            R.id.tv_private_message -> {
-                if (mSource == 0) {
-                    mBean?.data?.run {
-                        if (merchants?.user_id == SPUtils.getInt("user_id")) {
-                            showToast("用户不能和自己聊天!")
-                            return
-                        }
-
-                        val merchantName = if (merchants?.merchants_name.isNullOrEmpty()) merchants?.user_id.toString() else merchants?.merchants_name
-                        val json = "{\"goods_img\": \"${goods?.goods_img}\",\"goods_amount\": \"${goods?.goods_amount}\",\"goods_name\":\"${goods?.goods_name}\", \"goods_id\":\"$mGoodsId\", \"type\":\"1\", \"goods_type\":\"1\"}"
-                        startActivity<OnlineCustomerActivity>("title" to merchantName, "user_id" to merchants?.user_id, "data" to json)
-                    }
-                } else {
-                    startActivity<ReleaseGoodsActivity>()
-                }
-            }
+//            R.id.tv_private_message -> {
+//                if (mSource == 0) {
+//                    mBean?.data?.run {
+//                        if (merchants?.user_id == SPUtils.getInt("user_id")) {
+//                            showToast("用户不能和自己聊天!")
+//                            return
+//                        }
+//
+//                        val merchantName = if (merchants?.merchants_name.isNullOrEmpty()) merchants?.user_id.toString() else merchants?.merchants_name
+//                        val json = "{\"goodsImg\": \"${goodsImg}\",\"goodsAmount\": \"${goodsAmount}\",\"goodsName\":\"${goodsName}\", \"goods_id\":\"$mGoodsId\", \"type\":\"1\", \"goods_type\":\"1\"}"
+//                        startActivity<OnlineCustomerActivity>("title" to merchantName, "user_id" to merchants?.user_id, "data" to json)
+//                    }
+//                } else {
+//                    startActivity<ReleaseGoodsActivity>()
+//                }
+//            }
             R.id.tv_pay -> {
                 if (mSource == 0) {
-                    mBean?.data?.goods?.run {
-                        if (is_restriction == 1) {
-                            val goodsName = goods_name ?: ""
-                            val dialog = AddGoodsCountDialog.newInstance(goods_img, goodsName, goods_amount, inventory)
+                    mBean?.data?.run {
+                        if (isRestriction == 1) {
+                            val goodsName = goodsName ?: ""
+                            val dialog = AddGoodsCountDialog.newInstance(goodsImg, goodsName, goodsAmount, inventory)
                             dialog.setOnDialogCallback(this@GoodsDetailActivity)
                             dialog.show(supportFragmentManager, "addGoodsCount")
                         } else {
-                            val shopName = mBean?.data?.merchants?.merchants_name
-                            startActivityForResult<GoodsPayActivity>(Constant.INTENT_REQUEST_CODE, "goods_name" to goods_name,
-                                    "goods_img" to goods_img, "price" to goods_amount, "goods_id" to mGoodsId, "from" to "general",
-                                    "goods_freight" to goods_freight, "count" to 1, "shop_name" to shopName, "is_seven" to (is_seven == 0))
+//                            val shopName = mBean?.data?.merchants?.merchants_name
+//                            startActivityForResult<GoodsPayActivity>(Constant.INTENT_REQUEST_CODE, "goodsName" to goodsName,
+//                                    "goodsImg" to goodsImg, "price" to goodsAmount, "goods_id" to mGoodsId, "from" to "general",
+//                                    "goodsFreight" to goodsFreight, "count" to 1, "shop_name" to shopName, "isSeven" to (isSeven == 0))
                         }
                     }
                 } else {
@@ -392,7 +375,7 @@ class GoodsDetailActivity : BaseMvpActivity<GoodsDetailContract.IView, GoodsDeta
     override fun getGoodsDetailSuccess(bean: GoodsDetailBean) {
         mBean = bean
 
-        bean.data?.goods?.run {
+        bean.data?.run {
             if (state != 0 && mSource == 0) {
                 showToast("该商品不存在")
                 setResult(Activity.RESULT_OK)
@@ -400,38 +383,38 @@ class GoodsDetailActivity : BaseMvpActivity<GoodsDetailContract.IView, GoodsDeta
             } else {
                 /* Banner */
                 mBannerList.clear()
-                if (!goods_video.isNullOrEmpty()) {
-                    mBannerList.add(goods_video!!)
-                }
-                if (!goods_img.isNullOrEmpty()) {
-                    if (goods_img!!.contains(",")) {
-                        goods_img!!.split(",").forEach {
+//                if (!goods_video.isNullOrEmpty()) {
+//                    mBannerList.add(goods_video!!)
+//                }
+                if (!goodsImg.isNullOrEmpty()) {
+                    if (goodsImg!!.contains(",")) {
+                        goodsImg!!.split(",").forEach {
                             mBannerList.add(it)
                         }
                     } else {
-                        mBannerList.add(goods_img!!)
+                        mBannerList.add(goodsImg!!)
                     }
                 }
                 banner.update(mBannerList)
 
-                tv_goods_name.text = goods_name
+//                tv_goodsName.text = goodsName
                 tv_goods_price.text = SpanUtils()
                         .append("¥ ").setFontSize(15, true)
-                        .append(FormatUtils.formatNumber(goods_amount / 100f)).setBold()
+                        .append(FormatUtils.formatNumber(goodsAmount / 100f)).setBold()
                         .create()
                 tv_stock.text = "库存剩余：${inventory}件"
-                if (goods_original_amount != 0L) {
-                    tv_origin_price.text = "¥" + FormatUtils.formatNumber(goods_original_amount / 100f)
+                if (goodsOriginalAmount != 0) {
+                    tv_origin_price.text = "¥" + FormatUtils.formatNumber(goodsOriginalAmount / 100f)
                     tv_origin_price.paint.flags = Paint.STRIKE_THRU_TEXT_FLAG
                 } else {
                     gone(tv_origin_price)
                 }
-                if (goods_freight == 0) {
+                if (goodsFreight == 0) {
                     tv_free_shipping.text = "全国包邮"
                 } else {
                     tv_free_shipping.text = "邮费5元"
                 }
-                if (is_seven == 0) {
+                if (isSeven == 0) {
                     visible(tv_seven)
                 } else {
                     gone(tv_seven)
@@ -440,16 +423,17 @@ class GoodsDetailActivity : BaseMvpActivity<GoodsDetailContract.IView, GoodsDeta
                 val merchantId = SPUtils.getInt("merchant_id")
                 if (merchantId != 0) {
                     visible(tv_profit)
-                    tv_profit.text = "赚 ¥${FormatUtils.formatNumber(goods_amount / 100.0 / 100 * 9.5)}"
+                    tv_profit.text = "赚 ¥${FormatUtils.formatNumber(goodsAmount / 100.0 / 100 * 9.5)}"
                 } else {
                     gone(tv_profit)
                 }
 
                 /* 更新收藏状态 */
-                updateCollectStateSuccess(collection_state)
-                tv_goods_desc.text = goods_describe
+//                updateCollectStateSuccess(collection_state)//缺少
+                tv_goods_desc.text = goodsDescribe
 
-                val list: MutableList<Any> = if (goods_video.isNullOrEmpty()) {
+// TODO 可删除？？               val list: MutableList<Any> = if (goods_video.isNullOrEmpty()) {
+                val list: MutableList<Any> = if (goodsImg.isNullOrEmpty()) {
                     mBannerList.toMutableList()
                 } else {
                     mBannerList.subList(1, mBannerList.size).toMutableList()
@@ -457,8 +441,8 @@ class GoodsDetailActivity : BaseMvpActivity<GoodsDetailContract.IView, GoodsDeta
                 mAdapter.setNewData(list)
                 computeHideHeight()
 
-                /* 秒杀倒计时 */
-                if (goods_type == 2) {
+                /* 秒杀倒计时
+                if (goodsType == 2) {
                     if (service_time < end_time_timestamp) {
                         val timestamp = end_time_timestamp - service_time
                         mCountDownTimer = object : CountDownTimer(timestamp, 1000) {
@@ -481,9 +465,9 @@ class GoodsDetailActivity : BaseMvpActivity<GoodsDetailContract.IView, GoodsDeta
                         tv_count_down.text = ""
                         tv_pay.isEnabled = false
                     }
-                }
+                } */
 
-                /* 商品基本信息 */
+                /* 商品基本信息
                 val titleList = listOf("尺寸", "材质", "产地", "重量")
                 val descList = listOf(measure, texture, place, weight)
                 titleList.forEachIndexed { index, s ->
@@ -493,38 +477,12 @@ class GoodsDetailActivity : BaseMvpActivity<GoodsDetailContract.IView, GoodsDeta
                     mGoodsInfoList.add(arrayMap)
                 }
                 mGoodsInfoAdapter.setNewData(mGoodsInfoList)
+                */
 
                 /* 足迹 -- insert database */
-                mPresenter?.insertFootprint(goods_id, if (goods_video.isNullOrEmpty()) mBannerList[0] else mBannerList[1], goods_amount)
+                mPresenter?.insertFootprint(goodsId, if (goodsImg.isNullOrEmpty()) mBannerList[0] else mBannerList[1], goodsAmount)
             }
-            bean.data?.merchants?.run {
-                /* 店铺信息 */
-                val transform = RoundCornersTransform(getDimension(R.dimen.dp_5), RoundCornersTransform.CornerType.ALL)
-//                iv_cover.loadImgAll(head_img, R.drawable.ic_merchant_header_default, transform)
-//                tv_name.text = if (merchants_name.isNullOrEmpty()) "店主比较懒，还未设置名字~" else merchants_name
-//                tv_desc.text = if (merchants_subtitle.isNullOrEmpty()) "店主比较懒，还未设置介绍~" else merchants_subtitle
-//                if (quality_balance > 0) {
-//                    visible(iv_vip)
-//                } else {
-//                    invisible(iv_vip)
-//                }
 
-//                tv_shop_warranty.text = SpanUtils()
-//                        .appendLine(FormatUtils.formatNumber(quality_balance / 100f))
-//                        .setFontSize(18, true).setBold().setForegroundColor(Color.BLACK)
-//                        .append("质保金")
-//                        .create()
-//                tv_shop_impression.text = SpanUtils()
-//                        .appendLine(merchants_grade ?: "0")
-//                        .setFontSize(18, true).setBold().setForegroundColor(Color.BLACK)
-//                        .append("店铺印象")
-//                        .create()
-//                tv_shop_attention_count.text = SpanUtils()
-//                        .appendLine(focus_size.toString())
-//                        .setFontSize(18, true).setBold().setForegroundColor(Color.BLACK)
-//                        .append("关注")
-//                        .create()
-            }
         }
     }
 
@@ -545,45 +503,45 @@ class GoodsDetailActivity : BaseMvpActivity<GoodsDetailContract.IView, GoodsDeta
     override fun onDialog(obj: Any, flag: Int) {
         if (obj is String) {
             if (obj == "shareFriend") {
-                mBean?.data?.goods?.run {
-                    if (!goods_img.isNullOrEmpty()) {
+                mBean?.data?.run {
+                    if (!goodsImg.isNullOrEmpty()) {
                         val goodsImg = when {
-                            goods_img!!.contains(",") -> goods_img!!.split(",")[0]
-                            else -> goods_img
+                            goodsImg!!.contains(",") -> goodsImg!!.split(",")[0]
+                            else -> goodsImg
                         }
                         Glide.with(applicationContext).asBitmap().load(goodsImg).into(object : SimpleTarget<Bitmap>() {
                             override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
                                 WXOptionUtils.openProgram(mWXAPI, "gh_e93b10fb159e", "/pages/goodDetail/goodDetail?id=${mGoodsId}&inviteCode=${SPUtils.getInt("user_id")}",
-                                        goods_name!!, goods_describe!!, resource)
+                                        goodsName!!, goodsDescribe!!, resource)
                             }
                         })
                     }
                 }
             } else if (obj == "shareFriendCircle") {
-                mBean?.data?.goods?.run {
-                    if (!goods_img.isNullOrEmpty()) {
+                mBean?.data?.run {
+                    if (!goodsImg.isNullOrEmpty()) {
                         val goodsImg = when {
-                            goods_img!!.contains(",") -> goods_img!!.split(",")[0]
-                            else -> goods_img
+                            goodsImg!!.contains(",") -> goodsImg!!.split(",")[0]
+                            else -> goodsImg
                         }
                         Glide.with(applicationContext).asBitmap().load(goodsImg).into(object : SimpleTarget<Bitmap>() {
                             override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
                                 val headImg = SPUtils.getString("head_img")
                                 val nickName = SPUtils.getString("nick_name")
                                 val shareUrl = "${Constant.SHARE_INVITE}?user_name=${URLEncoder.encode(nickName, "utf-8")}&user_id=${SPUtils.getInt("user_id")}&avatar=$headImg"
-                                WXOptionUtils.share(mWXAPI, shareUrl, goods_name!!, goods_describe!!, resource, true)
+                                WXOptionUtils.share(mWXAPI, shareUrl, goodsName!!, goodsDescribe!!, resource, true)
                             }
                         })
                     }
                 }
             }
         } else if (obj is Int) {
-            mBean?.data?.goods?.run {
-                val shopName = mBean?.data?.merchants?.merchants_name
-                startActivityForResult<GoodsPayActivity>(Constant.INTENT_REQUEST_CODE, "goods_name" to goods_name,
-                        "goods_img" to goods_img, "price" to goods_amount, "goods_id" to mGoodsId, "from" to "general",
-                        "goods_freight" to goods_freight, "count" to obj, "shop_name" to shopName, "is_seven" to (is_seven == 0))
-            }
+//            mBean?.data?.run {
+//                val shopName = mBean?.data?.merchants?.merchants_name
+//                startActivityForResult<GoodsPayActivity>(Constant.INTENT_REQUEST_CODE, "goodsName" to goodsName,
+//                        "goodsImg" to goodsImg, "price" to goodsAmount, "goods_id" to mGoodsId, "from" to "general",
+//                        "goodsFreight" to goodsFreight, "count" to obj, "shop_name" to shopName, "isSeven" to (isSeven == 0))
+//            }
         }
     }
 

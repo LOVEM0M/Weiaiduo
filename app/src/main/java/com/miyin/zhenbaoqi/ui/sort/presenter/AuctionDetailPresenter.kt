@@ -10,8 +10,10 @@ import com.miyin.zhenbaoqi.utils.JSONUtils
 class AuctionDetailPresenter : BasePresenter<AuctionDetailContract.IView>(), AuctionDetailContract.IPresenter {
 
     override fun getAuctionGoodsDetail(goodsId: Int) {
-        val requestBody = JSONUtils.createJSON(arrayOf("goods_id"), arrayOf(goodsId))
-        request(RetrofitUtils.mApiService.goodsDetail(requestBody), object : BaseSingleObserver<GoodsDetailBean>() {
+        val map = androidx.collection.ArrayMap<String, Any>().apply {
+            put("goodsId", goodsId)
+        }
+        request(RetrofitUtils.mApiService.goodsDetail(map), object : BaseSingleObserver<GoodsDetailBean>() {
             override fun doOnSuccess(data: GoodsDetailBean) {
                 getView()?.getAuctionGoodsDetailSuccess(data)
             }

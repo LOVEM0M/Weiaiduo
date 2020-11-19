@@ -17,7 +17,7 @@ class GoodsDetailContract {
 
         fun updateCollectState(goodsId: Int, collectState: Int)
 
-        fun insertFootprint(goodsId: Int, goodsImg: String, goodsAmount: Long)
+        fun insertFootprint(goodsId: Int, goodsImg: String, goodsAmount: Int)
     }
 
 }

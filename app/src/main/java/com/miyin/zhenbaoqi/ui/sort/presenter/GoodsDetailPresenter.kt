@@ -24,11 +24,10 @@ import java.util.*
 class GoodsDetailPresenter : BasePresenter<GoodsDetailContract.IView>(), GoodsDetailContract.IPresenter {
 
     override fun getGoodsDetail(goodsId: Int) {
-        val requestBody = JSONUtils.createJSON(arrayOf("goods_id"), arrayOf(goodsId))
-//        val map = androidx.collection.ArrayMap<String, Any>().apply {
-//            put("goodsId", goodsId)
-//        }
-        request(RetrofitUtils.mApiService.goodsDetail(requestBody), object : BaseSingleObserver<GoodsDetailBean>() {
+        val map = androidx.collection.ArrayMap<String, Any>().apply {
+            put("goodsId", goodsId)
+        }
+        request(RetrofitUtils.mApiService.goodsDetail(map), object : BaseSingleObserver<GoodsDetailBean>() {
             override fun doOnSuccess(data: GoodsDetailBean) {
                 getView()?.getGoodsDetailSuccess(data)
             }
@@ -48,7 +47,7 @@ class GoodsDetailPresenter : BasePresenter<GoodsDetailContract.IView>(), GoodsDe
         })
     }
 
-    override fun insertFootprint(goodsId: Int, goodsImg: String, goodsAmount: Long) {
+    override fun insertFootprint(goodsId: Int, goodsImg: String, goodsAmount: Int) {
         val map = ArrayMap<String, Any>().apply {
             put("goods_id", goodsId)
             put("goods_img", goodsImg)

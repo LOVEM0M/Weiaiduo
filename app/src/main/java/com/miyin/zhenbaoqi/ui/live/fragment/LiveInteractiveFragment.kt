@@ -307,7 +307,7 @@ class LiveInteractiveFragment : BaseMvpFragment<LiveInteractiveContract.IView, L
     }
 
     override fun getAuctionGoodsSuccess(bean: GoodsDetailBean) {
-        bean.data?.goods?.run {
+        bean.data?.run {
             visible(ll_count_down_container, cl_add_price_container)
             showAuctionGoods(this)
         }
@@ -483,7 +483,7 @@ class LiveInteractiveFragment : BaseMvpFragment<LiveInteractiveContract.IView, L
                 }
                 "CustomReleaseGoods" -> {
                     visible(ll_count_down_container, cl_add_price_container)
-                    val bean = JSONUtils.fromJSON<GoodsDetailBean.DataBean.GoodsBean>(innerJSON.toString())
+                    val bean = JSONUtils.fromJSON<GoodsDetailBean.DataBean>(innerJSON.toString())
                     showAuctionGoods(bean)
                 }
                 "CustomAuctionSuccess" -> {
@@ -536,49 +536,49 @@ class LiveInteractiveFragment : BaseMvpFragment<LiveInteractiveContract.IView, L
         return false
     }
 
-    private fun showAuctionGoods(bean: GoodsDetailBean.DataBean.GoodsBean) {
+    private fun showAuctionGoods(bean: GoodsDetailBean.DataBean) {
         bean.run {
-            val goodsImg = when {
-                goods_img.isNullOrEmpty() -> ""
-                goods_img!!.contains(",") -> goods_img!!.split(",")[0]
-                else -> goods_img
+            val goods_Img = when {
+                goodsImg.isNullOrEmpty() -> ""
+                goodsImg!!.contains(",") -> goodsImg!!.split(",")[0]
+                else -> goodsImg
             }
             val transform = RoundCornersTransform(context?.getDimension(R.dimen.dp_5)!!, RoundCornersTransform.CornerType.LEFT)
-            iv_goods_img.transform(goodsImg, transform)
-            tv_goods_name.text = goods_name
-            tv_goods_price.text = "¥" + FormatUtils.formatNumber(goods_amount / 100f)
-            tv_add_price.text = SpanUtils()
-                    .appendLine("加一手")
-                    .append(FormatUtils.formatNumber(add_amount / 100f))
-                    .create()
+            iv_goods_img.transform(goods_Img, transform)
+            tv_goods_name.text = goodsName
+            tv_goods_price.text = "¥" + FormatUtils.formatNumber(goodsAmount / 100f)
+//            tv_add_price.text = SpanUtils()
+//                    .appendLine("加一手")
+//                    .append(FormatUtils.formatNumber(add_amount / 100f))
+//                    .create()
             tv_add_price.isEnabled = true
             tv_add_price.setOnClickListener {
-                mPresenter?.auctionBindGoods(goods_id)
+                mPresenter?.auctionBindGoods(goodsId)
             }
 
-            mCountDownTimer = object : CountDownTimer(end_time_timestamp - service_time, 1000) {
-                override fun onFinish() {
-                    gone(ll_count_down_container)
-                    tv_count_down.text = "截拍中"
-                    tv_add_price.text = "截拍中"
-                    tv_add_price.isEnabled = false
-                }
-
-                override fun onTick(millisUntilFinished: Long) {
-                    val time = TimeUtils.millis2String(millisUntilFinished - TimeZone.getDefault().rawOffset, "HH:mm:ss")
-                    val timeArray = time.split(":")
-
-                    tv_count_down.text = time
-                    timeArray.forEachIndexed { index, s ->
-                        if (index == 1) {
-                            tv_minute.text = s
-                        } else if (index == 2) {
-                            tv_seconds.text = s
-                        }
-                    }
-                }
-            }
-            mCountDownTimer?.start()
+//            mCountDownTimer = object : CountDownTimer(end_time_timestamp - service_time, 1000) {
+//                override fun onFinish() {
+//                    gone(ll_count_down_container)
+//                    tv_count_down.text = "截拍中"
+//                    tv_add_price.text = "截拍中"
+//                    tv_add_price.isEnabled = false
+//                }
+//
+//                override fun onTick(millisUntilFinished: Long) {
+//                    val time = TimeUtils.millis2String(millisUntilFinished - TimeZone.getDefault().rawOffset, "HH:mm:ss")
+//                    val timeArray = time.split(":")
+//
+//                    tv_count_down.text = time
+//                    timeArray.forEachIndexed { index, s ->
+//                        if (index == 1) {
+//                            tv_minute.text = s
+//                        } else if (index == 2) {
+//                            tv_seconds.text = s
+//                        }
+//                    }
+//                }
+//            }
+//            mCountDownTimer?.start()
         }
     }
 
@@ -814,32 +814,32 @@ class LiveInteractiveFragment : BaseMvpFragment<LiveInteractiveContract.IView, L
                     }
 
                     override fun onSuccess() {
-                        val bean = JSONUtils.fromJSON<GoodsDetailBean.DataBean.GoodsBean>(innerJSON)
+                        val bean = JSONUtils.fromJSON<GoodsDetailBean.DataBean>(innerJSON)
                         bean.run {
                             visible(ll_count_down_container, cl_add_price_container)
                             invisible(tv_add_price)
 
                             val img = when {
-                                goods_img.isNullOrEmpty() -> ""
-                                goods_img!!.contains(",") -> goods_img!!.split(",")[0]
-                                else -> goods_img!!
+                                goodsImg.isNullOrEmpty() -> ""
+                                goodsImg!!.contains(",") -> goodsImg!!.split(",")[0]
+                                else -> goodsImg!!
                             }
                             val transform = RoundCornersTransform(it.getDimension(R.dimen.dp_5), RoundCornersTransform.CornerType.LEFT)
                             iv_goods_img.transform(img, transform)
-                            tv_goods_name.text = goods_name
-                            tv_goods_price.text = "¥${FormatUtils.formatNumber(goods_amount / 100f)}"
+                            tv_goods_name.text = goodsName
+                            tv_goods_price.text = "¥${FormatUtils.formatNumber(goodsAmount / 100f)}"
 
-                            mCountDownTimer = object : CountDownTimer(end_time_timestamp - service_time, 1000) {
+                           /* mCountDownTimer = object : CountDownTimer(end_time_timestamp - service_time, 1000) {
                                 override fun onFinish() {
                                     gone(ll_count_down_container, cl_add_price_container)
                                     mHandler.postDelayed({
-                                        val goodsImg = when {
-                                            goods_img.isNullOrEmpty() -> ""
-                                            goods_img!!.contains(",") -> goods_img!!.split(",")[0]
-                                            else -> goods_img!!
+                                        val goods_Img = when {
+                                            goodsImg.isNullOrEmpty() -> ""
+                                            goodsImg!!.contains(",") -> goodsImg!!.split(",")[0]
+                                            else -> goodsImg!!
                                         }
-                                        val goodsName = goods_name ?: ""
-                                        mPresenter?.getAuctionList(goods_id, goodsImg, goodsName, goods_freight)
+                                        val goods_Name = goodsName ?: ""
+                                        mPresenter?.getAuctionList(goodsId, goods_Img, goods_Name, goodsFreight)
                                     }, 60 * 1000)
                                 }
 
@@ -857,7 +857,7 @@ class LiveInteractiveFragment : BaseMvpFragment<LiveInteractiveContract.IView, L
                                     }
                                 }
                             }
-                            mCountDownTimer?.start()
+                            mCountDownTimer?.start()*/
                         }
                     }
                 })

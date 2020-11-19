@@ -98,32 +98,32 @@ class ReleaseGoodsActivity : BaseMvpActivity<ReleaseGoodsContract.IView, Release
         super.initView(savedInstanceState)
         ImmersionBar.with(this).titleBar(title_bar).statusBarDarkFont(true).keyboardEnable(true).init()
 
-        mGoodsDetailBean?.data?.goods?.run {
-            mName = goods_name
-            mContent = goods_describe
-            mCateId1 = cate_id1
-            mCateId2 = cate_id2
-            mCateId3 = cate_id3
-            mVideoPath = goods_video
+        mGoodsDetailBean?.data?.run {
+            mName = goodsName
+            mContent = goodsDescribe
+            mCateId1 = cateId1
+            mCateId2 = cateId2
+//            mCateId3 = cate_id3
+//            mVideoPath = goods_video
 
-            et_name.setText(goods_name)
-            et_content.setText(goods_describe)
+            et_name.setText(goodsName)
+            et_content.setText(goodsDescribe)
             if (!mVideoPath.isNullOrEmpty()) {
                 iv_add_video.transform(mVideoPath, RoundCornersTransform(getDimension(R.dimen.dp_6), RoundCornersTransform.CornerType.ALL))
                 visible(iv_delete_video)
             }
-            if (!goods_img.isNullOrEmpty()) {
-                if (goods_img!!.contains(",")) {
-                    goods_img!!.split(",").forEach {
+            if (!goodsImg.isNullOrEmpty()) {
+                if (goodsImg!!.contains(",")) {
+                    goodsImg!!.split(",").forEach {
                         mPhotoUrlList.add(it)
                     }
                 } else {
-                    mPhotoUrlList.add(goods_img!!)
+                    mPhotoUrlList.add(goodsImg!!)
                 }
                 iv_add_photo.transform(mPhotoUrlList[0], RoundCornersTransform(getDimension(R.dimen.dp_6), RoundCornersTransform.CornerType.ALL))
             }
 
-            mPresenter?.getCategoryName(cate_id1, cate_id2, cate_id3)
+//            mPresenter?.getCategoryName(cateId1, cateId2, cate_id3)
         }
         mDraftAuctionGoodsBean?.run {
             mName = goodsName

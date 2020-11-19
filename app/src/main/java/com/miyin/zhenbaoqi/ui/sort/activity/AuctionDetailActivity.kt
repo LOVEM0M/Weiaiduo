@@ -145,8 +145,8 @@ class AuctionDetailActivity : BasePayActivity<AuctionDetailContract.IView, Aucti
                                 }
                             }
                         })
-                        .setOnBannerListener {
-                            val goodsVideo = mBean?.data?.goods?.goods_video
+                        /*.setOnBannerListener {
+                            val goodsVideo = mBean?.data?.goods_video
                             val position: Int
                             val bannerList = if (goodsVideo.isNullOrEmpty()) {
                                 position = it
@@ -156,7 +156,7 @@ class AuctionDetailActivity : BasePayActivity<AuctionDetailContract.IView, Aucti
                                 mBannerList.subList(1, mBannerList.size)
                             }
                             MaxImageView.maxImageView(this@AuctionDetailActivity, bannerList, position)
-                        }
+                        }*/
                         .start()
                 banner.setOnPageChangeListener(object : ViewPager.OnPageChangeListener {
                     override fun onPageScrollStateChanged(p0: Int) {
@@ -194,7 +194,7 @@ class AuctionDetailActivity : BasePayActivity<AuctionDetailContract.IView, Aucti
     override fun createPresenter() = AuctionDetailPresenter()
 
     override fun onRightClick() {
-        mBean?.data?.merchants?.let {
+        /*mBean?.data?.merchants?.let {
             val bean = MerchantInfoBean.DataBean().apply {
                 merchants_back = it.merchants_back
                 head_img = it.head_img
@@ -204,7 +204,7 @@ class AuctionDetailActivity : BasePayActivity<AuctionDetailContract.IView, Aucti
             }
             val dialog = ShopShareDialog.newInstance(bean, mMerchantId)
             dialog.show(supportFragmentManager, "goodsShare")
-        }
+        }*/
     }
 
     override fun onBackPressed() {
@@ -249,7 +249,7 @@ class AuctionDetailActivity : BasePayActivity<AuctionDetailContract.IView, Aucti
                 }
 
                 val merchantName = if (mMerchantName.isNullOrEmpty()) mUserId.toString() else mMerchantName
-                val json = "{\"goods_img\": \"$mGoodsImg\",\"goods_amount\": \"${mBean?.data?.goods?.goods_amount}\",\"goods_name\":\"$mGoodsName\", \"goods_id\":\"$mGoodsId\", \"type\":\"1\", \"goods_type\":\"2\"}"
+                val json = "{\"goodsImg\": \"$mGoodsImg\",\"goods_amount\": \"${mBean?.data?.goodsAmount}\",\"goodsName\":\"$mGoodsName\", \"goods_id\":\"$mGoodsId\", \"type\":\"1\", \"goods_type\":\"2\"}"
                 startActivity<OnlineCustomerActivity>("title" to merchantName, "user_id" to mUserId, "data" to json)
             }
             R.id.ll_add_price -> {
@@ -275,9 +275,9 @@ class AuctionDetailActivity : BasePayActivity<AuctionDetailContract.IView, Aucti
                         val data = mAddPriceList[0]
                         if (data.state == 2 && !data.order_number.isNullOrEmpty()) {
                             val goodsPrice = data.auction_bid_amount - mEnsureAmount
-                            startActivityForResult<GoodsPayActivity>(Constant.INTENT_REQUEST_CODE, "price" to goodsPrice, "goods_img" to mGoodsImg,
-                                    "goods_freight" to mGoodsFreight, "goods_name" to mGoodsName, "goods_id" to mGoodsId, "from" to "auction",
-                                    "order_number" to data.order_number, "shop_name" to mMerchantName, "is_seven" to (mBean?.data?.goods?.is_seven == 0))
+                            startActivityForResult<GoodsPayActivity>(Constant.INTENT_REQUEST_CODE, "price" to goodsPrice, "goodsImg" to mGoodsImg,
+                                    "goodsFreight" to mGoodsFreight, "goodsName" to mGoodsName, "goods_id" to mGoodsId, "from" to "auction",
+                                    "order_number" to data.order_number, "shop_name" to mMerchantName, "isSeven" to (mBean?.data?.isSeven == 0))
                         }
                     }
                 }
@@ -302,23 +302,23 @@ class AuctionDetailActivity : BasePayActivity<AuctionDetailContract.IView, Aucti
 
     override fun getAuctionGoodsDetailSuccess(bean: GoodsDetailBean) {
         mBean = bean
-        bean.data?.goods?.run {
-            mAddPrice = add_amount / 100f
-            mGoodsImg = goods_img
-            mGoodsName = goods_name
-            mGoodsDesc = goods_describe
-            mEndTime = end_time_timestamp
-            mStartTime = start_time_timestamp
-            mServerTime = service_time
-            mIsPaySecurityDeposit = is_quality
-            mEnsureAmount = ensure_amount
-            mAuctionState = auction_state
-            mGoodsFreight = goods_freight
+        bean.data?.run {
+//            mAddPrice = add_amount / 100f
+            mGoodsImg = goodsImg
+            mGoodsName = goodsName
+            mGoodsDesc = goodsDescribe
+//            mEndTime = end_time_timestamp
+//            mStartTime = start_time_timestamp
+//            mServerTime = service_time
+//            mIsPaySecurityDeposit = is_quality
+//            mEnsureAmount = ensure_amount
+//            mAuctionState = auction_state
+            mGoodsFreight = goodsFreight
 
             mHeaderView?.run {
-                tv_goods_name.text = goods_name
+//                tv_goodsName.text = goodsName
                 tv_introduce.maxShowLines = 3
-                tv_introduce.setMyText(goods_describe ?: "")
+                tv_introduce.setMyText(goodsDescribe ?: "")
                 tv_introduce.setOnAllSpanClickListener(object : ShowAllTextView.ShowAllSpan.OnAllSpanClickListener {
                     override fun onClick(widget: View) {
                         tv_introduce.maxShowLines = 100
@@ -326,36 +326,36 @@ class AuctionDetailActivity : BasePayActivity<AuctionDetailContract.IView, Aucti
                 })
 
                 mBannerList.clear()
-                if (!goods_video.isNullOrEmpty()) {
-                    mBannerList.add(goods_video!!)
-                }
-                if (!goods_img.isNullOrEmpty()) {
-                    if (goods_img!!.contains(",")) {
-                        goods_img!!.split(",").forEach {
+//                if (!goods_video.isNullOrEmpty()) {
+//                    mBannerList.add(goods_video!!)
+//                }
+                if (!goodsImg.isNullOrEmpty()) {
+                    if (goodsImg!!.contains(",")) {
+                        goodsImg!!.split(",").forEach {
                             mBannerList.add(it)
                         }
                     } else {
-                        mBannerList.add(goods_img!!)
+                        mBannerList.add(goodsImg!!)
                     }
                 }
                 banner.update(mBannerList)
 
-                if (goods_freight == 0) {
+                if (goodsFreight == 0) {
                     tv_free_shipping.text = "全国包邮"
                 } else {
                     tv_free_shipping.text = "邮费5元"
                 }
-                if (is_seven == 0) {
+                if (isSeven == 0) {
                     visible(tv_seven)
                 } else {
                     gone(tv_seven)
                 }
                 tv_guide_price.text = SpanUtils()
                         .append("指导价：")
-                        .append("¥${FormatUtils.formatNumber(goods_original_amount / 100f)}")
+                        .append("¥${FormatUtils.formatNumber(goodsOriginalAmount / 100f)}")
                         .create()
 
-                when (auction_state) {
+               /* when (auction_state) {
                     1 -> {
                         if (service_time >= start_time_timestamp) {
                             tv_auction_state.text = "正在竞拍"
@@ -422,49 +422,49 @@ class AuctionDetailActivity : BasePayActivity<AuctionDetailContract.IView, Aucti
                 tv_init_price.text = "¥${FormatUtils.formatNumber(start_amount / 100f)}"
                 tv_add_price.text = "¥${FormatUtils.formatNumber(add_amount / 100f)}/次"
                 tv_security_deposit.text = "¥${FormatUtils.formatNumber(ensure_amount / 100f)}"
-
-                updateCollectStateSuccess(collection_state)
+                */
+//                updateCollectStateSuccess(collection_state)
             }
         }
-        bean.data?.merchants?.run {
-            mMerchantId = merchants_id
-            mMerchantName = merchants_name
-            mMerchantState = is_focus
-            mUserId = user_id
-
-            updateMerchantStateSuccess(is_focus)
-            mHeaderView?.run {
-                val transform = RoundCornersTransform(getDimension(R.dimen.dp_4), RoundCornersTransform.CornerType.ALL)
-                iv_photo.loadImgAll(head_img, R.drawable.ic_merchant_header_default, transform)
-                tv_shop_name.text = if (merchants_name.isNullOrEmpty()) "商家很懒，什么信息也没有留下" else merchants_name
-                tv_warranty.text = "质保金：${FormatUtils.formatNumber(quality_balance / 100f)}"
-                tv_attention_count.text = "关注数：$focus_size"
-                if (quality_balance > 0) {
-                    visible(iv_header_vip)
-                } else {
-                    gone(iv_header_vip)
-                }
-
-                iv_cover.loadImgAll(head_img, R.drawable.ic_merchant_header_default, transform)
-                tv_name.text = if (merchants_name.isNullOrEmpty()) "商家很懒，什么信息也没有留下" else merchants_name
-                tv_desc.text = if (merchants_subtitle.isNullOrEmpty()) "商家很懒，什么信息也没有留下" else merchants_subtitle
-
-                tv_shop_warranty.text = SpanUtils()
-                        .appendLine(FormatUtils.formatNumber(quality_balance / 100f)).setFontSize(18, true).setForegroundColor(0xFF202020.toInt())
-                        .append("质保金")
-                        .create()
-                tv_shop_impression.text = SpanUtils()
-                        .appendLine("$evaluation_size").setFontSize(18, true).setForegroundColor(0xFF202020.toInt())
-                        .append("店铺印象")
-                        .create()
-                tv_shop_attention_count.text = SpanUtils()
-                        .appendLine("$focus_size").setFontSize(18, true).setForegroundColor(0xFF202020.toInt())
-                        .append("关注")
-                        .create()
-            }
-        }
-
-        mPresenter?.getAuctionGoodsRecord(mGoodsId, 1, 500)
+//        bean.data?.merchants?.run {
+//            mMerchantId = merchants_id
+//            mMerchantName = merchants_name
+//            mMerchantState = is_focus
+//            mUserId = user_id
+//
+//            updateMerchantStateSuccess(is_focus)
+//            mHeaderView?.run {
+//                val transform = RoundCornersTransform(getDimension(R.dimen.dp_4), RoundCornersTransform.CornerType.ALL)
+//                iv_photo.loadImgAll(head_img, R.drawable.ic_merchant_header_default, transform)
+//                tv_shop_name.text = if (merchants_name.isNullOrEmpty()) "商家很懒，什么信息也没有留下" else merchants_name
+//                tv_warranty.text = "质保金：${FormatUtils.formatNumber(quality_balance / 100f)}"
+//                tv_attention_count.text = "关注数：$focus_size"
+//                if (quality_balance > 0) {
+//                    visible(iv_header_vip)
+//                } else {
+//                    gone(iv_header_vip)
+//                }
+//
+//                iv_cover.loadImgAll(head_img, R.drawable.ic_merchant_header_default, transform)
+//                tv_name.text = if (merchants_name.isNullOrEmpty()) "商家很懒，什么信息也没有留下" else merchants_name
+//                tv_desc.text = if (merchants_subtitle.isNullOrEmpty()) "商家很懒，什么信息也没有留下" else merchants_subtitle
+//
+//                tv_shop_warranty.text = SpanUtils()
+//                        .appendLine(FormatUtils.formatNumber(quality_balance / 100f)).setFontSize(18, true).setForegroundColor(0xFF202020.toInt())
+//                        .append("质保金")
+//                        .create()
+//                tv_shop_impression.text = SpanUtils()
+//                        .appendLine("$evaluation_size").setFontSize(18, true).setForegroundColor(0xFF202020.toInt())
+//                        .append("店铺印象")
+//                        .create()
+//                tv_shop_attention_count.text = SpanUtils()
+//                        .appendLine("$focus_size").setFontSize(18, true).setForegroundColor(0xFF202020.toInt())
+//                        .append("关注")
+//                        .create()
+//            }
+//        }
+//
+//        mPresenter?.getAuctionGoodsRecord(mGoodsId, 1, 500)
     }
 
     override fun getAuctionGoodsRecordSuccess(bean: AuctionGoodsRecordBean) {
@@ -603,7 +603,7 @@ class AuctionDetailActivity : BasePayActivity<AuctionDetailContract.IView, Aucti
 
     override fun onDialog(obj: Any, flag: Int) {
         if (obj is String) {
-            when (obj) {
+            /*when (obj) {
                 "add_price" -> mPresenter?.auctionBindGoods(mGoodsId)
                 "pay" -> mPresenter?.auctionSecurityDeposit(mGoodsId, flag)
                 "shareFriend" -> {
@@ -636,7 +636,7 @@ class AuctionDetailActivity : BasePayActivity<AuctionDetailContract.IView, Aucti
                         }
                     })
                 }
-            }
+            }*/
         }
     }
 

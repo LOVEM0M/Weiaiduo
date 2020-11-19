@@ -80,17 +80,17 @@ class SetReleaseActivity : BaseMvpActivity<SetReleaseContract.IView, SetReleaseC
         initTitleBar("发布设置")
         immersionBar { statusBarDarkFont(true) }
 
-        mBean?.data?.goods?.run {
-            mGoodsId = goods_id
-            mOriginalPrice = FormatUtils.formatNumber(goods_original_amount / 100f)
-            mPrice = FormatUtils.formatNumber(goods_amount / 100f)
-            mGoodsFreight = goods_freight
-            mIsSeven = is_seven
+        mBean?.data?.run {
+            mGoodsId = goodsId
+            mOriginalPrice = FormatUtils.formatNumber(goodsOriginalAmount / 100f)
+            mPrice = FormatUtils.formatNumber(goodsAmount / 100f)
+            mGoodsFreight = goodsFreight
+            mIsSeven = isSeven
 
             et_original_price.setText(mOriginalPrice)
             et_price.setText(mPrice)
-            rb_country.isChecked = (goods_freight == 0)
-            rb_return.isChecked = (is_seven == 0)
+            rb_country.isChecked = (goodsFreight == 0)
+            rb_return.isChecked = (isSeven == 0)
         }
 
         (3..20).forEach { mCommissionRatioList.add("$it%") }

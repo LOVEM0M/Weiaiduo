@@ -23,11 +23,11 @@ class OperateGoodsContract {
         fun uploadImage(path: String)
 
         fun liveGoodsAuctionInsert(addAmount: Long, cateId1: Int, cateId2: Int, cateId3: Int, commissionRatio: Int,
-                                   endTime: Long, ensureAmount: Int, goodsAmount: Long, goodsDescribe: String, goodsFreight: Int,
+                                   endTime: Long, ensureAmount: Int, goodsAmount: Int, goodsDescribe: String, goodsFreight: Int,
                                    goodsImg: String, goodsName: String, goodsOriginalAmount: Long, goodsVideo: String,
-                                   isSeven: Int, istype: Int, roomId: Int, startAmount: Long, startTime: Long)
+                                   isSeven: Int, istype: Int, roomId: Int, startAmount: Int, startTime: Long)
 
-        fun liveGoodsSpikeInsert(goodsAmount: Long, goodsDescribe: String, goodsFreight: Int, goodsImg: String?, goodsName: String?,
+        fun liveGoodsSpikeInsert(goodsAmount: Int, goodsDescribe: String, goodsFreight: Int, goodsImg: String?, goodsName: String?,
                                  inventory: Int, isSeven: Int, roomId: Int, isRestriction: Int, goodsId: Int)
 
         fun getParentList(type : Int)

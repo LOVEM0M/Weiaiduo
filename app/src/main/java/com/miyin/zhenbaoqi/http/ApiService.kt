@@ -63,9 +63,9 @@ interface ApiService {
 
 
     /* 一口价|竞拍商品详情 */
-    //    @FormUrlEncoded
+    @FormUrlEncoded
     @POST("/shopapi/goods/detailGoods")
-    fun goodsDetail(@Body requestBody: RequestBody): Single<GoodsDetailBean>
+    fun goodsDetail(@FieldMap  map: Map<String, Any>): Single<GoodsDetailBean>
 
     /* 热门推荐商品列表 */
     @POST("/shopapi/goods/hotGoods")

@@ -52,23 +52,23 @@ class GoodsShareDialog : BaseDialogFragment() {
 
     @SuppressLint("SetTextI18n")
     override fun initView(view: View) {
-        mBean?.data?.goods?.run {
-            val goodsImg = when {
-                goods_img.isNullOrEmpty() -> ""
-                goods_img!!.contains(",") -> goods_img!!.split(",")[0]
-                else -> goods_img
+        mBean?.data?.run {
+            val goods_Img = when {
+                goodsImg.isNullOrEmpty() -> ""
+                goodsImg!!.contains(",") -> goodsImg!!.split(",")[0]
+                else -> goodsImg
             }
-            iv_cover.loadImg(goodsImg)
+            iv_cover.loadImg(goods_Img)
             tv_price.text = SpanUtils()
                     .append("当前价 ¥")
-                    .append(FormatUtils.formatNumber(goods_amount / 100f)).setFontSize(21, true)
+                    .append(FormatUtils.formatNumber(goodsAmount / 100f)).setFontSize(21, true)
                     .create()
-            tv_goods_name.text = goods_name
+            tv_goods_name.text = goodsName
 
             iv_wx_avatar.loadImg(SPUtils.getString("head_img"))
             tv_name.text = "${SPUtils.getString("nick_name")} 向你推荐"
         }
-        mBean?.data?.merchants?.run {
+        /*mBean?.data?.merchants?.run {
             iv_avatar.loadImg(head_img)
             tv_shop_name.text = merchants_name
             tv_fans_count.text = "${focus_size}粉丝"
@@ -78,7 +78,7 @@ class GoodsShareDialog : BaseDialogFragment() {
             } else {
                 iv_quality_shop.visibility = View.INVISIBLE
             }
-        }
+        }*/
 
         val headImg = SPUtils.getString("head_img")
         val nickName = SPUtils.getString("nick_name")
@@ -118,9 +118,9 @@ class GoodsShareDialog : BaseDialogFragment() {
                 dismiss()
             }
             R.id.tv_save_photo -> {
-                mBean?.data?.goods?.run {
+                mBean?.data?.run {
                     val bitmap = BitmapUtils.createBitmap(cl_container)
-                    savePicture(bitmap, "${goods_id}_${goods_name}.png")
+                    savePicture(bitmap, "${goodsId}_${goodsName}.png")
                 }
                 dismiss()
             }

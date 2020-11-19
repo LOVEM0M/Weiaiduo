@@ -420,7 +420,7 @@ class PushLiveActivity : BaseMvpActivity<PushLiveContract.IView, PushLiveContrac
                 }
                 "CustomReleaseGoods" -> {
                     visible(ll_count_down_container, cl_add_price_container)
-                    val bean = JSONUtils.fromJSON<GoodsDetailBean.DataBean.GoodsBean>(innerJSON.toString())
+                    val bean = JSONUtils.fromJSON<GoodsDetailBean.DataBean>(innerJSON.toString())
                     showAuctionGoods(bean)
                 }
                 "CustomAuctionFailure" -> {
@@ -455,49 +455,49 @@ class PushLiveActivity : BaseMvpActivity<PushLiveContract.IView, PushLiveContrac
         }
     }
 
-    private fun showAuctionGoods(bean: GoodsDetailBean.DataBean.GoodsBean) {
+    private fun showAuctionGoods(bean: GoodsDetailBean.DataBean) {
         bean.run {
             val img = when {
-                goods_img.isNullOrEmpty() -> ""
-                goods_img!!.contains(",") -> goods_img!!.split(",")[0]
-                else -> goods_img!!
+                goodsImg.isNullOrEmpty() -> ""
+                goodsImg!!.contains(",") -> goodsImg!!.split(",")[0]
+                else -> goodsImg!!
             }
             val transform = RoundCornersTransform(getDimension(R.dimen.dp_5), RoundCornersTransform.CornerType.LEFT)
             iv_goods_img.transform(img, transform)
-            tv_goods_name.text = goods_name
-            tv_goods_price.text = "¥${FormatUtils.formatNumber(goods_amount / 100f)}"
+            tv_goods_name.text = goodsName
+            tv_goods_price.text = "¥${FormatUtils.formatNumber(goodsAmount / 100f)}"
 
-            mCountDownTimer = object : CountDownTimer(end_time_timestamp - service_time, 1000) {
-                override fun onFinish() {
-                    gone(ll_count_down_container, cl_add_price_container)
-                    if (is_live == "1") {
-                        mHandler.postDelayed({
-                            val goodsImg = when {
-                                goods_img.isNullOrEmpty() -> ""
-                                goods_img!!.contains(",") -> goods_img!!.split(",")[0]
-                                else -> goods_img!!
-                            }
-                            val goodsName = goods_name ?: ""
-                            mPresenter?.getAuctionList(goods_id, goodsImg, goodsName, goods_freight)
-                        }, 60 * 1000)
-                    }
-                }
-
-                override fun onTick(millisUntilFinished: Long) {
-                    val millis2String = TimeUtils.millis2String(millisUntilFinished - TimeZone.getDefault().rawOffset, "HH:mm:ss")
-                    val timeArray = millis2String.split(":")
-                    tv_count_down.text = millis2String
-
-                    timeArray.forEachIndexed { index, s ->
-                        if (index == 1) {
-                            tv_minute.text = s
-                        } else if (index == 2) {
-                            tv_seconds.text = s
-                        }
-                    }
-                }
-            }
-            mCountDownTimer?.start()
+//            mCountDownTimer = object : CountDownTimer(end_time_timestamp - service_time, 1000) {
+//                override fun onFinish() {
+//                    gone(ll_count_down_container, cl_add_price_container)
+//                    if (is_live == "1") {
+//                        mHandler.postDelayed({
+//                            val goods_Img = when {
+//                                goodsImg.isNullOrEmpty() -> ""
+//                                goodsImg!!.contains(",") -> goodsImg!!.split(",")[0]
+//                                else -> goodsImg!!
+//                            }
+//                            val goods_Name = goodsName ?: ""
+//                            mPresenter?.getAuctionList(goodsId, goods_Img, goods_Name, goodsFreight)
+//                        }, 60 * 1000)
+//                    }
+//                }
+//
+//                override fun onTick(millisUntilFinished: Long) {
+//                    val millis2String = TimeUtils.millis2String(millisUntilFinished - TimeZone.getDefault().rawOffset, "HH:mm:ss")
+//                    val timeArray = millis2String.split(":")
+//                    tv_count_down.text = millis2String
+//
+//                    timeArray.forEachIndexed { index, s ->
+//                        if (index == 1) {
+//                            tv_minute.text = s
+//                        } else if (index == 2) {
+//                            tv_seconds.text = s
+//                        }
+//                    }
+//                }
+//            }
+//            mCountDownTimer?.start()
         }
     }
 
@@ -724,7 +724,7 @@ class PushLiveActivity : BaseMvpActivity<PushLiveContract.IView, PushLiveContrac
 
                     override fun onSuccess() {
                         visible(ll_count_down_container, cl_add_price_container)
-                        val bean = JSONUtils.fromJSON<GoodsDetailBean.DataBean.GoodsBean>(innerJSON)
+                        val bean = JSONUtils.fromJSON<GoodsDetailBean.DataBean>(innerJSON)
                         showAuctionGoods(bean)
                     }
                 })

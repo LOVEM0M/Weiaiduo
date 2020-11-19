@@ -59,7 +59,7 @@ class OperateGoodsFragment : BaseMvpFragment<OperateGoodsContract.IView, Operate
     private var mIsLive = true
     private var mBean: LiveGoodsBean.LiveGoodsDataBean? = null
     private var mGoodsName: String? = null
-    private var mGoodsAmount = 0L
+    private var mGoodsAmount = 0
     private var mGoodsAddAmount = 0L
     private var mRemark: String? = null
     private var mGoodsFright = 0
@@ -153,11 +153,11 @@ class OperateGoodsFragment : BaseMvpFragment<OperateGoodsContract.IView, Operate
         et_price.addTextChangedListener(object : EditWatcher() {
             override fun afterTextChanged(editable: Editable?) {
                 val price = editable.toString().trim { it <= ' ' }
-                mGoodsAmount = if (price.isEmpty()) {
-                    0L
+               /* mGoodsAmount = if (price.isEmpty()) {
+                    0
                 } else {
-                    (price.toDouble().toLong()) * 100L
-                }
+                    (price.toDouble().toLong()) * 100
+                }*/
             }
         })
         et_add_price.addTextChangedListener(object : EditWatcher() {
@@ -391,11 +391,11 @@ class OperateGoodsFragment : BaseMvpFragment<OperateGoodsContract.IView, Operate
         val arrayMap = ArrayMap<String, String>().apply {
             put("type", "auction")
             if (mIsLive) {
-                bean.data?.goods?.is_live = "0"
+//                bean.data?.is_live = "0"
             } else {
-                bean.data?.goods?.is_live = "1"
+//                bean.data?.is_live = "1"
             }
-            put("data", JSONUtils.gson.toJson(bean.data?.goods))
+//            put("data", JSONUtils.gson.toJson(bean.data?.goods))
         }
         EventBus.getDefault().post(arrayMap)
         activity?.finish()

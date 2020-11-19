@@ -28,9 +28,9 @@ class OperateGoodsPresenter : BasePresenter<OperateGoodsContract.IView>(), Opera
     }
 
     override fun liveGoodsAuctionInsert(addAmount: Long, cateId1: Int, cateId2: Int, cateId3: Int, commissionRatio: Int,
-                                        endTime: Long, ensureAmount: Int, goodsAmount: Long, goodsDescribe: String, goodsFreight: Int,
+                                        endTime: Long, ensureAmount: Int, goodsAmount: Int, goodsDescribe: String, goodsFreight: Int,
                                         goodsImg: String, goodsName: String, goodsOriginalAmount: Long, goodsVideo: String, isSeven: Int,
-                                        istype: Int, roomId: Int, startAmount: Long, startTime: Long) {
+                                        istype: Int, roomId: Int, startAmount: Int, startTime: Long) {
         val keyArray = arrayOf("add_amount", "cate_id1", "cate_id2", "cate_id3", "commission_ratio", "end_time", "ensure_amount", "goods_amount",
                 "goods_describe", "goods_freight", "goods_img", "goods_name", "goods_original_amount", "goods_video", "is_seven",
                 "istype", "room_id", "start_amount", "start_time")
@@ -55,7 +55,7 @@ class OperateGoodsPresenter : BasePresenter<OperateGoodsContract.IView>(), Opera
         })
     }
 
-    override fun liveGoodsSpikeInsert(goodsAmount: Long, goodsDescribe: String, goodsFreight: Int, goodsImg: String?, goodsName: String?,
+    override fun liveGoodsSpikeInsert(goodsAmount: Int, goodsDescribe: String, goodsFreight: Int, goodsImg: String?, goodsName: String?,
                                       inventory: Int, isSeven: Int, roomId: Int, isRestriction: Int, goodsId: Int) {
         if (goodsImg.isNullOrEmpty()) {
             getView()?.showToast("请上传商品图片")
