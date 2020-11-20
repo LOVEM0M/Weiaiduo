@@ -15,6 +15,8 @@ class GoodsDetailContract {
     interface IPresenter : IBasePresenter<IView> {
         fun getGoodsDetail(goodsId: Int)
 
+        fun addShopCartSuccess(cartNumber: Int,goodsId: Int)
+
         fun updateCollectState(goodsId: Int, collectState: Int)
 
         fun insertFootprint(goodsId: Int, goodsImg: String, goodsAmount: Int)

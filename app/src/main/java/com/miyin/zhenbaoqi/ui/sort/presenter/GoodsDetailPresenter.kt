@@ -34,6 +34,23 @@ class GoodsDetailPresenter : BasePresenter<GoodsDetailContract.IView>(), GoodsDe
         })
     }
 
+    override fun addShopCartSuccess(cartNumber: Int, goodsId: Int) {
+        val map = androidx.collection.ArrayMap<String, Any>().apply {
+            put("cartNumber", cartNumber)
+            put("goodsId", goodsId)
+        }
+        request(RetrofitUtils.mApiService.addShopCart(map), object : BaseSingleObserver<ResponseBean>() {
+            override fun doOnSuccess(data: ResponseBean) {
+                getView()?.showToast("在玛莎拉蒂等亲亲哦~~")
+            }
+
+            override fun doOnFailure(data: ResponseBean) {
+                getView()?.showToast(data.msg)
+                super.doOnFailure(data)
+            }
+        })
+    }
+
     override fun updateCollectState(goodsId: Int, collectState: Int) {
         val state = if (collectState == 0) 1 else 0
         val keyArray = arrayOf("goods_id", "collection_state")

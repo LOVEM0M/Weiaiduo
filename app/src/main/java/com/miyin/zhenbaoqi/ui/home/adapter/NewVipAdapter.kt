@@ -26,7 +26,7 @@ class NewVipAdapter(data: List<VipFirstFreegoodsBean.DataBeanX.DataBean>) : Base
             }
             holder.transform(R.id.iv_cover, url, transform)
                     .setText(R.id.tv_title, this?.goodsName)
-                    .setText(R.id.tv_price, "￥"+this?.goodsAmount)
+                    .setText(R.id.tv_price, "￥"+this?.goodsVipAmount)//普通用户也展示VIP价格
 
         }
     }

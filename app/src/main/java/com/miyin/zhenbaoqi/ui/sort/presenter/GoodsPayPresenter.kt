@@ -47,9 +47,9 @@ class GoodsPayPresenter : BasePresenter<GoodsPayContract.IView>(), GoodsPayContr
         })
     }
 
-    override fun goodsPay(adsId: Int, couponsId: Int, goodsId: Int, payType: Int, remark: String?, treasureAmount: Int, payNumber: Int) {
-        val keyArray = arrayOf("ads_id", "coupons_id", "goods_id", "pay_type", "remark", "treasure_amount", "pay_number")
-        val valueArray = arrayOf<Any>(adsId, couponsId, goodsId, payType, remark ?: "", treasureAmount, payNumber)
+    override fun goodsPay(adsId: Int, couponsId: Int, goodsId: Int, payType: Int, remark: String?, payNumber: Int) {
+        val keyArray = arrayOf("ads_id", "coupons_id", "goods_id", "pay_type", "remark", "pay_number")
+        val valueArray = arrayOf<Any>(adsId, couponsId, goodsId, payType, remark ?: "", payNumber)
         val requestBody = JSONUtils.createJSON(keyArray, valueArray)
         request(RetrofitUtils.mApiService.orderPay(requestBody), object : BaseSingleObserver<PayResultBean>() {
             override fun doOnSuccess(data: PayResultBean) {
@@ -58,10 +58,10 @@ class GoodsPayPresenter : BasePresenter<GoodsPayContract.IView>(), GoodsPayContr
         })
     }
 
-    override fun auctionGoodsPay(adsId: Int, couponsId: Int, goodsId: Int, payType: Int, remark: String?, treasureAmount: Int) {
-        val keyArray = arrayOf("ads_id", "coupons_id", "goods_id", "pay_type", "remark", "treasure_amount")
+    override fun auctionGoodsPay(adsId: Int, couponsId: Int, goodsId: Int, payType: Int, remark: String?) {
+        val keyArray = arrayOf("ads_id", "coupons_id", "goods_id", "pay_type", "remark")
         val valueArray = arrayOf<Any>(adsId, couponsId, goodsId, payType, remark
-                ?: "", treasureAmount)
+                ?: "")
         val requestBody = JSONUtils.createJSON(keyArray, valueArray)
         request(RetrofitUtils.mApiService.auctionOrderInsert(requestBody), object : BaseSingleObserver<PayResultBean>() {
             override fun doOnSuccess(data: PayResultBean) {

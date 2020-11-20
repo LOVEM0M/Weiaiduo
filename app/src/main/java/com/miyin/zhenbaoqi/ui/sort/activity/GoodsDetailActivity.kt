@@ -240,7 +240,7 @@ class GoodsDetailActivity : BaseMvpActivity<GoodsDetailContract.IView, GoodsDeta
                 }
             }
         }
-        setOnClickListener(tv_collect,tv_goods_detail, tv_goods_notice, tv_private_message, tv_pay)
+        setOnClickListener(tv_collect,tv_goods_detail, tv_goods_notice, tv_private_message, tv_pay,tv_add_cart)
     }
 
     override fun initData() {
@@ -348,6 +348,11 @@ class GoodsDetailActivity : BaseMvpActivity<GoodsDetailContract.IView, GoodsDeta
                             dialog.setOnDialogCallback(this@GoodsDetailActivity)
                             dialog.show(supportFragmentManager, "addGoodsCount")
                         }
+                    }
+            }
+            R.id.tv_add_cart -> {
+                    mBean?.data?.run {
+                        mPresenter?.addShopCartSuccess(1,goodsId)
                     }
             }
         }
@@ -500,48 +505,19 @@ class GoodsDetailActivity : BaseMvpActivity<GoodsDetailContract.IView, GoodsDeta
     }
 
     override fun onDialog(obj: Any, flag: Int) {
-        if (obj is String) {
-            if (obj == "shareFriend") {
-                mBean?.data?.run {
-                    if (!goodsImg.isNullOrEmpty()) {
-                        val goodsImg = when {
-                            goodsImg!!.contains(",") -> goodsImg!!.split(",")[0]
-                            else -> goodsImg
-                        }
-                        Glide.with(applicationContext).asBitmap().load(goodsImg).into(object : SimpleTarget<Bitmap>() {
-                            override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
-                                WXOptionUtils.openProgram(mWXAPI, "gh_e93b10fb159e", "/pages/goodDetail/goodDetail?id=${mGoodsId}&inviteCode=${SPUtils.getInt("user_id")}",
-                                        goodsName!!, goodsDescribe!!, resource)
-                            }
-                        })
-                    }
-                }
-            } else if (obj == "shareFriendCircle") {
-                mBean?.data?.run {
-                    if (!goodsImg.isNullOrEmpty()) {
-                        val goodsImg = when {
-                            goodsImg!!.contains(",") -> goodsImg!!.split(",")[0]
-                            else -> goodsImg
-                        }
-                        Glide.with(applicationContext).asBitmap().load(goodsImg).into(object : SimpleTarget<Bitmap>() {
-                            override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
-                                val headImg = SPUtils.getString("head_img")
-                                val nickName = SPUtils.getString("nick_name")
-                                val shareUrl = "${Constant.SHARE_INVITE}?user_name=${URLEncoder.encode(nickName, "utf-8")}&user_id=${SPUtils.getInt("user_id")}&avatar=$headImg"
-                                WXOptionUtils.share(mWXAPI, shareUrl, goodsName!!, goodsDescribe!!, resource, true)
-                            }
-                        })
-                    }
-                }
+            mBean?.data?.run {
+                if(mVipType==0||mVipType==1){
+                    startActivityForResult<GoodsPayActivity>(Constant.INTENT_REQUEST_CODE, "goods_name" to goodsName,
+                            "goods_img" to goodsImg, "price" to goodsAmount, "goods_id" to mGoodsId, "from" to "general",
+                            "goods_freight" to goodsFreight, "count" to obj, "is_seven" to isSeven)
             }
-        } else if (obj is Int) {
-//            mBean?.data?.run {
-//                val shopName = mBean?.data?.merchants?.merchants_name
-//                startActivityForResult<GoodsPayActivity>(Constant.INTENT_REQUEST_CODE, "goodsName" to goodsName,
-//                        "goodsImg" to goodsImg, "price" to goodsAmount, "goods_id" to mGoodsId, "from" to "general",
-//                        "goodsFreight" to goodsFreight, "count" to obj, "shop_name" to shopName, "isSeven" to (isSeven == 0))
-//            }
-        }
+                else {
+                    startActivityForResult<GoodsPayActivity>(Constant.INTENT_REQUEST_CODE, "goods_name" to goodsName,
+                            "goods_img" to goodsImg, "price" to goodsVipAmount, "goods_id" to mGoodsId, "payWay" to "WX",
+                            "goods_freight" to goodsFreight, "count" to obj, "is_seven" to isSeven)
+                }
+
+            }
     }
 
     private fun getAccessToken() {

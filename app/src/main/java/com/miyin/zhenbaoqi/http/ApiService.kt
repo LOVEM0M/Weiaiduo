@@ -62,10 +62,15 @@ interface ApiService {
     fun secondCategoryGoods(@FieldMap  map: Map<String, Any>): Single<SecondCategoryGoodsBean>
 
 
-    /* 一口价|竞拍商品详情 */
+    /* 商品详情 */
     @FormUrlEncoded
     @POST("/shopapi/goods/detailGoods")
     fun goodsDetail(@FieldMap  map: Map<String, Any>): Single<GoodsDetailBean>
+
+    /* 加入购物车 */
+    @FormUrlEncoded
+    @POST("/shopapi/card/addcartgoods")
+    fun addShopCart(@FieldMap  map: Map<String, Any>): Single<ResponseBean>
 
     /* 热门推荐商品列表 */
     @POST("/shopapi/goods/hotGoods")

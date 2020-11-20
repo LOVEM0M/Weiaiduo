@@ -9,6 +9,7 @@ import com.miyin.zhenbaoqi.bean.takeThreeVipBean
 import com.miyin.zhenbaoqi.ext.transform
 import com.miyin.zhenbaoqi.utils.DensityUtils
 import com.miyin.zhenbaoqi.utils.RoundCornersTransform
+import com.miyin.zhenbaoqi.utils.SPUtils
 
 
 class TabAdapter(data: List<VipFirstFreegoodsBean.DataBeanX.DataBean>) : BaseAdapter<VipFirstFreegoodsBean.DataBeanX.DataBean>(data) {
@@ -26,8 +27,8 @@ class TabAdapter(data: List<VipFirstFreegoodsBean.DataBeanX.DataBean>) : BaseAda
             }
             holder.transform(R.id.iv_cover, url, transform)
                     .setText(R.id.tv_goods_name, this?.goodsName)
-                    .setText(R.id.tv_price, "￥"+this?.goodsAmount)
-                    .setText(R.id.tv_price1, "返现￥"+this?.goodsAmount+">")
+                    .setText(R.id.tv_price, "￥"+this?.goodsVipAmount)//对普通用户也展示VIP的价格
+                    .setText(R.id.tv_price1, "返现￥"+this?.goodsVipAmount+">")
 
         }
     }

@@ -39,10 +39,10 @@ import kotlinx.android.synthetic.main.activity_goods_pay.*
 @SuppressLint("SetTextI18n")
 class GoodsPayActivity : BasePayActivity<GoodsPayContract.IView, GoodsPayContract.IPresent>(), GoodsPayContract.IView, OnDialogCallback {
 
-    private var mPrice = 0L
+    private var mPrice = 0
     private var mGoodsImg: String? = null
     private var mGoodsName: String? = null
-    private var mFrom = "general"
+    private var mFrom = "WX"
     private var mRemark: String? = null
     private var mFormatPrice = ""
     private var mCouponPrice = 0
@@ -52,25 +52,22 @@ class GoodsPayActivity : BasePayActivity<GoodsPayContract.IView, GoodsPayContrac
     private var mIsChecked = false
     private var mOrderNumber: String? = null
     private var mList = mutableListOf<CouponBean.ListBean>()
-    private var mServiceAmount = 0
     private var mOriginAmount = 0
     private var mGoodsFreight = 0
     private var mCount = 1
-    private var mShopName: String? = null
-    private var mIsSeven = false
+    private var mIsSeven = 0
 
     override fun getContentView(): Int {
         with(intent) {
-            mPrice = getLongExtra("price", 0)
+            mPrice = getIntExtra("price", 0)
             mGoodsImg = getStringExtra("goods_img")
             mGoodsName = getStringExtra("goods_name")
             mGoodsId = getIntExtra("goods_id", 0)
-            mFrom = getStringExtra("from") ?: ""
+            mFrom = getStringExtra("payWay") ?: ""
             mOrderNumber = getStringExtra("order_number")
             mGoodsFreight = getIntExtra("goods_freight", 0)
             mCount = getIntExtra("count", 1)
-            mShopName = getStringExtra("shop_name")
-            mIsSeven = getBooleanExtra("is_seven", true)
+            mIsSeven = getIntExtra("is_seven", 0)
         }
         return R.layout.activity_goods_pay
     }
@@ -87,10 +84,9 @@ class GoodsPayActivity : BasePayActivity<GoodsPayContract.IView, GoodsPayContrac
             gone(ll_container)
         }
 
-        mFormatPrice = FormatUtils.formatNumber((mPrice * mCount + mServiceAmount - mCouponPrice) / 100f + mGoodsFreight)
+        mFormatPrice = FormatUtils.formatNumber(mPrice * mCount + mGoodsFreight)
         setBottomTotalPrice()
 
-        tv_shop_name.text = mShopName
         val goodsImg = when {
             mGoodsImg.isNullOrEmpty() -> ""
             mGoodsImg!!.contains(",") -> mGoodsImg!!.split(",")[0]
@@ -98,10 +94,10 @@ class GoodsPayActivity : BasePayActivity<GoodsPayContract.IView, GoodsPayContrac
         }
         tv_count.text = "X$mCount"
 
-        val goodsPrice = FormatUtils.formatNumber(mPrice * mCount / 100f)
+        val goodsPrice = FormatUtils.formatNumber(mPrice * mCount )
         iv_cover.loadImg(goodsImg)
         tv_goods_name.text = mGoodsName
-        tv_price.text = "¥${FormatUtils.formatNumber(mPrice / 100f)}"
+        tv_price.text = "¥${FormatUtils.formatNumber(mPrice )}"
 
         tv_goods_total_price.text = SpanUtils()
                 .append("共${mCount}件\u3000")
@@ -109,11 +105,9 @@ class GoodsPayActivity : BasePayActivity<GoodsPayContract.IView, GoodsPayContrac
                 .append("¥$goodsPrice").setForegroundColor(Color.parseColor("#D3371B")).setFontSize(16, true).setBold()
                 .create()
         tv_goods_price.text = "¥$goodsPrice"
-        tv_coupon_price.text = "¥${FormatUtils.formatNumber(mCouponPrice / 100f)}"
         tv_freight.text = "¥${FormatUtils.formatNumber(mGoodsFreight / 1f)}"
-        tv_extra_price.text = "¥${FormatUtils.formatNumber(mServiceAmount / 100f)}"
 
-        tv_label_first.text = (if (mIsSeven) "" else "不") + "支持7天无理由退货"
+        tv_label_first.text = (if (mIsSeven==0) "" else "不") + "支持7天无理由退货"
         tv_label_second.text = if (mGoodsFreight == 0) "包邮" else "邮费5元"
 
         et_remark.addTextChangedListener(object : EditWatcher() {
@@ -121,38 +115,7 @@ class GoodsPayActivity : BasePayActivity<GoodsPayContract.IView, GoodsPayContrac
                 mRemark = editable.toString().trim { it <= ' ' }
             }
         })
-        switch_button.setOnCheckedChangeListener(object : SwitchButton.OnCheckedChangeListener {
-            override fun onCheckedChanged(view: SwitchButton?, isChecked: Boolean) {
-                mIsChecked = isChecked
-                if (!isChecked) {
-                    AlertDialog.Builder(this@GoodsPayActivity)
-                            .setTitle("温馨提示")
-                            .setCancelable(false)
-                            .setMessage("取消鉴宝服务，平台将不再提供假一赔三担保服务。")
-                            .setPositiveButton(getString(R.string.confirm)) { dialog, _ ->
-                                mFormatPrice = FormatUtils.formatNumber((mPrice * mCount - mCouponPrice) / 100f + mGoodsFreight)
-
-                                tv_extra_price.text = "¥0.00"
-                                setBottomTotalPrice()
-
-                                dialog.dismiss()
-                            }
-                            .setNegativeButton(getString(R.string.cancel)) { dialog, _ ->
-                                view?.isChecked = true
-                                dialog.dismiss()
-                            }
-                            .show()
-                } else {
-                    mFormatPrice = FormatUtils.formatNumber((mPrice * mCount + mServiceAmount - mCouponPrice) / 100f + mGoodsFreight)
-
-                    tv_extra_price.text = "¥${FormatUtils.formatNumber(mServiceAmount / 100f)}"
-                    setBottomTotalPrice()
-                }
-            }
-        })
-
         if (null != Constant.VIDEO_VIEW) {
-            visible(fl_container)
 
             val effectiveHeight = DensityUtils.getScreenHeight() - ImmersionBar.getNavigationBarHeight(this)
             val containerWidth = DensityUtils.getScreenWidth()
@@ -160,36 +123,12 @@ class GoodsPayActivity : BasePayActivity<GoodsPayContract.IView, GoodsPayContrac
 
             val videoWidth = containerWidth / 3
             val videoHeight = containerHeight / 3
-            fl_container.layoutParams = FrameLayout.LayoutParams(videoWidth, videoHeight)
 
             val dragWidth = containerWidth - videoWidth
             val dragHeight = containerHeight - videoHeight
 
             var downX = 0f
             var downY = 0f
-            fl_container.setOnTouchListener { v, event ->
-                val x = event.x
-                val y = event.y
-                when (event.action) {
-                    MotionEvent.ACTION_DOWN -> {
-                        downX = x
-                        downY = y
-                    }
-                    MotionEvent.ACTION_MOVE -> {
-                        val dragX = v.x + x - downX
-                        val dragY = v.y + y - downY
-
-                        val moveX = if (dragX < 0) 0f else if (dragX > dragWidth) dragWidth.toFloat() else dragX
-                        val moveY = if (dragY < 0) 0f else if (dragY > dragHeight) dragHeight.toFloat() else dragY
-
-                        v.translationX = moveX
-                        v.translationY = moveY
-                    }
-                    MotionEvent.ACTION_CANCEL, MotionEvent.ACTION_UP -> {
-                    }
-                }
-                true
-            }
         }
 
         setOnClickListener(cl_container, fl_coupon, tv_pay)
@@ -286,20 +225,12 @@ class GoodsPayActivity : BasePayActivity<GoodsPayContract.IView, GoodsPayContrac
 
     override fun getAmountRuleSuccess(bean: ServiceAmountBean) {
         bean.data?.run {
-            mServiceAmount = if (special_price.isNullOrEmpty()) {
-                0
-            } else {
-                special_price!!.toInt()
-            }
             mOriginAmount = if (original_price.isNullOrEmpty()) {
                 0
             } else {
                 original_price!!.toInt()
             }
 
-            tv_special_price.text = "${mServiceAmount / 100}"
-            tv_origin_price.text = "¥" + mOriginAmount / 100
-            tv_origin_price.paint.flags = Paint.STRIKE_THRU_TEXT_FLAG
         }
     }
 
@@ -342,11 +273,11 @@ class GoodsPayActivity : BasePayActivity<GoodsPayContract.IView, GoodsPayContrac
     override fun onDialog(obj: Any, flag: Int) {
         if (obj is String) {
             if (obj == "pay") {
-                if (mFrom == "general") {
-                    mPresenter?.goodsPay(mAddressId, mCouponId, mGoodsId, flag, mRemark, if (switch_button.isChecked) mServiceAmount else 0, mCount)
-                } else if (mFrom == "auction") {
+                if (mFrom == "WX") {
+                    mPresenter?.goodsPay(mAddressId, mCouponId, mGoodsId, flag, mRemark,mCount)
+                } else if (mFrom == "ZFB") {
                     if (mOrderNumber.isNullOrEmpty() || mOrderNumber == "0") {
-                        mPresenter?.auctionGoodsPay(mAddressId, mCouponId, mGoodsId, flag, mRemark, if (switch_button.isChecked) mServiceAmount else 0)
+                        mPresenter?.auctionGoodsPay(mAddressId, mCouponId, mGoodsId, flag, mRemark)
                     } else {
                         mPresenter?.auctionGoodsWaitPay(mOrderNumber!!, flag)
                     }
@@ -361,9 +292,7 @@ class GoodsPayActivity : BasePayActivity<GoodsPayContract.IView, GoodsPayContrac
                     .setForegroundColor(ContextCompat.getColor(this, R.color.theme_dark_purple))
                     .create()
 
-            val serviceAmount = if (switch_button.isChecked) mServiceAmount else 0
-            mFormatPrice = FormatUtils.formatNumber((mPrice * mCount - mCouponPrice + serviceAmount) / 100f + mGoodsFreight)
-            tv_coupon_price.text = "¥${FormatUtils.formatNumber(obj.coupons_amount / 100f)}"
+            mFormatPrice = FormatUtils.formatNumber(mPrice * mCount + mGoodsFreight)
             setBottomTotalPrice()
         }
     }

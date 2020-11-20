@@ -53,7 +53,7 @@ class HomeFragment : BaseListFragment<HomeContract.IView, HomeContract.IPresente
     private var cateId1 = 0
     private var names : MutableList<String> = ArrayList()
     private var cateId1List : MutableList<Int> = ArrayList()
-
+    private var mVipType = 0
     companion object {
         fun newInstance() = HomeFragment()
     }
@@ -70,15 +70,16 @@ class HomeFragment : BaseListFragment<HomeContract.IView, HomeContract.IPresente
 
     override fun initView(view: View, savedInstanceState: Bundle?) {
         super.initView(view, savedInstanceState)
+        mVipType = SPUtils.getInt("vipType")
         mView = view
+       /* if(mVipType==3){//还需要添加一个判断是否使用了新人VIP优惠的条件，将VIP通道关闭
+
+        }*/
         rv_tab.run {
             mTabAdapter = TabAdapter(mList)
             mTabAdapter.setHeaderAndEmpty(true)
             adapter = mTabAdapter
             layoutManager = StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL)
-            mTabAdapter.setOnItemClickListener { _, _, position ->
-                startActivityForResult<GoodsDetailActivity>(Constant.INTENT_REQUEST_CODE, "goodsId" to mList[position].goodsId)
-            }
         }
         recycler_view_top.run {
             mTopAdapter = TopAdapter(mTitleList)

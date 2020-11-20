@@ -18,6 +18,8 @@ import com.miyin.zhenbaoqi.ui.home.contract.NewVipContract
 import com.miyin.zhenbaoqi.ui.home.presenter.NewVipPresenter
 import com.miyin.zhenbaoqi.ui.sort.activity.GoodsDetailActivity
 import com.miyin.zhenbaoqi.ui.sort.activity.GoodsPayActivity
+import com.miyin.zhenbaoqi.utils.SPUtils
+import com.miyin.zhenbaoqi.utils.ToastUtils
 import kotlinx.android.synthetic.main.activity_new_vip.*
 import kotlinx.android.synthetic.main.layout_refresh.*
 
@@ -27,7 +29,7 @@ import kotlinx.android.synthetic.main.layout_refresh.*
 class NewVipActivity : BaseListActivity<NewVipContract.IView, NewVipContract.IPresenter>(), NewVipContract.IView {
     private var mList = mutableListOf<VipFirstFreegoodsBean.DataBeanX.DataBean>()
     private lateinit var mAdapter: NewVipAdapter
-
+    private var mVipType = 0
     companion object {
         fun newInstance() = NewVipActivity()
     }
@@ -35,6 +37,7 @@ class NewVipActivity : BaseListActivity<NewVipContract.IView, NewVipContract.IPr
 
     override fun initView(savedInstanceState: Bundle?) {
         super.initView(savedInstanceState)
+        mVipType = SPUtils.getInt("vipType")
         ImmersionBar.with(this).titleBar(title_bar).statusBarDarkFont(true).init()
         recycler_view.run {
             mAdapter = NewVipAdapter(mList)
@@ -42,7 +45,11 @@ class NewVipActivity : BaseListActivity<NewVipContract.IView, NewVipContract.IPr
             adapter = mAdapter
             layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
             mAdapter.setOnItemClickListener { _, _, position ->
-                startActivityForResult<GoodsPayActivity>(Constant.INTENT_REQUEST_CODE)//去到立即抢购页面
+                if(mVipType==3){
+                    startActivityForResult<GoodsPayActivity>(Constant.INTENT_REQUEST_CODE)//去到立即抢购页面
+                }
+                else
+                    ToastUtils.showToast("很抱歉，非正式VIP会员不能购买~")
             }
         }
         setOnClickListener(ll_goback)

@@ -6,10 +6,12 @@
     android:layout_height="wrap_content"
     android:gravity="center_horizontal">
 <androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="@dimen/dp_75"
+    android:layout_width="@dimen/dp_85"
     android:layout_height="wrap_content"
     android:background="@drawable/shape_home_bg6"
-    android:paddingBottom="@dimen/dp_11">
+    android:paddingBottom="@dimen/dp_11"
+    android:paddingHorizontal="@dimen/dp_5"
+    android:paddingTop="@dimen/dp_8">
 
     <ImageView
         android:id="@+id/iv_cover"
@@ -32,6 +34,7 @@
         android:textSize="@dimen/sp_9"
         android:paddingHorizontal="@dimen/dp_8"
         android:layout_marginBottom="@dimen/dp_5"
+        android:layout_marginHorizontal="@dimen/dp_3"
         app:layout_constraintBottom_toBottomOf="@id/iv_cover"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

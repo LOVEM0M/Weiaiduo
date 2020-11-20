@@ -28,9 +28,9 @@ class GoodsPayContract {
 
         fun getAmountRule()
 
-        fun goodsPay(adsId: Int, couponsId: Int, goodsId: Int, payType: Int, remark: String?, treasureAmount: Int, payNumber: Int)
+        fun goodsPay(adsId: Int, couponsId: Int, goodsId: Int, payType: Int, remark: String?, payNumber: Int)
 
-        fun auctionGoodsPay(adsId: Int, couponsId: Int, goodsId: Int, payType: Int, remark: String?, treasureAmount: Int)
+        fun auctionGoodsPay(adsId: Int, couponsId: Int, goodsId: Int, payType: Int, remark: String?)
 
         fun auctionGoodsWaitPay(orderNumber: String, payType: Int)
     }
