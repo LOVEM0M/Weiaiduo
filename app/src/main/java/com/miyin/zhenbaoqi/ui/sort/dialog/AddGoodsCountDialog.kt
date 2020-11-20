@@ -18,7 +18,7 @@ class AddGoodsCountDialog : BaseDialogFragment() {
 
     private var mGoodsCover: String? = null
     private var mGoodsName: String? = null
-    private var mGoodsPrice = 0L
+    private var mGoodsPrice = 0
     private var mNumber = 1
     private var mInventory = 0
     private var mOnDialogCallback: OnDialogCallback? = null
@@ -26,9 +26,9 @@ class AddGoodsCountDialog : BaseDialogFragment() {
     companion object {
         fun newInstance(goodsCover: String?, goodsName: String, goodsPrice: Int, inventory: Int) = AddGoodsCountDialog().apply {
             arguments = Bundle().apply {
-                putString("goods_cover", goodsCover)
-                putString("goods_name", goodsName)
-                putInt("goods_price", goodsPrice)
+                putString("goodsCover", goodsCover)
+                putString("goodsName", goodsName)
+                putInt("goodsPrice", goodsPrice)
                 putInt("inventory", inventory)
             }
         }
@@ -36,9 +36,9 @@ class AddGoodsCountDialog : BaseDialogFragment() {
 
     override fun getContentView(): Int {
         arguments?.run {
-            mGoodsCover = getString("goods_cover")
-            mGoodsName = getString("goods_name")
-            mGoodsPrice = getLong("goods_price")
+            mGoodsCover = getString("goodsCover")
+            mGoodsName = getString("goodsName")
+            mGoodsPrice = getInt("goodsPrice")
             mInventory = getInt("inventory")
         }
         return R.layout.dialog_add_goods_count
@@ -52,7 +52,7 @@ class AddGoodsCountDialog : BaseDialogFragment() {
         }
         iv_cover.loadImg(goodsImg)
         tv_goods_name.text = mGoodsName
-        tv_price.text = "¥${FormatUtils.formatNumber(mGoodsPrice / 100f)}"
+        tv_price.text = "¥${FormatUtils.formatNumber(mGoodsPrice )}"
 
         add_view.setMaxNumber(mInventory)
         add_view.setOnNumberChangedListener(object : AddedView.OnNumberChangedListener {
@@ -61,7 +61,7 @@ class AddGoodsCountDialog : BaseDialogFragment() {
             }
         })
 
-        btn_commit.setOnClickListener {
+        btn_commit.setOnClickListener {//??
             mOnDialogCallback?.onDialog(mNumber, 0)
             dismiss()
         }

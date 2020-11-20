@@ -13,6 +13,7 @@ import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.util.ArrayMap
+import android.util.Log
 import android.view.View
 import android.view.animation.TranslateAnimation
 import android.widget.ImageView
@@ -78,7 +79,7 @@ class GoodsDetailActivity : BaseMvpActivity<GoodsDetailContract.IView, GoodsDeta
     private var mOffset = 0f
     private var mLastPosition = 0
     private var mHideHeight = 0
-
+    private var mVipType = 0
     override fun useEventBus() = true
 
     override fun getContentView(): Int {
@@ -93,6 +94,7 @@ class GoodsDetailActivity : BaseMvpActivity<GoodsDetailContract.IView, GoodsDeta
     override fun initView(savedInstanceState: Bundle?) {
         super.initView(savedInstanceState)
         initTitleBar("商品详情", rightTitle = "分享")
+        mVipType = SPUtils.getInt("vipType")
         mTitleBar.alpha = 0f
         immersionBar { statusBarDarkFont(true) }
         mWXAPI = WXAPIFactory.createWXAPI(this, BuildConfig.WX_APP_ID, true)
@@ -238,9 +240,6 @@ class GoodsDetailActivity : BaseMvpActivity<GoodsDetailContract.IView, GoodsDeta
                 }
             }
         }
-
-//        setOnClickListener(tv_collect,tv_goods_detail, tv_goods_notice,
-//                tv_entry_shop, tv_private_message, tv_pay)
         setOnClickListener(tv_collect,tv_goods_detail, tv_goods_notice, tv_private_message, tv_pay)
     }
 
@@ -336,28 +335,20 @@ class GoodsDetailActivity : BaseMvpActivity<GoodsDetailContract.IView, GoodsDeta
 //                }
 //            }
             R.id.tv_pay -> {
-                if (mSource == 0) {
-                    mBean?.data?.run {
-                        if (isRestriction == 1) {
-                            val goodsName = goodsName ?: ""
-                            val dialog = AddGoodsCountDialog.newInstance(goodsImg, goodsName, goodsAmount, inventory)
+                    mBean?.data?.run {//只需要判断是否是 VIP就行，限购后台会报错给用户看
+                        if (mVipType == 0 ||mVipType == 1) {//普通用户
+                            val goods_Name = goodsName ?: ""
+                            val dialog = AddGoodsCountDialog.newInstance(goodsImg, goods_Name, goodsAmount, inventory)
                             dialog.setOnDialogCallback(this@GoodsDetailActivity)
                             dialog.show(supportFragmentManager, "addGoodsCount")
-                        } else {
-//                            val shopName = mBean?.data?.merchants?.merchants_name
-//                            startActivityForResult<GoodsPayActivity>(Constant.INTENT_REQUEST_CODE, "goodsName" to goodsName,
-//                                    "goodsImg" to goodsImg, "price" to goodsAmount, "goods_id" to mGoodsId, "from" to "general",
-//                                    "goodsFreight" to goodsFreight, "count" to 1, "shop_name" to shopName, "isSeven" to (isSeven == 0))
+                        }
+                        else  if (mVipType == 2 ||mVipType == 3) {//vip用户
+                            val goods_Name = goodsName ?: ""
+                            val dialog = AddGoodsCountDialog.newInstance(goodsImg, goods_Name, goodsVipAmount, inventory)
+                            dialog.setOnDialogCallback(this@GoodsDetailActivity)
+                            dialog.show(supportFragmentManager, "addGoodsCount")
                         }
                     }
-                } else {
-                    if (null == mBean) {
-                        showToast(getString(R.string.network_error))
-                        return
-                    }
-                    val dialog = GoodsShareDialog.newInstance(mBean!!)
-                    dialog.show(supportFragmentManager, "goodsShare")
-                }
             }
         }
     }
@@ -397,14 +388,23 @@ class GoodsDetailActivity : BaseMvpActivity<GoodsDetailContract.IView, GoodsDeta
                 }
                 banner.update(mBannerList)
 
-//                tv_goodsName.text = goodsName
-                tv_goods_price.text = SpanUtils()
-                        .append("¥ ").setFontSize(15, true)
-                        .append(FormatUtils.formatNumber(goodsAmount / 100f)).setBold()
-                        .create()
+                tv_goods_name.text = goodsName
+                if(mVipType==0||mVipType==1){//普通用户
+                    tv_goods_price.text = SpanUtils()
+                            .append("¥ ").setFontSize(15, true)
+                            .append(FormatUtils.formatNumber(goodsAmount)).setBold()
+                            .create()
+                }
+                else{//vip用户
+                    tv_goods_price.text = SpanUtils()
+                            .append("¥ ").setFontSize(15, true)
+                            .append(FormatUtils.formatNumber(goodsVipAmount)).setBold()
+                            .create()
+                }
+
                 tv_stock.text = "库存剩余：${inventory}件"
                 if (goodsOriginalAmount != 0) {
-                    tv_origin_price.text = "¥" + FormatUtils.formatNumber(goodsOriginalAmount / 100f)
+                    tv_origin_price.text = "¥" + FormatUtils.formatNumber(goodsOriginalAmount)
                     tv_origin_price.paint.flags = Paint.STRIKE_THRU_TEXT_FLAG
                 } else {
                     gone(tv_origin_price)
@@ -432,13 +432,12 @@ class GoodsDetailActivity : BaseMvpActivity<GoodsDetailContract.IView, GoodsDeta
 //                updateCollectStateSuccess(collection_state)//缺少
                 tv_goods_desc.text = goodsDescribe
 
-// TODO 可删除？？               val list: MutableList<Any> = if (goods_video.isNullOrEmpty()) {
-                val list: MutableList<Any> = if (goodsImg.isNullOrEmpty()) {
+           /*     val list: MutableList<Any> = if (goods_video.isNullOrEmpty()) {
                     mBannerList.toMutableList()
                 } else {
                     mBannerList.subList(1, mBannerList.size).toMutableList()
                 }
-                mAdapter.setNewData(list)
+                mAdapter.setNewData(list)*/
                 computeHideHeight()
 
                 /* 秒杀倒计时

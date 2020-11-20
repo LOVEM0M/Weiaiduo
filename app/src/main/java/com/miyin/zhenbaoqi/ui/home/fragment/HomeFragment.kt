@@ -44,7 +44,6 @@ class HomeFragment : BaseListFragment<HomeContract.IView, HomeContract.IPresente
     //    private var mIsClickBanner = false
     private lateinit var mTabAdapter: TabAdapter
     private lateinit var mTopAdapter: TopAdapter
-
     private lateinit var mBottomAdapter: FirstCategoryGoodsAdapter
     private var mTitleList = mutableListOf<FirstCategoryBean.DataBean>()
     private var mBottomList = mutableListOf<FirstCategoryGoodsBean.DataBeanX.DataBean>()
