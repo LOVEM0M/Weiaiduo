@@ -1,117 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
-    android:paddingTop="11dp"
+    android:orientation="vertical"
     android:paddingHorizontal="15dp"
-    android:orientation="vertical">
+    android:paddingTop="11dp">
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#F4F4F4"/>
+        android:background="#F4F4F4" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginBottom="11dp"
         android:layout_marginTop="14dp"
+        android:layout_marginBottom="11dp"
         android:gravity="center_vertical"
-        >
+        android:orientation="horizontal">
+
         <LinearLayout
+            android:id="@+id/ll_select"
             android:layout_width="18dp"
             android:layout_height="18dp">
+
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/pur_hook"/>
+                android:src="@drawable/pur_hook" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_marginLeft="14dp"
             android:background="@color/white"
             android:gravity="center">
+
             <ImageView
                 android:id="@+id/iv_shopping"
                 android:layout_width="36dp"
-                android:layout_height="56.5dp"
-                android:background="@color/white"/>
+                android:layout_height="57dp"
+                android:background="@color/white" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginLeft="10dp">
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <TextView
                     android:id="@+id/tv_introduce"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/text_33"
-                    android:textSize="@dimen/sp_14"
                     android:text="百年陈酿酿 囯窖茅台小黑瓶 150ml 酒"
-                    />
+                    android:textColor="@color/text_33"
+                    android:textSize="@dimen/sp_14" />
             </LinearLayout>
+
             <TextView
+                android:id="@+id/tv_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/text_99"
-                android:textSize="@dimen/sp_12"
-                android:text="30ml*6瓶"
                 android:layout_marginTop="8dp"
-                />
+                android:text="30ml*6瓶"
+                android:textColor="@color/text_99"
+                android:textSize="@dimen/sp_12" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4.5dp"
                 android:gravity="center_vertical">
+
                 <TextView
                     android:id="@+id/tv_price"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:textColor="#F92728"
-                    android:textSize="@dimen/sp_16"
+                    android:layout_weight="1"
                     android:text="￥500.0"
-                    />
+                    android:textColor="#F92728"
+                    android:textSize="@dimen/sp_16" />
+
                 <LinearLayout
-                android:layout_width="15dp"
-                android:layout_height="15dp">
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/pur_minus_sign"
-                    />
-            </LinearLayout>
+                    android:id="@+id/ll_minus"
+                    android:layout_width="15dp"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/pur_minus_sign" />
+                </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="15dp"
                     android:gravity="center">
+
                     <EditText
+                        android:id="@+id/et_add_num"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:hint="0"
-                        android:textSize="@dimen/sp_14"
-                        android:textColor="@color/text_33"
-                        android:paddingVertical="0dp"
                         android:background="@null"
+                        android:hint="1"
                         android:paddingHorizontal="@dimen/dp_10"
-                        />
+                        android:paddingVertical="0dp"
+                        android:textColor="@color/text_33"
+                        android:textSize="@dimen/sp_14" />
                 </LinearLayout>
+
                 <LinearLayout
+                    android:id="@+id/ll_plus"
                     android:layout_width="15dp"
-                    android:layout_height="15dp">
+                    android:layout_height="match_parent">
+
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/pur_plus_sign"
-                        />
+                        android:src="@drawable/pur_plus_sign" />
                 </LinearLayout>
             </LinearLayout>
 

@@ -22,7 +22,7 @@ class AddedView @JvmOverloads constructor(context: Context, attrs: AttributeSet?
     private lateinit var mCountView: EditText
     private var mOnNumberChangedListener: OnNumberChangedListener? = null
     private var mNumber = 1
-    private var mMaxNumber = 6
+    private var mMaxNumber = 999
 
     init {
         val reduceView = TextView(context).apply {

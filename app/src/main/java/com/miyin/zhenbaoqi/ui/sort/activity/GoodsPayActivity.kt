@@ -15,10 +15,7 @@ import androidx.core.content.ContextCompat
 import com.gyf.immersionbar.ImmersionBar
 import com.miyin.zhenbaoqi.R
 import com.miyin.zhenbaoqi.base.activity.BasePayActivity
-import com.miyin.zhenbaoqi.bean.AddressBean
-import com.miyin.zhenbaoqi.bean.CouponBean
-import com.miyin.zhenbaoqi.bean.PayResultBean
-import com.miyin.zhenbaoqi.bean.ServiceAmountBean
+import com.miyin.zhenbaoqi.bean.*
 import com.miyin.zhenbaoqi.callback.OnDialogCallback
 import com.miyin.zhenbaoqi.constant.Constant
 import com.miyin.zhenbaoqi.ext.getDimensionPixelSize
@@ -149,7 +146,6 @@ class GoodsPayActivity : BasePayActivity<GoodsPayContract.IView, GoodsPayContrac
                 val bean = getSerializableExtra("bean") as AddressBean.DataBeanX.UserAddressBean
                 with(bean) {
                     gone(tv_add_address)
-
                     mAddressId = adsId
                     tv_user_info.text = consignee
                     tv_user_phone.text = phoneNo
@@ -234,13 +230,14 @@ class GoodsPayActivity : BasePayActivity<GoodsPayContract.IView, GoodsPayContrac
         }
     }
 
-    override fun goodsPaySuccess(bean: PayResultBean, payType: Int) {
+
+    override fun placeOrderSuccess(bean: placeOrderBean, payType: Int) {
         when (payType) {
             1 -> {
 
             }
             2 -> {
-                val orderString = bean.alipayBody
+                val orderString = bean.data?.alipayBody
                 if (orderString.isNullOrEmpty()) {
                     showToast("支付宝错误")
                     return
@@ -248,7 +245,8 @@ class GoodsPayActivity : BasePayActivity<GoodsPayContract.IView, GoodsPayContrac
                 onAliCallback(orderString)
             }
             3 -> {
-                onWXCallback(bean)
+//                onWXCallback(bean)
+                showToast("暂无微信支付")
             }
         }
     }
@@ -272,16 +270,9 @@ class GoodsPayActivity : BasePayActivity<GoodsPayContract.IView, GoodsPayContrac
 
     override fun onDialog(obj: Any, flag: Int) {
         if (obj is String) {
-            if (obj == "pay") {
-                if (mFrom == "WX") {
-                    mPresenter?.goodsPay(mAddressId, mCouponId, mGoodsId, flag, mRemark,mCount)
-                } else if (mFrom == "ZFB") {
-                    if (mOrderNumber.isNullOrEmpty() || mOrderNumber == "0") {
-                        mPresenter?.auctionGoodsPay(mAddressId, mCouponId, mGoodsId, flag, mRemark)
-                    } else {
-                        mPresenter?.auctionGoodsWaitPay(mOrderNumber!!, flag)
-                    }
-                }
+            if (obj == "pay") {//调用支付接口
+                mPresenter?.placeOrder(mAddressId, mGoodsId, mCount, flag)
+
             }
         } else if (obj is CouponBean.ListBean) {
             mCouponId = obj.coupons_id

@@ -42,11 +42,11 @@
                 app:layout_constraintRight_toRightOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <include layout="@layout/item_shoppings_cart" />
+<!--        <include layout="@layout/item_shoppings_cart" />-->
 
-        <include layout="@layout/item_shopping_top_invalid" />
+<!--        <include layout="@layout/item_shopping_top_invalid" />-->
 
-        <include layout="@layout/item_failure_shopping" />
+<!--        <include layout="@layout/item_failure_shopping" />-->
 
 
         <LinearLayout

@@ -72,6 +72,11 @@ interface ApiService {
     @POST("/shopapi/card/addcartgoods")
     fun addShopCart(@FieldMap  map: Map<String, Any>): Single<ResponseBean>
 
+   /*  购物车列表 */
+    @FormUrlEncoded
+    @POST("/shopapi/card/cartgoodslist")
+    fun cartGoodsList(@FieldMap  map: Map<String, Any>): Single<CartGoodsListBean>
+
     /* 热门推荐商品列表 */
     @POST("/shopapi/goods/hotGoods")
     fun homeGoodsHotList(): Single<HomeGoodsHotBean>
@@ -84,6 +89,17 @@ interface ApiService {
     @POST("/shopapi/goods/newsgoods")
     fun weekNewGoodsList(@FieldMap  map: Map<String, Any>): Single<WeekNewGoodsBean>
 
+
+    /* 领取新人优惠券 */
+    @POST("/shopapi/user/takeThreeVip")
+    fun takeThreeVipList(): Single<takeThreeVipBean>
+
+
+
+    /* 下订单 */
+    @POST("/shopapi/order/placeOrder")
+    fun placeOrder(@Body requestBody: RequestBody): Single<placeOrderBean>
+
     /**
      * 优惠券接口 ***********************************************************************************
      */
@@ -94,13 +110,6 @@ interface ApiService {
     /* 优惠券列表 */
     @POST("/api/v1/coupons/list")
     fun couponList(@Body requestBody: RequestBody): Single<CouponBean>
-
-    /* 领取新人优惠券 */
-    @POST("/shopapi/user/takeThreeVip")
-    fun takeThreeVipList(): Single<takeThreeVipBean>
-
-
-
 
     /**
      * 关注商铺接口 *********************************************************************************

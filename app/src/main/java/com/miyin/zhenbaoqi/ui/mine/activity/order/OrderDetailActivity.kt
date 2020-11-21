@@ -218,7 +218,7 @@ class OrderDetailActivity : BasePayActivity<OrderDetailContract.IView, OrderDeta
             }
             onAliCallback(orderString)
         } else if (payType == 3) {
-            onWXCallback(bean)
+//            onWXCallback(bean)
         }
     }
 

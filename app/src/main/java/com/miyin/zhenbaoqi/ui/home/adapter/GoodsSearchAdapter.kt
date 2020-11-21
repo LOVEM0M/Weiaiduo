@@ -9,7 +9,7 @@ import com.miyin.zhenbaoqi.ext.transform
 import com.miyin.zhenbaoqi.utils.FormatUtils
 import com.miyin.zhenbaoqi.utils.RoundCornersTransform
 
-class GoodsSearchAdapter(list: List<GoodsSearchBean.ListBean>) : com.miyin.zhenbaoqi.base.BaseAdapter<GoodsSearchBean.ListBean>(list) {
+class GoodsSearchAdapter(list: List<GoodsSearchBean.ListBean>) : BaseAdapter<GoodsSearchBean.ListBean>(list) {
 
     override fun getContentView() = R.layout.item_goods_search
 

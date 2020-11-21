@@ -11,6 +11,7 @@ import com.miyin.zhenbaoqi.base.mvp.IBasePresenter
 import com.miyin.zhenbaoqi.base.mvp.IBaseView
 import com.miyin.zhenbaoqi.bean.AliPayResultBean
 import com.miyin.zhenbaoqi.bean.PayResultBean
+import com.miyin.zhenbaoqi.bean.placeOrderBean
 import com.miyin.zhenbaoqi.utils.WXOptionUtils
 import com.tencent.mm.opensdk.openapi.IWXAPI
 import com.tencent.mm.opensdk.openapi.WXAPIFactory
@@ -68,7 +69,7 @@ abstract class BasePayActivity<V : IBaseView, P : IBasePresenter<V>> : BaseMvpAc
         }.start()
     }
 
-    protected fun onWXCallback(bean: PayResultBean) {
+    protected fun onWXCallback(bean: placeOrderBean) {
         WXOptionUtils.pay(mIWXAPI!!, BuildConfig.WX_APP_ID, bean)
     }
 

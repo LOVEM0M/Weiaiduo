@@ -136,7 +136,7 @@ class SecurityDepositActivity : BasePayActivity<SecurityDepositContract.IView, S
         } else if (payType == 2) {
             onAliCallback(bean.alipayBody ?: "")
         } else {
-            onWXCallback(bean)
+//            onWXCallback(bean)
         }
     }
 

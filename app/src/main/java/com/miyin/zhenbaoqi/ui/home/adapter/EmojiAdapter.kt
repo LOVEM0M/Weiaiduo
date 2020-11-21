@@ -5,7 +5,7 @@ import com.miyin.zhenbaoqi.R
 import com.miyin.zhenbaoqi.base.BaseAdapter
 import com.tencent.qcloud.tim.uikit.component.face.Emoji
 
-class EmojiAdapter(list: List<Emoji>) : com.miyin.zhenbaoqi.base.BaseAdapter<Emoji>(list) {
+class EmojiAdapter(list: List<Emoji>) : BaseAdapter<Emoji>(list) {
 
     override fun getContentView() = R.layout.item_emoji
 

@@ -2,10 +2,7 @@ package com.miyin.zhenbaoqi.ui.sort.contract
 
 import com.miyin.zhenbaoqi.base.mvp.IBasePresenter
 import com.miyin.zhenbaoqi.base.mvp.IBaseView
-import com.miyin.zhenbaoqi.bean.AddressBean
-import com.miyin.zhenbaoqi.bean.CouponBean
-import com.miyin.zhenbaoqi.bean.PayResultBean
-import com.miyin.zhenbaoqi.bean.ServiceAmountBean
+import com.miyin.zhenbaoqi.bean.*
 
 class GoodsPayContract {
 
@@ -16,7 +13,7 @@ class GoodsPayContract {
 
         fun getAmountRuleSuccess(bean: ServiceAmountBean)
 
-        fun goodsPaySuccess(bean: PayResultBean, payType: Int)
+        fun placeOrderSuccess(bean: placeOrderBean, payType: Int)
 
         fun onFailure(flag: Int)
     }
@@ -28,11 +25,8 @@ class GoodsPayContract {
 
         fun getAmountRule()
 
-        fun goodsPay(adsId: Int, couponsId: Int, goodsId: Int, payType: Int, remark: String?, payNumber: Int)
+        fun placeOrder(adsId: Int,  goodsId: Int, payNumber: Int , payType: Int)
 
-        fun auctionGoodsPay(adsId: Int, couponsId: Int, goodsId: Int, payType: Int, remark: String?)
-
-        fun auctionGoodsWaitPay(orderNumber: String, payType: Int)
     }
 
 }

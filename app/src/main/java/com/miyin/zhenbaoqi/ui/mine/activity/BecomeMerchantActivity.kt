@@ -77,7 +77,7 @@ class BecomeMerchantActivity : BasePayActivity<BecomeMerchantContract.IView, Bec
         } else if (payType == 2) {
             onAliCallback(bean.alipayBody!!)
         } else if (payType == 3) {
-            onWXCallback(bean)
+//            onWXCallback(bean)
         }
     }
 

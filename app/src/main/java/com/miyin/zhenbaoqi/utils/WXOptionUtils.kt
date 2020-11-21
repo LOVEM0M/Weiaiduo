@@ -2,6 +2,7 @@ package com.miyin.zhenbaoqi.utils
 
 import android.graphics.Bitmap
 import com.miyin.zhenbaoqi.bean.PayResultBean
+import com.miyin.zhenbaoqi.bean.placeOrderBean
 import com.tencent.mm.opensdk.modelmsg.*
 import com.tencent.mm.opensdk.modelpay.PayReq
 import com.tencent.mm.opensdk.openapi.IWXAPI
@@ -72,19 +73,19 @@ object WXOptionUtils {
     /**
      * 微信支付
      */
-    fun pay(iwxapi: IWXAPI, appId: String, bean: PayResultBean) {
+    fun pay(iwxapi: IWXAPI, appId: String, bean: placeOrderBean) {
         if (!iwxapi.isWXAppInstalled) {
             ToastUtils.showToast("请安装微信")
             return
         }
         val req = PayReq().apply {
             this.appId = appId
-            nonceStr = bean.noncestr
-            packageValue = bean.package_value
-            sign = bean.sign
-            partnerId = bean.partnerid
-            prepayId = bean.prepayid
-            timeStamp = bean.timestamp
+            nonceStr = bean.data?.noncestr
+            packageValue = bean.data?.packageValue
+            sign = bean.data?.sign
+            partnerId = bean.data?.partnerid
+            prepayId = bean.data?.prepayid
+            timeStamp = bean.data?.timestamp
         }
 
         iwxapi.registerApp(appId)

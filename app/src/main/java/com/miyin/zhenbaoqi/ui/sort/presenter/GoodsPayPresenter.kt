@@ -47,36 +47,31 @@ class GoodsPayPresenter : BasePresenter<GoodsPayContract.IView>(), GoodsPayContr
         })
     }
 
-    override fun goodsPay(adsId: Int, couponsId: Int, goodsId: Int, payType: Int, remark: String?, payNumber: Int) {
-        val keyArray = arrayOf("ads_id", "coupons_id", "goods_id", "pay_type", "remark", "pay_number")
-        val valueArray = arrayOf<Any>(adsId, couponsId, goodsId, payType, remark ?: "", payNumber)
-        val requestBody = JSONUtils.createJSON(keyArray, valueArray)
-        request(RetrofitUtils.mApiService.orderPay(requestBody), object : BaseSingleObserver<PayResultBean>() {
-            override fun doOnSuccess(data: PayResultBean) {
-                getView()?.goodsPaySuccess(data, payType)
+    override fun placeOrder(adsId: Int, goodsId: Int, payNumber: Int, payType: Int) {
+        val keyArray = arrayOf("adsId", "goodsId", "payNumber", "payType")
+        val valueArray = arrayOf<Any>(adsId, goodsId, payNumber, 1)//暂时固定写1，2和3还没做
+
+        val requestBody = JSONUtils.createJSON2(keyArray, valueArray)
+
+        request(RetrofitUtils.mApiService.placeOrder(requestBody), object : BaseSingleObserver<placeOrderBean>() {
+            override fun doOnSuccess(data: placeOrderBean) {
+                getView()?.placeOrderSuccess(data, payType)
+            }
+
+            override fun doOnFailure(data: placeOrderBean) {
+                getView()?.showToast(data?.msg)
+                super.doOnFailure(data)
+            }
+
+            override fun onError(e: Throwable) {
+                getView()?.showToast(e.message)
+                super.onError(e)
             }
         })
     }
 
-    override fun auctionGoodsPay(adsId: Int, couponsId: Int, goodsId: Int, payType: Int, remark: String?) {
-        val keyArray = arrayOf("ads_id", "coupons_id", "goods_id", "pay_type", "remark")
-        val valueArray = arrayOf<Any>(adsId, couponsId, goodsId, payType, remark
-                ?: "")
-        val requestBody = JSONUtils.createJSON(keyArray, valueArray)
-        request(RetrofitUtils.mApiService.auctionOrderInsert(requestBody), object : BaseSingleObserver<PayResultBean>() {
-            override fun doOnSuccess(data: PayResultBean) {
-                getView()?.goodsPaySuccess(data, payType)
-            }
-        })
-    }
 
-    override fun auctionGoodsWaitPay(orderNumber: String, payType: Int) {
-        val requestBody = JSONUtils.createJSON(arrayOf("order_number"), arrayOf(orderNumber))
-        request(RetrofitUtils.mApiService.waitOrderPay(requestBody), object : BaseSingleObserver<PayResultBean>() {
-            override fun doOnSuccess(data: PayResultBean) {
-                getView()?.goodsPaySuccess(data, payType)
-            }
-        })
-    }
+
+
 
 }

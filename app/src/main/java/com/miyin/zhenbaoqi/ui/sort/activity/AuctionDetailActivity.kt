@@ -572,7 +572,7 @@ class AuctionDetailActivity : BasePayActivity<AuctionDetailContract.IView, Aucti
                 onAliCallback(bean.alipayBody ?: "")
             }
             3 -> {
-                onWXCallback(bean)
+//                onWXCallback(bean)
             }
         }
     }

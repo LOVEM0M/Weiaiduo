@@ -47,7 +47,7 @@ class AddressActivity : BaseListActivity<AddressContact.IView, AddressContact.IP
             mAdapter.setOnItemChildClickListener { _, view, position ->
                 mPosition = position
                 val bean = mList[position]
-                when (view.id) {//TODO 不调到这里？？
+                when (view.id) {
                     R.id.cl_container -> {
                         if (!mIsClick) {
                             return@setOnItemChildClickListener

@@ -117,8 +117,8 @@ class App(application: Application, tinkerFlags: Int, tinkerLoadVerifyFlag: Bool
 
             }
         }
-        Bugly.init(application, "7044d51f5f", BuildConfig.DEBUG)
-        Bugly.setIsDevelopmentDevice(application, BuildConfig.DEBUG)
+//        Bugly.init(application, "7044d51f5f", BuildConfig.DEBUG)
+//        Bugly.setIsDevelopmentDevice(application, BuildConfig.DEBUG)
         // TIM
         val configs = TUIKit.getConfigs().apply {
             sdkConfig = TIMSdkConfig(1400324831)
