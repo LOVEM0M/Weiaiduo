@@ -36,7 +36,7 @@ class FanDetailActivity : BaseActivity() {
                     .create()
             tv_profit.text = SpanUtils()
                     .appendLine("贡献收益")
-                    .appendLine("¥${FormatUtils.formatNumber(payAmount / 100f)}").setBold().setFontSize(18, true)
+                    .appendLine("¥${FormatUtils.formatNumber(payAmount  )}").setBold().setFontSize(18, true)
                     .create()
         }
     }

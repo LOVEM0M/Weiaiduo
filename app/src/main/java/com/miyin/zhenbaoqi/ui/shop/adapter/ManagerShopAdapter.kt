@@ -22,7 +22,7 @@ class ManagerShopAdapter(list: List<MerchantGoodsBean.ListBean>, private val sta
             }
             holder.loadImg(R.id.iv_cover, goodsImg)
                     .setText(R.id.tv_title, goods_name)
-                    .setText(R.id.tv_price, "¥ " + mDecimalFormat.format(goods_amount / 100f))
+                    .setText(R.id.tv_price, "¥ " + mDecimalFormat.format(goods_amount  ))
                     .setVisible(R.id.tv_sticky, true)
                     .setVisible(R.id.tv_take_off, true)
                     .setVisible(R.id.tv_relaunch, false)

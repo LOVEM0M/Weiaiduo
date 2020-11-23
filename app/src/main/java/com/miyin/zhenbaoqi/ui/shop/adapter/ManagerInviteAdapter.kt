@@ -22,11 +22,11 @@ class ManagerInviteAdapter(list: List<InvitePlayerBean.DataBean>, private val ti
 
             when (title) {
                 "新秀" -> holder.setText(R.id.tv_price, SpanUtils()
-                        .append("¥${FormatUtils.formatNumber(payAmount / 100f)}").setForegroundColor(0xFFFF3D3D.toInt())
+                        .append("¥${FormatUtils.formatNumber(payAmount  )}").setForegroundColor(0xFFFF3D3D.toInt())
                         .create())
                 "专属粉丝" -> holder.setText(R.id.tv_price, SpanUtils()
                         .appendLine("已购买${count}单").setForegroundColor(ContextCompat.getColor(mContext, R.color.text_33))
-                        .append("¥${FormatUtils.formatNumber(payAmount / 100f)}").setForegroundColor(0xFFFF3D3D.toInt())
+                        .append("¥${FormatUtils.formatNumber(payAmount  )}").setForegroundColor(0xFFFF3D3D.toInt())
                         .create())
                 else -> holder.setText(R.id.tv_price, "")
                         .setRightDrawable(R.id.tv_price, R.drawable.ic_right_arrow_small)

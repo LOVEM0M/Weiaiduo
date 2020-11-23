@@ -341,7 +341,7 @@ class LiveInteractiveFragment : BaseMvpFragment<LiveInteractiveContract.IView, L
     private fun auctionBid(price: Int) {
         val bean = IMMessageMgr.CommonJson<LiveAuctionCustomBean>()
         bean.cmd = "customAuctionBid"
-        bean.data = LiveAuctionCustomBean(SPUtils.getString("nick_name"), FormatUtils.formatNumber(price / 100f))
+        bean.data = LiveAuctionCustomBean(SPUtils.getString("nick_name"), FormatUtils.formatNumber(price  ))
         val content: String? = Gson().toJson(bean, object : TypeToken<IMMessageMgr.CommonJson<LiveAuctionCustomBean>>() {}.type)
         context?.let {
             IMLiveUtils.getIMLiveUtils(it).sendGroupCustomMessage(content, object : StandardCallback {
@@ -497,7 +497,7 @@ class LiveInteractiveFragment : BaseMvpFragment<LiveInteractiveContract.IView, L
                                 val goodsId = arrayMap["goods_id"].toString()
                                 val goodsImg = arrayMap["goods_img"].toString()
                                 val goodsName = arrayMap["goods_name"].toString()
-                                val goodsPrice = FormatUtils.formatNumber(auction_bid_amount / 100f)
+                                val goodsPrice = FormatUtils.formatNumber(auction_bid_amount  )
                                 val goodsFreight = arrayMap["goods_freight"].toString().toDouble().toInt()
                                 val orderNumber = bean.order_number ?: ""
 
@@ -509,7 +509,7 @@ class LiveInteractiveFragment : BaseMvpFragment<LiveInteractiveContract.IView, L
                                 live_auction_people.text = "恭喜 $nick_name  中拍"
                                 live_auction_price.text = SpanUtils()
                                         .append("¥").setFontSize(30, true)
-                                        .append(FormatUtils.formatNumber(auction_bid_amount / 100f))
+                                        .append(FormatUtils.formatNumber(auction_bid_amount  ))
                                         .create()
 
                                 mHandler.postDelayed({
@@ -546,10 +546,10 @@ class LiveInteractiveFragment : BaseMvpFragment<LiveInteractiveContract.IView, L
             val transform = RoundCornersTransform(context?.getDimension(R.dimen.dp_5)!!, RoundCornersTransform.CornerType.LEFT)
             iv_goods_img.transform(goods_Img, transform)
             tv_goods_name.text = goodsName
-            tv_goods_price.text = "¥" + FormatUtils.formatNumber(goodsAmount / 100f)
+            tv_goods_price.text = "¥" + FormatUtils.formatNumber(goodsAmount  )
 //            tv_add_price.text = SpanUtils()
 //                    .appendLine("加一手")
-//                    .append(FormatUtils.formatNumber(add_amount / 100f))
+//                    .append(FormatUtils.formatNumber(add_amount  ))
 //                    .create()
             tv_add_price.isEnabled = true
             tv_add_price.setOnClickListener {
@@ -747,7 +747,7 @@ class LiveInteractiveFragment : BaseMvpFragment<LiveInteractiveContract.IView, L
                                 live_auction_people.text = "恭喜 $nick_name  中拍"
                                 live_auction_price.text = SpanUtils()
                                         .append("¥").setFontSize(30, true)
-                                        .append(FormatUtils.formatNumber(auction_bid_amount / 100f))
+                                        .append(FormatUtils.formatNumber(auction_bid_amount  ))
                                         .create()
 
                                 mHandler.postDelayed({
@@ -827,7 +827,7 @@ class LiveInteractiveFragment : BaseMvpFragment<LiveInteractiveContract.IView, L
                             val transform = RoundCornersTransform(it.getDimension(R.dimen.dp_5), RoundCornersTransform.CornerType.LEFT)
                             iv_goods_img.transform(img, transform)
                             tv_goods_name.text = goodsName
-                            tv_goods_price.text = "¥${FormatUtils.formatNumber(goodsAmount / 100f)}"
+                            tv_goods_price.text = "¥${FormatUtils.formatNumber(goodsAmount  )}"
 
                            /* mCountDownTimer = object : CountDownTimer(end_time_timestamp - service_time, 1000) {
                                 override fun onFinish() {

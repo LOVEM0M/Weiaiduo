@@ -51,14 +51,14 @@ class BillDetailActivity : BaseMvpActivity<BillDetailContract.IView, BillDetailC
 
         with(bean) {
             tv_name.text = "${real_name}自己提现申请"
-            tv_price.text = "-${FormatUtils.formatNumber(mPrice / 100f)}"
+            tv_price.text = "-${FormatUtils.formatNumber(mPrice  )}"
             tv_status.text = when (state) {
                 1 -> "提现中"
                 2 -> "提现成功"
                 else -> "提现失败"
             }
 
-            tv_desc.text = "$real_name\n${FormatUtils.formatNumber(amount / 100f)}\n$cash_time\n$cash_number\n${if (state == 2) bank_sn else "$bank_name $card_no"}"
+            tv_desc.text = "$real_name\n${FormatUtils.formatNumber(amount  )}\n$cash_time\n$cash_number\n${if (state == 2) bank_sn else "$bank_name $card_no"}"
         }
     }
 
@@ -70,11 +70,11 @@ class BillDetailActivity : BaseMvpActivity<BillDetailContract.IView, BillDetailC
         tv_left_title.text = "购买商品\n商家信息\n订单金额\n支付时间\n订单号\n付款方式\n收货信息"
 
         with(bean) {
-            tv_desc.text = "$goods_name\n$merchants_name\n${FormatUtils.formatNumber(mPrice / 100f)}\n${TimeUtils.millis2String(pay_time!!.toLong(), "yyyy-MM-dd HH:mm")}\n$mChangeNumber\n${if (pay_type == 1) "余额支付" else if (pay_type == 2) "支付宝支付" else "微信支付"}\n$address"
+            tv_desc.text = "$goods_name\n$merchants_name\n${FormatUtils.formatNumber(mPrice  )}\n${TimeUtils.millis2String(pay_time!!.toLong(), "yyyy-MM-dd HH:mm")}\n$mChangeNumber\n${if (pay_type == 1) "余额支付" else if (pay_type == 2) "支付宝支付" else "微信支付"}\n$address"
             tv_user_info.text = consignee + phone_no
 
             tv_name.text = "${consignee}自己消费情况"
-            tv_price.text = "-${FormatUtils.formatNumber(mPrice / 100f)}"
+            tv_price.text = "-${FormatUtils.formatNumber(mPrice  )}"
         }
     }
 

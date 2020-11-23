@@ -26,7 +26,7 @@ class OrderDetailActivity : BasePayActivity<OrderDetailContract.IView, OrderDeta
 
     private var mState = 1
     private var mOrderNumber: String? = null
-    private var mBean: OrderDetailBean? = null
+    private var mBean: OrderDetailBean.DataBean? = null
     private var mGoodsId = 2
     private var mPhone: String? = null
     private var mAddress: String? = null
@@ -95,7 +95,7 @@ class OrderDetailActivity : BasePayActivity<OrderDetailContract.IView, OrderDeta
 
     override fun onClick(v: View?) {
         when (v?.id) {
-            R.id.cl_container -> startActivity<MerchantMessageActivity>("merchant_id" to mBean?.merchants_id)
+//            R.id.cl_container -> startActivity<MerchantMessageActivity>("merchant_id" to mBean?.merchants_id)
             R.id.tv_copy_order_num -> {
                 copyMsg(mOrderNumber ?: "")
                 showToast("复制成功")
@@ -109,7 +109,7 @@ class OrderDetailActivity : BasePayActivity<OrderDetailContract.IView, OrderDeta
                         mPresenter?.orderCancel(mOrderNumber!!)
                     }
                     3, 4 -> {
-                        startActivity<LogisticsActivity>("order_number" to mBean?.order_number)
+//                        startActivity<LogisticsActivity>("order_number" to mBean?.order_number)
                     }
                 }
             }
@@ -126,13 +126,13 @@ class OrderDetailActivity : BasePayActivity<OrderDetailContract.IView, OrderDeta
                                 .setPositiveButton(getString(R.string.confirm), null)
                                 .show()
                     }
-                    3 -> mPresenter?.confirmReceive(mBean?.order_number ?: "")
-                    4 -> {
-                        mBean?.run {
-                            startActivity<SelectAfterSaleTypeActivity>("name" to consignee, "phone" to phone_no, "order_number" to order_number)
-                        }
-                    }
-                    6 -> startActivity<AfterSaleStateActivity>("order_number" to mBean?.order_number)
+//                    3 -> mPresenter?.confirmReceive(mBean?.order_number ?: "")//佈局來不及調整
+//                    4 -> {
+//                        mBean?.run {
+//                            startActivity<SelectAfterSaleTypeActivity>("name" to consignee, "phone" to phone_no, "order_number" to order_number)
+//                        }
+//                    }
+//                    6 -> startActivity<AfterSaleStateActivity>("order_number" to mBean?.order_number)
                 }
             }
             R.id.iv_customer -> {
@@ -153,12 +153,12 @@ class OrderDetailActivity : BasePayActivity<OrderDetailContract.IView, OrderDeta
     }
 
     override fun getOrderDetailSuccess(bean: OrderDetailBean) {
-        mBean = bean
-        with(bean) {
-            mGoodsId = goods_id
-            mConsignee = consignee
-            mPhone = phone_no
-            mAddress = address
+        mBean = bean.data
+        with(bean.data) {
+//            mGoodsId = goods_id
+//            mConsignee = consignee
+//            mPhone = phone_no
+//            mAddress = address
 
             tv_status.text = when (mState) {
                 1 -> "待支付"
@@ -172,26 +172,26 @@ class OrderDetailActivity : BasePayActivity<OrderDetailContract.IView, OrderDeta
                 9 -> "已关闭"
                 else -> "已关闭"
             }
-            tv_user_info.text = consignee
-            tv_user_phone.text = phone_no
-            tv_address.text = "$address"
+//            tv_user_info.text = consignee
+//            tv_user_phone.text = phone_no
+//            tv_address.text = "${address}"
 
-            tv_shop_name.text = merchants_name
-            iv_cover.loadImg(if (goods_img!!.contains(",")) goods_img!!.split(",")[0] else goods_img)
-            tv_goods_name.text = goods_name
-            tv_price.text = "¥${FormatUtils.formatNumber(order_amount / 100f)}"
-            tv_count.text = "x$pay_number"
+//            tv_shop_name.text = merchants_name
+//            iv_cover.loadImg(if (goods_img!!.contains(",")) goods_img!!.split(",")[0] else goods_img)
+//            tv_goods_name.text = goods_name
+//            tv_price.text = "¥${FormatUtils.formatNumber(order_amount / 100f)}"
+//            tv_count.text = "x$pay_number"
 
-            tv_label_second.text = if (courier_amount == 0) "包邮" else "邮费5元"
+//            tv_label_second.text = if (courier_amount == 0) "包邮" else "邮费5元"
 
-            tv_goods_price.text = "¥${FormatUtils.formatNumber(order_amount * pay_number / 100f)}"
-            tv_freight_price.text = "¥${FormatUtils.formatNumber(courier_amount / 100f)}"
-            tv_coupon_price.text = "¥${FormatUtils.formatNumber(coupons_amount / 100f)}"
-            tv_pay_price.text = "¥${FormatUtils.formatNumber(pay_amount / 100f)}"
-
-            tv_order_num.text = order_number
-            tv_order_time.text = TimeUtils.millis2String(order_time!!.toLong())
-            tv_pay_time.text = TimeUtils.millis2String(order_time!!.toLong())
+//            tv_goods_price.text = "¥${FormatUtils.formatNumber(order_amount * pay_number / 100f)}"
+//            tv_freight_price.text = "¥${FormatUtils.formatNumber(courier_amount / 100f)}"
+//            tv_coupon_price.text = "¥${FormatUtils.formatNumber(coupons_amount / 100f)}"
+//            tv_pay_price.text = "¥${FormatUtils.formatNumber(pay_amount / 100f)}"
+//
+//            tv_order_num.text = order_number
+//            tv_order_time.text = TimeUtils.millis2String(order_time!!.toLong())
+//            tv_pay_time.text = TimeUtils.millis2String(order_time!!.toLong())
         }
     }
 

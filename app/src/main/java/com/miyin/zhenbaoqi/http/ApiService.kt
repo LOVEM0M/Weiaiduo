@@ -870,28 +870,33 @@ interface ApiService {
     fun orderCancel(@Body requestBody: RequestBody): Single<OrderCancelBean>
 
     /* 订单物流查看 */
-    @POST("/api/v1/user/order/courier")
-    fun orderLogistics(@Body requestBody: RequestBody): Single<OrderLogisticsBean>
+    @FormUrlEncoded
+    @POST("/shopapi/order/ordercourier")
+    fun orderLogistics(@FieldMap  map: Map<String, Any>): Single<ResponseBean>
 
     /* 订单详情 */
-    @POST("/api/v1/user/order/detail")
-    fun orderDetail(@Body requestBody: RequestBody): Single<OrderDetailBean>
+    @FormUrlEncoded
+    @POST("/shopapi/order/orderdetail")
+    fun orderDetail(@FieldMap  map: Map<String, Any>): Single<OrderDetailBean>
 
     /* 用户评价 */
-    @POST("/api/v1/user/order/evaluation")
-    fun orderEval(@Body requestBody: RequestBody): Single<OrderEvalBean>
+    @FormUrlEncoded
+    @POST("/shopapi/order/orderevaluation")
+    fun orderEval(@FieldMap  map: Map<String, Any>): Single<OrderEvalBean>
 
     /* 普通商品下单 */
     @POST("/api/v1/user/order/insert")
     fun orderPay(@Body requestBody: RequestBody): Single<PayResultBean>
 
     /* 订单列表 */
-    @POST("/api/v1/user/order/list")
-    fun orderList(@Body requestBody: RequestBody): Single<OrderBean>
+    @FormUrlEncoded
+    @POST("/shopapi/order/orderlist")
+    fun orderList(@FieldMap  map: Map<String, Any>): Single<OrderBean>
 
     /* 确认收货 */
-    @POST("/api/v1/user/order/receiving")
-    fun orderConfirmReceive(@Body requestBody: RequestBody): Single<OrderConfirmReceiveBean>
+    @FormUrlEncoded
+    @POST("/shopapi/order/orderreceiving")
+    fun orderConfirmReceive(@FieldMap  map: Map<String, Any>): Single<ResponseBean>
 
     /* 用户搜索订单列表 */
     @POST("/api/v1/user/order/searchlist")

@@ -27,7 +27,8 @@ import org.greenrobot.eventbus.ThreadMode
 class OrderFragment : BaseListFragment<OrderContract.IView, OrderContract.IPresenter>(), OrderContract.IView {
 
     private var mState = -1
-    private var mList = mutableListOf<OrderBean.ListBean>()
+    private var mList = mutableListOf<OrderBean.DataBeanX.DataBean.ListBean>()
+    private var mList1 = mutableListOf<OrderBean.DataBeanX.DataBean>()//
     private lateinit var mAdapter: OrderAdapter
     private var mSearchVal: String? = null
 
@@ -55,15 +56,16 @@ class OrderFragment : BaseListFragment<OrderContract.IView, OrderContract.IPrese
         }
 
         recycler_view.run {
-            mAdapter = OrderAdapter(mList)
-            adapter = mAdapter
-            layoutManager = LinearLayoutManager(context)
-            mAdapter.setOnItemClickListener { _, _, position ->
-                val bean = mList[position]
-                startActivityForResult<OrderDetailActivity>(Constant.INTENT_REQUEST_CODE, "state" to bean.state,
-                        "order_number" to bean.order_number, "remark" to bean.remark)
-            }
-            mAdapter.onItemChildClickListener = mOnItemChildClickListener
+                mAdapter = OrderAdapter(mList)
+                adapter = mAdapter
+                layoutManager = LinearLayoutManager(context)
+                mAdapter.setOnItemClickListener { _, _, position ->
+                    val bean = mList[position]
+                    startActivityForResult<OrderDetailActivity>(Constant.INTENT_REQUEST_CODE, "state" to bean.state,
+                            "order_number" to bean.orderNumber)//,"remark" to mList1[i].remark
+                }
+                mAdapter.onItemChildClickListener = mOnItemChildClickListener
+
         }
         refreshAndLoadMore(smart_refresh_layout) {
             if (mState != -1) {
@@ -85,8 +87,8 @@ class OrderFragment : BaseListFragment<OrderContract.IView, OrderContract.IPrese
         when (view?.id) {
             R.id.tv_left_title -> {
                 when (bean.state) {
-                    3 -> startActivity<OrderDetailActivity>("state" to bean.state, "order_number" to bean.order_number, "remark" to bean.remark)
-                    4 -> startActivity<LogisticsActivity>("order_number" to bean.order_number)
+                    3 -> startActivity<OrderDetailActivity>("state" to bean.state, "order_number" to bean.orderNumber)//, "remark" to bean.remark
+                    4 -> startActivity<LogisticsActivity>("order_number" to bean.orderNumber)
                 }
             }
             R.id.tv_middle_title -> {
@@ -94,19 +96,19 @@ class OrderFragment : BaseListFragment<OrderContract.IView, OrderContract.IPrese
                     2 -> {
                         // mPresenter?.orderCancel(bean.order_number!!)
                     }
-                    3 -> {
-                        startActivity<LogisticsActivity>("order_number" to bean.order_number)
+                    3 -> {//调用物流
+                        startActivity<LogisticsActivity>("order_number" to  bean.orderNumber)
                     }
                     4 -> {
-                        startActivity<OrderDetailActivity>("order_number" to bean.order_number, "state" to bean.state, "remark" to bean.remark)
+                        startActivity<OrderDetailActivity>("order_number" to  bean.orderNumber, "state" to bean.state)//, "remark" to bean.remark
                     }
-                    5 -> mPresenter?.deleteOrder(bean.order_number ?: "")
+                    5 -> mPresenter?.deleteOrder( bean.orderNumber ?: "")
                 }
             }
             R.id.tv_right_title -> {
                 when (bean.state) {
                     1 -> {
-                        startActivity<OrderDetailActivity>("state" to bean.state, "order_number" to bean.order_number, "remark" to bean.remark)
+                        startActivity<OrderDetailActivity>("state" to bean.state, "order_number" to bean.orderNumber)//, "remark" to bean.remark
                     }
                     2 -> {
                         AlertDialog.Builder(activity)
@@ -116,19 +118,19 @@ class OrderFragment : BaseListFragment<OrderContract.IView, OrderContract.IPrese
                                 .show()
                     }
                     3 -> {
-                        mPresenter?.confirmReceive(bean.order_number ?: "")
+                        mPresenter?.confirmReceive( bean.orderNumber?: "")
                     }
                     4 -> {
-                        startActivity<GoodsEvalActivity>("order_number" to bean.order_number)
+                        startActivity<GoodsEvalActivity>("order_number" to  bean.orderNumber)
                     }
                     5 -> {
-                        startActivity<GoodsDetailActivity>("goods_id" to bean.goods_id)
+                        startActivity<GoodsDetailActivity>("goods_id" to bean.goodsId)
                         activity?.finish()
                     }
                     6, 7, 8 -> {
-                        startActivity<AfterSaleStateActivity>("order_number" to bean.order_number)
+                        startActivity<AfterSaleStateActivity>("order_number" to  bean.orderNumber)
                     }
-                    9 -> mPresenter?.deleteOrder(bean.order_number ?: "")
+                    9 -> mPresenter?.deleteOrder( bean.orderNumber ?: "")
                 }
             }
         }
@@ -159,13 +161,17 @@ class OrderFragment : BaseListFragment<OrderContract.IView, OrderContract.IPrese
         mPresenter?.searchOrder(1, 50, content)
     }
 
-    override fun getOrderListSuccess(bean: OrderBean) {
+    override fun getOrderListSuccess(bean: OrderBean) {//
         with(bean) {
+            mList1= data!!.data!!.toMutableList()
+            for(i in 0 until mList1.size){
             if (current_page == 1) {
-                mList = list!!.toMutableList()
-                mAdapter.setNewData(mList)
-            } else {
-                mAdapter.addData(list!!)
+                    mList = mList1[i].list!!.toMutableList()
+                    mAdapter.setNewData(mList)
+                }
+            else {
+                mAdapter.addData( mList1[i].list!!.toMutableList() )
+             }
             }
             val hasMore = current_page != pages
             smart_refresh_layout.setEnableLoadMore(hasMore)
@@ -192,11 +198,15 @@ class OrderFragment : BaseListFragment<OrderContract.IView, OrderContract.IPrese
 
     override fun searchOrderSuccess(bean: OrderBean) {
         with(bean) {
-            if (current_page == 1) {
-                mList = list!!.toMutableList()
-                mAdapter.setNewData(mList)
-            } else {
-                mAdapter.addData(list!!)
+            mList1= data!!.data!!.toMutableList()
+            for(i in 0 until mList1.size){
+                if (current_page == 1) {
+                    mList = mList1[i].list!!.toMutableList()
+                    mAdapter.setNewData(mList)
+                }
+                else {
+                    mAdapter.addData( mList1[i].list!!.toMutableList() )
+                }
             }
         }
     }

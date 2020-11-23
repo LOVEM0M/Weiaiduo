@@ -41,10 +41,10 @@ class ShopOrderAdapter(list: List<MerchantOrderBean.ListBean>) : BaseAdapter<Mer
                     .setText(R.id.tv_count, "x$pay_number")
                     .setText(R.id.tv_price, SpanUtils()
                             .append("¥")
-                            .append(FormatUtils.formatNumber(order_amount / 100f)).setFontSize(15, true)
+                            .append(FormatUtils.formatNumber(order_amount  )).setFontSize(15, true)
                             .create())
                     .setText(R.id.tv_date_time, order_time)
-                    .setText(R.id.tv_total, "共${pay_number}件商品\u3000合计: ¥${FormatUtils.formatNumber(pay_amount / 100f)}(含运费 ¥${FormatUtils.formatNumber(courier_amount / 100f)})")
+                    .setText(R.id.tv_total, "共${pay_number}件商品\u3000合计: ¥${FormatUtils.formatNumber(pay_amount  )}(含运费 ¥${FormatUtils.formatNumber(courier_amount  )})")
         }
     }
 

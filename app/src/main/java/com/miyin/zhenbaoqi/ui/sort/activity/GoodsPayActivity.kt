@@ -279,7 +279,7 @@ class GoodsPayActivity : BasePayActivity<GoodsPayContract.IView, GoodsPayContrac
             mCouponPrice = obj.coupons_amount.toInt()
             tv_coupon.text = SpanUtils()
                     .append(obj.coupons_name ?: "")
-                    .append("  -" + FormatUtils.formatNumber(mCouponPrice / 100f) + " 元")
+                    .append("  -" + FormatUtils.formatNumber(mCouponPrice  ) + " 元")
                     .setForegroundColor(ContextCompat.getColor(this, R.color.theme_dark_purple))
                     .create()
 

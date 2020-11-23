@@ -39,7 +39,7 @@ class MerchantWithdrawActivity : BaseMvpActivity<MerchantWithdrawContact.IView, 
         initTitleBar(mTitle ?: "")
         immersionBar { statusBarDarkFont(true, 0.2f) }
 
-        tv_price.text = "¥${FormatUtils.formatNumber(mWithdrawPrice / 100f)}"
+        tv_price.text = "¥${FormatUtils.formatNumber(mWithdrawPrice  )}"
 
         et_price.addTextChangedListener(object : EditWatcher() {
             override fun afterTextChanged(editable: Editable?) {

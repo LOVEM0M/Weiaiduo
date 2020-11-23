@@ -23,7 +23,7 @@ class GoodsSearchAdapter(list: List<GoodsSearchBean.ListBean>) : BaseAdapter<Goo
             val transform = RoundCornersTransform(mContext.getDimension(R.dimen.dp_5), RoundCornersTransform.CornerType.TOP)
             holder.transform(R.id.iv_cover, url, transform)
                     .setText(R.id.tv_title, goods_name)
-                    .setText(R.id.tv_price, "¥${FormatUtils.formatNumber(goods_amount / 100f)}")
+                    .setText(R.id.tv_price, "¥${FormatUtils.formatNumber(goods_amount  )}")
         }
     }
 

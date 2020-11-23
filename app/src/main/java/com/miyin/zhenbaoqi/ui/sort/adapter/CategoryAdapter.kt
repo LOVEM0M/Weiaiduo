@@ -46,7 +46,7 @@ class CategoryAdapter(list: List<SearchGoodsBean.ListBean>) : BaseAdapter<Search
                     .setVisible(R.id.iv_video, !goods_video.isNullOrEmpty())
                     .setText(R.id.tv_price, SpanUtils()
                             .append("¥ ")
-                            .append(FormatUtils.formatNumber(goods_amount / 100f)).setFontSize(17, true)
+                            .append(FormatUtils.formatNumber(goods_amount  )).setFontSize(17, true)
                             .create())
                     .setText(R.id.tv_profit, when (goods_type) {
                         1 -> "赚 ¥${FormatUtils.formatNumber(goods_amount / 100.0 / 100 * 9.5)}"

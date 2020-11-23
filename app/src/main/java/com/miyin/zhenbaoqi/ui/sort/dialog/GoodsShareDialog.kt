@@ -61,7 +61,7 @@ class GoodsShareDialog : BaseDialogFragment() {
             iv_cover.loadImg(goods_Img)
             tv_price.text = SpanUtils()
                     .append("当前价 ¥")
-                    .append(FormatUtils.formatNumber(goodsAmount / 100f)).setFontSize(21, true)
+                    .append(FormatUtils.formatNumber(goodsAmount  )).setFontSize(21, true)
                     .create()
             tv_goods_name.text = goodsName
 

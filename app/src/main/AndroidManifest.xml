@@ -62,6 +62,7 @@
         <activity android:name=".ui.home.activity.NewProWeekActivity" />
         <activity android:name=".ui.home.activity.NewVipActivity" />
         <activity android:name=".ui.home.activity.FriutActivity" />
+        <activity android:name=".ui.recomment.activity.SeedingDetailActivity" />
         <activity android:name=".ui.sort.activity.SortActivity" />
         <activity android:name=".ui.message.activity.NewsActivity" />
         <activity

@@ -125,7 +125,7 @@ class OperateGoodsFragment : BaseMvpFragment<OperateGoodsContract.IView, Operate
 
                     mList.add(mGoodsImg!!)
                     et_name.setText(mGoodsName)
-                    et_price.setText(FormatUtils.formatNumber(mGoodsAmount / 100f))
+                    et_price.setText(FormatUtils.formatNumber(mGoodsAmount  ))
                     rb_seven.isChecked = mIsSeven == 0
                     rb_free_shipping.isChecked = mGoodsFright == 0
                     sb_limit_buy.isChecked = mIsRestriction == 0

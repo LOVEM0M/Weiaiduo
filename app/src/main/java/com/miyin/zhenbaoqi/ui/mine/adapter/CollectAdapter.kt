@@ -36,7 +36,7 @@ class CollectAdapter(list: List<CollectBean.CollectListBean>) : BaseAdapter<Coll
                     .setText(R.id.tv_title, goods_name)
                     .setText(R.id.tv_price, SpanUtils()
                             .append("¥ ")
-                            .append(FormatUtils.formatNumber(goods_amount / 100f)).setFontSize(17, true)
+                            .append(FormatUtils.formatNumber(goods_amount  )).setFontSize(17, true)
                             .create())
         }
     }

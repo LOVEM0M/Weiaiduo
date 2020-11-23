@@ -13,7 +13,7 @@ class IncomeDetailAdapter(list: List<MerchantPayList.ListBean>) : BaseAdapter<Me
     override fun convert(holder: BaseViewHolder, data: MerchantPayList.ListBean) {
         with(data) {
             holder.setText(R.id.tv_title, change_name)
-                    .setText(R.id.tv_price, (if (asset_type == 1) "+" else "-") + (if (change_amount == 0) "0.00" else FormatUtils.formatNumber(change_amount / 100f)))
+                    .setText(R.id.tv_price, (if (asset_type == 1) "+" else "-") + (if (change_amount == 0) "0.00" else FormatUtils.formatNumber(change_amount  )))
                     .setText(R.id.tv_date_time, create_time)
                     .setText(R.id.tv_state, when (type) {
                         1 -> "等待入账"

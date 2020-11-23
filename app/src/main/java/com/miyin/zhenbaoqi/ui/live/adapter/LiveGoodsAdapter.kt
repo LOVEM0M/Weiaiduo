@@ -24,7 +24,7 @@ class LiveGoodsAdapter(list: List<LiveGoodsBean.LiveGoodsDataBean>, private val 
             }
             holder.transform(R.id.iv_cover, goodsImg, transform)
                     .setText(R.id.tv_title, goods_name)
-                    .setText(R.id.tv_shop_price, "¥${FormatUtils.formatNumber(goods_amount / 100f)}")
+                    .setText(R.id.tv_shop_price, "¥${FormatUtils.formatNumber(goods_amount  )}")
                     .addOnClickListener(R.id.iv_cover)
                     .addOnClickListener(R.id.tv_delete)
             if (title == "编辑中的宝贝") {
@@ -44,8 +44,8 @@ class LiveGoodsAdapter(list: List<LiveGoodsBean.LiveGoodsDataBean>, private val 
                     holder.setVisible(R.id.tv_add_price, true)
                             .setVisible(R.id.tv_price_add, true)
                             .setVisible(R.id.tv_delete, false)
-                            .setText(R.id.tv_price_add, "参考价：¥${FormatUtils.formatNumber(goods_original_amount / 100f)}\u3000加¥${FormatUtils.formatNumber(add_amount / 100f)}")
-                            .setText(R.id.tv_add_price, "点击加价 ${FormatUtils.formatNumber(add_amount / 100f)}")
+                            .setText(R.id.tv_price_add, "参考价：¥${FormatUtils.formatNumber(goods_original_amount  )}\u3000加¥${FormatUtils.formatNumber(add_amount  )}")
+                            .setText(R.id.tv_add_price, "点击加价 ${FormatUtils.formatNumber(add_amount  )}")
                             .setText(R.id.tv_operate, "加一手")
                             .addOnClickListener(R.id.tv_operate)
                 }
@@ -61,7 +61,7 @@ class LiveGoodsAdapter(list: List<LiveGoodsBean.LiveGoodsDataBean>, private val 
                                     .setText(R.id.tv_operate, "下架")
                                     .addOnClickListener(R.id.tv_operate)
                             if (goods_type == 3) {
-                                holder.setText(R.id.tv_price_add, "参考价：¥${FormatUtils.formatNumber(goods_original_amount / 100f)}\u3000加¥${FormatUtils.formatNumber(add_amount / 100f)}")
+                                holder.setText(R.id.tv_price_add, "参考价：¥${FormatUtils.formatNumber(goods_original_amount  )}\u3000加¥${FormatUtils.formatNumber(add_amount  )}")
                                         .setVisible(R.id.tv_delete, false)
                             } else {
                                 holder.setText(R.id.tv_price_add, "库存：${inventory} 件")
@@ -76,7 +76,7 @@ class LiveGoodsAdapter(list: List<LiveGoodsBean.LiveGoodsDataBean>, private val 
                                     .setText(R.id.tv_operate, "上架")
                                     .addOnClickListener(R.id.tv_operate)
                             if (goods_type == 3) {
-                                holder.setText(R.id.tv_price_add, "参考价：¥${FormatUtils.formatNumber(goods_original_amount / 100f)}\u3000加¥${FormatUtils.formatNumber(add_amount / 100f)}")
+                                holder.setText(R.id.tv_price_add, "参考价：¥${FormatUtils.formatNumber(goods_original_amount  )}\u3000加¥${FormatUtils.formatNumber(add_amount  )}")
                             } else {
                                 holder.setText(R.id.tv_price_add, "库存：${inventory} 件")
                             }
@@ -87,7 +87,7 @@ class LiveGoodsAdapter(list: List<LiveGoodsBean.LiveGoodsDataBean>, private val 
                                     .setVisible(R.id.tv_delete, false)
                                     .setVisible(R.id.tv_operate, false)
                             if (goods_type == 3) {
-                                holder.setText(R.id.tv_price_add, "参考价：¥${FormatUtils.formatNumber(goods_original_amount / 100f)}\u3000加¥${FormatUtils.formatNumber(add_amount / 100f)}")
+                                holder.setText(R.id.tv_price_add, "参考价：¥${FormatUtils.formatNumber(goods_original_amount  )}\u3000加¥${FormatUtils.formatNumber(add_amount / 100f)}")
                             } else {
                                 holder.setText(R.id.tv_price_add, "库存：${inventory} 件")
                             }

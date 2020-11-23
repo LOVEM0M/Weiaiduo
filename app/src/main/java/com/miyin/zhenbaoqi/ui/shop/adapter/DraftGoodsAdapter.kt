@@ -25,7 +25,7 @@ class DraftGoodsAdapter(list: List<AuctionGoodsDraftEntity>) : BaseAdapter<Aucti
             }
             holder.loadImg(R.id.iv_cover, goodsImg)
                     .setText(R.id.tv_title, goodsName)
-                    .setText(R.id.tv_price, "¥${FormatUtils.formatNumber(initPrice / 100f)}")
+                    .setText(R.id.tv_price, "¥${FormatUtils.formatNumber(initPrice  )}")
                     .setGone(R.id.tv_top, false)
                     .setVisible(R.id.tv_delete, true)
                     .setVisible(R.id.tv_edit, true)

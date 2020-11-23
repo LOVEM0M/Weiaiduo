@@ -17,9 +17,9 @@ class CouponAdapter(list: List<CouponBean.ListBean>, private val state: Int) : B
         with(data) {
             holder.setText(R.id.tv_price, SpanUtils()
                     .append("¥ ").setFontSize(15, true)
-                    .append(FormatUtils.formatNumber(coupons_amount / 100f)).setFontSize(26, true).setBold()
+                    .append(FormatUtils.formatNumber(coupons_amount  )).setFontSize(26, true).setBold()
                     .appendLine()
-                    .append("满${FormatUtils.formatNumber(order_min_amount / 100f)}元可用").setFontSize(11, true)
+                    .append("满${FormatUtils.formatNumber(order_min_amount  )}元可用").setFontSize(11, true)
                     .create())
                     .setText(R.id.tv_time, "过期时间：$use_end_date")
                     .setText(R.id.tv_desc, SpanUtils()
@@ -48,9 +48,9 @@ class CouponAdapter(list: List<CouponBean.ListBean>, private val state: Int) : B
                             .setTextColor(R.id.tv_desc, ContextCompat.getColor(mContext, R.color.text_66))
                             .setText(R.id.tv_price, SpanUtils()
                                     .append("¥ ").setFontSize(15, true).setForegroundColor(Color.parseColor("#FF3131"))
-                                    .append(FormatUtils.formatNumber(coupons_amount / 100f)).setFontSize(26, true).setBold().setForegroundColor(Color.parseColor("#FF3131"))
+                                    .append(FormatUtils.formatNumber(coupons_amount  )).setFontSize(26, true).setBold().setForegroundColor(Color.parseColor("#FF3131"))
                                     .appendLine()
-                                    .append("满${FormatUtils.formatNumber(order_min_amount / 100f)}元可用").setFontSize(11, true).setForegroundColor(ContextCompat.getColor(mContext, R.color.text_66))
+                                    .append("满${FormatUtils.formatNumber(order_min_amount  )}元可用").setFontSize(11, true).setForegroundColor(ContextCompat.getColor(mContext, R.color.text_66))
                                     .create())
                 }
             }

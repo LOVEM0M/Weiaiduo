@@ -16,9 +16,9 @@ class WalletAdapter(list: List<BillBean.BillListBean>) : BaseAdapter<BillBean.Bi
         with(data) {
             holder.loadImg(R.id.iv_cover, head_img)
                     .setText(R.id.tv_name, nick_name)
-//                    .setText(R.id.tv_desc, "$change_name ${FormatUtils.formatNumber(change_amount / 100f)}")
+//                    .setText(R.id.tv_desc, "$change_name ${FormatUtils.formatNumber(change_amount  )}")
                     .setText(R.id.tv_time, TimeUtils.millis2String(asset_time!!.toLong(), "MM-dd HH:mm"))
-                    .setText(R.id.tv_price, "${if (asset_type == 1) "+" else "-"}${FormatUtils.formatNumber(change_amount / 100f)}")
+                    .setText(R.id.tv_price, "${if (asset_type == 1) "+" else "-"}${FormatUtils.formatNumber(change_amount  )}")
 
             when (state) {
                 0 -> {

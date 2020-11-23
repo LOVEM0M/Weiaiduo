@@ -72,9 +72,9 @@ class IncomeDetailActivity : BaseMvpActivity<TotalIncomeContract.IView, TotalInc
     override fun getTotalIncomeSuccess(bean: MerchantTotalIncomeBean) {
         bean.data?.run {
             mWithdrawPrice = withdrawAmount
-            tv_income.text = FormatUtils.formatNumber(totalAmount / 100f)
-            tv_wait_income.text = FormatUtils.formatNumber(waitAmount / 100f)
-            tv_withdraw_price.text = FormatUtils.formatNumber(withdrawAmount / 100f)
+            tv_income.text = FormatUtils.formatNumber(totalAmount  )
+            tv_wait_income.text = FormatUtils.formatNumber(waitAmount  )
+            tv_withdraw_price.text = FormatUtils.formatNumber(withdrawAmount  )
         }
     }
 

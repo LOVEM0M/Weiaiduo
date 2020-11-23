@@ -14,6 +14,7 @@ import com.miyin.zhenbaoqi.constant.Constant
 import com.miyin.zhenbaoqi.ext.startActivityForResult
 import com.miyin.zhenbaoqi.ui.recomment.adapter.SeedingAdapter
 import com.miyin.zhenbaoqi.bean.SeedingBean
+import com.miyin.zhenbaoqi.ui.recomment.activity.SeedingDetailActivity
 import com.miyin.zhenbaoqi.ui.recomment.contract.SeedingContract
 import com.miyin.zhenbaoqi.ui.recomment.presenter.SeedingPresenter
 import com.miyin.zhenbaoqi.ui.sort.activity.GoodsDetailActivity
@@ -46,7 +47,7 @@ class SeedingFragment : BaseListFragment<SeedingContract.IView, SeedingContract.
             adapter = mAdapter
             layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
             mAdapter?.setOnItemClickListener { _, _, position ->
-                startActivityForResult<GoodsDetailActivity>(Constant.INTENT_REQUEST_CODE, "goodsId" to mList[position].goodsId)
+                startActivityForResult<SeedingDetailActivity>(Constant.INTENT_REQUEST_CODE, "goodsId" to mList[position].goodsId)
             }
         }
     }

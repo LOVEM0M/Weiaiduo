@@ -1,5 +1,6 @@
 package com.miyin.zhenbaoqi.ui.mine.presenter
 
+import androidx.collection.ArrayMap
 import com.miyin.zhenbaoqi.base.mvp.BasePresenter
 import com.miyin.zhenbaoqi.bean.OrderBean
 import com.miyin.zhenbaoqi.bean.OrderCancelBean
@@ -12,18 +13,20 @@ import com.miyin.zhenbaoqi.utils.JSONUtils
 
 class OrderPresenter : BasePresenter<OrderContract.IView>(), OrderContract.IPresenter {
 
-    override fun getOrderList(currentPage: Int, pageSize: Int, state: Int) {
-        val keyArray = arrayOf("current_page", "page_size", "state")
-        val valueArray = arrayOf<Any>(currentPage, pageSize, state)
-        val requestBody = JSONUtils.createJSON(keyArray, valueArray)
-        request(RetrofitUtils.mApiService.orderList(requestBody), object : BaseSingleObserver<OrderBean>() {
+    override fun getOrderList(page: Int, rows: Int, state: Int) {
+        val map = ArrayMap<String, Any>().apply {
+            put("page", page)
+            put("rows", rows)
+            put("state", state)
+        }
+        request(RetrofitUtils.mApiService.orderList(map), object : BaseSingleObserver<OrderBean>() {
             override fun doOnSuccess(data: OrderBean) {
                 getView()?.showNormal()
                 getView()?.getOrderListSuccess(data)
             }
 
             override fun doOnFailure(data: OrderBean) {
-                if (currentPage == 1) {
+                if ( data.data?.total== 1) {
                     getView()?.showEmpty()
                 } else {
                     getView()?.showToast(data.msg)
@@ -32,17 +35,17 @@ class OrderPresenter : BasePresenter<OrderContract.IView>(), OrderContract.IPres
 
             override fun onError(e: Throwable) {
                 super.onError(e)
-                if (currentPage == 1) {
                     getView()?.showError()
-                }
             }
         })
     }
 
     override fun confirmReceive(orderNumber: String) {
-        val requestBody = JSONUtils.createJSON(arrayOf("order_number"), arrayOf(orderNumber))
-        request(RetrofitUtils.mApiService.orderConfirmReceive(requestBody), object : BaseSingleObserver<OrderConfirmReceiveBean>() {
-            override fun doOnSuccess(data: OrderConfirmReceiveBean) {
+        val map = ArrayMap<String, Any>().apply {
+            put("orderNumber", orderNumber)
+        }
+        request(RetrofitUtils.mApiService.orderConfirmReceive(map), object : BaseSingleObserver<ResponseBean>() {
+            override fun doOnSuccess(data: ResponseBean) {
                 getView()?.confirmReceiveSuccess()
             }
         })

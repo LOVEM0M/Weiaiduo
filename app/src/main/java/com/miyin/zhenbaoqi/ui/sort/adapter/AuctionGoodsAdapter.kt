@@ -36,7 +36,7 @@ class AuctionGoodsAdapter(list: List<AuctionGoodsBean.ListBean>) : BaseAdapter<A
                     .setText(R.id.tv_title, goods_name)
                     .setText(R.id.tv_price, SpanUtils()
                             .append("当前  ¥")
-                            .append(FormatUtils.formatNumber(auction_bid_amount / 100f)).setFontSize(17, true)
+                            .append(FormatUtils.formatNumber(auction_bid_amount  )).setFontSize(17, true)
                             .create())
                     .setText(R.id.tv_count, SpanUtils()
                             .append("已出价 ")

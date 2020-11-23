@@ -82,8 +82,8 @@ class SetReleaseActivity : BaseMvpActivity<SetReleaseContract.IView, SetReleaseC
 
         mBean?.data?.run {
             mGoodsId = goodsId
-            mOriginalPrice = FormatUtils.formatNumber(goodsOriginalAmount / 100f)
-            mPrice = FormatUtils.formatNumber(goodsAmount / 100f)
+            mOriginalPrice = FormatUtils.formatNumber(goodsOriginalAmount  )
+            mPrice = FormatUtils.formatNumber(goodsAmount  )
             mGoodsFreight = goodsFreight
             mIsSeven = isSeven
 

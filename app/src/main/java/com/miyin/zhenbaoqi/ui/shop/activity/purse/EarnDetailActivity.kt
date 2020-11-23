@@ -49,10 +49,10 @@ class EarnDetailActivity : BaseMvpActivity<EarnDetailContract.IView, EarnDetailC
     override fun getEarnDetailSuccess(bean: MerchantEarnDetail) {
         bean.data?.run {
             if (asset_type == 1) {
-                tv_price.text = "+" + FormatUtils.formatNumber(change_amount / 100f)
+                tv_price.text = "+" + FormatUtils.formatNumber(change_amount  )
                 tv_desc.text = "收入金额（元）"
             } else {
-                tv_price.text = "-" + FormatUtils.formatNumber(change_amount / 100f)
+                tv_price.text = "-" + FormatUtils.formatNumber(change_amount  )
                 tv_desc.text = "支出金额（元）"
             }
             tv_transaction_type.text = change_name

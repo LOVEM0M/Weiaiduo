@@ -1,5 +1,6 @@
 package com.miyin.zhenbaoqi.ui.mine.presenter
 
+import androidx.collection.ArrayMap
 import com.miyin.zhenbaoqi.base.mvp.BasePresenter
 import com.miyin.zhenbaoqi.bean.OrderEvalBean
 import com.miyin.zhenbaoqi.bean.OrderEvalListBean
@@ -19,16 +20,17 @@ class GoodsEvalPresenter : BasePresenter<GoodsEvalContract.IView>(), GoodsEvalCo
         })
     }
 
-    override fun commitGoodsEval(evaluationContent: String?, gradeIds: String?, orderNumber: String) {
-        if (evaluationContent.isNullOrEmpty() or gradeIds.isNullOrEmpty()) {
+    override fun commitGoodsEval(evaluationContent: String?, evaluationImg: String?, orderNumber: String) {
+        if (evaluationContent.isNullOrEmpty() or evaluationImg.isNullOrEmpty()) {
             getView()?.showToast("请对该商品进行评价")
             return
         }
-
-        val keyArray = arrayOf("comment_names", "grade_ids", "order_number")
-        val valueArray = arrayOf<Any>(evaluationContent!!, gradeIds!!, orderNumber)
-        val requestBody = JSONUtils.createJSON(keyArray, valueArray)
-        request(RetrofitUtils.mApiService.orderEval(requestBody), object : BaseSingleObserver<OrderEvalBean>() {
+        val map = ArrayMap<String, Any>().apply {
+            put("evaluationContent", evaluationContent)
+            put("evaluationImg", evaluationImg)
+            put("orderNumber", orderNumber)
+        }
+        request(RetrofitUtils.mApiService.orderEval(map), object : BaseSingleObserver<OrderEvalBean>() {//暂无返回数据，没有修改实体类
             override fun doOnSuccess(data: OrderEvalBean) {
                 getView()?.showToast(data.msg)
                 getView()?.commitGoodsEvalSuccess(data)

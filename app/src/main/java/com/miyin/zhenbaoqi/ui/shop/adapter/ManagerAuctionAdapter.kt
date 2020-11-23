@@ -20,7 +20,7 @@ class ManagerAuctionAdapter(list: List<MerchantGoodsBean.ListBean>, private val 
             }
             holder.loadImg(R.id.iv_cover, goodsImg)
                     .setText(R.id.tv_title, goods_name)
-                    .setText(R.id.tv_price, "¥${FormatUtils.formatNumber(goods_amount / 100f)}")
+                    .setText(R.id.tv_price, "¥${FormatUtils.formatNumber(goods_amount  )}")
                     .setGone(R.id.tv_top, state == 1)
                     .setGone(R.id.tv_delete, state == 3 || state == 2)
                     .setGone(R.id.tv_edit, false)

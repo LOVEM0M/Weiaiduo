@@ -48,7 +48,7 @@ class SelectAfterSaleTypeActivity : BaseActivity() {
 
         iv_cover.loadImg(mGoodsImg)
         tv_goods_name.text = mGoodsName
-        tv_goods_price.text = "¥${FormatUtils.formatNumber(mGoodsPrice / 100f)}"
+        tv_goods_price.text = "¥${FormatUtils.formatNumber(mGoodsPrice  )}"
         tv_goods_desc.text = mGoodsDesc
         tv_label_first.text = if (mIsSeven == 0) "支持7天无理由退货" else "不支持7天无理由退货"
         tv_label_second.text = if (mGoodsFreight == 0) "包邮" else "邮费5元"

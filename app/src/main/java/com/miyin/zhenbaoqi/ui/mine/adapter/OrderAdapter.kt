@@ -12,21 +12,21 @@ import com.miyin.zhenbaoqi.utils.FormatUtils
 import com.miyin.zhenbaoqi.utils.RoundCornersTransform
 import com.noober.background.drawable.DrawableCreator
 
-class OrderAdapter(list: List<OrderBean.ListBean>) : BaseAdapter<OrderBean.ListBean>(list) {
+class OrderAdapter(list: List<OrderBean.DataBeanX.DataBean.ListBean>) : BaseAdapter<OrderBean.DataBeanX.DataBean.ListBean>(list) {
 
     override fun getContentView() = R.layout.item_order
 
-    override fun convert(holder: BaseViewHolder, data: OrderBean.ListBean) {
+    override fun convert(holder: BaseViewHolder, data: OrderBean.DataBeanX.DataBean.ListBean) {
         val transform = RoundCornersTransform(mContext.getDimension(R.dimen.dp_6), RoundCornersTransform.CornerType.ALL)
-
+          var mPosition = holder.adapterPosition
         with(data) {
-            holder.setText(R.id.tv_time, order_time)
-                    .transform(R.id.iv_cover, if (goods_img!!.contains(",")) goods_img!!.split(",")[0] else goods_img, transform)
-                    .setText(R.id.tv_title, goods_name)
+            holder.setText(R.id.tv_time, orderTime)
+                    .transform(R.id.iv_cover, if ( goodsImg!!.contains(","))  goodsImg!!.split(",")[0] else  goodsImg, transform)
+                    .setText(R.id.tv_title, goodsName)
                     .setText(R.id.tv_desc, "容量:230ml")
-                    .setText(R.id.tv_count, "x$pay_number")
-                    .setText(R.id.tv_price, "¥${FormatUtils.formatNumber(order_amount / 100f)}")
-                    .setText(R.id.tv_total_price, "共${pay_number}件商品 合计：¥${FormatUtils.formatNumber(pay_amount / 100f)}(含运费 ¥${FormatUtils.formatNumber(courier_amount / 100f)})")
+                    .setText(R.id.tv_count, "x"+payNumber)
+                    .setText(R.id.tv_price, "¥${FormatUtils.formatNumber(orderAmount )}")
+                    .setText(R.id.tv_total_price, "共${payNumber}件商品 合计：¥${FormatUtils.formatNumber(payAmount  )}(含运费 ¥${FormatUtils.formatNumber(courierAmount  )})")
                     .addOnClickListener(R.id.tv_left_title)
                     .addOnClickListener(R.id.tv_middle_title)
                     .addOnClickListener(R.id.tv_right_title)
@@ -38,8 +38,8 @@ class OrderAdapter(list: List<OrderBean.ListBean>) : BaseAdapter<OrderBean.ListB
                             .setVisible(R.id.tv_middle_title, false)
                             .setVisible(R.id.tv_right_title, true)
                             .setText(R.id.tv_right_title, "立即支付")
-                            .setTextColor(R.id.tv_right_title, ContextCompat.getColor(mContext, R.color.theme_dark_purple))
-                            .setBackground(R.id.tv_right_title, getStrokeSelect())
+//                            .setTextColor(R.id.tv_right_title, ContextCompat.getColor(mContext, R.color.theme_dark_purple))
+//                            .setBackground(R.id.tv_right_title, getStrokeSelect())
                 }
                 2 -> { // 待发货
                     holder.setText(R.id.tv_status, "待发货")
@@ -55,8 +55,8 @@ class OrderAdapter(list: List<OrderBean.ListBean>) : BaseAdapter<OrderBean.ListB
                             .setText(R.id.tv_middle_title, "查看物流")
                             .setVisible(R.id.tv_right_title, true)
                             .setText(R.id.tv_right_title, "确认收货")
-                            .setTextColor(R.id.tv_right_title, ContextCompat.getColor(mContext, R.color.theme_dark_purple))
-                            .setBackground(R.id.tv_right_title, getSolidSelect())
+//                            .setTextColor(R.id.tv_right_title, ContextCompat.getColor(mContext, R.color.theme_dark_purple))
+//                            .setBackground(R.id.tv_right_title, getSolidSelect())
                 }
                 4 -> { // 已签收
                     holder.setText(R.id.tv_status, "待评价")
@@ -66,8 +66,8 @@ class OrderAdapter(list: List<OrderBean.ListBean>) : BaseAdapter<OrderBean.ListB
                             .setText(R.id.tv_middle_title, "申请售后")
                             .setVisible(R.id.tv_right_title, true)
                             .setText(R.id.tv_right_title, "评价")
-                            .setTextColor(R.id.tv_right_title, ContextCompat.getColor(mContext, R.color.theme_dark_purple))
-                            .setBackground(R.id.tv_right_title, getSolidSelect())
+//                            .setTextColor(R.id.tv_right_title, ContextCompat.getColor(mContext, R.color.theme_dark_purple))
+//                            .setBackground(R.id.tv_right_title, getSolidSelect())
                 }
                 5 -> { // 已评价
                     holder.setText(R.id.tv_status, "交易成功")

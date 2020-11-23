@@ -45,7 +45,7 @@ class MerchantAuthActivity : BaseMvpActivity<MerchantMessageContract.IView, Merc
             iv_cover.transform(head_img, transform)
             tv_name.text = merchants_name
             tv_desc.text = merchants_subtitle
-            val formatNumber = FormatUtils.formatNumber(quality_retention_money / 100f)
+            val formatNumber = FormatUtils.formatNumber(quality_retention_money  )
             tv_info.text = "个人认证\u3000|\u3000质保金：$formatNumber\u3000|\u3000关注数：${focus_number}"
             if (quality_retention_money > 0) {
                 visible(iv_vip)

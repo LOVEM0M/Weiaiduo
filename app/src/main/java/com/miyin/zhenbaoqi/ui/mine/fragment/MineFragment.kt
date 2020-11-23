@@ -226,7 +226,7 @@ class MineFragment : BaseMvpFragment<MineContract.IView, MineContract.IPresenter
     override fun getUserInfoSuccess(bean: UserInfoBean) {
         bean.data?.run {
            /* tv_golden_egg.text = SpanUtils()
-                    .appendLine(FormatUtils.formatNumber(balance / 100f)).setFontSize(20, true)
+                    .appendLine(FormatUtils.formatNumber(balance  )).setFontSize(20, true)
                     .append("余额")
                     .create()
             tv_header_coupon.text = SpanUtils()
@@ -316,7 +316,7 @@ class MineFragment : BaseMvpFragment<MineContract.IView, MineContract.IPresenter
             val whiteColor = ContextCompat.getColor(context!!, R.color.white)
             tv_cumulative_benefit.text = SpanUtils()
                     .append("累计收益\n")
-                    .append(FormatUtils.formatNumber(amount / 100f)).setFontSize(20, true).setForegroundColor(whiteColor)
+                    .append(FormatUtils.formatNumber(amount  )).setFontSize(20, true).setForegroundColor(whiteColor)
                     .append("元").setFontSize(10, true).setForegroundColor(whiteColor)
                     .create()
             tv_shop_player_count.text = SpanUtils()

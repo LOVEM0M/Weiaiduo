@@ -77,9 +77,9 @@ class PurseActivity : BaseMvpActivity<BalanceContract.IView, BalanceContract.IPr
         bean.data?.run {
             mQualityBalance = quality_balance
 
-            tv_income.text = FormatUtils.formatNumber(earn_balance / 100f)
-            tv_loan_income.text = FormatUtils.formatNumber(payment_balance / 100f)
-            tv_security_deposit.text = FormatUtils.formatNumber(quality_balance / 100f)
+            tv_income.text = FormatUtils.formatNumber(earn_balance  )
+            tv_loan_income.text = FormatUtils.formatNumber(payment_balance  )
+            tv_security_deposit.text = FormatUtils.formatNumber(quality_balance  )
         }
     }
 

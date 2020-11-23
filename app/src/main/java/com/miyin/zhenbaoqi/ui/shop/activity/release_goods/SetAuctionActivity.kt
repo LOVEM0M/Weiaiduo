@@ -94,16 +94,16 @@ class SetAuctionActivity : BaseMvpActivity<SetAuctionContract.IView, SetAuctionC
         mDraftAuctionGoodsBean?.run {
             mGoodsFreight = goodsFreight
             mIsSeven = isSeven
-            mInitPrice = FormatUtils.formatNumber(initPrice / 100f)
-            mAddPrice = FormatUtils.formatNumber(addPrice / 100f)
-            mExamplePrice = FormatUtils.formatNumber(referencePrice / 100f)
+            mInitPrice = FormatUtils.formatNumber(initPrice  )
+            mAddPrice = FormatUtils.formatNumber(addPrice  )
+            mExamplePrice = FormatUtils.formatNumber(referencePrice  )
             mEnsureAmount = ensurePrice.toInt() / 100
 
             cb_country.isChecked = (goodsFreight == 0)
             cb_return.isChecked = (isSeven == 0)
-            et_init_price.setText(FormatUtils.formatNumber(initPrice / 100f))
-            et_add_price.setText(FormatUtils.formatNumber(addPrice / 100f))
-            et_example_price.setText(FormatUtils.formatNumber(referencePrice / 100f))
+            et_init_price.setText(FormatUtils.formatNumber(initPrice  ))
+            et_add_price.setText(FormatUtils.formatNumber(addPrice  ))
+            et_example_price.setText(FormatUtils.formatNumber(referencePrice  ))
             tv_security_deposit.text = mEnsureAmount.toString()
         }
 

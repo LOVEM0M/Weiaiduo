@@ -34,7 +34,7 @@ class ShopAdapter(list: List<ShopAttentionBean.ShopListBean>) : BaseAdapter<Shop
                                 .setText(R.id.tv_left_title, bean.goods_name)
                                 .setText(R.id.tv_left_price, SpanUtils()
                                         .append("¥").setFontSize(9, true)
-                                        .append(FormatUtils.formatNumber(bean.goods_amount / 100f))
+                                        .append(FormatUtils.formatNumber(bean.goods_amount  ))
                                         .create())
                     }
                     1 -> {
@@ -42,7 +42,7 @@ class ShopAdapter(list: List<ShopAttentionBean.ShopListBean>) : BaseAdapter<Shop
                                 .setText(R.id.tv_middle_title, bean.goods_name)
                                 .setText(R.id.tv_middle_price, SpanUtils()
                                         .append("¥").setFontSize(9, true)
-                                        .append(FormatUtils.formatNumber(bean.goods_amount / 100f))
+                                        .append(FormatUtils.formatNumber(bean.goods_amount  ))
                                         .create())
                     }
                     2 -> {
@@ -50,7 +50,7 @@ class ShopAdapter(list: List<ShopAttentionBean.ShopListBean>) : BaseAdapter<Shop
                                 .setText(R.id.tv_right_title, bean.goods_name)
                                 .setText(R.id.tv_right_price, SpanUtils()
                                         .append("¥").setFontSize(9, true)
-                                        .append(FormatUtils.formatNumber(bean.goods_amount / 100f))
+                                        .append(FormatUtils.formatNumber(bean.goods_amount  ))
                                         .create())
                     }
                 }

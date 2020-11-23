@@ -144,7 +144,7 @@ class OnlineCustomerActivity : BaseMvpActivity<OnlineCustomerContract.IView, Onl
                     if (jsonObject.has("goods_amount")) {
                         tv_price.text = SpanUtils()
                                 .append("¥").setFontSize(12, true)
-                                .append(FormatUtils.formatNumber(jsonObject.getLong("goods_amount") / 100f))
+                                .append(FormatUtils.formatNumber(jsonObject.getLong("goods_amount")  ))
                                 .create()
                     }
 

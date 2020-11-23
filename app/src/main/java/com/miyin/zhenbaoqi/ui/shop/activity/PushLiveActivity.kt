@@ -465,7 +465,7 @@ class PushLiveActivity : BaseMvpActivity<PushLiveContract.IView, PushLiveContrac
             val transform = RoundCornersTransform(getDimension(R.dimen.dp_5), RoundCornersTransform.CornerType.LEFT)
             iv_goods_img.transform(img, transform)
             tv_goods_name.text = goodsName
-            tv_goods_price.text = "¥${FormatUtils.formatNumber(goodsAmount / 100f)}"
+            tv_goods_price.text = "¥${FormatUtils.formatNumber(goodsAmount  )}"
 
 //            mCountDownTimer = object : CountDownTimer(end_time_timestamp - service_time, 1000) {
 //                override fun onFinish() {
@@ -611,7 +611,7 @@ class PushLiveActivity : BaseMvpActivity<PushLiveContract.IView, PushLiveContrac
                                 live_auction_people.text = "恭喜 $nick_name  中拍"
                                 live_auction_price.text = SpanUtils()
                                         .append("¥").setFontSize(30, true)
-                                        .append(FormatUtils.formatNumber(auction_bid_amount / 100f))
+                                        .append(FormatUtils.formatNumber(auction_bid_amount  ))
                                         .create()
 
                                 mHandler.postDelayed({

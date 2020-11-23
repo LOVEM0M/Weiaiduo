@@ -38,7 +38,7 @@ class RecommendAdapter(list: List<HomeGoodsHotBean.DataBean>) : BaseAdapter<Home
                     .setText(R.id.tv_title, goodsName)
                     .setText(R.id.tv_price, SpanUtils()
                             .append("¥ ")
-                            .append(FormatUtils.formatNumber(goodsAmount / 100f)).setFontSize(15, true)
+                            .append(FormatUtils.formatNumber(goodsAmount  )).setFontSize(15, true)
                             .create())
         }
     }

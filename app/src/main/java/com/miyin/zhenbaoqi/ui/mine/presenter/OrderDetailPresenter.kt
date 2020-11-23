@@ -1,10 +1,8 @@
 package com.miyin.zhenbaoqi.ui.mine.presenter
 
+import androidx.collection.ArrayMap
 import com.miyin.zhenbaoqi.base.mvp.BasePresenter
-import com.miyin.zhenbaoqi.bean.OrderCancelBean
-import com.miyin.zhenbaoqi.bean.OrderConfirmReceiveBean
-import com.miyin.zhenbaoqi.bean.OrderDetailBean
-import com.miyin.zhenbaoqi.bean.PayResultBean
+import com.miyin.zhenbaoqi.bean.*
 import com.miyin.zhenbaoqi.http.BaseSingleObserver
 import com.miyin.zhenbaoqi.http.RetrofitUtils
 import com.miyin.zhenbaoqi.ui.mine.contract.OrderDetailContract
@@ -13,8 +11,11 @@ import com.miyin.zhenbaoqi.utils.JSONUtils
 class OrderDetailPresenter : BasePresenter<OrderDetailContract.IView>(), OrderDetailContract.IPresenter {
 
     override fun getOrderDetail(orderNumber: String) {
-        val requestBody = JSONUtils.createJSON(arrayOf("order_number"), arrayOf(orderNumber))
-        request(RetrofitUtils.mApiService.orderDetail(requestBody), object : BaseSingleObserver<OrderDetailBean>() {
+
+        val map = ArrayMap<String, Any>().apply {
+            put("orderNumber", orderNumber)
+        }
+        request(RetrofitUtils.mApiService.orderDetail(map), object : BaseSingleObserver<OrderDetailBean>() {
             override fun doOnSuccess(data: OrderDetailBean) {
                 getView()?.getOrderDetailSuccess(data)
             }
@@ -31,9 +32,11 @@ class OrderDetailPresenter : BasePresenter<OrderDetailContract.IView>(), OrderDe
     }
 
     override fun confirmReceive(orderNumber: String) {
-        val requestBody = JSONUtils.createJSON(arrayOf("order_number"), arrayOf(orderNumber))
-        request(RetrofitUtils.mApiService.orderConfirmReceive(requestBody), object : BaseSingleObserver<OrderConfirmReceiveBean>() {
-            override fun doOnSuccess(data: OrderConfirmReceiveBean) {
+        val map = ArrayMap<String, Any>().apply {
+            put("orderNumber", orderNumber)
+        }
+        request(RetrofitUtils.mApiService.orderConfirmReceive(map), object : BaseSingleObserver<ResponseBean>() {
+            override fun doOnSuccess(data: ResponseBean) {
                 getView()?.confirmReceiveSuccess()
             }
         })

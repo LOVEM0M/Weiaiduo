@@ -28,7 +28,7 @@ class AuctionRecordAdapter(list: List<AuctionRecoredBean.ListBean>) : BaseAdapte
                     .setText(R.id.tv_title, goods_name)
                     .setText(R.id.tv_price, SpanUtils()
                             .append("当前 ¥ ")
-                            .append(FormatUtils.formatNumber(auction_bid_amount / 100f)).setFontSize(17, true)
+                            .append(FormatUtils.formatNumber(auction_bid_amount  )).setFontSize(17, true)
                             .create())
                     .setText(R.id.tv_status, when (state) {
                         0 -> "竞拍中"

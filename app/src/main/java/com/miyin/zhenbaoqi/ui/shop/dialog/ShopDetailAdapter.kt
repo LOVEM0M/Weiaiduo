@@ -26,7 +26,7 @@ class ShopDetailAdapter(list: List<MerchantGoodsStoreBean.ListBean>) : BaseAdapt
                     .setText(R.id.tv_title, goods_name)
                     .setText(R.id.tv_price, SpanUtils()
                             .append("¥").setFontSize(11, true)
-                            .append(FormatUtils.formatNumber(goods_amount / 100f)).setFontSize(17, true).setBold()
+                            .append(FormatUtils.formatNumber(goods_amount  )).setFontSize(17, true).setBold()
                             .create())
         }
     }

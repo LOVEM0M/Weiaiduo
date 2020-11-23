@@ -19,7 +19,7 @@ class AddPriceAdapter(list: List<AuctionGoodsRecordBean.ListBean>) : BaseAdapter
         with(data) {
             holder.transform(R.id.iv_avatar, head_img, CircleCrop())
                     .setText(R.id.tv_name, nick_name)
-                    .setText(R.id.tv_price, "¥${FormatUtils.formatNumber(auction_bid_amount / 100f)}")
+                    .setText(R.id.tv_price, "¥${FormatUtils.formatNumber(auction_bid_amount  )}")
                     .setText(R.id.tv_status, "淘汰")
                     .setText(R.id.tv_date_time, update_time)
             if (holder.adapterPosition == 0) {

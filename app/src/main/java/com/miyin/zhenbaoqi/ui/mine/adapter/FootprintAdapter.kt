@@ -46,7 +46,7 @@ class FootprintAdapter(list: List<FootprintBean>) : BaseMultiItemQuickAdapter<Fo
 
                 val transform = RoundCornersTransform(mContext.getDimension(R.dimen.dp_4), RoundCornersTransform.CornerType.TOP)
                 holder.transform(R.id.iv_cover, map["goods_img"], transform)
-                        .setText(R.id.tv_title, FormatUtils.formatNumber(map["goods_amount"].toString().toDouble() / 100f))
+                        .setText(R.id.tv_title, FormatUtils.formatNumber(map["goods_amount"].toString().toDouble()  ))
                         .addOnClickListener(R.id.ll_container)
             }
 

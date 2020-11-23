@@ -120,12 +120,12 @@ class ShopOrderDetailActivity : BaseMvpActivity<ShopOrderDetailContract.IView, S
             }
             iv_cover.loadImg(goodsImg)
             tv_goods_name.text = goods_name
-            tv_price.text = "¥${FormatUtils.formatNumber(order_amount / 100f)}"
+            tv_price.text = "¥${FormatUtils.formatNumber(order_amount  )}"
             tv_count.text = "数量x$pay_number"
 
-            tv_goods_price.text = "¥${FormatUtils.formatNumber(order_amount * pay_number / 100f)}"
-            tv_coupon_price.text = "¥${FormatUtils.formatNumber(coupons_amount / 100f)}"
-            tv_pay_price.text = "¥${FormatUtils.formatNumber(pay_amount / 100f)}"
+            tv_goods_price.text = "¥${FormatUtils.formatNumber(order_amount * pay_number  )}"
+            tv_coupon_price.text = "¥${FormatUtils.formatNumber(coupons_amount  )}"
+            tv_pay_price.text = "¥${FormatUtils.formatNumber(pay_amount  )}"
 
             tv_order_num.text = order_number
             tv_order_time.text = TimeUtils.millis2String(order_time!!.toLong(), "yyyy-MM-dd HH:mm:ss")

@@ -84,7 +84,7 @@ class ShopDetailActivity : BaseMvpActivity<MerchantMessageContract.IView, Mercha
                 tv_desc.text = merchants_subtitle
 
                 tv_warranty.text = SpanUtils()
-                        .appendLine(FormatUtils.formatNumber(quality_retention_money / 100f)).setForegroundColor(Color.BLACK)
+                        .appendLine(FormatUtils.formatNumber(quality_retention_money  )).setForegroundColor(Color.BLACK)
                         .setFontSize(20, true)
                         .appendLine("质保金")
                         .create()

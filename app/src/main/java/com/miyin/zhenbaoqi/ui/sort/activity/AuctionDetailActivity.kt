@@ -264,7 +264,7 @@ class AuctionDetailActivity : BasePayActivity<AuctionDetailContract.IView, Aucti
                                 showToast("不能购买自己的产品")
                                 return
                             }
-                            val dialog = PayDialog.newInstance(FormatUtils.formatNumber(mEnsureAmount / 100f), "auction")
+                            val dialog = PayDialog.newInstance(FormatUtils.formatNumber(mEnsureAmount  ), "auction")
                             dialog.show(supportFragmentManager, "ensureAmount")
                         }
                     } else {
@@ -303,7 +303,7 @@ class AuctionDetailActivity : BasePayActivity<AuctionDetailContract.IView, Aucti
     override fun getAuctionGoodsDetailSuccess(bean: GoodsDetailBean) {
         mBean = bean
         bean.data?.run {
-//            mAddPrice = add_amount / 100f
+//            mAddPrice = add_amount
             mGoodsImg = goodsImg
             mGoodsName = goodsName
             mGoodsDesc = goodsDescribe
@@ -352,7 +352,7 @@ class AuctionDetailActivity : BasePayActivity<AuctionDetailContract.IView, Aucti
                 }
                 tv_guide_price.text = SpanUtils()
                         .append("指导价：")
-                        .append("¥${FormatUtils.formatNumber(goodsOriginalAmount / 100f)}")
+                        .append("¥${FormatUtils.formatNumber(goodsOriginalAmount  )}")
                         .create()
 
                /* when (auction_state) {
@@ -419,9 +419,9 @@ class AuctionDetailActivity : BasePayActivity<AuctionDetailContract.IView, Aucti
                     }
                 }
 
-                tv_init_price.text = "¥${FormatUtils.formatNumber(start_amount / 100f)}"
-                tv_add_price.text = "¥${FormatUtils.formatNumber(add_amount / 100f)}/次"
-                tv_security_deposit.text = "¥${FormatUtils.formatNumber(ensure_amount / 100f)}"
+                tv_init_price.text = "¥${FormatUtils.formatNumber(start_amount  )}"
+                tv_add_price.text = "¥${FormatUtils.formatNumber(add_amount  )}/次"
+                tv_security_deposit.text = "¥${FormatUtils.formatNumber(ensure_amount  )}"
                 */
 //                updateCollectStateSuccess(collection_state)
             }
@@ -437,7 +437,7 @@ class AuctionDetailActivity : BasePayActivity<AuctionDetailContract.IView, Aucti
 //                val transform = RoundCornersTransform(getDimension(R.dimen.dp_4), RoundCornersTransform.CornerType.ALL)
 //                iv_photo.loadImgAll(head_img, R.drawable.ic_merchant_header_default, transform)
 //                tv_shop_name.text = if (merchants_name.isNullOrEmpty()) "商家很懒，什么信息也没有留下" else merchants_name
-//                tv_warranty.text = "质保金：${FormatUtils.formatNumber(quality_balance / 100f)}"
+//                tv_warranty.text = "质保金：${FormatUtils.formatNumber(quality_balance  )}"
 //                tv_attention_count.text = "关注数：$focus_size"
 //                if (quality_balance > 0) {
 //                    visible(iv_header_vip)
@@ -450,7 +450,7 @@ class AuctionDetailActivity : BasePayActivity<AuctionDetailContract.IView, Aucti
 //                tv_desc.text = if (merchants_subtitle.isNullOrEmpty()) "商家很懒，什么信息也没有留下" else merchants_subtitle
 //
 //                tv_shop_warranty.text = SpanUtils()
-//                        .appendLine(FormatUtils.formatNumber(quality_balance / 100f)).setFontSize(18, true).setForegroundColor(0xFF202020.toInt())
+//                        .appendLine(FormatUtils.formatNumber(quality_balance  )).setFontSize(18, true).setForegroundColor(0xFF202020.toInt())
 //                        .append("质保金")
 //                        .create()
 //                tv_shop_impression.text = SpanUtils()
